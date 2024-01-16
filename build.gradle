@@ -1,6 +1,7 @@
 plugins {
     id "java"
     id "edu.wpi.first.GradleRIO" version "2024.1.1"
+    id "com.diffplug.spotless" version "6.24.0"
 }
 
 java {
@@ -98,4 +99,19 @@ wpi.java.configureTestTasks(test)
 // Configure string concat to always inline compile
 tasks.withType(JavaCompile) {
     options.compilerArgs.add '-XDstringConcat=inline'
+}
+
+spotless {
+  format 'misc', {
+    target '*.gradle', '.gitignore', '*.txt'
+    trimTrailingWhitespace()
+    indentWithSpaces(2)
+    }
+
+  java {
+    licenseHeader '// Copyright (c) FIRST and other WPILib contributors.\n// Open Source Software; you can modify and/or share it under the terms of\n// the WPILib BSD license file in the root directory of this project.\n\n/*\n * Asimov\'s Laws:\n * The First Law: A robot may not injure a human being or, through inaction, allow a human being to come to harm.\n * The Second Law: A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.\n * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.\n */'
+    removeUnusedImports()
+    formatAnnotations()
+    googleJavaFormat().reflowLongStrings()
+}
 }
