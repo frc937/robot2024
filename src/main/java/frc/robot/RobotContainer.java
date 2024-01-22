@@ -10,17 +10,94 @@
  */
 package frc.robot;
 
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.DriveFieldOriented;
+import frc.robot.commands.DriveRobotOriented;
+import frc.robot.commands.EnterXMode;
+import frc.robot.subsystems.Drive;
 
 public class RobotContainer {
+
+  /*
+   * **************
+   * * SUBSYSTEMS *
+   * **************
+   */
+  private final Drive drive = new Drive();
+
+  /*
+   * ************
+   * * COMMANDS *
+   * ************
+   */
+
+  private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
+  private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented(drive);
+  private final EnterXMode enterXMode = new EnterXMode(drive);
+
+  /*
+   * *****************
+   * * OTHER OBJECTS *
+   * *****************
+   */
+
+  public static CommandXboxController m_driverController =
+      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+
   public RobotContainer() {
     configureBindings();
+
+    drive.setDefaultCommand(driveRobotOriented);
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    m_driverController.leftStick().toggleOnTrue(driveFieldOriented);
+
+    m_driverController.x().onTrue(enterXMode);
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
+  }
+
+  public static double scaleAxis(double axis) {
+    double deadbanded = MathUtil.applyDeadband(axis, 0.1);
+    return Math.pow(deadbanded, 3);
+  }
+
+  public static double getControllerLeftXAxis() {
+    return m_driverController.getLeftX();
+  }
+
+  public static double getScaledControllerLeftXAxis() {
+    return scaleAxis(getControllerLeftXAxis());
+  }
+
+  public static double getControllerLeftYAxis() {
+    return m_driverController.getLeftY();
+  }
+
+  public static double getScaledControllerLeftYAxis() {
+    return scaleAxis(getControllerLeftYAxis());
+  }
+
+  public static double getControllerRightXAxis() {
+    return m_driverController.getRightX();
+  }
+
+  public static double getScaledControllerRightXAxis() {
+    return scaleAxis(getControllerRightXAxis());
+  }
+
+  public static double getControllerRightYAxis() {
+    return m_driverController.getRightY();
+  }
+
+  public static double getScaledControllerRightYAxis() {
+    return scaleAxis(getControllerRightYAxis());
   }
 }
