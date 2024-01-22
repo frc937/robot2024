@@ -46,8 +46,21 @@ public class Drive extends SubsystemBase {
     drive.drive(translation, z, false, false);
   }
 
+  public void driveFieldOriented(double x, double y, double z) {
+    x = x * getMaximumSpeed();
+    y = y * getMaximumSpeed();
+    z = z * getMaximumAngularSpeed();
+    Translation2d translation = new Translation2d(x, y);
+
+    drive.drive(translation, z, true, false);
+  }
+
   public void stop() {
     drive.drive(new Translation2d(), 0, false, false, new Translation2d());
+  }
+
+  public void enterXMode() {
+    drive.lockPose();
   }
 
   private double getMaximumSpeed() {

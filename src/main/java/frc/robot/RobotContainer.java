@@ -15,7 +15,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
+import frc.robot.commands.EnterXMode;
 import frc.robot.subsystems.Drive;
 
 public class RobotContainer {
@@ -34,6 +36,8 @@ public class RobotContainer {
    */
 
   private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
+  private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented(drive);
+  private final EnterXMode enterXMode = new EnterXMode(drive);
 
   /*
    * *****************
@@ -50,7 +54,11 @@ public class RobotContainer {
     drive.setDefaultCommand(driveRobotOriented);
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    m_driverController.leftStick().toggleOnTrue(driveFieldOriented);
+
+    m_driverController.x().onTrue(enterXMode);
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
