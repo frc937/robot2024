@@ -17,6 +17,10 @@ public class Intake extends SubsystemBase {
     this.intake = new Spark(Constants.Intake.INTAKE_MOTOR_ID);
   }
 
+  public void RunIntake() {
+    intake.set(Constants.Intake.INTAKE_MOTOR_SPEED);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
