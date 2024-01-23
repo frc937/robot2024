@@ -23,7 +23,7 @@ import swervelib.SwerveDrive;
 import swervelib.parser.SwerveParser;
 
 public class Drive extends SubsystemBase {
-  SwerveDrive drive;
+  private SwerveDrive drive;
 
   /** Creates a new Drive. */
   public Drive() {
