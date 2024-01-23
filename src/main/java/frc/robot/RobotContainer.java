@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
+import frc.robot.commands.RunIntake;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
 
@@ -46,6 +47,7 @@ public class RobotContainer {
   private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
   private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
   private final EnterXMode enterXMode = new EnterXMode();
+  private final RunIntake runIntake = new RunIntake();
 
   /*
    * ***********************
@@ -69,6 +71,7 @@ public class RobotContainer {
     driverController.leftStick().toggleOnTrue(driveFieldOriented);
 
     driverController.x().onTrue(enterXMode);
+    driverController.a().onTrue(runIntake);
   }
 
   public Command getAutonomousCommand() {
