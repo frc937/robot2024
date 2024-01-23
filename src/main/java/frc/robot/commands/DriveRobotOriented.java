@@ -18,8 +18,8 @@ public class DriveRobotOriented extends Command {
   private final Drive drive;
 
   /** Creates a new DriveRobotOriented. */
-  public DriveRobotOriented(Drive drive) {
-    this.drive = drive;
+  public DriveRobotOriented() {
+    this.drive = RobotContainer.drive;
     addRequirements(drive);
   }
 

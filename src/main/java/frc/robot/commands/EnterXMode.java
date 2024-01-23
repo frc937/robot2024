@@ -11,6 +11,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
 public class EnterXMode extends Command {
@@ -18,8 +19,8 @@ public class EnterXMode extends Command {
   private Drive drive;
 
   /** Creates a new EnterXMode. */
-  public EnterXMode(Drive drive) {
-    this.drive = drive;
+  public EnterXMode() {
+    this.drive = RobotContainer.drive;
     addRequirements(drive);
     // Use addRequirements() here to declare subsystem dependencies.
   }

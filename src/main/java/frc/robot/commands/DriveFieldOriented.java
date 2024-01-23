@@ -18,8 +18,8 @@ public class DriveFieldOriented extends Command {
   private final Drive drive;
 
   /** Creates a new DriveFieldOriented. */
-  public DriveFieldOriented(Drive drive) {
-    this.drive = drive;
+  public DriveFieldOriented() {
+    this.drive = RobotContainer.drive;
     addRequirements(drive);
   }
 
