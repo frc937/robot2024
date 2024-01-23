@@ -19,6 +19,7 @@ import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
 import frc.robot.subsystems.Drive;
+import frc.robot.subsystems.Intake;
 
 public class RobotContainer {
 
@@ -33,6 +34,7 @@ public class RobotContainer {
    * awful.
    */
   public static Drive drive = new Drive();
+  public static Intake intake = new Intake();
 
   /*
    * ************
