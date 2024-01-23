@@ -27,7 +27,12 @@ public class RobotContainer {
    * * SUBSYSTEMS *
    * **************
    */
-  private final Drive drive = new Drive();
+
+  /* We declare all subsystems as public static because we don't dependency inject because
+   * injecting a dependency through six or seven commands in a chain of command groups would be
+   * awful.
+   */
+  public static Drive drive = new Drive();
 
   /*
    * ************
@@ -35,16 +40,20 @@ public class RobotContainer {
    * ************
    */
 
+  /* For now, we don't make commands public static, as there isn't really a reason to. */
   private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented(drive);
   private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented(drive);
   private final EnterXMode enterXMode = new EnterXMode(drive);
 
   /*
-   * *****************
-   * * OTHER OBJECTS *
-   * *****************
+   * ***********************
+   * * OTHER INSTANCE VARS *
+   * ***********************
    */
 
+  /* The CommandXboxController instance must be static to allow the getter methods for its axes
+   * to work.
+   */
   public static CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
