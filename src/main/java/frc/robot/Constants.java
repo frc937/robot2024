@@ -25,7 +25,9 @@ public final class Constants {
   }
 
   public static class Intake {
+    /** Motor id of the Intake motor. */
     public static final int INTAKE_MOTOR_ID = 0;
+    /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 0.5;
   }
 }

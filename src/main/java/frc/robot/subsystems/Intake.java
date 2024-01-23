@@ -8,6 +8,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import frc.robot.Constants;
 
+/**
+ * The intake of the robot.
+ */
 public class Intake extends SubsystemBase {
 
   private Spark intake;
@@ -17,10 +20,12 @@ public class Intake extends SubsystemBase {
     this.intake = new Spark(Constants.Intake.INTAKE_MOTOR_ID);
   }
 
+  /** Runs the intake motors. */
   public void runIntake() {
     intake.set(Constants.Intake.INTAKE_MOTOR_SPEED);
   }
 
+  /** Stops the intake motors. */
   public void stop() {
     intake.set(0);
   }
