@@ -23,4 +23,8 @@ public final class Constants {
   public static class Controllers {
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
+
+  public static class Intake {
+    public static final int INTAKE_MOTOR_ID = 0;
+  }
 }
