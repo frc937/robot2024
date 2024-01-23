@@ -20,7 +20,15 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+  /**
+   * Constants that are relating to the controllers.
+   */
   public static class Controllers {
+
+    /**
+     * Driver station port number for the drive controller.
+     */
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
 }
