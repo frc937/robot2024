@@ -20,9 +20,7 @@ import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
 import frc.robot.subsystems.Drive;
 
-/**
- * Singleton class that contains all the robot's subsystems, commands, and button bindings.
- */
+/** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
 public class RobotContainer {
 
   /*
@@ -35,9 +33,7 @@ public class RobotContainer {
    * injecting a dependency through six or seven commands in a chain of command groups would be
    * awful.
    */
-  /**
-   * Singleton instance of {@link Drive}
-   */
+  /** Singleton instance of {@link Drive} */
   public static Drive drive = new Drive();
 
   /*
@@ -60,15 +56,11 @@ public class RobotContainer {
   /* The CommandXboxController instance must be static to allow the getter methods for its axes
    * to work.
    */
-  /**
-   * Xbox controller for the driver.
-   */
+  /** Xbox controller for the driver. */
   public static CommandXboxController driverController =
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
 
-  /**
-   * Constructor for {@link RobotContainer}
-   */
+  /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
     configureBindings();
 
@@ -83,6 +75,7 @@ public class RobotContainer {
 
   /**
    * Gets the current autonomous command.
+   *
    * @return The current autonomous command.
    */
   public Command getAutonomousCommand() {
@@ -96,6 +89,7 @@ public class RobotContainer {
 
   /**
    * Gets x-axis of left stick of driver controller.
+   *
    * @return x-axis of left stick of driver controller.
    */
   public static double getControllerLeftXAxis() {
@@ -104,6 +98,7 @@ public class RobotContainer {
 
   /**
    * Gets scaled x-axis of left stick of driver controller.
+   *
    * @return scaled x-axis of left stick of driver controller.
    */
   public static double getScaledControllerLeftXAxis() {
@@ -112,6 +107,7 @@ public class RobotContainer {
 
   /**
    * Gets y-axis of left stick of driver controller.
+   *
    * @return y-axis of left stick of driver controller.
    */
   public static double getControllerLeftYAxis() {
@@ -120,14 +116,16 @@ public class RobotContainer {
 
   /**
    * Gets scaled y-axis of left stick of driver controller.
+   *
    * @return scaled y-axis of left stick of driver controller.
    */
   public static double getScaledControllerLeftYAxis() {
     return scaleAxis(getControllerLeftYAxis());
   }
-  
+
   /**
    * Gets x-axis of right stick of driver controller.
+   *
    * @return x-axis of right stick of driver controller.
    */
   public static double getControllerRightXAxis() {
@@ -136,6 +134,7 @@ public class RobotContainer {
 
   /**
    * Gets scaled x-axis of right stick of driver controller.
+   *
    * @return scaled x-axis of right stick of driver controller.
    */
   public static double getScaledControllerRightXAxis() {
@@ -144,6 +143,7 @@ public class RobotContainer {
 
   /**
    * Gets y-axis of right stick of driver controller.
+   *
    * @return y-axis of right stick of driver controller.
    */
   public static double getControllerRightYAxis() {
@@ -152,6 +152,7 @@ public class RobotContainer {
 
   /**
    * Gets scaled y-axis of right stick of driver controller.
+   *
    * @return scaled y-axis of right stick of driver controller.
    */
   public static double getScaledControllerRightYAxis() {

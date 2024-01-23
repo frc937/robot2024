@@ -21,6 +21,7 @@ import java.io.IOException;
 import swervelib.SwerveDrive;
 import swervelib.parser.SwerveParser;
 
+/** The subsystem that represents the drivetrain. */
 public class Drive extends SubsystemBase {
   SwerveDrive drive;
 
@@ -40,6 +41,14 @@ public class Drive extends SubsystemBase {
     drive.setMotorIdleMode(true);
   }
 
+  /**
+   * Drives the robot in robot-oriented mode.
+   *
+   * @param x Robot velocity left to right in m/s. Left is positive.
+   * @param y Robot velocity forward and backward in m/s. Forward is positive.
+   * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
+   *     positive.
+   */
   public void driveRobotOriented(double x, double y, double z) {
     x = x * getMaximumSpeed();
     y = y * getMaximumSpeed();
@@ -49,6 +58,15 @@ public class Drive extends SubsystemBase {
     drive.drive(translation, z, false, false);
   }
 
+  /**
+   * Drives the robot in field-oriented mode.
+   *
+   * @param x Robot velocity left to right in m/s. Left is positive. Relative to the field.
+   * @param y Robot velocity forward and backward in m/s. Toward the opposing alliance wall is
+   *     positive.
+   * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
+   *     positive.
+   */
   public void driveFieldOriented(double x, double y, double z) {
     x = x * getMaximumSpeed();
     y = y * getMaximumSpeed();
@@ -58,10 +76,12 @@ public class Drive extends SubsystemBase {
     drive.drive(translation, z, true, false);
   }
 
+  /** Stops all motors in the subsystem. */
   public void stop() {
     drive.drive(new Translation2d(), 0, false, false, new Translation2d());
   }
 
+  /** Points the wheels toward the inside and stops the wheels from moving in any direction. */
   public void enterXMode() {
     drive.lockPose();
   }
@@ -74,6 +94,7 @@ public class Drive extends SubsystemBase {
     return Math.PI / 2; // TODO: move this to constants
   }
 
+  /** Runs every scheduler run. */
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

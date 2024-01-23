@@ -21,14 +21,10 @@ package frc.robot;
  */
 public final class Constants {
 
-  /**
-   * Constants that are relating to the controllers.
-   */
+  /** Constants that are relating to the controllers. */
   public static class Controllers {
 
-    /**
-     * Driver station port number for the drive controller.
-     */
+    /** Driver station port number for the drive controller. */
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
 }
