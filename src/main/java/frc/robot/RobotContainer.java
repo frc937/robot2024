@@ -20,6 +20,9 @@ import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
 import frc.robot.subsystems.Drive;
 
+/**
+ * Singleton class that contains all the robot's subsystems, commands, and button bindings.
+ */
 public class RobotContainer {
 
   /*
@@ -31,6 +34,9 @@ public class RobotContainer {
   /* We declare all subsystems as public static because we don't dependency inject because
    * injecting a dependency through six or seven commands in a chain of command groups would be
    * awful.
+   */
+  /**
+   * Singleton instance of {@link Drive}
    */
   public static Drive drive = new Drive();
 
@@ -54,9 +60,15 @@ public class RobotContainer {
   /* The CommandXboxController instance must be static to allow the getter methods for its axes
    * to work.
    */
+  /**
+   * Xbox controller for the driver.
+   */
   public static CommandXboxController driverController =
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
 
+  /**
+   * Constructor for {@link RobotContainer}
+   */
   public RobotContainer() {
     configureBindings();
 
@@ -69,43 +81,79 @@ public class RobotContainer {
     driverController.x().onTrue(enterXMode);
   }
 
+  /**
+   * Gets the current autonomous command.
+   * @return The current autonomous command.
+   */
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
   }
 
-  public static double scaleAxis(double axis) {
+  private static double scaleAxis(double axis) {
     double deadbanded = MathUtil.applyDeadband(axis, 0.1);
     return Math.pow(deadbanded, 3);
   }
 
+  /**
+   * Gets x-axis of left stick of driver controller.
+   * @return x-axis of left stick of driver controller.
+   */
   public static double getControllerLeftXAxis() {
     return driverController.getLeftX();
   }
 
+  /**
+   * Gets scaled x-axis of left stick of driver controller.
+   * @return scaled x-axis of left stick of driver controller.
+   */
   public static double getScaledControllerLeftXAxis() {
     return scaleAxis(getControllerLeftXAxis());
   }
 
+  /**
+   * Gets y-axis of left stick of driver controller.
+   * @return y-axis of left stick of driver controller.
+   */
   public static double getControllerLeftYAxis() {
     return driverController.getLeftY();
   }
 
+  /**
+   * Gets scaled y-axis of left stick of driver controller.
+   * @return scaled y-axis of left stick of driver controller.
+   */
   public static double getScaledControllerLeftYAxis() {
     return scaleAxis(getControllerLeftYAxis());
   }
-
+  
+  /**
+   * Gets x-axis of right stick of driver controller.
+   * @return x-axis of right stick of driver controller.
+   */
   public static double getControllerRightXAxis() {
     return driverController.getRightX();
   }
 
+  /**
+   * Gets scaled x-axis of right stick of driver controller.
+   * @return scaled x-axis of right stick of driver controller.
+   */
   public static double getScaledControllerRightXAxis() {
     return scaleAxis(getControllerRightXAxis());
   }
 
+  /**
+   * Gets y-axis of right stick of driver controller.
+   * @return y-axis of right stick of driver controller.
+   */
   public static double getControllerRightYAxis() {
     return driverController.getRightY();
   }
 
+  /**
+   * Gets scaled y-axis of right stick of driver controller.
+   * @return scaled y-axis of right stick of driver controller.
+   */
   public static double getScaledControllerRightYAxis() {
     return scaleAxis(getControllerRightYAxis());
   }
