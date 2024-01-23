@@ -14,7 +14,6 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
@@ -54,8 +53,8 @@ public class RobotContainer {
   /* The CommandXboxController instance must be static to allow the getter methods for its axes
    * to work.
    */
-  public static CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  public static CommandXboxController driverController =
+      new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
 
   public RobotContainer() {
     configureBindings();
@@ -64,9 +63,9 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    m_driverController.leftStick().toggleOnTrue(driveFieldOriented);
+    driverController.leftStick().toggleOnTrue(driveFieldOriented);
 
-    m_driverController.x().onTrue(enterXMode);
+    driverController.x().onTrue(enterXMode);
   }
 
   public Command getAutonomousCommand() {
@@ -79,7 +78,7 @@ public class RobotContainer {
   }
 
   public static double getControllerLeftXAxis() {
-    return m_driverController.getLeftX();
+    return driverController.getLeftX();
   }
 
   public static double getScaledControllerLeftXAxis() {
@@ -87,7 +86,7 @@ public class RobotContainer {
   }
 
   public static double getControllerLeftYAxis() {
-    return m_driverController.getLeftY();
+    return driverController.getLeftY();
   }
 
   public static double getScaledControllerLeftYAxis() {
@@ -95,7 +94,7 @@ public class RobotContainer {
   }
 
   public static double getControllerRightXAxis() {
-    return m_driverController.getRightX();
+    return driverController.getRightX();
   }
 
   public static double getScaledControllerRightXAxis() {
@@ -103,7 +102,7 @@ public class RobotContainer {
   }
 
   public static double getControllerRightYAxis() {
-    return m_driverController.getRightY();
+    return driverController.getRightY();
   }
 
   public static double getScaledControllerRightYAxis() {

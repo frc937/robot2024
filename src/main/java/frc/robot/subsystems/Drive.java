@@ -25,12 +25,14 @@ public class Drive extends SubsystemBase {
 
   /** Creates a new Drive. */
   public Drive() {
+    /* Try-catch because otherwise the compiler tries to anticipate runtime errors and throws a
+     * compiletime error for a missing file even though it shouldn't
+     */
     try {
       drive =
           new SwerveParser(new File(Filesystem.getDeployDirectory(), "swerve"))
               .createSwerveDrive(Units.feetToMeters(14.5));
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
     /* setting the motors to brake mode */
