@@ -8,6 +8,7 @@
  * The Second Law: A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.
  * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
  */
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
@@ -18,8 +19,8 @@ public class DriveRobotOriented extends Command {
   private final Drive drive;
 
   /** Creates a new DriveRobotOriented. */
-  public DriveRobotOriented(Drive drive) {
-    this.drive = drive;
+  public DriveRobotOriented() {
+    this.drive = RobotContainer.drive;
     addRequirements(drive);
   }
 
