@@ -28,8 +28,8 @@ public final class Constants {
   public static class Belt {
     public static final int BELT_DEVICE_ID = 0;
     public static final double BELT_MOTOR_SPEED = .7;
-    
   }
+
   public static class Controllers {
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
