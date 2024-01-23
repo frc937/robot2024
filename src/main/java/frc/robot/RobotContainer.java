@@ -8,6 +8,7 @@
  * The Second Law: A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.
  * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
  */
+
 package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
