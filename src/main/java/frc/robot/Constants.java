@@ -20,6 +20,16 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  public static class Pneumatics {
+    public static final int LEFT_SOLENOID_CHANNEL = 0;
+    public static final int RIGHT_SOLENOID_CHANNEL = 1;
+  }
+
+  public static class Belt {
+    public static final int BELT_DEVICE_ID = 0;
+    public static final double BELT_MOTOR_SPEED = .7;
+    
+  }
   public static class Controllers {
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
