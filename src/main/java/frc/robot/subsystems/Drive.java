@@ -24,6 +24,9 @@ import swervelib.parser.SwerveParser;
 public class Drive extends SubsystemBase {
   SwerveDrive drive;
 
+  /** Empty translation to prevent creating 2 Translation2ds per periodic run */
+  private static final Translation2d EMPTY_TRANSLATION = new Translation2d();
+
   /** Creates a new Drive. */
   public Drive() {
     /* Try-catch because otherwise the compiler tries to anticipate runtime errors and throws a
@@ -59,7 +62,7 @@ public class Drive extends SubsystemBase {
   }
 
   public void stop() {
-    drive.drive(new Translation2d(), 0, false, false, new Translation2d());
+    drive.drive(EMPTY_TRANSLATION, 0, false, false, EMPTY_TRANSLATION);
   }
 
   public void enterXMode() {
