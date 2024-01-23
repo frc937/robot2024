@@ -17,8 +17,12 @@ public class Intake extends SubsystemBase {
     this.intake = new Spark(Constants.Intake.INTAKE_MOTOR_ID);
   }
 
-  public void RunIntake() {
+  public void runIntake() {
     intake.set(Constants.Intake.INTAKE_MOTOR_SPEED);
+  }
+
+  public void stop() {
+    intake.set(0);
   }
 
   @Override
