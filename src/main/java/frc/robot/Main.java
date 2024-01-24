@@ -13,6 +13,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
 
+/* Probably don't put code here, most likely put it in RobotContainer. */
 public final class Main {
   private Main() {}
 
