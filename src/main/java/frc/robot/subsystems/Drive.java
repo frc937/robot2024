@@ -16,6 +16,7 @@ import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import java.io.File;
 import java.io.IOException;
 import swervelib.SwerveDrive;
@@ -23,7 +24,7 @@ import swervelib.parser.SwerveParser;
 
 /** The subsystem that represents the drivetrain. */
 public class Drive extends SubsystemBase {
-  SwerveDrive drive;
+  private SwerveDrive drive;
 
   /** Creates a new Drive. */
   public Drive() {
@@ -78,7 +79,8 @@ public class Drive extends SubsystemBase {
 
   /** Stops all motors in the subsystem. */
   public void stop() {
-    drive.drive(new Translation2d(), 0, false, false, new Translation2d());
+    drive.drive(
+        Constants.Drive.EMPTY_TRANSLATION, 0, false, false, Constants.Drive.EMPTY_TRANSLATION);
   }
 
   /** Points the wheels toward the inside and stops the wheels from moving in any direction. */
@@ -87,11 +89,11 @@ public class Drive extends SubsystemBase {
   }
 
   private double getMaximumSpeed() {
-    return 1; // TODO: move this to constants
+    return Constants.Drive.MAX_SPEED;
   }
 
   private double getMaximumAngularSpeed() {
-    return Math.PI / 2; // TODO: move this to constants
+    return Constants.Drive.MAX_ANGULAR_SPEED;
   }
 
   /** Runs every scheduler run. */
