@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.robot.RobotContainer;
 
 public class DeployMailbox extends ParallelCommandGroup {
-  /** Creates a new DeployMailbox. */
+  /** Deploys the mailbox we use to output gamepieces */
   public DeployMailbox() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
