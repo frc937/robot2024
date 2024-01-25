@@ -46,7 +46,7 @@ public final class Constants {
 
   /** Constants for the Controllers system. */
   public static class Controllers {
-    /** the channel on the computer for the driver controller. */
+    /** The channel on the computer for the driver controller. */
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
 }
