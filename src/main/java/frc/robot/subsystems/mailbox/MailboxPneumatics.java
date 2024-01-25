@@ -41,7 +41,7 @@ public class MailboxPneumatics extends SubsystemBase {
     rightPiston.set(DoubleSolenoid.Value.kForward);
   }
 
-  /** lowers the mailbox. */
+  /** Lowers the mailbox. */
   public void retract() {
     leftPiston.set(DoubleSolenoid.Value.kReverse);
     rightPiston.set(DoubleSolenoid.Value.kReverse);
