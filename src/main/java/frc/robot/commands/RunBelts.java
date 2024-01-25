@@ -24,7 +24,7 @@ public class RunBelts extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.belts.runBelts();
+    RobotContainer.mailboxBelts.runBelts();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -34,7 +34,7 @@ public class RunBelts extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.belts.stop();
+    RobotContainer.mailboxBelts.stop();
   }
 
   // Returns true when the command should end.

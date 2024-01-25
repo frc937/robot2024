@@ -38,11 +38,11 @@ public class RobotContainer {
    */
   public static Drive drive = new Drive();
 
-  /** Creates a mailboxPneumatics object called "pneumatics" */
-  public static MailboxPneumatics pneumatics = new MailboxPneumatics();
+  /** */
+  public static MailboxPneumatics mailboxPneumatics = new MailboxPneumatics();
 
   /** Creates a mailboxBelts object called "belts" */
-  public static MailboxBelts belts = new MailboxBelts();
+  public static MailboxBelts mailboxBelts = new MailboxBelts();
 
   /*
    * ************
