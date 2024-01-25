@@ -12,13 +12,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
 /** Command that extends the mailbox when started, and lowers the mailbox when ended. */
 public class DeployPneumatics extends Command {
   private MailboxPneumatics mailboxPneumatics;
+
   /** Creates a new DeployPneumatics. */
   public DeployPneumatics() {
     // Use addRequirements() here to declare subsystem dependencies.
