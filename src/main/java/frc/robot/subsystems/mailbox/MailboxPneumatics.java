@@ -21,7 +21,7 @@ public class MailboxPneumatics extends SubsystemBase {
   private DoubleSolenoid leftPiston;
   private DoubleSolenoid rightPiston;
 
-  /** Creates objects called "leftPiston" and "rightPiston". */
+  /** Constructor for the mailbox pneumatics subsystem. */
   public MailboxPneumatics() {
     leftPiston =
         new DoubleSolenoid(
