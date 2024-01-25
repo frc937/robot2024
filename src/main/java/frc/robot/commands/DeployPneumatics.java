@@ -18,7 +18,7 @@ import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
 /** Command that extends the mailbox when started, and lowers the mailbox when ended. */
 public class DeployPneumatics extends Command {
-  private static MailboxPneumatics mailboxPneumatics;
+  private MailboxPneumatics mailboxPneumatics;
   /** Creates a new DeployPneumatics. */
   public DeployPneumatics() {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -29,7 +29,7 @@ public class DeployPneumatics extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.mailboxPneumatics.extend();
+    mailboxPneumatics.extend();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -39,7 +39,7 @@ public class DeployPneumatics extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.mailboxPneumatics.retract();
+    mailboxPneumatics.retract();
   }
 
   // Returns true when the command should end.
