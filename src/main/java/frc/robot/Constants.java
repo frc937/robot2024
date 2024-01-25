@@ -40,4 +40,16 @@ public final class Constants {
     /** The max speed the robot can rotate */
     public static double MAX_ANGULAR_SPEED = Math.PI / 2;
   }
+
+  public static class Intake {
+    /** Motor id of the Intake motor. */
+    public static final int INTAKE_MOTOR_ID = 0;
+
+    // It was me, DIO!
+    /** DIO Port ID for the Intake limit switch. */
+    public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 0;
+
+    /** Speed we want to run the Intake at. */
+    public static final double INTAKE_MOTOR_SPEED = 0.5;
+  }
 }
