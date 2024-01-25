@@ -22,6 +22,7 @@ public class RunIntake extends Command {
   /** Creates a new RunIntake. */
   public RunIntake() {
     this.intake = RobotContainer.intake;
+    addRequirements(intake);
   }
 
   // Called when the command is initially scheduled.
