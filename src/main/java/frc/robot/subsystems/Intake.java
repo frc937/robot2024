@@ -33,6 +33,11 @@ public class Intake extends SubsystemBase {
     intake.set(Constants.Intake.INTAKE_MOTOR_SPEED);
   }
 
+  /** Returns a boolean value on whether or not the Limit Switch has been activated. */
+  public boolean getIntakeLimitSwitch() {
+    return limitSwitch.get();
+  }
+
   /** Stops the intake motors. */
   public void stop() {
     intake.set(0);
