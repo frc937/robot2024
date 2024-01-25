@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-/** Represents two double solenoids "leftPiston" "rightPiston" */
+/** Represents the pistons that raise the Mailbox, which is the system that outputs gamepieces from our robot */
 public class MailboxPneumatics extends SubsystemBase {
   private DoubleSolenoid leftPiston;
   private DoubleSolenoid rightPiston;
