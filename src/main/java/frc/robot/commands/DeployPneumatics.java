@@ -13,7 +13,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
-
+/** Command that extends the mailbox when started, and lowers the mailbox when ended. */
 public class DeployPneumatics extends Command {
   /** Creates a new DeployPneumatics. */
   public DeployPneumatics() {
@@ -32,7 +32,9 @@ public class DeployPneumatics extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    RobotContainer.pneumatics.retract();
+  }
 
   // Returns true when the command should end.
   @Override
