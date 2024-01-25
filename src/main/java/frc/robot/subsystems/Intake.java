@@ -11,6 +11,9 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -19,12 +22,12 @@ import frc.robot.Constants;
 /** The intake of the robot. */
 public class Intake extends SubsystemBase {
 
-  private Spark intake;
+  private CANSparkMax intake;
   private DigitalInput limitSwitch;
 
   /** Creates a new Intake. */
   public Intake() {
-    this.intake = new Spark(Constants.Intake.INTAKE_MOTOR_ID);
+    this.intake = new CANSparkMax(Constants.Intake.INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
   }
 
