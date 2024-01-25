@@ -13,6 +13,7 @@ package frc.robot.subsystems.mailbox;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+/** Subsystem for the mailbox that outputs game pieces from our robot. */
 public class Mailbox extends SubsystemBase {
   /** Creates a new Mailbox. */
   public Mailbox() {}
