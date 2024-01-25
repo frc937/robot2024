@@ -19,8 +19,8 @@ import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
 import frc.robot.subsystems.Drive;
-import frc.robot.subsystems.mailbox.Belt;
-import frc.robot.subsystems.mailbox.Pneumatics;
+import frc.robot.subsystems.mailbox.MailboxBelts;
+import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
 public class RobotContainer {
 
@@ -35,8 +35,12 @@ public class RobotContainer {
    * awful.
    */
   public static Drive drive = new Drive();
-  public static Pneumatics pneumatics = new Pneumatics();
-  public static Belt belt = new Belt();
+
+  /** Creates a mailboxPneumatics object called "pneumatics" */
+  public static MailboxPneumatics pneumatics = new MailboxPneumatics();
+
+  /** Creates a mailboxBelts object called "blets" */
+  public static MailboxBelts belts = new MailboxBelts();
 
   /*
    * ************
