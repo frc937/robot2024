@@ -26,7 +26,7 @@ public class MailboxBelts extends SubsystemBase {
   }
 
   /** Runs the belt. */
-  public void runBelt() {
+  public void runBelts() {
     beltMotor.set(Constants.MailboxBelt.BELT_MOTOR_SPEED);
   }
 
