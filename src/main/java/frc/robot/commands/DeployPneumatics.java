@@ -12,19 +12,24 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
 /** Command that extends the mailbox when started, and lowers the mailbox when ended. */
 public class DeployPneumatics extends Command {
+  private static MailboxPneumatics mailboxPneumatics;
   /** Creates a new DeployPneumatics. */
   public DeployPneumatics() {
     // Use addRequirements() here to declare subsystem dependencies.
+    this.mailboxPneumatics = RobotContainer.mailboxPneumatics;
+    addRequirements();
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.pneumatics.extend();
+    RobotContainer.mailboxPneumatics.extend();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -34,7 +39,7 @@ public class DeployPneumatics extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.pneumatics.retract();
+    RobotContainer.mailboxPneumatics.retract();
   }
 
   // Returns true when the command should end.
