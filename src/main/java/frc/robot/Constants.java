@@ -24,20 +24,26 @@ public final class Constants {
   public static class MailboxPneumatics {
     /** The channel on the PCM for the forward direction on the left solenoid. */
     public static final int LEFT_SOLENOID_FORWARD_CHANNEL = 0;
+
     /** The channel on the PCM for the reverse direction on the left solenoid. */
     public static final int LEFT_SOLENOID_REVERSE_CHANNEL = 1;
+
     /** The channel on the PCM for the forward direction on the right solenoid. */
     public static final int RIGHT_SOLENOID_FORWARD_CHANNEL = 2;
+
     /** The channel on the PCM for the reverse direction on the right solenoid. */
     public static final int RIGHT_SOLENOID_REVERSE_CHANNEL = 3;
   }
+
   /** Constants for the Belts system. */
   public static class MailboxBelt {
     /** The channel on the PCM for the belt motor */
     public static final int BELT_MOTOR_ID = 0;
+
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = .7;
   }
+
   /** Constants for the Controllers system. */
   public static class Controllers {
     /** the channel on the computer for the driver controller. */
