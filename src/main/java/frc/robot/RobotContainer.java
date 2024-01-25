@@ -15,9 +15,11 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.DeployPneumatics;
 import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
+import frc.robot.commands.RunBelts;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
@@ -49,9 +51,11 @@ public class RobotContainer {
    */
 
   /* For now, we don't make commands public static, as there isn't really a reason to. */
-  private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
-  private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
-  private final EnterXMode enterXMode = new EnterXMode();
+  public static DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
+  public static DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
+  public static EnterXMode enterXMode = new EnterXMode();
+  public static DeployPneumatics deployPneumatics = new DeployPneumatics();
+  public static RunBelts runBelts = new RunBelts();
 
   /*
    * ***********************
