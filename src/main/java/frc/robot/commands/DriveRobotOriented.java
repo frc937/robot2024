@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
+/** Drives the robot in robot-oriented mode. Default command for {@link Drive} subsystem. */
 public class DriveRobotOriented extends Command {
   private final Drive drive;
 
