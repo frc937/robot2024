@@ -22,12 +22,12 @@ public class MailboxBelts extends SubsystemBase {
 
   /** Create an object called "beltMotor" */
   public MailboxBelts() {
-    beltMotor = new CANSparkMax(Constants.MailboxBelt.BELT_MOTOR_ID, MotorType.kBrushless);
+    beltMotor = new CANSparkMax(Constants.MailboxBelts.BELT_MOTOR_ID, MotorType.kBrushless);
   }
 
   /** Runs the belt. */
   public void runBelts() {
-    beltMotor.set(Constants.MailboxBelt.BELT_MOTOR_SPEED);
+    beltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
   }
 
   /** Stops the belt. */

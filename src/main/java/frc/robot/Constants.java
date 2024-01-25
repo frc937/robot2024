@@ -36,7 +36,7 @@ public final class Constants {
   }
 
   /** Constants for the Belts system. */
-  public static class MailboxBelt {
+  public static class MailboxBelts {
     /** The channel on the PCM for the belt motor */
     public static final int BELT_MOTOR_ID = 0;
 
