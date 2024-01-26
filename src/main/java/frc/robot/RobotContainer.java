@@ -15,12 +15,16 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.DeployPneumatics;
 import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
+import frc.robot.commands.RunBelts;
 import frc.robot.commands.RunIntake;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.mailbox.MailboxBelts;
+import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
 public class RobotContainer {
@@ -38,6 +42,12 @@ public class RobotContainer {
   /** Singleton instance of {@link Drive} */
   public static Drive drive = new Drive();
 
+  /** mailboxPneumatics object for the MailboxPneumatics class */
+  public static MailboxPneumatics mailboxPneumatics = new MailboxPneumatics();
+
+  /** mailboxBelts object for the MailboxBelts class */
+  public static MailboxBelts mailboxBelts = new MailboxBelts();
+
   public static Intake intake = new Intake();
 
   /*
@@ -46,11 +56,12 @@ public class RobotContainer {
    * ************
    */
 
-  /* For now, we don't make commands public static, as there isn't really a reason to. */
-  private final DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
-  private final DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
-  private final EnterXMode enterXMode = new EnterXMode();
-  private final RunIntake runIntake = new RunIntake();
+  public static DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
+  public static DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
+  public static EnterXMode enterXMode = new EnterXMode();
+  public static DeployPneumatics deployPneumatics = new DeployPneumatics();
+  public static RunBelts runBelts = new RunBelts();
+  public static RunIntake runIntake = new RunIntake();
 
   /*
    * ***********************
