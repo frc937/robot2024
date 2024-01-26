@@ -13,40 +13,37 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.Drive;
+import frc.robot.subsystems.Intake;
 
-/** Drives the robot in robot-oriented mode. Default command for {@link Drive} subsystem. */
-public class DriveRobotOriented extends Command {
-  private final Drive drive;
+public class RunIntake extends Command {
 
-  /** Creates a new DriveRobotOriented. */
-  public DriveRobotOriented() {
-    this.drive = RobotContainer.drive;
-    addRequirements(drive);
+  private Intake intake;
+
+  /** Creates a new RunIntake. */
+  public RunIntake() {
+    this.intake = RobotContainer.intake;
+    addRequirements(intake);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    intake.runIntake();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    drive.driveRobotOriented(
-        RobotContainer.getScaledControllerLeftYAxis(),
-        RobotContainer.getScaledControllerLeftXAxis(),
-        RobotContainer.getScaledControllerRightXAxis());
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    drive.stop();
+    intake.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return intake.getLimitSwitch();
   }
 }

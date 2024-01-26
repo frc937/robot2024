@@ -68,8 +68,12 @@ dependencies {
     nativeRelease wpi.java.vendor.jniRelease(wpi.platforms.desktop)
     simulationRelease wpi.sim.enableRelease()
 
+    // https://mvnrepository.com/artifact/org.jspecify/jspecify
+    implementation("org.jspecify:jspecify:0.3.0")
+
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
 }
 
 test {

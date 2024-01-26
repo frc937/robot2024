@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
+/** Points the wheels toward the inside and stops the wheels from moving in any direction. */
 public class EnterXMode extends Command {
 
   private Drive drive;
