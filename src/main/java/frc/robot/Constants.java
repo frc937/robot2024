@@ -44,9 +44,8 @@ public final class Constants {
     public static final double BELT_MOTOR_SPEED = .7;
   }
 
-  /** Constants for the Controllers system. */
   public static class Controllers {
-    /** The channel on the computer for the driver controller. */
+
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
 }
