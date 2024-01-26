@@ -21,7 +21,6 @@ public class DeployPneumatics extends Command {
 
   /** Creates a new DeployPneumatics. */
   public DeployPneumatics() {
-    // Use addRequirements() here to declare subsystem dependencies.
     this.mailboxPneumatics = RobotContainer.mailboxPneumatics;
     addRequirements(mailboxPneumatics);
   }
