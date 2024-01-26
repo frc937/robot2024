@@ -20,7 +20,7 @@
 - We use Java
 - We use a global Constants file to allow easy access to any constants.
 - RobotContainer contains objects of our subsystems and commands, for use throughout all of our code. This lets us avoid dependency injection.
-- We have javadoc on most of our code.
+- We have JavaDoc on most of our code.
 
 ### Asimov's Laws:
  * The First Law: A robot may not injure a human being or, through inaction, allow a human being to come to harm.
