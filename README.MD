@@ -9,3 +9,5 @@
 4. Spin up Output while extending Piston
 5. When Position Switch detects Tower is in upright position, run Intake to index Note to Output
 7. When button is released, stop Intake and Output and retract Piston.
+
+![A picture of team 937's spec sheet for the robot.](./pictures/Robot%20Specs.png)
