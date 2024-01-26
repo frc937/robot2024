@@ -20,12 +20,11 @@ import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunBelts;
+import frc.robot.commands.RunIntake;
 import frc.robot.subsystems.Drive;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
-import frc.robot.commands.RunIntake;
-import frc.robot.subsystems.Intake;
-
 
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
 public class RobotContainer {
@@ -43,12 +42,12 @@ public class RobotContainer {
   /** Singleton instance of {@link Drive} */
   public static Drive drive = new Drive();
 
-
   /** mailboxPneumatics object for the MailboxPneumatics class */
   public static MailboxPneumatics mailboxPneumatics = new MailboxPneumatics();
 
   /** mailboxBelts object for the MailboxBelts class */
   public static MailboxBelts mailboxBelts = new MailboxBelts();
+
   public static Intake intake = new Intake();
 
   /*
@@ -56,7 +55,6 @@ public class RobotContainer {
    * * COMMANDS *
    * ************
    */
-
 
   public static DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
   public static DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
