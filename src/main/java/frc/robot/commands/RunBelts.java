@@ -13,18 +13,23 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.mailbox.MailboxBelts;
 
-/** Command that runs belt motors when started, and stops belt motors when ended. */
-public class RunBelts extends Command {
-  /** Creates a new RunBelts. */
-  public RunBelts() {
+/** Command that activates belts when started, and deactivates belts when ended. */
+public class DeployBelts extends Command {
+  private MailboxBelts mailboxBelts;
+
+  /** Creates a new DeployBelts. */
+  public DeployBelts() {
+    this.mailboxBelts = RobotContainer.mailboxBelts;
+    addRequirements(mailboxBelts);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.mailboxBelts.runBelts();
+    mailboxBelts.runBelts();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -34,7 +39,7 @@ public class RunBelts extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    RobotContainer.mailboxBelts.stop();
+    mailboxBelts.stop();
   }
 
   // Returns true when the command should end.
