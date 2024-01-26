@@ -20,7 +20,7 @@ import frc.robot.Constants;
 public class MailboxBelts extends SubsystemBase {
   private CANSparkMax beltMotor;
 
-  /** Create an object called "beltMotor" */
+  /** Constructer for MailboxBelts */
   public MailboxBelts() {
     beltMotor = new CANSparkMax(Constants.MailboxBelts.BELT_MOTOR_ID, MotorType.kBrushless);
   }
