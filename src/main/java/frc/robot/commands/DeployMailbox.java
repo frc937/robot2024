@@ -16,8 +16,6 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 public class DeployMailbox extends ParallelCommandGroup {
   /** Deploys the mailbox we use to output gamepieces */
   public DeployMailbox() {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
     addCommands(new DeployPneumatics(), new RunBelts());
   }
 }

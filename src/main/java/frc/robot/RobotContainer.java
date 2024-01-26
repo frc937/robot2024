@@ -50,7 +50,6 @@ public class RobotContainer {
    * ************
    */
 
-  /* For now, we don't make commands public static, as there isn't really a reason to. */
   public static DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
   public static DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
   public static EnterXMode enterXMode = new EnterXMode();
