@@ -11,7 +11,9 @@
 
 package frc.robot.commands.drive;
 
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
@@ -32,10 +34,12 @@ public class DriveFieldOriented extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drive.driveFieldOriented(
-        RobotContainer.getScaledControllerLeftYAxis(),
-        RobotContainer.getScaledControllerLeftXAxis(),
-        RobotContainer.getControllerRightXAxis());
+    double x = RobotContainer.getScaledControllerLeftYAxis() * Constants.Drive.MAX_SPEED;
+    double y = RobotContainer.getScaledControllerLeftXAxis() * Constants.Drive.MAX_SPEED;
+    double z = RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED;
+    Translation2d translation = new Translation2d(x, y);
+
+    drive.driveFieldOriented(translation, RobotContainer.getControllerRightXAxis());
   }
 
   // Called once the command ends or is interrupted.

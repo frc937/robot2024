@@ -12,19 +12,22 @@
 package frc.robot.commands.drive;
 
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
+import swervelib.SwerveController;
 
-/** Drives the robot in robot-oriented mode. Default command for {@link Drive} subsystem. */
-public class DriveRobotOriented extends Command {
-  private final Drive drive;
+public class DriveFieldOrientedHeadingSnapping extends Command {
+  private Drive drive;
+  private XboxController controller;
 
-  /** Creates a new DriveRobotOriented. */
-  public DriveRobotOriented() {
+  /** Creates a new DriveFieldOrientedHeadingSnapping. */
+  public DriveFieldOrientedHeadingSnapping() {
+    this.controller = RobotContainer.driverController.getHID();
     this.drive = RobotContainer.drive;
-    addRequirements(drive);
+    addRequirements(RobotContainer.drive);
   }
 
   // Called when the command is initially scheduled.
@@ -34,19 +37,35 @@ public class DriveRobotOriented extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-     double x = RobotContainer.getScaledControllerLeftYAxis() * Constants.Drive.MAX_SPEED;
-    double y = RobotContainer.getScaledControllerLeftXAxis() * Constants.Drive.MAX_SPEED;
-    double z = RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED;
-    Translation2d translation = new Translation2d(x, y);
+    double headingX = 0;
+    double headingY = 0;
+    if (controller.getPOV() == 0) {
+      headingY = -1;
+    }
+    if (controller.getPOV() == 90) {
+      headingX = 1;
+    }
+    if (controller.getPOV() == 180) {
+      headingY = 1;
+    }
+    if (controller.getPOV() == 270) {
+      headingX = -1;
+    }
 
-    drive.driveRobotOriented(translation, RobotContainer.getControllerRightXAxis());
+    ChassisSpeeds desiredSpeeds =
+        drive.getTargetSpeeds(
+            RobotContainer.getScaledControllerLeftXAxis(),
+            RobotContainer.getScaledControllerLeftYAxis(),
+            headingX,
+            headingY);
+    
+    Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
+    drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    drive.stop();
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

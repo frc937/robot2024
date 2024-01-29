@@ -12,6 +12,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -50,11 +51,7 @@ public class Drive extends SubsystemBase {
    * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
    *     positive.
    */
-  public void driveRobotOriented(double x, double y, double z) {
-    x = x * getMaximumSpeed();
-    y = y * getMaximumSpeed();
-    z = z * getMaximumAngularSpeed();
-    Translation2d translation = new Translation2d(x, y);
+  public void driveRobotOriented(Translation2d translation, double z) {
 
     drive.drive(translation, z, false, false);
   }
@@ -68,11 +65,7 @@ public class Drive extends SubsystemBase {
    * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
    *     positive.
    */
-  public void driveFieldOriented(double x, double y, double z) {
-    x = x * getMaximumSpeed();
-    y = y * getMaximumSpeed();
-    z = z * getMaximumAngularSpeed();
-    Translation2d translation = new Translation2d(x, y);
+  public void driveFieldOriented(Translation2d translation, double z) {
 
     drive.drive(translation, z, true, false);
   }
@@ -86,6 +79,17 @@ public class Drive extends SubsystemBase {
   /** Points the wheels toward the inside and stops the wheels from moving in any direction. */
   public void enterXMode() {
     drive.lockPose();
+  }
+
+  public ChassisSpeeds getTargetSpeeds(
+      double translationX, double translationY, double headingX, double headingY) {
+    return drive.swerveController.getTargetSpeeds(
+        translationX,
+        translationY,
+        headingX,
+        headingY,
+        drive.getPose().getRotation().getRadians(),
+        getMaximumSpeed());
   }
 
   private double getMaximumSpeed() {
