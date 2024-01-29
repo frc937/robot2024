@@ -34,7 +34,7 @@ public class DriveRobotOriented extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-     double x = RobotContainer.getScaledControllerLeftYAxis() * Constants.Drive.MAX_SPEED;
+    double x = RobotContainer.getScaledControllerLeftYAxis() * Constants.Drive.MAX_SPEED;
     double y = RobotContainer.getScaledControllerLeftXAxis() * Constants.Drive.MAX_SPEED;
     double z = RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED;
     Translation2d translation = new Translation2d(x, y);

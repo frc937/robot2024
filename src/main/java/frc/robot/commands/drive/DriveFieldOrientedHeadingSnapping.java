@@ -58,7 +58,7 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
             RobotContainer.getScaledControllerLeftYAxis(),
             headingX,
             headingY);
-    
+
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
     drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
   }
