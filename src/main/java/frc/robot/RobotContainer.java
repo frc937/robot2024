@@ -56,12 +56,12 @@ public class RobotContainer {
    * ************
    */
 
-  public static DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
-  public static DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
-  public static EnterXMode enterXMode = new EnterXMode();
-  public static DeployPneumatics deployPneumatics = new DeployPneumatics();
-  public static RunBelts runBelts = new RunBelts();
-  public static RunIntake runIntake = new RunIntake();
+  private static DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
+  private static DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
+  private static EnterXMode enterXMode = new EnterXMode();
+  private static DeployPneumatics deployPneumatics = new DeployPneumatics();
+  private static RunBelts runBelts = new RunBelts();
+  private static RunIntake runIntake = new RunIntake();
 
   /*
    * ***********************
