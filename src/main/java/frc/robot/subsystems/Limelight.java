@@ -42,11 +42,9 @@ public class Limelight extends SubsystemBase {
   /* variable chaingun, I promise we use all of these */
   private DoubleSubscriber tvSubscriber, txSubscriber, tySubscriber, taSubscriber;
   private DoubleArraySubscriber botposSubscriber;
-  private double tv, tx, ty, ta;
   /* See https://docs.limelightvision.io/en/latest/apriltags_in_3d.html#robot-localization-botpose-and-megatag
    * to understand what the heck the different indices in this array mean
    */
-  private double[] botpos;
   private String name;
 
   private String fmtPath(String end) {
@@ -83,7 +81,7 @@ public class Limelight extends SubsystemBase {
    * @return Whether or not the Limelight has a valid target. True if it does, false if it doesn't.
    */
   public boolean hasValidTarget() {
-    return tv == 1.0;
+    return tvSubscriber.get() == 1.0;
   }
 
   /**
@@ -92,7 +90,7 @@ public class Limelight extends SubsystemBase {
    * @return tx; the horizontal offset from the crosshair to the target.
    */
   public double getTX() {
-    return tx;
+    return txSubscriber.get();
   }
 
   /**
@@ -101,7 +99,7 @@ public class Limelight extends SubsystemBase {
    * @return ty; the vertical offset from the crosshair to the target.
    */
   public double getTY() {
-    return ty;
+    return tySubscriber.get();
   }
 
   /**
@@ -110,7 +108,7 @@ public class Limelight extends SubsystemBase {
    * @return ta; the area of the target.
    */
   public double getTA() {
-    return ta;
+    return taSubscriber.get();
   }
 
   /**
@@ -126,6 +124,7 @@ public class Limelight extends SubsystemBase {
    * @return A {@link Pose}; the robot's current position relative to the field.
    */
   public Pose3d getBotpose() {
+    double[] botpos = botposSubscriber.get();
     return new Pose3d(
         botpos[0], botpos[1], botpos[2], new Rotation3d(botpos[3], botpos[4], botpos[5]));
   }
@@ -140,6 +139,7 @@ public class Limelight extends SubsystemBase {
    * @return A {@link Pose2d}; the robot's current position relative to the field in two dimensions.
    */
   public Pose2d getBotpose2d() {
+    double[] botpos = botposSubscriber.get();
     return new Pose2d(botpos[0], botpos[1], Rotation2d.fromDegrees(botpos[5]));
   }
 
@@ -150,13 +150,6 @@ public class Limelight extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    tv = tvSubscriber.get();
-    tx = txSubscriber.get();
-    ty = tySubscriber.get();
-    ta = taSubscriber.get();
-    /* See https://docs.limelightvision.io/en/latest/apriltags_in_3d.html#robot-localization-botpose-and-megatag
-     * to understand what the heck the different indices in this array mean
-     */
-    botpos = botposSubscriber.get();
+
   }
 }
