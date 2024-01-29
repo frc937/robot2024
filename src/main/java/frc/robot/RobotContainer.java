@@ -48,6 +48,7 @@ public class RobotContainer {
   /** mailboxBelts object for the MailboxBelts class */
   public static MailboxBelts mailboxBelts = new MailboxBelts();
 
+  /** intake object for the Intake class */
   public static Intake intake = new Intake();
 
   /*
