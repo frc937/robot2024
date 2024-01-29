@@ -13,8 +13,9 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
+/** Deploys the mailbox we use to output gamepieces. */
 public class DeployMailbox extends ParallelCommandGroup {
-  /** Deploys the mailbox we use to output gamepieces */
+  /** Creates a new DeployMailbox. */
   public DeployMailbox() {
     addCommands(new DeployPneumatics(), new RunBelts());
   }
