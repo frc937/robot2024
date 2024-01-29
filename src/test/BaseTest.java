@@ -8,6 +8,7 @@
  * The Second Law: A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.
  * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
  */
+
 import org.junit.jupiter.api.Test;
 
 public class BaseTests {
@@ -17,6 +18,7 @@ public class BaseTests {
     assert true;
   }
 
+  // HEY! If your test is failing, don't comment this out! Your code won't work on the robot. So fix it! /lh /nm
   @Test
   public void TestAutoTasks() {
     new RobotContainer();
