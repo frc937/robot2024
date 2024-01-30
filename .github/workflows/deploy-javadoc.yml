@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - main
+      - deploy-javadoc
 
 jobs:
   publish:
