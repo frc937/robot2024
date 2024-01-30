@@ -39,16 +39,16 @@ public class RobotContainer {
    * injecting a dependency through six or seven commands in a chain of command groups would be
    * awful.
    */
-  /** Singleton instance of {@link Drive} */
+  /** Singleton instance of {@link Drive} for the whole robot. */
   public static Drive drive = new Drive();
 
-  /** mailboxPneumatics object for the MailboxPneumatics class */
+  /** Singleton instance of {@link MailboxPneumatics} for the whole robot. */
   public static MailboxPneumatics mailboxPneumatics = new MailboxPneumatics();
 
-  /** mailboxBelts object for the MailboxBelts class */
+  /** Singleton instance of {@link MailboxBelts} for the whole robot. */
   public static MailboxBelts mailboxBelts = new MailboxBelts();
 
-  /** intake object for the Intake class */
+  /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
   /*
