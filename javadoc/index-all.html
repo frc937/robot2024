@@ -101,13 +101,13 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
 <dt><a href="frc/robot/commands/DeployMailbox.html" class="type-name-link" title="class in frc.robot.commands">DeployMailbox</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Deploys the mailbox pneumatics and runs the belts; effectively deploys the mailbox on the bot.</div>
+</dd>
 <dt><a href="frc/robot/commands/DeployMailbox.html#%3Cinit%3E()" class="member-name-link">DeployMailbox()</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/DeployMailbox.html" title="class in frc.robot.commands">DeployMailbox</a></dt>
 <dd>
-<div class="block">Deploys the mailbox we use to output gamepieces</div>
+<div class="block">Creates a new DeployMailbox.</div>
 </dd>
-<dt><a href="frc/robot/RobotContainer.html#deployPneumatics" class="member-name-link">deployPneumatics</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployPneumatics.html" class="type-name-link" title="class in frc.robot.commands">DeployPneumatics</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
 <dd>
 <div class="block">Command that extends the mailbox when started, and lowers the mailbox when ended.</div>
@@ -124,7 +124,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/RobotContainer.html#drive" class="member-name-link">drive</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
-<div class="block">Singleton instance of <a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems"><code>Drive</code></a></div>
+<div class="block">Singleton instance of <a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems"><code>Drive</code></a> for the whole robot.</div>
 </dd>
 <dt><a href="frc/robot/subsystems/Drive.html" class="type-name-link" title="class in frc.robot.subsystems">Drive</a> - Class in <a href="frc/robot/subsystems/package-summary.html">frc.robot.subsystems</a></dt>
 <dd>
@@ -136,8 +136,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates a new Drive.</div>
 </dd>
-<dt><a href="frc/robot/RobotContainer.html#driveFieldOriented" class="member-name-link">driveFieldOriented</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/Drive.html#driveFieldOriented(double,double,double)" class="member-name-link">driveFieldOriented(double, double, double)</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems">Drive</a></dt>
 <dd>
 <div class="block">Drives the robot in field-oriented mode.</div>
@@ -158,8 +156,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Xbox controller for the driver.</div>
 </dd>
-<dt><a href="frc/robot/RobotContainer.html#driveRobotOriented" class="member-name-link">driveRobotOriented</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/Drive.html#driveRobotOriented(double,double,double)" class="member-name-link">driveRobotOriented(double, double, double)</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems">Drive</a></dt>
 <dd>
 <div class="block">Drives the robot in robot-oriented mode.</div>
@@ -190,8 +186,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/commands/RunBelts.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunBelts.html" title="class in frc.robot.commands">RunBelts</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/RunIntake.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunIntake.html" title="class in frc.robot.commands">RunIntake</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="frc/robot/RobotContainer.html#enterXMode" class="member-name-link">enterXMode</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/Drive.html#enterXMode()" class="member-name-link">enterXMode()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems">Drive</a></dt>
 <dd>
@@ -291,7 +285,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/commands/RunIntake.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunIntake.html" title="class in frc.robot.commands">RunIntake</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/RobotContainer.html#intake" class="member-name-link">intake</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Singleton instance of <a href="frc/robot/subsystems/Intake.html" title="class in frc.robot.subsystems"><code>Intake</code></a> for the whole robot.</div>
+</dd>
 <dt><a href="frc/robot/subsystems/Intake.html" class="type-name-link" title="class in frc.robot.subsystems">Intake</a> - Class in <a href="frc/robot/subsystems/package-summary.html">frc.robot.subsystems</a></dt>
 <dd>
 <div class="block">The intake of the robot.</div>
@@ -350,7 +346,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="frc/robot/RobotContainer.html#mailboxBelts" class="member-name-link">mailboxBelts</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
-<div class="block">mailboxBelts object for the MailboxBelts class</div>
+<div class="block">Singleton instance of <a href="frc/robot/subsystems/mailbox/MailboxBelts.html" title="class in frc.robot.subsystems.mailbox"><code>MailboxBelts</code></a> for the whole robot.</div>
 </dd>
 <dt><a href="frc/robot/subsystems/mailbox/MailboxBelts.html" class="type-name-link" title="class in frc.robot.subsystems.mailbox">MailboxBelts</a> - Class in <a href="frc/robot/subsystems/mailbox/package-summary.html">frc.robot.subsystems.mailbox</a></dt>
 <dd>
@@ -364,7 +360,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="frc/robot/RobotContainer.html#mailboxPneumatics" class="member-name-link">mailboxPneumatics</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
-<div class="block">mailboxPneumatics object for the MailboxPneumatics class</div>
+<div class="block">Singleton instance of <a href="frc/robot/subsystems/mailbox/MailboxPneumatics.html" title="class in frc.robot.subsystems.mailbox"><code>MailboxPneumatics</code></a> for the whole robot.</div>
 </dd>
 <dt><a href="frc/robot/subsystems/mailbox/MailboxPneumatics.html" class="type-name-link" title="class in frc.robot.subsystems.mailbox">MailboxPneumatics</a> - Class in <a href="frc/robot/subsystems/mailbox/package-summary.html">frc.robot.subsystems.mailbox</a></dt>
 <dd>
@@ -435,8 +431,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/Robot.html#robotPeriodic()" class="member-name-link">robotPeriodic()</a> - Method in class frc.robot.<a href="frc/robot/Robot.html" title="class in frc.robot">Robot</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/RobotContainer.html#runBelts" class="member-name-link">runBelts</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/mailbox/MailboxBelts.html#runBelts()" class="member-name-link">runBelts()</a> - Method in class frc.robot.subsystems.mailbox.<a href="frc/robot/subsystems/mailbox/MailboxBelts.html" title="class in frc.robot.subsystems.mailbox">MailboxBelts</a></dt>
 <dd>
 <div class="block">Runs the belt.</div>
@@ -449,14 +443,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates a new DeployBelts.</div>
 </dd>
-<dt><a href="frc/robot/RobotContainer.html#runIntake" class="member-name-link">runIntake</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/Intake.html#runIntake()" class="member-name-link">runIntake()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Intake.html" title="class in frc.robot.subsystems">Intake</a></dt>
 <dd>
 <div class="block">Runs the intake motors.</div>
 </dd>
 <dt><a href="frc/robot/commands/RunIntake.html" class="type-name-link" title="class in frc.robot.commands">RunIntake</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Command that runs the intake on the robot.</div>
+</dd>
 <dt><a href="frc/robot/commands/RunIntake.html#%3Cinit%3E()" class="member-name-link">RunIntake()</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/RunIntake.html" title="class in frc.robot.commands">RunIntake</a></dt>
 <dd>
 <div class="block">Creates a new RunIntake.</div>
