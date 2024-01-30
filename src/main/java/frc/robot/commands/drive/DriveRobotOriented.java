@@ -39,7 +39,7 @@ public class DriveRobotOriented extends Command {
     double z = RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED;
     Translation2d translation = new Translation2d(x, y);
 
-    drive.driveRobotOriented(translation, RobotContainer.getControllerRightXAxis());
+    drive.driveRobotOriented(translation, z);
   }
 
   // Called once the command ends or is interrupted.
