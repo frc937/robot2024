@@ -9,16 +9,13 @@
  * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
  */
 
-package frc.robot.commands;
+import org.junit.jupiter.api.Test;
 
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+public class BaseTests {
 
-/**
- * Deploys the mailbox pneumatics and runs the belts; effectively deploys the mailbox on the bot.
- */
-public class DeployMailbox extends ParallelCommandGroup {
-  /** Creates a new DeployMailbox. */
-  public DeployMailbox() {
-    addCommands(new DeployPneumatics(), new RunBelts());
+  /* HEY! If your test is failing, don't comment this out! Your code won't work on the robot. So fix it! /lh /nm */
+  @Test
+  public void TestAutoTasks() {
+    new RobotContainer();
   }
 }
