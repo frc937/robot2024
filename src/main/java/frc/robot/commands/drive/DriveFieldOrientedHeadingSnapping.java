@@ -20,6 +20,10 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 import swervelib.SwerveController;
 
+/**
+ * Drives robot in field oriented mode with shortcuts to snap to field relative angles in increments
+ * of 90º using dpad
+ */
 public class DriveFieldOrientedHeadingSnapping extends Command {
   private Drive drive;
   private XboxController controller;
