@@ -3,7 +3,6 @@ name: Deploy Javadoc
 on:
   push:
     branches:
-      - master
       - main
 
 jobs:
