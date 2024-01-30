@@ -19,6 +19,6 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 public class DeployMailbox extends ParallelCommandGroup {
   /** Creates a new DeployMailbox. */
   public DeployMailbox() {
-    addCommands(new DeployPneumatics(), new RunBelts());
+    addCommands(new DeployPneumatics(), new RunMailboxBelts());
   }
 }

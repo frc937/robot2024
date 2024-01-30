@@ -19,7 +19,7 @@ import frc.robot.commands.DeployPneumatics;
 import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
-import frc.robot.commands.RunBelts;
+import frc.robot.commands.RunMailboxBelts;
 import frc.robot.commands.RunIntake;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
@@ -61,7 +61,7 @@ public class RobotContainer {
   private DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
-  private RunBelts runBelts = new RunBelts();
+  private RunMailboxBelts runBelts = new RunMailboxBelts();
   private RunIntake runIntake = new RunIntake();
 
   /*
