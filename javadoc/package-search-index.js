@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"frc.robot"},{"l":"frc.robot.commands"},{"l":"frc.robot.subsystems"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"frc.robot"},{"l":"frc.robot.commands"},{"l":"frc.robot.subsystems"},{"l":"frc.robot.subsystems.mailbox"}];updateSearchResults();
