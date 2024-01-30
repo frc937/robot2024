@@ -15,6 +15,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 import swervelib.SwerveController;
@@ -60,7 +61,15 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
             headingY);
 
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
-    drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
+    if (headingX == 0
+        && headingY == 0
+        && Math.abs(RobotContainer.getScaledControllerRightXAxis()) > 0) {
+      drive.driveFieldOriented(
+          translation,
+          (RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED));
+    } else {
+      drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
+    }
   }
 
   // Called once the command ends or is interrupted.
