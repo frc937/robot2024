@@ -1,6 +1,7 @@
 # Team 937's code for the 2024 FRC season
 
 [![The Compile State of this Code](https://github.com/frc937/robot2024/actions/workflows/compile.yml/badge.svg)](https://github.com/frc937/robot2024/actions/workflows/compile.yml)
+[![Javadoc Deployment](https://github.com/frc937/robot2024/actions/workflows/deploy-javadoc.yml/badge.svg)](https://frc937.github.io/robot2024/javadoc/)
 
 ### The Spec Sheet for our Robot
 ![A picture of team 937's spec sheet for the robot.](./pictures/Robot%20Specs.png)
@@ -20,7 +21,7 @@
 - We use Java
 - We use a global Constants file to allow easy access to any constants.
 - RobotContainer contains objects of our subsystems and commands, for use throughout all of our code. This lets us avoid dependency injection.
-- We have JavaDoc on most of our code.
+- [We have JavaDoc on all of our code](https://frc937.github.io/robot2024/javadoc/).
 
 ### Asimov's Laws:
  * The First Law: A robot may not injure a human being or, through inaction, allow a human being to come to harm.
