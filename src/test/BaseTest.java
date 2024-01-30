@@ -12,13 +12,8 @@
 import org.junit.jupiter.api.Test;
 
 public class BaseTests {
-  @Test
-  public void TestTests() {
-    System.out.println("Test :)");
-    assert true;
-  }
 
-  // HEY! If your test is failing, don't comment this out! Your code won't work on the robot. So fix it! /lh /nm
+  /* HEY! If your test is failing, don't comment this out! Your code won't work on the robot. So fix it! /lh /nm */
   @Test
   public void TestAutoTasks() {
     new RobotContainer();
