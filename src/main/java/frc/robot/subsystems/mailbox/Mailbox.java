@@ -26,6 +26,10 @@ public class Mailbox extends SubsystemBase {
     this.limitSwitch = new DigitalInput(Constants.Mailbox.MAILBOX_LIMIT_SWITCH_DIO_PORT);
   }
 
+  public boolean getLimitSwitch() {
+    return limitSwitch.get();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
