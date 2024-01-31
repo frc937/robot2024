@@ -22,6 +22,13 @@ import edu.wpi.first.math.geometry.Translation2d;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+  /** Constants for the Mailbox system */
+  public static class Mailbox {
+    // It was me, DIO!
+    /** DIO Port ID for the Mailbox limit switch. */
+    public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
+  }
   /** Constants for the Pneumatics system. */
   public static class MailboxPneumatics {
     /** The channel on the PCM for the forward direction on the left solenoid. */
