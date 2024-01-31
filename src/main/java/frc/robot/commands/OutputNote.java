@@ -5,11 +5,24 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.RobotContainer;
+import frc.robot.subsystems.mailbox.MailboxBelts;
+import frc.robot.subsystems.mailbox.MailboxPneumatics;
+
+
 
 public class OutputNote extends Command {
   /** Creates a new OutputNote. */
+
+  private MailboxBelts mailboxBelts;
+  private MailboxPneumatics mailboxPneumatics;
+
   public OutputNote() {
+
+    this.mailboxBelts = RobotContainer.mailboxBelts;
+    this.mailboxPneumatics = RobotContainer.mailboxPneumatics;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(mailboxBelts, mailboxPneumatics);
   }
 
   // Called when the command is initially scheduled.
