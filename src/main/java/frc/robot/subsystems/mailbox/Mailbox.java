@@ -11,12 +11,20 @@
 
 package frc.robot.subsystems.mailbox;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 /** Subsystem for the mailbox that outputs game pieces from our robot. */
 public class Mailbox extends SubsystemBase {
+
+  private DigitalInput limitSwitch;
+
   /** Creates a new Mailbox. */
-  public Mailbox() {}
+  public Mailbox() {
+
+    this.limitSwitch = new DigitalInput(Constants.Mailbox.MAILBOX_LIMIT_SWITCH_DIO_PORT);
+  }
 
   @Override
   public void periodic() {
