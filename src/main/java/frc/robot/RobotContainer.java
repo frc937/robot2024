@@ -95,6 +95,7 @@ public class RobotContainer {
     driverController.x().onTrue(enterXMode);
     driverController.a().onTrue(runIntake);
     driverController.y().onTrue(deployPneumatics);
+    driverController.rightTrigger().onTrue(deployUrMom);
   }
 
   /**
