@@ -81,6 +81,17 @@ public class Drive extends SubsystemBase {
     drive.lockPose();
   }
 
+  /**
+   * Takes [-1, 1] joystick-like inputs and converts them to a {@link ChassisSpeeds} object that
+   * represents the commanded robot velocities
+   *
+   * @param translationX joystick input for the left to right axis. [-1, 1], left is positive.
+   * @param translationY joystick input for the forward to backward axis. [-1, 1], forward is
+   *     positive.
+   * @param headingX x component of the cartesian angle of the robot's heading
+   * @param headingY y component of the cartesian angle of the robot's heading
+   * @return {@link ChassisSpeeds} object that represents the commanded robot velocities
+   */
   public ChassisSpeeds getTargetSpeeds(
       double translationX, double translationY, double headingX, double headingY) {
     return drive.swerveController.getTargetSpeeds(
