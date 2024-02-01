@@ -39,15 +39,16 @@ public class RobotContainer {
    * injecting a dependency through six or seven commands in a chain of command groups would be
    * awful.
    */
-  /** Singleton instance of {@link Drive} */
+  /** Singleton instance of {@link Drive} for the whole robot. */
   public static Drive drive = new Drive();
 
-  /** mailboxPneumatics object for the MailboxPneumatics class */
+  /** Singleton instance of {@link MailboxPneumatics} for the whole robot. */
   public static MailboxPneumatics mailboxPneumatics = new MailboxPneumatics();
 
-  /** mailboxBelts object for the MailboxBelts class */
+  /** Singleton instance of {@link MailboxBelts} for the whole robot. */
   public static MailboxBelts mailboxBelts = new MailboxBelts();
 
+  /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
   /*
@@ -56,12 +57,12 @@ public class RobotContainer {
    * ************
    */
 
-  public static DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
-  public static DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
-  public static EnterXMode enterXMode = new EnterXMode();
-  public static DeployPneumatics deployPneumatics = new DeployPneumatics();
-  public static RunBelts runBelts = new RunBelts();
-  public static RunIntake runIntake = new RunIntake();
+  private DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
+  private DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
+  private EnterXMode enterXMode = new EnterXMode();
+  private DeployPneumatics deployPneumatics = new DeployPneumatics();
+  private RunBelts runBelts = new RunBelts();
+  private RunIntake runIntake = new RunIntake();
 
   /*
    * ***********************
@@ -88,6 +89,7 @@ public class RobotContainer {
 
     driverController.x().onTrue(enterXMode);
     driverController.a().onTrue(runIntake);
+    driverController.y().onTrue(deployPneumatics);
   }
 
   /**
