@@ -52,7 +52,6 @@ public class Drive extends SubsystemBase {
    *     positive.
    */
   public void driveRobotOriented(Translation2d translation, double z) {
-
     drive.drive(translation, z, false, false);
   }
 
@@ -65,7 +64,6 @@ public class Drive extends SubsystemBase {
    *     positive.
    */
   public void driveFieldOriented(Translation2d translation, double z) {
-
     drive.drive(translation, z, true, false);
   }
 
