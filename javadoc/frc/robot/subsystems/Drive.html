@@ -114,15 +114,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#driveFieldOriented(double,double,double)" class="member-name-link">driveFieldOriented</a><wbr>(double&nbsp;x,
- double&nbsp;y,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#driveFieldOriented(edu.wpi.first.math.geometry.Translation2d,double)" class="member-name-link">driveFieldOriented</a><wbr>(edu.wpi.first.math.geometry.Translation2d&nbsp;translation,
  double&nbsp;z)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Drives the robot in field-oriented mode.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#driveRobotOriented(double,double,double)" class="member-name-link">driveRobotOriented</a><wbr>(double&nbsp;x,
- double&nbsp;y,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#driveRobotOriented(edu.wpi.first.math.geometry.Translation2d,double)" class="member-name-link">driveRobotOriented</a><wbr>(edu.wpi.first.math.geometry.Translation2d&nbsp;translation,
  double&nbsp;z)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Drives the robot in robot-oriented mode.</div>
@@ -132,14 +130,23 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Points the wheels toward the inside and stops the wheels from moving in any direction.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#periodic()" class="member-name-link">periodic</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>edu.wpi.first.math.kinematics.ChassisSpeeds</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTargetSpeeds(double,double,double,double)" class="member-name-link">getTargetSpeeds</a><wbr>(double&nbsp;translationX,
+ double&nbsp;translationY,
+ double&nbsp;headingX,
+ double&nbsp;headingY)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Runs every scheduler run.</div>
+<div class="block">Takes [-1, 1] joystick-like inputs and converts them to a <code>ChassisSpeeds</code> object that
+ represents the commanded robot velocities</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#periodic()" class="member-name-link">periodic</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Runs every scheduler run.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Stops all motors in the subsystem.</div>
 </div>
 </div>
@@ -181,33 +188,30 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="driveRobotOriented(double,double,double)">
+<section class="detail" id="driveRobotOriented(edu.wpi.first.math.geometry.Translation2d,double)">
 <h3>driveRobotOriented</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">driveRobotOriented</span><wbr><span class="parameters">(double&nbsp;x,
- double&nbsp;y,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">driveRobotOriented</span><wbr><span class="parameters">(edu.wpi.first.math.geometry.Translation2d&nbsp;translation,
  double&nbsp;z)</span></div>
 <div class="block">Drives the robot in robot-oriented mode.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>x</code> - Robot velocity left to right in m/s. Left is positive.</dd>
-<dd><code>y</code> - Robot velocity forward and backward in m/s. Forward is positive.</dd>
+<dd><code>translation</code> - <code>Translation2d</code> that represents the commanded robot velocities on the
+     x and y axes. Front-left postitive.</dd>
 <dd><code>z</code> - Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
      positive.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="driveFieldOriented(double,double,double)">
+<section class="detail" id="driveFieldOriented(edu.wpi.first.math.geometry.Translation2d,double)">
 <h3>driveFieldOriented</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">driveFieldOriented</span><wbr><span class="parameters">(double&nbsp;x,
- double&nbsp;y,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">driveFieldOriented</span><wbr><span class="parameters">(edu.wpi.first.math.geometry.Translation2d&nbsp;translation,
  double&nbsp;z)</span></div>
 <div class="block">Drives the robot in field-oriented mode.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>x</code> - Robot velocity left to right in m/s. Left is positive. Relative to the field.</dd>
-<dd><code>y</code> - Robot velocity forward and backward in m/s. Toward the opposing alliance wall is
-     positive.</dd>
+<dd><code>translation</code> - <code>Translation2d</code> that represents the commanded robot velocities on the
+     x and y axes. Front-left postitive. Reletive to the field.</dd>
 <dd><code>z</code> - Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
      positive.</dd>
 </dl>
@@ -225,6 +229,27 @@ loadScripts(document, 'script');</script>
 <h3>enterXMode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">enterXMode</span>()</div>
 <div class="block">Points the wheels toward the inside and stops the wheels from moving in any direction.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getTargetSpeeds(double,double,double,double)">
+<h3>getTargetSpeeds</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">edu.wpi.first.math.kinematics.ChassisSpeeds</span>&nbsp;<span class="element-name">getTargetSpeeds</span><wbr><span class="parameters">(double&nbsp;translationX,
+ double&nbsp;translationY,
+ double&nbsp;headingX,
+ double&nbsp;headingY)</span></div>
+<div class="block">Takes [-1, 1] joystick-like inputs and converts them to a <code>ChassisSpeeds</code> object that
+ represents the commanded robot velocities</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>translationX</code> - joystick input for the left to right axis. [-1, 1], left is positive.</dd>
+<dd><code>translationY</code> - joystick input for the forward to backward axis. [-1, 1], forward is
+     positive.</dd>
+<dd><code>headingX</code> - x component of the cartesian angle of the robot's heading</dd>
+<dd><code>headingY</code> - y component of the cartesian angle of the robot's heading</dd>
+<dt>Returns:</dt>
+<dd><code>ChassisSpeeds</code> object that represents the commanded robot velocities</dd>
+</dl>
 </section>
 </li>
 <li>
