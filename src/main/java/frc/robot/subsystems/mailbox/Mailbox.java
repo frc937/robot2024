@@ -27,7 +27,9 @@ public class Mailbox extends SubsystemBase {
     this.limitSwitch = new DigitalInput(Constants.Mailbox.MAILBOX_LIMIT_SWITCH_DIO_PORT);
   }
 
-  /** Gets the Mailbox Limit Switch's Value. 
+  /**
+   * Gets the Mailbox Limit Switch's Value.
+   *
    * @return true if the mailbox is fully raised. False otherwise.
    */
   public boolean getLimitSwitch() {

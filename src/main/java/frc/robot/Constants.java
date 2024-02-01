@@ -29,6 +29,7 @@ public final class Constants {
     /** DIO Port ID for the Mailbox limit switch. */
     public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
   }
+
   /** Constants for the Pneumatics system. */
   public static class MailboxPneumatics {
     /** The channel on the PCM for the forward direction on the left solenoid. */
