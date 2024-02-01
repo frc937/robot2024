@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.DeployPneumatics;
+import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunBelts;
 import frc.robot.commands.RunIntake;
@@ -23,6 +24,7 @@ import frc.robot.commands.drive.DriveFieldOriented;
 import frc.robot.commands.drive.DriveRobotOriented;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
@@ -51,6 +53,9 @@ public class RobotContainer {
   /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
+  /** Singleton instance of {@link UrMom} for the whole robot. */
+  public static UrMom urMom = new UrMom();
+
   /*
    * ************
    * * COMMANDS *
@@ -63,6 +68,7 @@ public class RobotContainer {
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();
   private RunIntake runIntake = new RunIntake();
+  private DeployUrMom deployUrMom = new DeployUrMom();
 
   /*
    * ***********************
