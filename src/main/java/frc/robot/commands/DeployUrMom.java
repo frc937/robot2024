@@ -27,7 +27,9 @@ public class DeployUrMom extends Command {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    urmom.printUrMom();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
