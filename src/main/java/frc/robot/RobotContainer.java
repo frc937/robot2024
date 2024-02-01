@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.DeployPneumatics;
+import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunBelts;
 import frc.robot.commands.RunIntake;
@@ -66,6 +67,7 @@ public class RobotContainer {
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();
   private RunIntake runIntake = new RunIntake();
+  private DeployUrMom deployUrMom = new DeployUrMom();
 
   /*
    * ***********************
