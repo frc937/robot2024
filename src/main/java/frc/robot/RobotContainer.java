@@ -23,6 +23,7 @@ import frc.robot.commands.RunMailboxBelts;
 import frc.robot.commands.RunIntake;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
@@ -47,6 +48,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link MailboxBelts} for the whole robot. */
   public static MailboxBelts mailboxBelts = new MailboxBelts();
+
+  /** Singleton instance of {@link Mailbox} for the whole robot. */
+  public static Mailbox mailbox = new Mailbox();
 
   /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
