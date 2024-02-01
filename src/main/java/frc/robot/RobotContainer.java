@@ -20,6 +20,7 @@ import frc.robot.commands.DriveRobotOriented;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.mailbox.DeindexNote;
+import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.RunBelts;
 import frc.robot.subsystems.Drive;
@@ -53,9 +54,6 @@ public class RobotContainer {
   /** Singleton instance of {@link Mailbox} for the whole robot. */
   public static Mailbox mailbox = new Mailbox();
 
-  /** Singleton instance of {@link DeindexNote} for the whole robot. */
-  public static DeindexNote deindexNote = new DeindexNote();
-
   /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
@@ -70,6 +68,8 @@ public class RobotContainer {
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();
+  private DeployMailbox deployMailbox = new DeployMailbox();
+  private DeindexNote deindexNote = new DeindexNote();
   private RunIntake runIntake = new RunIntake();
 
   /*
