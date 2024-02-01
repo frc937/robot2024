@@ -69,8 +69,7 @@ public class Drive extends SubsystemBase {
 
   /** Stops all motors in the subsystem. */
   public void stop() {
-    drive.drive(
-        Constants.Drive.EMPTY_TRANSLATION, 0, false, false, Constants.Drive.EMPTY_TRANSLATION);
+    drive.drive(Constants.Drive.EMPTY_TRANSLATION, 0, false, false);
   }
 
   /** Points the wheels toward the inside and stops the wheels from moving in any direction. */
