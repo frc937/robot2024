@@ -15,7 +15,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class UrMom extends SubsystemBase {
   /** Creates a new UrMom. */
-  public UrMom() {
+  public UrMom() {}
+
+  public void printUrMom() {
     System.out.println("your mom");
   }
 
