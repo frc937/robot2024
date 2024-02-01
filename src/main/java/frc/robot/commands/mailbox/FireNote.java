@@ -7,7 +7,7 @@ package frc.robot.commands.mailbox;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.robot.RobotContainer;
 
-
+/** Scores the note into the amp. Raises the mailbox, runs the mailbox belts, and then runs the index belts to send the note into the belts. */
 public class FireNote extends ParallelCommandGroup {
   /** Creates a new FireNote. */
   public FireNote() {

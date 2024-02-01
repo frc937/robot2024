@@ -18,6 +18,7 @@ import frc.robot.Constants;
 /** Subsystem for the mailbox that outputs game pieces from our robot. */
 public class Mailbox extends SubsystemBase {
 
+  /** Limit switch that detects when the mailbox is raised. */
   private DigitalInput limitSwitch;
 
   /** Creates a new Mailbox. */
@@ -26,6 +27,9 @@ public class Mailbox extends SubsystemBase {
     this.limitSwitch = new DigitalInput(Constants.Mailbox.MAILBOX_LIMIT_SWITCH_DIO_PORT);
   }
 
+  /** Gets the Mailbox Limit Switch's Value. 
+   * @return true if the mailbox is fully raised. False otherwise.
+   */
   public boolean getLimitSwitch() {
     return limitSwitch.get();
   }

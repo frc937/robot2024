@@ -9,6 +9,7 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.mailbox.Mailbox;
 
+/** Outputs the note from the index belts into the mailbox belts. */
 public class DeindexNote extends Command {
 
   private Intake intake;
@@ -28,6 +29,7 @@ public class DeindexNote extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    /* If the mailbox is fully raised, run the intake. */
     if (mailbox.getLimitSwitch()) {
       intake.runIntake();
     }
