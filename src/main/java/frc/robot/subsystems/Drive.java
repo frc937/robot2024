@@ -46,8 +46,8 @@ public class Drive extends SubsystemBase {
   /**
    * Drives the robot in robot-oriented mode.
    *
-   * @param x Robot velocity left to right in m/s. Left is positive.
-   * @param y Robot velocity forward and backward in m/s. Forward is positive.
+   * @param translation {@link Translation2d} that represents the commanded robot velocities on the
+   *     x and y axes. Front-left postitive.
    * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
    *     positive.
    */
@@ -59,9 +59,8 @@ public class Drive extends SubsystemBase {
   /**
    * Drives the robot in field-oriented mode.
    *
-   * @param x Robot velocity left to right in m/s. Left is positive. Relative to the field.
-   * @param y Robot velocity forward and backward in m/s. Toward the opposing alliance wall is
-   *     positive.
+   * @param translation {@link Translation2d} that represents the commanded robot velocities on the
+   *     x and y axes. Front-left postitive. Reletive to the field.
    * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
    *     positive.
    */
