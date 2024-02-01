@@ -16,11 +16,11 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 
 /** Command that activates belts when started, and deactivates belts when ended. */
-public class RunMailboxBelts extends Command {
+public class RunBelts extends Command {
   private MailboxBelts mailboxBelts;
 
   /** Creates a new DeployBelts. */
-  public RunMailboxBelts() {
+  public RunBelts() {
     this.mailboxBelts = RobotContainer.mailboxBelts;
     addRequirements(mailboxBelts);
     // Use addRequirements() here to declare subsystem dependencies.
