@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
 
+/** Command that runs the intake on the robot. */
 public class RunIntake extends Command {
 
   private Intake intake;
