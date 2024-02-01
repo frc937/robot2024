@@ -22,6 +22,7 @@ import frc.robot.commands.RunIntake;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
+import frc.robot.commands.mailbox.FireNote;
 import frc.robot.commands.mailbox.RunBelts;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
@@ -70,6 +71,7 @@ public class RobotContainer {
   private RunBelts runBelts = new RunBelts();
   private DeployMailbox deployMailbox = new DeployMailbox();
   private DeindexNote deindexNote = new DeindexNote();
+  private FireNote fireNote = new FireNote();
   private RunIntake runIntake = new RunIntake();
 
   /*
@@ -97,7 +99,7 @@ public class RobotContainer {
 
     driverController.x().onTrue(enterXMode);
     driverController.a().onTrue(runIntake);
-    driverController.y().onTrue(deployPneumatics);
+    driverController.y().onTrue(fireNote);
   }
 
   /**
