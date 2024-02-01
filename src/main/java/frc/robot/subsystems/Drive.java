@@ -99,15 +99,7 @@ public class Drive extends SubsystemBase {
         headingX,
         headingY,
         drive.getPose().getRotation().getRadians(),
-        getMaximumSpeed());
-  }
-
-  private double getMaximumSpeed() {
-    return Constants.Drive.MAX_SPEED;
-  }
-
-  private double getMaximumAngularSpeed() {
-    return Constants.Drive.MAX_ANGULAR_SPEED;
+        Constants.Drive.MAX_SPEED);
   }
 
   /** Runs every scheduler run. */
