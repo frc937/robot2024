@@ -17,18 +17,18 @@ import frc.robot.subsystems.UrMom;
 
 /** Prints "your mom" */
 public class DeployUrMom extends Command {
-  private UrMom urmom;
+  private UrMom urMom;
 
   /** Creates a new DeployUrMom. */
   public DeployUrMom() {
-    this.urmom = RobotContainer.urMom;
-    addRequirements(urmom);
+    this.urMom = RobotContainer.urMom;
+    addRequirements(urMom);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    urmom.printUrMom();
+    urMom.printUrMom();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
