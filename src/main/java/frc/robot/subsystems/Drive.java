@@ -77,6 +77,11 @@ public class Drive extends SubsystemBase {
     drive.lockPose();
   }
 
+  /**
+   * Set the heading correction capabilitys of YAGSL.
+   *
+   * @param state SwerveDrive.headingCorrection state
+   */
   public void setHeadingCorrection(boolean state) {
     drive.setHeadingCorrection(state);
   }
