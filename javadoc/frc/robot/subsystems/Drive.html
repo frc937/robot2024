@@ -145,8 +145,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Runs every scheduler run.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHeadingCorrection(boolean)" class="member-name-link">setHeadingCorrection</a><wbr>(boolean&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set the heading correction capabilities of YAGSL.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Stops all motors in the subsystem.</div>
 </div>
 </div>
@@ -229,6 +234,18 @@ loadScripts(document, 'script');</script>
 <h3>enterXMode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">enterXMode</span>()</div>
 <div class="block">Points the wheels toward the inside and stops the wheels from moving in any direction.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setHeadingCorrection(boolean)">
+<h3>setHeadingCorrection</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setHeadingCorrection</span><wbr><span class="parameters">(boolean&nbsp;state)</span></div>
+<div class="block">Set the heading correction capabilities of YAGSL. Should only be enabled when heading
+ correction capabilities are in use</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>state</code> - SwerveDrive.headingCorrection state</dd>
+</dl>
 </section>
 </li>
 <li>
