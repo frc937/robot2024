@@ -78,6 +78,16 @@ public class Drive extends SubsystemBase {
   }
 
   /**
+   * Set the heading correction capabilities of YAGSL. Should only be enabled when heading
+   * correction capabilities are in use
+   *
+   * @param state SwerveDrive.headingCorrection state
+   */
+  public void setHeadingCorrection(boolean state) {
+    drive.setHeadingCorrection(state);
+  }
+
+  /**
    * Takes [-1, 1] joystick-like inputs and converts them to a {@link ChassisSpeeds} object that
    * represents the commanded robot velocities
    *
