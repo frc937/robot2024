@@ -23,12 +23,11 @@ public class Mailbox extends SubsystemBase {
 
   /** Creates a new Mailbox. */
   public Mailbox() {
-
     this.limitSwitch = new DigitalInput(Constants.Mailbox.MAILBOX_LIMIT_SWITCH_DIO_PORT);
   }
 
   /**
-   * Gets the Mailbox Limit Switch's Value.
+   * Gets the Mailbox Limit Switch's Value. Assumes the limitSwitch reports false when open.
    *
    * @return true if the mailbox is fully raised. False otherwise.
    */
