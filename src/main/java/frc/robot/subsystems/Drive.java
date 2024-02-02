@@ -81,7 +81,7 @@ public class Drive extends SubsystemBase {
    * Set the heading correction capabilities of YAGSL. Should only be enabled when heading
    * correction capabilities are in use
    *
-   * @param state {@link swervelib.SwerveDrive.headingCorrection} state
+   * @param state SwerveDrive.headingCorrection state
    */
   public void setHeadingCorrection(boolean state) {
     drive.setHeadingCorrection(state);
