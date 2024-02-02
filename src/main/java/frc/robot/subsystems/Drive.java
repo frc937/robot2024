@@ -77,6 +77,10 @@ public class Drive extends SubsystemBase {
     drive.lockPose();
   }
 
+  public void setHeadingCorrection(boolean state) {
+    drive.setHeadingCorrection(state);
+  }
+
   /**
    * Takes [-1, 1] joystick-like inputs and converts them to a {@link ChassisSpeeds} object that
    * represents the commanded robot velocities
