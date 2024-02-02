@@ -23,7 +23,7 @@ import frc.robot.commands.drive.DriveRobotOriented;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
-import frc.robot.commands.mailbox.FireNote;
+import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.RunBelts;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
@@ -76,7 +76,7 @@ public class RobotContainer {
   private RunBelts runBelts = new RunBelts();
   private DeployMailbox deployMailbox = new DeployMailbox();
   private DeindexNote deindexNote = new DeindexNote();
-  private FireNote fireNote = new FireNote();
+  private FireNoteRoutine fireNote = new FireNoteRoutine();
   private RunIntake runIntake = new RunIntake();
   private DeployUrMom deployUrMom = new DeployUrMom();
 
