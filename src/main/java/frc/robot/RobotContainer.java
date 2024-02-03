@@ -15,6 +15,7 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployPneumatics;
 import frc.robot.commands.DriveFieldOriented;
 import frc.robot.commands.DriveRobotOriented;
@@ -23,6 +24,7 @@ import frc.robot.commands.RunBelts;
 import frc.robot.commands.RunIntake;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
@@ -51,6 +53,7 @@ public class RobotContainer {
   /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
+  public static Limelight limelight = new Limelight("limelight");
   /*
    * ************
    * * COMMANDS *
@@ -63,6 +66,18 @@ public class RobotContainer {
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();
   private RunIntake runIntake = new RunIntake();
+  private AimWithLimelight aimToAmp =
+      new AimWithLimelight(
+          limelight,
+          Constants.Limelight.AimingLimelight.STEER_STRENGTH,
+          Constants.Limelight.AimingLimelight.DISTANCE_FROM_TARGET,
+          Constants.Limelight.AimingLimelight.MOUNT_HEIGHT,
+          Constants.Limelight.AimingLimelight.MOUNT_ANGLE,
+          Constants.Limelight.AimingLimelight.DRIVE_STRENGTH,
+          Constants.Limelight.AimingLimelight.SPEED_LIMIT,
+          Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
+          Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
+          Constants.Limelight.AimingLimelight.UPPER_HUB_TAPE_HEIGHT);
 
   /*
    * ***********************
