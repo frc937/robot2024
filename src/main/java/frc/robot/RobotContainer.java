@@ -53,7 +53,9 @@ public class RobotContainer {
   /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
+  /** Singleton instance of {@link Limelight} for aiming. */
   public static Limelight limelight = new Limelight("limelight");
+
   /*
    * ************
    * * COMMANDS *

@@ -85,11 +85,7 @@ public final class Constants {
       /** The number of inches from the center of the Limelight lens to the floor */
       public static final double MOUNT_HEIGHT = 0;
 
-      /** The number of inches from the retroreflective tape on the upper hub to the floor */
-      /**
-       * This is 8'8", which is what the manual says the height from the floor to the top of the
-       * upper hub is.
-       */
+      /** The height to the Amp Apriltag off the ground. */
       public static final double AMP_APRILTAG_HEIGHT = 0;
 
       /** How far in inches we want to be from the target when we shoot */
