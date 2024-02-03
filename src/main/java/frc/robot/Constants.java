@@ -79,6 +79,8 @@ public final class Constants {
   public static class Limelight {
     /** Constants for aiming Limelight. */
     public static class AimingLimelight {
+      public static final String LIMELIGHT_NAME = "aiming_limelight";
+
       /** The number of degrees the Limelight is mounted back from perfectly vertical */
       public static final double MOUNT_ANGLE = 0;
 

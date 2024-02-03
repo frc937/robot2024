@@ -54,7 +54,8 @@ public class RobotContainer {
   public static Intake intake = new Intake();
 
   /** Singleton instance of {@link Limelight} for aiming. */
-  public static Limelight limelight = new Limelight("limelight");
+  public static Limelight limelight =
+      new Limelight(Constants.Limelight.AimingLimelight.LIMELIGHT_NAME);
 
   /*
    * ************
