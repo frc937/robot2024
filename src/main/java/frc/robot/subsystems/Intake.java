@@ -36,6 +36,8 @@ public class Intake extends SubsystemBase {
 
   /**
    * Returns a boolean value on whether or not the Limit Switch (for the intake) has been activated.
+   *
+   * @return the status of the limit switch
    */
   public boolean getLimitSwitch() {
     return limitSwitch.get();
