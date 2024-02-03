@@ -31,9 +31,21 @@ public class AimWithLimelight extends Command {
       speedLimit,
       turnDoneThreshold,
       distanceDoneThreshold,
-      upperHubTapeHeight;
+      targetHeight;
 
-  /** Creates a new AimWithLimelight. */
+  /**
+   * @param limelight The limelight to aim with.
+   * @param steerStrength How hard to turn towards the target; between 0 and 1.
+   * @param distanceFromTarget How far from in inches we want to be from the target when we
+   *     dispense.
+   * @param mountHeight The height of the limelight off the floor.
+   * @param mountAngle The number of degrees the limelight is mounted back from perfectly vertical.
+   * @param driveStrength How hard to drive towards the target.
+   * @param speedLimit Basic speed limit to make sure we don't drive too fast.
+   * @param turnDoneThreshold The threshold in angles when we consider the aiming done.
+   * @param distanceDoneThreshold The threshold in inches when we consider the aiming done.
+   * @param targetHeight The height of the target off the floor.
+   */
   public AimWithLimelight(
       Limelight limelight,
       double steerStrength,
@@ -44,7 +56,7 @@ public class AimWithLimelight extends Command {
       double speedLimit,
       double turnDoneThreshold,
       double distanceDoneThreshold,
-      double hubTapeHeight) {
+      double targetHeight) {
     this.steerStrength = steerStrength;
     this.distanceFromTarget = distanceFromTarget;
     this.mountHeight = mountHeight;
@@ -53,7 +65,7 @@ public class AimWithLimelight extends Command {
     this.speedLimit = speedLimit;
     this.turnDoneThreshold = turnDoneThreshold;
     this.distanceDoneThreshold = distanceDoneThreshold;
-    this.upperHubTapeHeight = hubTapeHeight;
+    this.targetHeight = targetHeight;
     this.drive = RobotContainer.drive;
     this.limelight = limelight;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -74,7 +86,7 @@ public class AimWithLimelight extends Command {
       double z = limelight.getTX() * steerStrength;
       double yComponent =
           distanceFromTarget
-              - ((upperHubTapeHeight - mountHeight) / Math.tan((mountAngle + limelight.getTY())));
+              - ((targetHeight - mountHeight) / Math.tan((mountAngle + limelight.getTY())));
       double y = yComponent * (Math.PI / 180.0) * driveStrength;
       if (z > speedLimit) {
         z = speedLimit;
@@ -84,7 +96,7 @@ public class AimWithLimelight extends Command {
       boolean isDistanced =
           Math.abs(
                   (distanceFromTarget)
-                      - ((upperHubTapeHeight - mountHeight)
+                      - ((targetHeight - mountHeight)
                           / Math.tan((mountAngle + limelight.getTY()) * (Math.PI / 180.0))))
               <= distanceDoneThreshold;
       if (isAngled && isDistanced) {
