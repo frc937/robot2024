@@ -25,13 +25,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 /** Subsystem for the Limelight 2+ that we use for vision. */
 public class Limelight extends SubsystemBase {
 
-  /* This class may need logic to switch between pipelines based off of AprilTag pipeline restrictions. As
-   * of now, I'm not adding them, since in theory the Limelight should just handle getting a botpos with as
-   * many AprilTags in its FOV as can fit because MegaTag
-   * (https://docs.limelightvision.io/en/latest/apriltags_in_3d.html#robot-localization-botpose-and-megatag).
-   */
-  /* it would be so cool if we just didn't have to do multiple pipelines at all this year */
-
   /* variable chaingun, I promise we use all of these */
   private DoubleSubscriber tvSubscriber, txSubscriber, tySubscriber, taSubscriber;
   /* See https://docs.limelightvision.io/en/latest/apriltags_in_3d.html#robot-localization-botpose-and-megatag
@@ -47,9 +40,9 @@ public class Limelight extends SubsystemBase {
   }
 
   /**
-   * Creates a new Limelight. Should be run once from {@link frc.robot.RobotContainer}.
+   * Creates a new Limelight.
    *
-   * @param name The hostname of the limelight
+   * @param name The hostname of the Limelight
    */
   public Limelight(String name) {
     this.name = name;
@@ -140,18 +133,18 @@ public class Limelight extends SubsystemBase {
   }
 
   /**
-   * Returns the current limelight pipeline.
+   * Returns the current Limelight pipeline number.
    *
-   * @return the current limelight pipeline.
+   * @return the current Limelight pipeline number.
    */
   public double getLimelightPipeline() {
     return pipelineSubcriber.get();
   }
 
   /**
-   * Sets the limelight pipeline.
+   * Sets the Limelight pipeline number.
    *
-   * @param pipeline the pipeline.
+   * @param pipeline the pipeline number.
    */
   public void setLimelightPipeline(double pipeline) {
     pipelinePublisher.set(pipeline);
