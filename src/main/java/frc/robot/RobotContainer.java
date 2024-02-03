@@ -77,7 +77,7 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.SPEED_LIMIT,
           Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
-          Constants.Limelight.AimingLimelight.UPPER_HUB_TAPE_HEIGHT);
+          Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
 
   /*
    * ***********************
