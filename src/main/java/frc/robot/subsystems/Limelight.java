@@ -16,21 +16,14 @@ import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.networktables.DoubleArraySubscriber;
+import edu.wpi.first.networktables.DoublePublisher;
 import edu.wpi.first.networktables.DoubleSubscriber;
+import edu.wpi.first.networktables.DoubleTopic;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /** Subsystem for the Limelight 2+ that we use for vision. */
 public class Limelight extends SubsystemBase {
-
-  /* Note to future devs: we are NOT doing the whole setting values in NetworkTables to turn the Limelight
-   * LEDS on and off thing this year (turnOnLEDs() and turnOfflLEDs() in robot2022).
-   * For one, if we're not tracking reflective targets (which as of now we are not, we're just doing
-   * AprilTags), then we shouldn't need them on at all; for another, the correct way to turn the LEDs on
-   * and off is to make the default pipeline one with them off and then switch to a pipeline which has them
-   * on if we need to turn them on. This method prevents the whole "Limelight LEDs are stuck on until robot
-   * code starts!" thing.
-   */
 
   /* This class may need logic to switch between pipelines based off of AprilTag pipeline restrictions. As
    * of now, I'm not adding them, since in theory the Limelight should just handle getting a botpos with as
@@ -41,10 +34,12 @@ public class Limelight extends SubsystemBase {
 
   /* variable chaingun, I promise we use all of these */
   private DoubleSubscriber tvSubscriber, txSubscriber, tySubscriber, taSubscriber;
-  private DoubleArraySubscriber botposSubscriber;
   /* See https://docs.limelightvision.io/en/latest/apriltags_in_3d.html#robot-localization-botpose-and-megatag
    * to understand what the heck the different indices in this array mean
    */
+  private DoubleArraySubscriber botposSubscriber;
+  private DoubleSubscriber pipelineSubcriber;
+  private DoublePublisher pipelinePublisher;
   private String name;
 
   private String fmtPath(String end) {
@@ -62,9 +57,10 @@ public class Limelight extends SubsystemBase {
     txSubscriber = NetworkTableInstance.getDefault().getDoubleTopic(fmtPath("tx")).subscribe(0.0);
     tySubscriber = NetworkTableInstance.getDefault().getDoubleTopic(fmtPath("ty")).subscribe(0.0);
     taSubscriber = NetworkTableInstance.getDefault().getDoubleTopic(fmtPath("ta")).subscribe(0.0);
-    /* In theory this won't break. It got mad when I tried to insert the array into the
-     * method like .subscribe({0.0, 0.0, 0.0, 0.0, 0.0, 0.0}) so ¯\_(ツ)_/¯
-     */
+    DoubleTopic pipelineTopic =
+        NetworkTableInstance.getDefault().getDoubleTopic(fmtPath("pipeline"));
+    this.pipelineSubcriber = pipelineTopic.subscribe(0.0);
+    this.pipelinePublisher = pipelineTopic.publish();
     double[] defaultBotpos = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     botposSubscriber =
         NetworkTableInstance.getDefault()
@@ -121,7 +117,7 @@ public class Limelight extends SubsystemBase {
    * <p>Notably, the Z, roll, and pitch values will always be zero, since we snap the bot to the
    * floor on the Limelight.
    *
-   * @return A {@link Pose}; the robot's current position relative to the field.
+   * @return A {@link Pose3d}; the robot's current position relative to the field.
    */
   public Pose3d getBotpose() {
     double[] botpos = botposSubscriber.get();
@@ -130,7 +126,7 @@ public class Limelight extends SubsystemBase {
   }
 
   /**
-   * Gets the robot's current post relative to the field.
+   * Gets the robot's current pose relative to the field.
    *
    * <p>Units are meters; 0,0 is at the center of the field.
    *
@@ -144,9 +140,24 @@ public class Limelight extends SubsystemBase {
   }
 
   /**
-   * Subsystem periodic; runs every scheduler run. Used to update Limelight data from NetworkTables
-   * in this subsystem.
+   * Returns the current limelight pipeline.
+   *
+   * @return the current limelight pipeline.
    */
+  public double getLimelightPipeline() {
+    return pipelineSubcriber.get();
+  }
+
+  /**
+   * Sets the limelight pipeline.
+   *
+   * @param pipeline the pipeline.
+   */
+  public void setLimelightPipeline(double pipeline) {
+    pipelinePublisher.set(pipeline);
+  }
+
+  /** Subsystem periodic; runs every scheduler run. */
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
