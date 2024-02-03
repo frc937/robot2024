@@ -75,11 +75,11 @@ public final class Constants {
     public static final double INTAKE_MOTOR_SPEED = 0.5;
   }
 
-  /** Holds contstants for the limelights. */
+  /** Holds contstants for the Limelights. */
   public static class Limelight {
-    /** Constants for aiming limelight. */
+    /** Constants for aiming Limelight. */
     public static class AimingLimelight {
-      /** The number of degrees the limelight is mounted back from perfectly vertical */
+      /** The number of degrees the Limelight is mounted back from perfectly vertical */
       public static final double MOUNT_ANGLE = 0;
 
       /** The number of inches from the center of the Limelight lens to the floor */
@@ -104,13 +104,13 @@ public final class Constants {
 
       /**
        * When we're at or below this number of degrees from where we want to be, we'll consider the
-       * limelight's aim routine "done"
+       * Limelight's aim routine "done"
        */
       public static final double TURN_DONE_THRESHOLD = 0;
 
       /**
        * When we're at or below this number of inches from the target distance, we'll consider the
-       * limelight's drive routine "done"
+       * Limelight's drive routine "done"
        */
       public static final double DISTANCE_DONE_THRESHOLD = 0;
     }
