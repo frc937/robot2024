@@ -36,15 +36,17 @@ public class AimWithLimelight extends Command {
   /**
    * Creates a new command to aim with the Limelight.
    *
-   * @param limelight The Limelight to aim with.
+   * @param limelight The Limelight subsystem to aim with.
    * @param steerStrength How hard to turn towards the target; between 0 and 1.
    * @param distanceFromTarget How far from in inches we want to be from the target when we
    *     dispense.
-   * @param mountHeight The height of the Limelight off the floor.
+   * @param mountHeight The height of the center of the Limelight lense off the floor.
    * @param mountAngle The number of degrees the Limelight is mounted back from perfectly vertical.
-   * @param driveStrength How hard to drive towards the target.
-   * @param speedLimit Basic speed limit to make sure we don't drive too fast.
-   * @param turnDoneThreshold The threshold in angles when we consider the aiming done.
+   *     Positive means backwards.
+   * @param driveStrength How hard to drive towards the target; between 0 and 1.
+   * @param speedLimit Basic speed limit to make sure we don't drive too fast. Percentage of max
+   *     speed the robot can go.
+   * @param turnDoneThreshold The threshold in degrees when we consider the aiming done.
    * @param distanceDoneThreshold The threshold in inches when we consider the aiming done.
    * @param targetHeight The height of the target off the floor.
    */
