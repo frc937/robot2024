@@ -74,4 +74,36 @@ public final class Constants {
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 0.5;
   }
+
+  public static class Limelight {
+    public static class AimingLimelight {
+      /* The number of degrees the limelight is mounted back from perfectly vertical */
+      public static final double MOUNT_ANGLE = 0;
+
+      /* The number of inches from the center of the Limelight lens to the floor */
+      public static final double MOUNT_HEIGHT = 0;
+
+      /* The number of inches from the retroreflective tape on the upper hub to the floor */
+      /* This is 8'8", which is what the manual says the height from the floor to the top of the upper hub is. */
+      public static final double UPPER_HUB_TAPE_HEIGHT = 0;
+
+      /* How far in inches we want to be from the target when we shoot */
+      public static final double DISTANCE_FROM_TARGET = 0;
+
+      /* How hard to turn toward the target. Double between 0 and 1, standard way to drive a motor */
+      public static final double STEER_STRENGTH = 0;
+
+      /* How hard to drive toward the target. Same notation as above. */
+      public static final double DRIVE_STRENGTH = 0;
+
+      /* VERY BASIC speed limit to make sure we don't drive too fast towards the target. Will need to be changed when implementing PID. */
+      public static final double SPEED_LIMIT = 0;
+
+      /* When we're at or below this number of degrees from where we want to be, we'll consider the limelight's aim routine "done" */
+      public static final double TURN_DONE_THRESHOLD = 0;
+
+      /* When we're at or below this number of inches from the target distance, we'll consider the limelight's drive routine "done" */
+      public static final double DISTANCE_DONE_THRESHOLD = 0;
+    }
+  }
 }
