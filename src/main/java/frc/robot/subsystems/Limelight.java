@@ -62,7 +62,6 @@ public class Limelight extends SubsystemBase {
   }
 
   /* now its time for getter method chaingun, which I have to write manually because VS Code */
-  /* nvm im making a python script do this for me */
 
   /**
    * Returns whether the Limelight has a valid target.
