@@ -13,40 +13,35 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.Drive;
+import frc.robot.subsystems.UrMom;
 
-/** Drives the robot in field-oriented mode. */
-public class DriveFieldOriented extends Command {
-  private final Drive drive;
+/** Prints "your mom" */
+public class DeployUrMom extends Command {
+  private UrMom urMom;
 
-  /** Creates a new DriveFieldOriented. */
-  public DriveFieldOriented() {
-    this.drive = RobotContainer.drive;
-    addRequirements(drive);
+  /** Creates a new DeployUrMom. */
+  public DeployUrMom() {
+    this.urMom = RobotContainer.urMom;
+    addRequirements(urMom);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    urMom.printUrMom();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    drive.driveFieldOriented(
-        RobotContainer.getScaledControllerLeftYAxis(),
-        RobotContainer.getScaledControllerLeftXAxis(),
-        RobotContainer.getControllerRightXAxis());
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    drive.stop();
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
