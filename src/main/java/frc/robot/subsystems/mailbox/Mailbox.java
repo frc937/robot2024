@@ -28,7 +28,7 @@ public class Mailbox extends SubsystemBase {
 
   /**
    * Gets the Mailbox Limit Switch's Value. Assumes the limitSwitch reports false when open.
-   * 
+   *
    * @return True if the mailbox is fully raised. False otherwise.
    */
   public boolean getLimitSwitch() {
