@@ -19,14 +19,19 @@ import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployPneumatics;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
-import frc.robot.commands.RunBelts;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.drive.DriveFieldOriented;
 import frc.robot.commands.drive.DriveRobotOriented;
+import frc.robot.commands.mailbox.DeindexNote;
+import frc.robot.commands.mailbox.DeployMailbox;
+import frc.robot.commands.mailbox.DeployPneumatics;
+import frc.robot.commands.mailbox.FireNoteRoutine;
+import frc.robot.commands.mailbox.RunBelts;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.UrMom;
+import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
@@ -52,6 +57,9 @@ public class RobotContainer {
   /** Singleton instance of {@link MailboxBelts} for the whole robot. */
   public static MailboxBelts mailboxBelts = new MailboxBelts();
 
+  /** Singleton instance of {@link Mailbox} for the whole robot. */
+  public static Mailbox mailbox = new Mailbox();
+
   /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
@@ -73,6 +81,9 @@ public class RobotContainer {
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();
+  private DeployMailbox deployMailbox = new DeployMailbox();
+  private DeindexNote deindexNote = new DeindexNote();
+  private FireNoteRoutine fireNote = new FireNoteRoutine();
   private RunIntake runIntake = new RunIntake();
   private AimWithLimelight aimToAmp =
       new AimWithLimelight(
@@ -113,7 +124,7 @@ public class RobotContainer {
 
     driverController.x().onTrue(enterXMode);
     driverController.a().onTrue(runIntake);
-    driverController.y().onTrue(deployPneumatics);
+    driverController.y().onTrue(fireNote);
   }
 
   /**

@@ -9,16 +9,17 @@
  * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
  */
 
-package frc.robot.commands;
+package frc.robot.commands.mailbox;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
 /**
- * Deploys the mailbox pneumatics and runs the belts; effectively deploys the mailbox on the bot.
+ * Scores the note into the amp. Raises the mailbox, runs the mailbox belts, and then runs the index
+ * belts to send the note into the belts.
  */
-public class DeployMailbox extends ParallelCommandGroup {
-  /** Creates a new DeployMailbox. */
-  public DeployMailbox() {
-    addCommands(new DeployPneumatics(), new RunBelts());
+public class FireNoteRoutine extends ParallelCommandGroup {
+  /** Creates a new FireNote. */
+  public FireNoteRoutine() {
+    addCommands(new DeployMailbox(), new DeindexNote());
   }
 }
