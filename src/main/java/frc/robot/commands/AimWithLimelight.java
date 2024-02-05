@@ -11,6 +11,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
@@ -94,7 +95,7 @@ public class AimWithLimelight extends Command {
       if (z > speedLimit) {
         z = speedLimit;
       }
-      drive.driveRobotOriented(y * -1.0, 0.0, z);
+      drive.driveRobotOriented(new Translation2d(y * -1.0, 0.0), z);
       boolean isAngled = Math.abs(limelight.getTX()) < turnDoneThreshold;
       boolean isDistanced =
           Math.abs(
