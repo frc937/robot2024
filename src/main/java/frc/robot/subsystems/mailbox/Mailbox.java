@@ -11,12 +11,30 @@
 
 package frc.robot.subsystems.mailbox;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 /** Subsystem for the mailbox that outputs game pieces from our robot. */
 public class Mailbox extends SubsystemBase {
+
+  /** Limit switch that detects when the mailbox is raised. */
+  private DigitalInput limitSwitch;
+
   /** Creates a new Mailbox. */
-  public Mailbox() {}
+  public Mailbox() {
+    this.limitSwitch = new DigitalInput(Constants.Mailbox.MAILBOX_LIMIT_SWITCH_DIO_PORT);
+  }
+
+  /**
+   * Gets the Mailbox Limit Switch's Value.
+   *
+   * @return True if the mailbox is fully raised. False otherwise.
+   */
+  public boolean getLimitSwitch() {
+    /* Assumes the limit switch is wired to be normally open. */
+    return limitSwitch.get();
+  }
 
   @Override
   public void periodic() {

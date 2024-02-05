@@ -9,36 +9,47 @@
  * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
  */
 
-package frc.robot.commands;
+package frc.robot.commands.mailbox;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.mailbox.MailboxPneumatics;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.mailbox.Mailbox;
 
-/** Command that extends the mailbox when started, and lowers the mailbox when ended. */
-public class DeployPneumatics extends Command {
-  private MailboxPneumatics mailboxPneumatics;
+/** Outputs the note from the index belts into the mailbox belts. */
+public class DeindexNote extends Command {
 
-  /** Creates a new DeployPneumatics. */
-  public DeployPneumatics() {
-    this.mailboxPneumatics = RobotContainer.mailboxPneumatics;
-    addRequirements(mailboxPneumatics);
+  private Intake intake;
+  private Mailbox mailbox;
+
+  /** Creates a new DeindexNote. */
+  public DeindexNote() {
+    this.intake = RobotContainer.intake;
+    this.mailbox = RobotContainer.mailbox;
+    addRequirements(intake, mailbox);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    mailboxPneumatics.extend();
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    /* If the mailbox is fully raised, run the intake. */
+    if (mailbox.getLimitSwitch()) {
+      intake.runIntake();
+    }
+    /* This else isn't neccessary, just advised for safety. If it interferes with anything, feel free to remove it. */
+    else {
+      intake.stop();
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    mailboxPneumatics.retract();
+    intake.stop();
   }
 
   // Returns true when the command should end.

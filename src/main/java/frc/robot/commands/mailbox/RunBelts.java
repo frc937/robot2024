@@ -9,7 +9,7 @@
  * The Third Law: A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
  */
 
-package frc.robot.commands;
+package frc.robot.commands.mailbox;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
