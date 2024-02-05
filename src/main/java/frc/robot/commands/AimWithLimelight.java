@@ -44,7 +44,7 @@ public class AimWithLimelight extends Command {
    *     Positive means rotated such that the lens is facing up, and not down.
    * @param driveStrength How hard to drive towards the target; between 0 and 1.
    * @param speedLimit Basic speed limit to make sure we don't drive too fast. Percentage of max
-   *     speed the robot can go.
+   *     speed the robot can go. 0 to 1.
    * @param turnDoneThreshold The threshold in degrees when we consider the aiming done.
    * @param distanceDoneThreshold The threshold in inches when we consider the aiming done.
    * @param targetHeight The height of the target off the floor.
