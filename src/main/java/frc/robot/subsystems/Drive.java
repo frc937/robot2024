@@ -12,6 +12,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -45,42 +46,30 @@ public class Drive extends SubsystemBase {
   /**
    * Drives the robot in robot-oriented mode.
    *
-   * @param x Robot velocity left to right in m/s. Left is positive.
-   * @param y Robot velocity forward and backward in m/s. Forward is positive.
+   * @param translation {@link Translation2d} that represents the commanded robot velocities on the
+   *     x and y axes. Front-left postitive.
    * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
    *     positive.
    */
-  public void driveRobotOriented(double x, double y, double z) {
-    x = x * getMaximumSpeed();
-    y = y * getMaximumSpeed();
-    z = z * getMaximumAngularSpeed();
-    Translation2d translation = new Translation2d(x, y);
-
+  public void driveRobotOriented(Translation2d translation, double z) {
     drive.drive(translation, z, false, false);
   }
 
   /**
    * Drives the robot in field-oriented mode.
    *
-   * @param x Robot velocity left to right in m/s. Left is positive. Relative to the field.
-   * @param y Robot velocity forward and backward in m/s. Toward the opposing alliance wall is
-   *     positive.
+   * @param translation {@link Translation2d} that represents the commanded robot velocities on the
+   *     x and y axes. Front-left postitive. Reletive to the field.
    * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
    *     positive.
    */
-  public void driveFieldOriented(double x, double y, double z) {
-    x = x * getMaximumSpeed();
-    y = y * getMaximumSpeed();
-    z = z * getMaximumAngularSpeed();
-    Translation2d translation = new Translation2d(x, y);
-
+  public void driveFieldOriented(Translation2d translation, double z) {
     drive.drive(translation, z, true, false);
   }
 
   /** Stops all motors in the subsystem. */
   public void stop() {
-    drive.drive(
-        Constants.Drive.EMPTY_TRANSLATION, 0, false, false, Constants.Drive.EMPTY_TRANSLATION);
+    drive.drive(Constants.Drive.EMPTY_TRANSLATION, 0, false, false);
   }
 
   /** Points the wheels toward the inside and stops the wheels from moving in any direction. */
@@ -88,12 +77,36 @@ public class Drive extends SubsystemBase {
     drive.lockPose();
   }
 
-  private double getMaximumSpeed() {
-    return Constants.Drive.MAX_SPEED;
+  /**
+   * Set the heading correction capabilities of YAGSL. Should only be enabled when heading
+   * correction capabilities are in use
+   *
+   * @param state SwerveDrive.headingCorrection state
+   */
+  public void setHeadingCorrection(boolean state) {
+    drive.setHeadingCorrection(state);
   }
 
-  private double getMaximumAngularSpeed() {
-    return Constants.Drive.MAX_ANGULAR_SPEED;
+  /**
+   * Takes [-1, 1] joystick-like inputs and converts them to a {@link ChassisSpeeds} object that
+   * represents the commanded robot velocities
+   *
+   * @param translationX joystick input for the left to right axis. [-1, 1], left is positive.
+   * @param translationY joystick input for the forward to backward axis. [-1, 1], forward is
+   *     positive.
+   * @param headingX x component of the cartesian angle of the robot's heading
+   * @param headingY y component of the cartesian angle of the robot's heading
+   * @return {@link ChassisSpeeds} object that represents the commanded robot velocities
+   */
+  public ChassisSpeeds getTargetSpeeds(
+      double translationX, double translationY, double headingX, double headingY) {
+    return drive.swerveController.getTargetSpeeds(
+        translationX,
+        translationY,
+        headingX,
+        headingY,
+        drive.getPose().getRotation().getRadians(),
+        Constants.Drive.MAX_SPEED);
   }
 
   /** Runs every scheduler run. */
