@@ -15,6 +15,7 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
@@ -27,6 +28,7 @@ import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.RunBelts;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
@@ -60,6 +62,10 @@ public class RobotContainer {
   /** Singleton instance of {@link Intake} for the whole robot. */
   public static Intake intake = new Intake();
 
+  /** Singleton instance of {@link Limelight} for aiming. */
+  public static Limelight limelight =
+      new Limelight(Constants.Limelight.AimingLimelight.LIMELIGHT_NAME);
+
   /** Singleton instance of {@link UrMom} for the whole robot. */
   public static UrMom urMom = new UrMom();
 
@@ -78,6 +84,18 @@ public class RobotContainer {
   private DeindexNote deindexNote = new DeindexNote();
   private FireNoteRoutine fireNote = new FireNoteRoutine();
   private RunIntake runIntake = new RunIntake();
+  private AimWithLimelight aimToAmp =
+      new AimWithLimelight(
+          limelight,
+          Constants.Limelight.AimingLimelight.STEER_STRENGTH,
+          Constants.Limelight.AimingLimelight.DISTANCE_FROM_TARGET,
+          Constants.Limelight.AimingLimelight.MOUNT_HEIGHT,
+          Constants.Limelight.AimingLimelight.MOUNT_ANGLE,
+          Constants.Limelight.AimingLimelight.DRIVE_STRENGTH,
+          Constants.Limelight.AimingLimelight.SPEED_LIMIT,
+          Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
+          Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
+          Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
   private DeployUrMom deployUrMom = new DeployUrMom();
 
   /*

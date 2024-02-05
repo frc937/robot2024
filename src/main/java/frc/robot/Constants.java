@@ -84,4 +84,47 @@ public final class Constants {
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 0.5;
   }
+
+  /** Holds contstants for the Limelights. */
+  public static class Limelight {
+    /** Constants for aiming Limelight. */
+    public static class AimingLimelight {
+      public static final String LIMELIGHT_NAME = "limelight";
+
+      /** The number of degrees the Limelight is mounted back from perfectly vertical */
+      public static final double MOUNT_ANGLE = 0;
+
+      /** The number of inches from the center of the Limelight lens to the floor */
+      public static final double MOUNT_HEIGHT = 0;
+
+      /** The height to the Amp Apriltag off the ground. */
+      public static final double AMP_APRILTAG_HEIGHT = 0;
+
+      /** How far in inches we want to be from the target when we shoot */
+      public static final double DISTANCE_FROM_TARGET = 0;
+
+      /**
+       * How hard to turn toward the target. Double between 0 and 1, standard way to drive a motor
+       */
+      public static final double STEER_STRENGTH = 0;
+
+      /** How hard to drive toward the target. Same notation as above. */
+      public static final double DRIVE_STRENGTH = 0;
+
+      /** VERY BASIC speed limit to make sure we don't drive too fast towards the target. */
+      public static final double SPEED_LIMIT = 0;
+
+      /**
+       * When we're at or below this number of degrees from where we want to be, we'll consider the
+       * Limelight's aim routine "done"
+       */
+      public static final double TURN_DONE_THRESHOLD = 0;
+
+      /**
+       * When we're at or below this number of inches from the target distance, we'll consider the
+       * Limelight's drive routine "done"
+       */
+      public static final double DISTANCE_DONE_THRESHOLD = 0;
+    }
+  }
 }
