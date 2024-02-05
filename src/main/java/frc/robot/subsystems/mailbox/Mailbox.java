@@ -32,6 +32,7 @@ public class Mailbox extends SubsystemBase {
    * @return true if the mailbox is fully raised. False otherwise.
    */
   public boolean getLimitSwitch() {
+    /* Assumes the limit switch is wired to be normally open. */
     return limitSwitch.get();
   }
 
