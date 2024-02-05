@@ -60,6 +60,7 @@ public final class Constants {
     public static final int DRIVER_CONTROLLER_PORT = 0;
   }
 
+  /** Constants for the Drivetrain */
   public static class Drive {
     /** Empty translation to prevent creating 2 Translation2ds every time the drive train stops. */
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
@@ -71,6 +72,7 @@ public final class Constants {
     public static double MAX_ANGULAR_SPEED = Math.PI / 2;
   }
 
+  /** Constants for the Intake System */
   public static class Intake {
     /** Motor id of the Intake motor. */
     public static final int INTAKE_MOTOR_ID = 0;
