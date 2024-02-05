@@ -91,6 +91,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Constants for the Intake System</div>
 </dd>
+<dt><a href="frc/robot/Constants.Mailbox.html" class="type-name-link" title="class in frc.robot">Constants.Mailbox</a> - Class in <a href="frc/robot/package-summary.html">frc.robot</a></dt>
+<dd>
+<div class="block">Constants for the Mailbox system</div>
+</dd>
 <dt><a href="frc/robot/Constants.MailboxBelts.html" class="type-name-link" title="class in frc.robot">Constants.MailboxBelts</a> - Class in <a href="frc/robot/package-summary.html">frc.robot</a></dt>
 <dd>
 <div class="block">Constants for the Belts system.</div>
@@ -104,19 +108,27 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
-<dt><a href="frc/robot/commands/DeployMailbox.html" class="type-name-link" title="class in frc.robot.commands">DeployMailbox</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeindexNote.html" class="type-name-link" title="class in frc.robot.commands.mailbox">DeindexNote</a> - Class in <a href="frc/robot/commands/mailbox/package-summary.html">frc.robot.commands.mailbox</a></dt>
+<dd>
+<div class="block">Outputs the note from the index belts into the mailbox belts.</div>
+</dd>
+<dt><a href="frc/robot/commands/mailbox/DeindexNote.html#%3Cinit%3E()" class="member-name-link">DeindexNote()</a> - Constructor for class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeindexNote.html" title="class in frc.robot.commands.mailbox">DeindexNote</a></dt>
+<dd>
+<div class="block">Creates a new DeindexNote.</div>
+</dd>
+<dt><a href="frc/robot/commands/mailbox/DeployMailbox.html" class="type-name-link" title="class in frc.robot.commands.mailbox">DeployMailbox</a> - Class in <a href="frc/robot/commands/mailbox/package-summary.html">frc.robot.commands.mailbox</a></dt>
 <dd>
 <div class="block">Deploys the mailbox pneumatics and runs the belts; effectively deploys the mailbox on the bot.</div>
 </dd>
-<dt><a href="frc/robot/commands/DeployMailbox.html#%3Cinit%3E()" class="member-name-link">DeployMailbox()</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/DeployMailbox.html" title="class in frc.robot.commands">DeployMailbox</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeployMailbox.html#%3Cinit%3E()" class="member-name-link">DeployMailbox()</a> - Constructor for class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeployMailbox.html" title="class in frc.robot.commands.mailbox">DeployMailbox</a></dt>
 <dd>
 <div class="block">Creates a new DeployMailbox.</div>
 </dd>
-<dt><a href="frc/robot/commands/DeployPneumatics.html" class="type-name-link" title="class in frc.robot.commands">DeployPneumatics</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeployPneumatics.html" class="type-name-link" title="class in frc.robot.commands.mailbox">DeployPneumatics</a> - Class in <a href="frc/robot/commands/mailbox/package-summary.html">frc.robot.commands.mailbox</a></dt>
 <dd>
 <div class="block">Command that extends the mailbox when started, and lowers the mailbox when ended.</div>
 </dd>
-<dt><a href="frc/robot/commands/DeployPneumatics.html#%3Cinit%3E()" class="member-name-link">DeployPneumatics()</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/DeployPneumatics.html" title="class in frc.robot.commands">DeployPneumatics</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeployPneumatics.html#%3Cinit%3E()" class="member-name-link">DeployPneumatics()</a> - Constructor for class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeployPneumatics.html" title="class in frc.robot.commands.mailbox">DeployPneumatics</a></dt>
 <dd>
 <div class="block">Creates a new DeployPneumatics.</div>
 </dd>
@@ -196,8 +208,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Empty translation to prevent creating 2 Translation2ds every time the drive train stops.</div>
 </dd>
-<dt><a href="frc/robot/commands/DeployPneumatics.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployPneumatics.html" title="class in frc.robot.commands">DeployPneumatics</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
@@ -208,7 +218,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/RunBelts.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunBelts.html" title="class in frc.robot.commands">RunBelts</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeindexNote.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeindexNote.html" title="class in frc.robot.commands.mailbox">DeindexNote</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/DeployPneumatics.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeployPneumatics.html" title="class in frc.robot.commands.mailbox">DeployPneumatics</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/RunBelts.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/RunBelts.html" title="class in frc.robot.commands.mailbox">RunBelts</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/RunIntake.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunIntake.html" title="class in frc.robot.commands">RunIntake</a></dt>
 <dd>&nbsp;</dd>
@@ -224,8 +238,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates a new EnterXMode.</div>
 </dd>
-<dt><a href="frc/robot/commands/DeployPneumatics.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployPneumatics.html" title="class in frc.robot.commands">DeployPneumatics</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
@@ -236,7 +248,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/RunBelts.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunBelts.html" title="class in frc.robot.commands">RunBelts</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeindexNote.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeindexNote.html" title="class in frc.robot.commands.mailbox">DeindexNote</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/DeployPneumatics.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeployPneumatics.html" title="class in frc.robot.commands.mailbox">DeployPneumatics</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/RunBelts.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/RunBelts.html" title="class in frc.robot.commands.mailbox">RunBelts</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/RunIntake.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunIntake.html" title="class in frc.robot.commands">RunIntake</a></dt>
 <dd>&nbsp;</dd>
@@ -247,11 +263,21 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:F">F</h2>
 <dl class="index">
+<dt><a href="frc/robot/commands/mailbox/FireNoteRoutine.html" class="type-name-link" title="class in frc.robot.commands.mailbox">FireNoteRoutine</a> - Class in <a href="frc/robot/commands/mailbox/package-summary.html">frc.robot.commands.mailbox</a></dt>
+<dd>
+<div class="block">Scores the note into the amp.</div>
+</dd>
+<dt><a href="frc/robot/commands/mailbox/FireNoteRoutine.html#%3Cinit%3E()" class="member-name-link">FireNoteRoutine()</a> - Constructor for class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/FireNoteRoutine.html" title="class in frc.robot.commands.mailbox">FireNoteRoutine</a></dt>
+<dd>
+<div class="block">Creates a new FireNote.</div>
+</dd>
 <dt><a href="frc/robot/package-summary.html">frc.robot</a> - package frc.robot</dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/package-summary.html">frc.robot.commands</a> - package frc.robot.commands</dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/package-summary.html">frc.robot.commands.drive</a> - package frc.robot.commands.drive</dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/package-summary.html">frc.robot.commands.mailbox</a> - package frc.robot.commands.mailbox</dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/package-summary.html">frc.robot.subsystems</a> - package frc.robot.subsystems</dt>
 <dd>&nbsp;</dd>
@@ -284,6 +310,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns a boolean value on whether or not the Limit Switch (for the intake) has been activated.</div>
 </dd>
+<dt><a href="frc/robot/subsystems/mailbox/Mailbox.html#getLimitSwitch()" class="member-name-link">getLimitSwitch()</a> - Method in class frc.robot.subsystems.mailbox.<a href="frc/robot/subsystems/mailbox/Mailbox.html" title="class in frc.robot.subsystems.mailbox">Mailbox</a></dt>
+<dd>
+<div class="block">Gets the Mailbox Limit Switch's Value.</div>
+</dd>
 <dt><a href="frc/robot/RobotContainer.html#getScaledControllerLeftXAxis()" class="member-name-link">getScaledControllerLeftXAxis()</a> - Static method in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
 <div class="block">Gets scaled x-axis of left stick of driver controller.</div>
@@ -308,8 +338,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:I">I</h2>
 <dl class="index">
-<dt><a href="frc/robot/commands/DeployPneumatics.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployPneumatics.html" title="class in frc.robot.commands">DeployPneumatics</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
@@ -320,7 +348,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/RunBelts.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunBelts.html" title="class in frc.robot.commands">RunBelts</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeindexNote.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeindexNote.html" title="class in frc.robot.commands.mailbox">DeindexNote</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/DeployPneumatics.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeployPneumatics.html" title="class in frc.robot.commands.mailbox">DeployPneumatics</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/RunBelts.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/RunBelts.html" title="class in frc.robot.commands.mailbox">RunBelts</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/RunIntake.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunIntake.html" title="class in frc.robot.commands">RunIntake</a></dt>
 <dd>&nbsp;</dd>
@@ -350,8 +382,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Speed we want to run the Intake at.</div>
 </dd>
-<dt><a href="frc/robot/commands/DeployPneumatics.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployPneumatics.html" title="class in frc.robot.commands">DeployPneumatics</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
@@ -362,7 +392,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/RunBelts.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunBelts.html" title="class in frc.robot.commands">RunBelts</a></dt>
+<dt><a href="frc/robot/commands/mailbox/DeindexNote.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeindexNote.html" title="class in frc.robot.commands.mailbox">DeindexNote</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/DeployPneumatics.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/DeployPneumatics.html" title="class in frc.robot.commands.mailbox">DeployPneumatics</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/mailbox/RunBelts.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/RunBelts.html" title="class in frc.robot.commands.mailbox">RunBelts</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/RunIntake.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/RunIntake.html" title="class in frc.robot.commands">RunIntake</a></dt>
 <dd>&nbsp;</dd>
@@ -380,13 +414,23 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
+<dt><a href="frc/robot/RobotContainer.html#mailbox" class="member-name-link">mailbox</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
+<dd>
+<div class="block">Singleton instance of <a href="frc/robot/subsystems/mailbox/Mailbox.html" title="class in frc.robot.subsystems.mailbox"><code>Mailbox</code></a> for the whole robot.</div>
+</dd>
 <dt><a href="frc/robot/subsystems/mailbox/Mailbox.html" class="type-name-link" title="class in frc.robot.subsystems.mailbox">Mailbox</a> - Class in <a href="frc/robot/subsystems/mailbox/package-summary.html">frc.robot.subsystems.mailbox</a></dt>
 <dd>
 <div class="block">Subsystem for the mailbox that outputs game pieces from our robot.</div>
 </dd>
+<dt><a href="frc/robot/Constants.Mailbox.html#%3Cinit%3E()" class="member-name-link">Mailbox()</a> - Constructor for class frc.robot.<a href="frc/robot/Constants.Mailbox.html" title="class in frc.robot">Constants.Mailbox</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/mailbox/Mailbox.html#%3Cinit%3E()" class="member-name-link">Mailbox()</a> - Constructor for class frc.robot.subsystems.mailbox.<a href="frc/robot/subsystems/mailbox/Mailbox.html" title="class in frc.robot.subsystems.mailbox">Mailbox</a></dt>
 <dd>
 <div class="block">Creates a new Mailbox.</div>
+</dd>
+<dt><a href="frc/robot/Constants.Mailbox.html#MAILBOX_LIMIT_SWITCH_DIO_PORT" class="member-name-link">MAILBOX_LIMIT_SWITCH_DIO_PORT</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Mailbox.html" title="class in frc.robot">Constants.Mailbox</a></dt>
+<dd>
+<div class="block">DIO Port ID for the Mailbox limit switch.</div>
 </dd>
 <dt><a href="frc/robot/RobotContainer.html#mailboxBelts" class="member-name-link">mailboxBelts</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
@@ -485,11 +529,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Runs the belt.</div>
 </dd>
-<dt><a href="frc/robot/commands/RunBelts.html" class="type-name-link" title="class in frc.robot.commands">RunBelts</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
+<dt><a href="frc/robot/commands/mailbox/RunBelts.html" class="type-name-link" title="class in frc.robot.commands.mailbox">RunBelts</a> - Class in <a href="frc/robot/commands/mailbox/package-summary.html">frc.robot.commands.mailbox</a></dt>
 <dd>
 <div class="block">Command that activates belts when started, and deactivates belts when ended.</div>
 </dd>
-<dt><a href="frc/robot/commands/RunBelts.html#%3Cinit%3E()" class="member-name-link">RunBelts()</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/RunBelts.html" title="class in frc.robot.commands">RunBelts</a></dt>
+<dt><a href="frc/robot/commands/mailbox/RunBelts.html#%3Cinit%3E()" class="member-name-link">RunBelts()</a> - Constructor for class frc.robot.commands.mailbox.<a href="frc/robot/commands/mailbox/RunBelts.html" title="class in frc.robot.commands.mailbox">RunBelts</a></dt>
 <dd>
 <div class="block">Creates a new DeployBelts.</div>
 </dd>
