@@ -37,10 +37,7 @@ public class DeindexNoteNoLimitSwitch extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    /* If the mailbox is fully raised, run the intake. */
-    /* This else isn't neccessary, just advised for safety. If it interferes with anything, feel free to remove it. */
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
