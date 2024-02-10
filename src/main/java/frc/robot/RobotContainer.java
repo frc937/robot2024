@@ -12,6 +12,8 @@
 package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -104,6 +106,8 @@ public class RobotContainer {
    * ***********************
    */
 
+  private SendableChooser<Command> autoChooser;
+
   /* The CommandXboxController instance must be static to allow the getter methods for its axes
    * to work.
    */
@@ -114,8 +118,16 @@ public class RobotContainer {
   /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
     configureBindings();
+    configureAuto();
 
     drive.setDefaultCommand(driveRobotOriented);
+  }
+
+  private void configureAuto() {
+    autoChooser = new SendableChooser<>();
+    /* This is where you put auto commands. */
+
+    SmartDashboard.putData("choose auto", autoChooser);
   }
 
   private void configureBindings() {
