@@ -106,6 +106,8 @@ public class RobotContainer {
    * ***********************
    */
 
+  private SendableChooser<Command> autoChooser;
+
   /* The CommandXboxController instance must be static to allow the getter methods for its axes
    * to work.
    */
@@ -119,6 +121,7 @@ public class RobotContainer {
   /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
     configureBindings();
+    configureAuto();
 
     drive.setDefaultCommand(driveRobotOriented);
 
@@ -127,6 +130,13 @@ public class RobotContainer {
     /* Another option that allows you to specify the default auto by its name */
     /* autoChooser = AutoBuilder.buildAutoChooser("My Default Auto"); */
     SmartDashboard.putData("Auto Chooser", autoChooser);
+  }
+
+  private void configureAuto() {
+    autoChooser = new SendableChooser<>();
+    /* This is where you put auto commands. */
+
+    SmartDashboard.putData("choose auto", autoChooser);
   }
 
   private void configureBindings() {
