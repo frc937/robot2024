@@ -19,6 +19,7 @@ import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.RunIntakeNoLimitSwitch;
 import frc.robot.commands.drive.DriveFieldOriented;
 import frc.robot.commands.drive.DriveRobotOriented;
 import frc.robot.commands.mailbox.DeindexNote;
@@ -86,6 +87,7 @@ public class RobotContainer {
   private DeindexNoteNoLimitSwitch deindexNoteNoLimitSwitch = new DeindexNoteNoLimitSwitch();
   private FireNoteRoutine fireNote = new FireNoteRoutine();
   private RunIntake runIntake = new RunIntake();
+  private RunIntakeNoLimitSwitch RunIntakeNoLimitSwitch = new RunIntakeNoLimitSwitch();
   private AimWithLimelight aimToAmp =
       new AimWithLimelight(
           limelight,
@@ -127,6 +129,7 @@ public class RobotContainer {
     driverController.a().onTrue(runIntake);
     driverController.y().onTrue(fireNote);
     driverController.b().onTrue(deindexNoteNoLimitSwitch);
+    driverController.a().onTrue(RunIntakeNoLimitSwitch);
   }
 
   /**
