@@ -118,12 +118,15 @@ public class RobotContainer {
   /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
     configureBindings();
+    configureAuto();
 
     drive.setDefaultCommand(driveRobotOriented);
+  }
+
+  private void configureAuto() {
     autoChooser = new SendableChooser<>();
     SmartDashboard.putData("choose auto", autoChooser);
     /* This is where you put auto commands. */
-
   }
 
   private void configureBindings() {
