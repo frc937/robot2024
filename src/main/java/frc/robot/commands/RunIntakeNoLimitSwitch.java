@@ -15,12 +15,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
 
-/** Command that runs the intake on the robot. */
+/** Command that runs the intake without a limit switch on the robot. */
 public class RunIntakeNoLimitSwitch extends Command {
 
   private Intake intake;
 
-  /** Creates a new RunIntake. */
+  /** Creates a new RunIntakeNoLimitSwitch. */
   public RunIntakeNoLimitSwitch() {
     this.intake = RobotContainer.intake;
     addRequirements(intake);

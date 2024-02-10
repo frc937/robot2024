@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
 /**
  * Scores the note into the amp. Raises the mailbox, runs the mailbox belts, and then runs the index
- * belts to send the note into the belts.
+ * belts to send the note into the belts without a limit switch.
  */
 public class FireNoteRoutineNoLimitSwitch extends ParallelCommandGroup {
-  /** Creates a new FireNote. */
+  /** Creates a new FireNoteRoutineNoLimitSwitch. */
   public FireNoteRoutineNoLimitSwitch() {
     addCommands(new DeployMailbox(), new DeindexNoteNoLimitSwitch());
   }

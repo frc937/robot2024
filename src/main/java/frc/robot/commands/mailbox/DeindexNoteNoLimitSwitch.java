@@ -15,12 +15,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
 
-/** Outputs the note from the index belts into the mailbox belts. */
+/** Outputs the note from the index belts without a limit switch into the mailbox belts. */
 public class DeindexNoteNoLimitSwitch extends Command {
 
   private Intake intake;
 
-  /** Creates a new DeindexNote. */
+  /** Creates a new DeindexNoteNoLimitSwitch. */
   public DeindexNoteNoLimitSwitch() {
     this.intake = RobotContainer.intake;
     addRequirements(intake);
