@@ -106,8 +106,6 @@ public class RobotContainer {
    * ***********************
    */
 
-  private SendableChooser<Command> autoChooser;
-
   /* The CommandXboxController instance must be static to allow the getter methods for its axes
    * to work.
    */
@@ -133,9 +131,7 @@ public class RobotContainer {
   }
 
   private void configureAuto() {
-    autoChooser = new SendableChooser<>();
     /* This is where you put auto commands. */
-
     SmartDashboard.putData("choose auto", autoChooser);
   }
 
