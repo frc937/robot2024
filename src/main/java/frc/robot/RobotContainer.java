@@ -130,6 +130,7 @@ public class RobotContainer {
     driverController.y().onTrue(fireNote);
     driverController.b().onTrue(deindexNoteNoLimitSwitch);
     driverController.a().onTrue(RunIntakeNoLimitSwitch);
+    driverController.rightTrigger().onTrue(deployMailbox);
   }
 
   /**
