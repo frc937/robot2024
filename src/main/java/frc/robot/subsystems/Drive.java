@@ -49,23 +49,23 @@ public class Drive extends SubsystemBase {
     /* setting the motors to brake mode */
     drive.setMotorIdleMode(true);
 
-    // Configure AutoBuilder last
+    /* Configure AutoBuilder last */
     AutoBuilder.configureHolonomic(
-      this.drive::getPose, // Robot pose supplier
-      this.drive::resetOdometry, // Method to reset odometry (will be called if your auto has a starting pose)
-      this.drive::getRobotVelocity, // ChassisSpeeds supplier. MUST BE ROBOT RELATIVE
-      this.drive::setChassisSpeeds, // Method that will drive the robot given ROBOT RELATIVE ChassisSpeeds
-      new HolonomicPathFollowerConfig( // HolonomicPathFollowerConfig, this should likely live in your Constants class
-              new PIDConstants(1.0, 0.0, 0.0), // Translation PID constants
-              new PIDConstants(1.0, 0.0, 0.0), // Rotation PID constants
-              Constants.Drive.MAX_SPEED, // Max module speed, in m/s
-              Constants.Drive.DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE, // Drive base radius in meters. Distance from robot center to furthest module.
-              new ReplanningConfig() // Default path replanning config. See the API for the options here
+      this.drive::getPose, /* Robot pose supplier */
+      this.drive::resetOdometry, /* Method to reset odometry (will be called if your auto has a starting pose) */
+      this.drive::getRobotVelocity, /* ChassisSpeeds supplier. MUST BE ROBOT RELATIVE */
+      this.drive::setChassisSpeeds, /* Method that will drive the robot given ROBOT RELATIVE ChassisSpeeds */
+      new HolonomicPathFollowerConfig( /* HolonomicPathFollowerConfig, this should likely live in your Constants class */
+              new PIDConstants(1.0, 0.0, 0.0), /* Translation PID constants */
+              new PIDConstants(1.0, 0.0, 0.0), /* Rotation PID constants */
+              Constants.Drive.MAX_SPEED, /* Max module speed, in m/s */
+              Constants.Drive.DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE, /* Drive base radius in meters. Distance from robot center to furthest module. */
+              new ReplanningConfig() /* Default path replanning config. See the API for the options here */
       ),
       () -> {
-        // Boolean supplier that controls when the path will be mirrored for the red alliance
-        // This will flip the path being followed to the red side of the field.
-        // THE ORIGIN WILL REMAIN ON THE BLUE SIDE
+        /* Boolean supplier that controls when the path will be mirrored for the red alliance */
+        /* This will flip the path being followed to the red side of the field. */
+        /* THE ORIGIN WILL REMAIN ON THE BLUE SIDE */
 
         var alliance = DriverStation.getAlliance();
         if (alliance.isPresent()) {
@@ -73,7 +73,7 @@ public class Drive extends SubsystemBase {
         }
         return false;
       },
-      this // Reference to this subsystem to set requirements
+      this /* Reference to this subsystem to set requirements */
     );
   }
 
