@@ -14,19 +14,16 @@ package frc.robot.commands.mailbox;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.mailbox.Mailbox;
 
 /** Outputs the note from the index belts into the mailbox belts. */
 public class DeindexNoteNoLimitSwitch extends Command {
 
   private Intake intake;
-  private Mailbox mailbox;
 
   /** Creates a new DeindexNote. */
   public DeindexNoteNoLimitSwitch() {
     this.intake = RobotContainer.intake;
-    this.mailbox = RobotContainer.mailbox;
-    addRequirements(intake, mailbox);
+    addRequirements(intake);
   }
 
   // Called when the command is initially scheduled.
