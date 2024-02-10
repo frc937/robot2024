@@ -126,7 +126,6 @@ public class RobotContainer {
     driverController.leftStick().toggleOnTrue(driveFieldOriented);
 
     driverController.x().onTrue(enterXMode);
-    driverController.a().onTrue(runIntake);
     driverController.y().onTrue(fireNote);
     driverController.b().onTrue(deindexNoteNoLimitSwitch);
     driverController.a().onTrue(RunIntakeNoLimitSwitch);
