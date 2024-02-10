@@ -125,8 +125,9 @@ public class RobotContainer {
 
   private void configureAuto() {
     autoChooser = new SendableChooser<>();
-    SmartDashboard.putData("choose auto", autoChooser);
     /* This is where you put auto commands. */
+
+    SmartDashboard.putData("choose auto", autoChooser);
   }
 
   private void configureBindings() {
