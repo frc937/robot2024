@@ -53,7 +53,7 @@ public final class Constants {
     public static final int BELT_MOTOR_ID = 0;
 
     /** The speed for the belt motor. */
-    public static final double BELT_MOTOR_SPEED = .7;
+    public static final double BELT_MOTOR_SPEED = 1;
   }
 
   /** Constants that are relating to the controllers. */
@@ -93,7 +93,7 @@ public final class Constants {
     public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 0;
 
     /** Speed we want to run the Intake at. */
-    public static final double INTAKE_MOTOR_SPEED = 0.5;
+    public static final double INTAKE_MOTOR_SPEED = 1;
   }
 
   /** Holds contstants for the Limelights. */
