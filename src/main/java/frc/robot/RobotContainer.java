@@ -114,7 +114,7 @@ public class RobotContainer {
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
 
   /** Sendable Chooser for path planning autos. */
-  private final SendableChooser<Command> autoChooser;
+  private SendableChooser<Command> autoChooser;
 
   /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
@@ -122,17 +122,16 @@ public class RobotContainer {
     configureAuto();
 
     drive.setDefaultCommand(driveRobotOriented);
+  }
 
+  private void configureAuto() {
     /* Build an auto chooser. This will use Commands.none() as the default option. */
     autoChooser = AutoBuilder.buildAutoChooser();
     /* Another option that allows you to specify the default auto by its name */
     /* autoChooser = AutoBuilder.buildAutoChooser("My Default Auto"); */
-    SmartDashboard.putData("Auto Chooser", autoChooser);
-  }
-
-  private void configureAuto() {
-    /* This is where you put auto commands. */
     SmartDashboard.putData("choose auto", autoChooser);
+
+    /* This is where you put auto commands. */
   }
 
   private void configureBindings() {
