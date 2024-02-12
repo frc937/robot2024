@@ -25,6 +25,7 @@ import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.FireNoteRoutine;
+import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
@@ -83,6 +84,8 @@ public class RobotContainer {
   private DeployMailbox deployMailbox = new DeployMailbox();
   private DeindexNote deindexNote = new DeindexNote();
   private FireNoteRoutine fireNote = new FireNoteRoutine();
+  private FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
+      new FireNoteRoutineNoLimitSwitch();
   private RunIntake runIntake = new RunIntake();
   private AimWithLimelight aimToAmp =
       new AimWithLimelight(
@@ -125,6 +128,7 @@ public class RobotContainer {
     driverController.y().onTrue(fireNote);
     driverController.a().onTrue(runIntake);
     driverController.rightTrigger().onTrue(deployMailbox);
+    driverController.b().onTrue(fireNoteRoutineNoLimitSwitch);
   }
 
   /**
