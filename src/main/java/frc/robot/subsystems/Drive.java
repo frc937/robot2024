@@ -57,8 +57,8 @@ public class Drive extends SubsystemBase {
             ::setChassisSpeeds, /* Method that will drive the robot given ROBOT RELATIVE ChassisSpeeds */
         new HolonomicPathFollowerConfig(
             /* HolonomicPathFollowerConfig, this should likely live in your Constants class */
-            new PIDConstants(1.0, 0.0, 0.0), /* Translation PID constants */
-            new PIDConstants(1.0, 0.0, 0.0), /* Rotation PID constants */
+            Constants.Drive.TRANSLATION_DRIVE_PID, /* Translation PID constants */
+            Constants.Drive.ROTATION_DRIVE_PID, /* Rotation PID constants */
             Constants.Drive.MAX_SPEED, /* Max module speed, in m/s */
             Constants.Drive
                 .DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE, /* Drive base radius in meters. Distance from robot center to furthest module. */

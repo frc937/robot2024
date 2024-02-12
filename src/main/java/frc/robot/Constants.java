@@ -11,6 +11,8 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.util.PIDConstants;
+
 import edu.wpi.first.math.geometry.Translation2d;
 
 /**
@@ -73,6 +75,12 @@ public final class Constants {
 
     /** The distance from the center of the robot to any of the swerve modules. */
     public static double DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE = 0.3;
+
+    /** The Translation Drive PID for the robot. Since we aren't using drive PID this year, the values are set to the default. */
+    public static PIDConstants TRANSLATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
+
+    /** The Rotation Drive PID for the robot. Since we aren't using drive PID this year, the values are set to the default. */
+    public static PIDConstants ROTATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
   }
 
   /** Constants for the Intake System */
