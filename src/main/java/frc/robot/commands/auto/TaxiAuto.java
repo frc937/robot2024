@@ -16,18 +16,16 @@ import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 
-// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
-// information, see:
-// https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
+/**
+ * Auto that just taxis (or more accurately, moves us out of the auto starting box. Taxi time and
+ * velocity can be tuned in Constants.Drive.
+ */
 public class TaxiAuto extends ParallelDeadlineGroup {
   /** Creates a new TaxiAuto. */
   public TaxiAuto() {
-    // Add the deadline command in the super() call. Add other commands using
-    // addCommands().
-    super(
-        new WaitCommand(Constants.Drive.TAXI_AUTO_DURATION_SECONDS),
+    super(new WaitCommand(Constants.Drive.TAXI_AUTO_DURATION_SECONDS));
+    addCommands(
         new DriveAutoRobotOriented(
             new Translation2d(0, Constants.Drive.TAXI_AUTO_METERS_PER_SECOND), 0));
-    // addCommands(new FooCommand(), new BarCommand());
   }
 }
