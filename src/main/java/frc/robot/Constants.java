@@ -48,7 +48,7 @@ public final class Constants {
   /** Constants for the Belts system. */
   public static class MailboxBelts {
     /** The channel on the PCM for the belt motor */
-    public static final int BELT_MOTOR_ID = 0;
+    public static final int BELT_MOTOR_ID = 3;
 
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = 1;
@@ -75,7 +75,7 @@ public final class Constants {
   /** Constants for the Intake System */
   public static class Intake {
     /** Motor id of the Intake motor. */
-    public static final int INTAKE_MOTOR_ID = 2;
+    public static final int INTAKE_MOTOR_ID = 1;
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */
