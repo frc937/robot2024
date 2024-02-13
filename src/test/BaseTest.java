@@ -15,7 +15,7 @@ public class BaseTests {
 
   /* HEY! If your test is failing, don't comment this out! Your code won't work on the robot. So fix it! /lh /nm */
   @Test
-  public void TestAutoTasks() {
+  public void testAutoTasks() {
     new RobotContainer();
   }
 }
