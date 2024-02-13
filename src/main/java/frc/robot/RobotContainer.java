@@ -11,11 +11,11 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
@@ -109,14 +109,15 @@ public class RobotContainer {
    * ***********************
    */
 
-  private SendableChooser<Command> autoChooser;
-
   /* The CommandXboxController instance must be static to allow the getter methods for its axes
    * to work.
    */
   /** Xbox controller for the driver. */
   public static CommandXboxController driverController =
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
+
+  /** Sendable Chooser for autos. */
+  private SendableChooser<Command> autoChooser;
 
   /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
@@ -127,8 +128,12 @@ public class RobotContainer {
   }
 
   private void configureAuto() {
-    autoChooser = new SendableChooser<>();
-    /* This is where you put auto commands. */
+    /* Build an auto chooser. This will use Commands.none() as the default option. */
+    autoChooser = AutoBuilder.buildAutoChooser();
+    /* Another option that allows you to specify the default auto by its name */
+    /* autoChooser = AutoBuilder.buildAutoChooser("My Default Auto"); */
+
+    /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
 
     SmartDashboard.putData("choose auto", autoChooser);
   }
@@ -149,7 +154,7 @@ public class RobotContainer {
    * @return The current autonomous command.
    */
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
+    return autoChooser.getSelected();
   }
 
   private static double scaleAxis(double axis) {

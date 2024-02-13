@@ -11,9 +11,13 @@
 
 package frc.robot.subsystems;
 
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
+import com.pathplanner.lib.util.ReplanningConfig;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -41,6 +45,35 @@ public class Drive extends SubsystemBase {
     }
     /* setting the motors to brake mode */
     drive.setMotorIdleMode(true);
+
+    /* Configure AutoBuilder last */
+    AutoBuilder.configureHolonomic(
+        this.drive::getPose, /* Robot pose supplier */
+        this.drive
+            ::resetOdometry, /* Method to reset odometry (will be called if your auto has a starting pose) */
+        this.drive::getRobotVelocity, /* ChassisSpeeds supplier. MUST BE ROBOT RELATIVE */
+        this.drive
+            ::setChassisSpeeds, /* Method that will drive the robot given ROBOT RELATIVE ChassisSpeeds */
+        new HolonomicPathFollowerConfig(
+            /* HolonomicPathFollowerConfig, this should likely live in your Constants class */
+            Constants.Drive.TRANSLATION_DRIVE_PID, /* Translation PID constants */
+            Constants.Drive.ROTATION_DRIVE_PID, /* Rotation PID constants */
+            Constants.Drive.MAX_SPEED, /* Max module speed, in m/s */
+            Constants.Drive
+                .DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE, /* Drive base radius in meters. Distance from robot center to furthest module. */
+            new ReplanningConfig() /* Default path replanning config. See the API for the options here */),
+        () -> {
+          /* Boolean supplier that controls when the path will be mirrored for the red alliance */
+          /* This will flip the path being followed to the red side of the field. */
+          /* THE ORIGIN WILL REMAIN ON THE BLUE SIDE */
+
+          var alliance = DriverStation.getAlliance();
+          if (alliance.isPresent()) {
+            return alliance.get() == DriverStation.Alliance.Red;
+          }
+          return false;
+        },
+        this /* Reference to this subsystem to set requirements */);
   }
 
   /**

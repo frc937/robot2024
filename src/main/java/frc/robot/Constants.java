@@ -11,6 +11,7 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.util.PIDConstants;
 import edu.wpi.first.math.geometry.Translation2d;
 
 /**
@@ -65,11 +66,20 @@ public final class Constants {
     /** Empty translation to prevent creating 2 Translation2ds every time the drive train stops. */
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
 
-    /** The max speed the robot can go */
+    /** The max speed the robot can go in m/s */
     public static double MAX_SPEED = 1;
 
     /** The max speed the robot can rotate */
     public static double MAX_ANGULAR_SPEED = Math.PI / 2;
+
+    /** The distance from the center of the robot to any of the swerve modules. */
+    public static double DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE = 0.3;
+
+    /** The Translation Drive PID for the robot. */
+    public static PIDConstants TRANSLATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
+
+    /** The Rotation Drive PID for the robot. */
+    public static PIDConstants ROTATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
   }
 
   /** Constants for the Intake System */
