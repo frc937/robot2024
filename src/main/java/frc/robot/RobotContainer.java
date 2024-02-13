@@ -12,6 +12,8 @@
 package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -128,6 +130,9 @@ public class RobotContainer {
   }
 
   private void configureAuto() {
+
+    NamedCommands.registerCommand("aimToAmp", aimToAmp);
+
     /* Build an auto chooser. This will use Commands.none() as the default option. */
     autoChooser = AutoBuilder.buildAutoChooser();
     /* Another option that allows you to specify the default auto by its name */
