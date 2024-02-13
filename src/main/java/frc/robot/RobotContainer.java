@@ -142,10 +142,10 @@ public class RobotContainer {
     driverController.leftStick().toggleOnTrue(driveFieldOriented);
 
     driverController.x().onTrue(enterXMode);
-    driverController.y().onTrue(fireNote);
-    driverController.a().onTrue(runIntake);
-    driverController.rightTrigger().onTrue(deployMailbox);
-    driverController.b().onTrue(fireNoteRoutineNoLimitSwitch);
+    driverController.y().whileTrue(fireNote);
+    driverController.a().whileTrue(runIntake);
+    driverController.rightTrigger().whileTrue(deployMailbox);
+    driverController.b().whileTrue(runBelts);
   }
 
   /**
