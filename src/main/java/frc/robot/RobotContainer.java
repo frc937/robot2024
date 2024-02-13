@@ -13,7 +13,6 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -22,7 +21,7 @@ import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
-import frc.robot.commands.auto.DriveAutoRobotOriented;
+import frc.robot.commands.auto.TaxiAuto;
 import frc.robot.commands.drive.DriveFieldOriented;
 import frc.robot.commands.drive.DriveRobotOriented;
 import frc.robot.commands.mailbox.DeindexNote;
@@ -107,9 +106,7 @@ public class RobotContainer {
   private DeployUrMom deployUrMom = new DeployUrMom();
 
   /* Autos */
-  private Command taxiAuto =
-      new DriveAutoRobotOriented(
-          new Translation2d(0, Constants.Drive.TAXI_AUTO_METERS_PER_SECOND), 0);
+  private TaxiAuto taxiAuto = new TaxiAuto();
 
   /*
    * ***********************
@@ -142,6 +139,7 @@ public class RobotContainer {
     /* autoChooser = AutoBuilder.buildAutoChooser("My Default Auto"); */
 
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
+    autoChooser.addOption("Taxi", taxiAuto);
 
     SmartDashboard.putData("choose auto", autoChooser);
   }
