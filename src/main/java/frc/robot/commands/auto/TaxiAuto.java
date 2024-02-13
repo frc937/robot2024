@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 
 /**
- * Auto that just taxis (or more accurately, moves us out of the auto starting box. Taxi time and
+ * Auto that just taxis (or more accurately, moves us out of the auto starting box.) Taxi time and
  * velocity can be tuned in Constants.Drive.
  */
 public class TaxiAuto extends ParallelDeadlineGroup {
