@@ -36,6 +36,7 @@ import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
+import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
@@ -74,13 +75,31 @@ public class RobotContainer {
   public static UrMom urMom = new UrMom();
 
   /*
+   * *************
+   * * SUPPLIERS *
+   * *************
+   */
+  private Supplier<Double> scaledControllerLeftXAxisSupplier = () -> getScaledControllerLeftXAxis();
+  private Supplier<Double> scaledControllerLeftYAxisSupplier = () -> getScaledControllerLeftYAxis();
+  private Supplier<Double> scaledControllerRightXAxisSupplier =
+      () -> getScaledControllerRightXAxis();
+
+  /*
    * ************
    * * COMMANDS *
    * ************
    */
 
-  private DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
-  private DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
+  private DriveRobotOriented driveRobotOriented =
+      new DriveRobotOriented(
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerRightXAxisSupplier);
+  private DriveFieldOriented driveFieldOriented =
+      new DriveFieldOriented(
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerRightXAxisSupplier);
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();

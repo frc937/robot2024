@@ -16,14 +16,22 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
+import java.util.function.Supplier;
 
 /** Drives the robot in robot-oriented mode. Default command for {@link Drive} subsystem. */
 public class DriveRobotOriented extends Command {
   private final Drive drive;
+  private final Supplier<Double> xScaledSupplier, yScaledSupplier, zScaledSupplier;
 
   /** Creates a new DriveRobotOriented. */
-  public DriveRobotOriented() {
+  public DriveRobotOriented(
+      Supplier<Double> xScaledSupplier,
+      Supplier<Double> yScaledSupplier,
+      Supplier<Double> zScaledSupplier) {
     this.drive = RobotContainer.drive;
+    this.xScaledSupplier = xScaledSupplier;
+    this.yScaledSupplier = yScaledSupplier;
+    this.zScaledSupplier = zScaledSupplier;
     addRequirements(drive);
   }
 
@@ -34,9 +42,9 @@ public class DriveRobotOriented extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double x = RobotContainer.getScaledControllerLeftYAxis() * Constants.Drive.MAX_SPEED;
-    double y = RobotContainer.getScaledControllerLeftXAxis() * Constants.Drive.MAX_SPEED;
-    double z = RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED;
+    double x = xScaledSupplier.get() * Constants.Drive.MAX_SPEED;
+    double y = yScaledSupplier.get() * Constants.Drive.MAX_SPEED;
+    double z = zScaledSupplier.get() * Constants.Drive.MAX_ANGULAR_SPEED;
     Translation2d translation = new Translation2d(x, y);
 
     drive.driveRobotOriented(translation, z);
