@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
+import java.util.function.Supplier;
 import swervelib.SwerveController;
 
 /**
@@ -27,11 +28,27 @@ import swervelib.SwerveController;
 public class DriveFieldOrientedHeadingSnapping extends Command {
   private Drive drive;
   private XboxController controller;
+  private final Supplier<Double> xScaledSupplier, yScaledSupplier, zScaledSupplier;
+  private final Supplier<Boolean> upSupplier, downSupplier, leftSupplier, rightSupplier;
 
   /** Creates a new DriveFieldOrientedHeadingSnapping. */
-  public DriveFieldOrientedHeadingSnapping() {
+  public DriveFieldOrientedHeadingSnapping(
+      Supplier<Double> xScaledSupplier,
+      Supplier<Double> yScaledSupplier,
+      Supplier<Double> zScaledSupplier,
+      Supplier<Boolean> upSupplier,
+      Supplier<Boolean> downSupplier,
+      Supplier<Boolean> leftSupplier,
+      Supplier<Boolean> rightSupplier) {
     this.controller = RobotContainer.driverController.getHID();
     this.drive = RobotContainer.drive;
+    this.xScaledSupplier = xScaledSupplier;
+    this.yScaledSupplier = yScaledSupplier;
+    this.zScaledSupplier = zScaledSupplier;
+    this.upSupplier = upSupplier;
+    this.downSupplier = downSupplier;
+    this.leftSupplier = leftSupplier;
+    this.rightSupplier = rightSupplier;
     addRequirements(RobotContainer.drive);
   }
 
@@ -46,33 +63,26 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
   public void execute() {
     double headingX = 0;
     double headingY = 0;
-    if (controller.getPOV() == 0) {
+    if (upSupplier.get()) {
       headingY = -1;
     }
-    if (controller.getPOV() == 90) {
+    if (rightSupplier.get()) {
       headingX = 1;
     }
-    if (controller.getPOV() == 180) {
+    if (downSupplier.get()) {
       headingY = 1;
     }
-    if (controller.getPOV() == 270) {
+    if (leftSupplier.get()) {
       headingX = -1;
     }
 
     ChassisSpeeds desiredSpeeds =
-        drive.getTargetSpeeds(
-            RobotContainer.getScaledControllerLeftXAxis(),
-            RobotContainer.getScaledControllerLeftYAxis(),
-            headingX,
-            headingY);
+        drive.getTargetSpeeds(xScaledSupplier.get(), yScaledSupplier.get(), headingX, headingY);
 
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
-    if (headingX == 0
-        && headingY == 0
-        && Math.abs(RobotContainer.getScaledControllerRightXAxis()) > 0) {
+    if (headingX == 0 && headingY == 0 && Math.abs(zScaledSupplier.get()) > 0) {
       drive.driveFieldOriented(
-          translation,
-          (RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED));
+          translation, (zScaledSupplier.get()) * Constants.Drive.MAX_ANGULAR_SPEED);
     } else {
       drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
     }

@@ -13,6 +13,7 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -83,6 +84,12 @@ public class RobotContainer {
   private Supplier<Double> scaledControllerLeftYAxisSupplier = () -> getScaledControllerLeftYAxis();
   private Supplier<Double> scaledControllerRightXAxisSupplier =
       () -> getScaledControllerRightXAxis();
+  private Supplier<Double> scaledControllerRightYAxisSupplier =
+      () -> getScaledControllerRightYAxis();
+  private Supplier<Boolean> povUpDirectionSupplier = () -> rawXboxController.getPOV() == 0;
+  private Supplier<Boolean> povRightDirectionSupplier = () -> rawXboxController.getPOV() == 90;
+  private Supplier<Boolean> povDownDirectionSupplier = () -> rawXboxController.getPOV() == 180;
+  private Supplier<Boolean> povLeftDirectionSupplier = () -> rawXboxController.getPOV() == 270;
 
   /*
    * ************
@@ -135,6 +142,8 @@ public class RobotContainer {
   /** Xbox controller for the driver. */
   public static CommandXboxController driverController =
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
+
+  private static XboxController rawXboxController = driverController.getHID();
 
   /** Sendable Chooser for autos. */
   private SendableChooser<Command> autoChooser;
