@@ -92,6 +92,8 @@ public final class Constants {
     public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
 
     public static double BACK_UP_FROM_AMP_TIME = 0.5;
+
+    public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
   }
 
   /** Constants for the Intake System */
@@ -147,6 +149,8 @@ public final class Constants {
        * Limelight's drive routine "done"
        */
       public static final double DISTANCE_DONE_THRESHOLD = 0;
+
+      public static final double AMP_PIPELINE_NUMBER = 6;
     }
   }
 }
