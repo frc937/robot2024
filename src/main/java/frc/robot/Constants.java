@@ -88,6 +88,10 @@ public final class Constants {
 
     /** The number of seconds that we want to taxi for */
     public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
+
+    public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
+
+    public static double BACK_UP_FROM_AMP_TIME = 0.5;
   }
 
   /** Constants for the Intake System */
