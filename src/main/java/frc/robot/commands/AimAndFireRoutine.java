@@ -18,11 +18,13 @@ import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 
+/**
+ * Uses the Limelight to aim the bot to the Amp and then deposits the note into the Amp. Has a
+ * timeout on the Note deopsit.
+ */
 public class AimAndFireRoutine extends SequentialCommandGroup {
   /** Creates a new AimAndFireRountine. */
   public AimAndFireRoutine() {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
     addCommands(
         new AimWithLimelight(
             RobotContainer.limelight,
