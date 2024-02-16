@@ -24,7 +24,8 @@ import frc.robot.subsystems.Limelight;
 public class SeekTargetWithLimelight extends Command {
   private Limelight limelight;
   private Drive drive;
-  private double pipelineNumber;
+  private double oldPipelineNumber;
+  private double seekingPipelineNumber;
   private double rotationRadiansPerSecond;
 
   /**
@@ -38,7 +39,7 @@ public class SeekTargetWithLimelight extends Command {
       Limelight limelight, double pipelineNumber, double rotationRadiansPerSecond) {
     this.limelight = limelight;
     this.drive = RobotContainer.drive;
-    this.pipelineNumber = pipelineNumber;
+    this.seekingPipelineNumber = pipelineNumber;
     this.rotationRadiansPerSecond = rotationRadiansPerSecond;
 
     addRequirements(limelight, drive);
@@ -47,7 +48,8 @@ public class SeekTargetWithLimelight extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    limelight.setLimelightPipeline(pipelineNumber);
+    this.oldPipelineNumber = limelight.getLimelightPipeline();
+    limelight.setLimelightPipeline(seekingPipelineNumber);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -61,6 +63,7 @@ public class SeekTargetWithLimelight extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    limelight.setLimelightPipeline(oldPipelineNumber);
     drive.stop();
   }
 
