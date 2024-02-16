@@ -45,6 +45,6 @@ public class RunIntake extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return intake.getLimitSwitch();
+    return false; // intake.getLimitSwitch();
   }
 }

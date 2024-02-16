@@ -28,7 +28,7 @@ public final class Constants {
   public static class Mailbox {
     // It was me, DIO!
     /** DIO Port ID for the Mailbox limit switch. */
-    public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
+    public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 4;
   }
 
   /** Constants for the Pneumatics system. */
@@ -49,7 +49,7 @@ public final class Constants {
   /** Constants for the Belts system. */
   public static class MailboxBelts {
     /** The channel on the PCM for the belt motor */
-    public static final int BELT_MOTOR_ID = 3;
+    public static final int BELT_MOTOR_ID = 2;
 
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = 1;
@@ -98,7 +98,7 @@ public final class Constants {
     public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 0;
 
     /** Speed we want to run the Intake at. */
-    public static final double INTAKE_MOTOR_SPEED = 1;
+    public static final double INTAKE_MOTOR_SPEED = -1;
   }
 
   /** Holds contstants for the Limelights. */

@@ -151,7 +151,7 @@ public class RobotContainer {
     driverController.x().onTrue(enterXMode);
     driverController.y().whileTrue(fireNote);
     driverController.a().whileTrue(runIntake);
-    driverController.rightTrigger().whileTrue(deployMailbox);
+    // driverController.rightTrigger().whileTrue(deployMailbox);
     driverController.b().whileTrue(runBelts);
   }
 
