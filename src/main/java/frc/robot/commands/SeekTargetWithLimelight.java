@@ -17,13 +17,23 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Limelight;
 
+/**
+ * Seeks an unseen target with the Limelight by spinning the robot in a circle until the Limelight
+ * sees a valid target.
+ */
 public class SeekTargetWithLimelight extends Command {
   private Limelight limelight;
   private Drive drive;
   private double pipelineNumber;
   private double rotationRadiansPerSecond;
 
-  /** Creates a new SeekTargetWithLimelight. */
+  /**
+   * Creates a new SeekTargetWithLimelight.
+   *
+   * @param limelight The Limelight to seek the target with.
+   * @param pipelineNumber The pipeline to set the Limelight to while seeking.
+   * @param rotationRadiansPerSecond The number of radians per second to rotate while seeking.
+   */
   public SeekTargetWithLimelight(
       Limelight limelight, double pipelineNumber, double rotationRadiansPerSecond) {
     this.limelight = limelight;
