@@ -30,6 +30,7 @@ public final class Constants {
     /** DIO Port ID for the Mailbox limit switch. */
     public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
 
+    /** The amount of time that we want to run the fire note command in auto. */
     public static final double FIRE_NOTE_FOR_TIME = 4.0;
   }
 
@@ -89,10 +90,13 @@ public final class Constants {
     /** The number of seconds that we want to taxi for */
     public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
 
+    /** The amount of time we want/need to drive away from the amp in auto. */
     public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
 
+    /** The time we use to back away from the amp in auto. */
     public static double BACK_UP_FROM_AMP_TIME = 0.5;
 
+    /** Number of radians per second that we want to turn while seeking an unseen target. */
     public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
   }
 
@@ -150,6 +154,7 @@ public final class Constants {
        */
       public static final double DISTANCE_DONE_THRESHOLD = 0;
 
+      /** The Limelight pipeline number for amp AprilTags. */
       public static final double AMP_PIPELINE_NUMBER = 6;
     }
   }
