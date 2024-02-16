@@ -25,8 +25,6 @@ import frc.robot.commands.SeekTargetWithLimelight;
 public class OnePieceAuto extends SequentialCommandGroup {
   /** Creates a new OnePieceAuto. */
   public OnePieceAuto() {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
     addCommands(
         new SeekTargetWithLimelight(
             RobotContainer.limelight,
