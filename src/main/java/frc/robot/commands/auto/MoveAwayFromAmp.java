@@ -17,6 +17,10 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 
+/**
+ * Moves the robot away from the Amp, then slams us towards the opposing alliance wall to taxi and
+ * get out of the way of the Amp.
+ */
 public class MoveAwayFromAmp extends SequentialCommandGroup {
   /** Creates a new MoveAwayFromAmp. */
   public MoveAwayFromAmp() {
