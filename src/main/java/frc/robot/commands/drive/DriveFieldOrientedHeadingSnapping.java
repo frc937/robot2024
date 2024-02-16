@@ -28,23 +28,34 @@ import swervelib.SwerveController;
 public class DriveFieldOrientedHeadingSnapping extends Command {
   private Drive drive;
   private XboxController controller;
-  private final Supplier<Double> xScaledSupplier, yScaledSupplier, zScaledSupplier;
+  private final Supplier<Double> xSupplier, ySupplier, zSupplier;
   private final Supplier<Boolean> upSupplier, downSupplier, leftSupplier, rightSupplier;
 
-  /** Creates a new DriveFieldOrientedHeadingSnapping. */
+  /**
+   * Drives the robot field oriented with heading snapping. All values are suppliers to make the
+   * command more versatile.
+   *
+   * @param xSupplier The x speed
+   * @param ySupplier The y speed
+   * @param zSupplier The z speed
+   * @param upSupplier If the robot should go up
+   * @param downSupplier If the robot should go down
+   * @param leftSupplier If the robot should go left
+   * @param rightSupplier If the robot should go right
+   */
   public DriveFieldOrientedHeadingSnapping(
-      Supplier<Double> xScaledSupplier,
-      Supplier<Double> yScaledSupplier,
-      Supplier<Double> zScaledSupplier,
+      Supplier<Double> xSupplier,
+      Supplier<Double> ySupplier,
+      Supplier<Double> zSupplier,
       Supplier<Boolean> upSupplier,
       Supplier<Boolean> downSupplier,
       Supplier<Boolean> leftSupplier,
       Supplier<Boolean> rightSupplier) {
     this.controller = RobotContainer.driverController.getHID();
     this.drive = RobotContainer.drive;
-    this.xScaledSupplier = xScaledSupplier;
-    this.yScaledSupplier = yScaledSupplier;
-    this.zScaledSupplier = zScaledSupplier;
+    this.xSupplier = xSupplier;
+    this.ySupplier = ySupplier;
+    this.zSupplier = zSupplier;
     this.upSupplier = upSupplier;
     this.downSupplier = downSupplier;
     this.leftSupplier = leftSupplier;
@@ -77,12 +88,11 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
     }
 
     ChassisSpeeds desiredSpeeds =
-        drive.getTargetSpeeds(xScaledSupplier.get(), yScaledSupplier.get(), headingX, headingY);
+        drive.getTargetSpeeds(xSupplier.get(), ySupplier.get(), headingX, headingY);
 
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
-    if (headingX == 0 && headingY == 0 && Math.abs(zScaledSupplier.get()) > 0) {
-      drive.driveFieldOriented(
-          translation, (zScaledSupplier.get()) * Constants.Drive.MAX_ANGULAR_SPEED);
+    if (headingX == 0 && headingY == 0 && Math.abs(zSupplier.get()) > 0) {
+      drive.driveFieldOriented(translation, (zSupplier.get()) * Constants.Drive.MAX_ANGULAR_SPEED);
     } else {
       drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
     }

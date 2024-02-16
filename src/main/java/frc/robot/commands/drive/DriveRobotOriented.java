@@ -21,17 +21,21 @@ import java.util.function.Supplier;
 /** Drives the robot in robot-oriented mode. Default command for {@link Drive} subsystem. */
 public class DriveRobotOriented extends Command {
   private final Drive drive;
-  private final Supplier<Double> xScaledSupplier, yScaledSupplier, zScaledSupplier;
+  private final Supplier<Double> xSupplier, ySupplier, zSupplier;
 
-  /** Creates a new DriveRobotOriented. */
+  /**
+   * Drives the robot robot-oriented
+   *
+   * @param xSupplier The x speed
+   * @param ySupplier The y speed
+   * @param zSupplier The z speed
+   */
   public DriveRobotOriented(
-      Supplier<Double> xScaledSupplier,
-      Supplier<Double> yScaledSupplier,
-      Supplier<Double> zScaledSupplier) {
+      Supplier<Double> xSupplier, Supplier<Double> ySupplier, Supplier<Double> zSupplier) {
     this.drive = RobotContainer.drive;
-    this.xScaledSupplier = xScaledSupplier;
-    this.yScaledSupplier = yScaledSupplier;
-    this.zScaledSupplier = zScaledSupplier;
+    this.xSupplier = xSupplier;
+    this.ySupplier = ySupplier;
+    this.zSupplier = zSupplier;
     addRequirements(drive);
   }
 
@@ -42,9 +46,9 @@ public class DriveRobotOriented extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double x = xScaledSupplier.get() * Constants.Drive.MAX_SPEED;
-    double y = yScaledSupplier.get() * Constants.Drive.MAX_SPEED;
-    double z = zScaledSupplier.get() * Constants.Drive.MAX_ANGULAR_SPEED;
+    double x = xSupplier.get() * Constants.Drive.MAX_SPEED;
+    double y = ySupplier.get() * Constants.Drive.MAX_SPEED;
+    double z = zSupplier.get() * Constants.Drive.MAX_ANGULAR_SPEED;
     Translation2d translation = new Translation2d(x, y);
 
     drive.driveRobotOriented(translation, z);
