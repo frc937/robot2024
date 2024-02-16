@@ -18,9 +18,9 @@ import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 
-public class AimAndFireRountine extends SequentialCommandGroup {
+public class AimAndFireRoutine extends SequentialCommandGroup {
   /** Creates a new AimAndFireRountine. */
-  public AimAndFireRountine() {
+  public AimAndFireRoutine() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(

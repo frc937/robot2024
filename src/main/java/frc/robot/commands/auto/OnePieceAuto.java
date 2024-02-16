@@ -14,7 +14,7 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
-import frc.robot.commands.AimAndFireRountine;
+import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.SeekTargetWithLimelight;
 
 public class OnePieceAuto extends SequentialCommandGroup {
@@ -27,7 +27,7 @@ public class OnePieceAuto extends SequentialCommandGroup {
             RobotContainer.limelight,
             Constants.Limelight.AimingLimelight.AMP_PIPELINE_NUMBER,
             Constants.Drive.LIMELIGHT_SEEKING_RADIANS_PER_SECOND),
-        new AimAndFireRountine(),
+        new AimAndFireRoutine(),
         new MoveAwayFromAmp());
   }
 }
