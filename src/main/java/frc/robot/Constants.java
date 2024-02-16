@@ -154,8 +154,11 @@ public final class Constants {
        */
       public static final double DISTANCE_DONE_THRESHOLD = 0;
 
-      /** The Limelight pipeline number for amp AprilTags. */
-      public static final double AMP_PIPELINE_NUMBER = 6;
+      /** Holds pipeline numbers for this Limelight. */
+      public static class PipelineNumbers {
+        /** The Limelight pipeline number for amp AprilTags. */
+        public static final double AMP_PIPELINE_NUMBER = 6;
+      }
     }
 
     /** Number of radians per second that we want to turn while seeking an unseen target. */
