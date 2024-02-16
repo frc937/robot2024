@@ -24,8 +24,6 @@ import frc.robot.Constants;
 public class MoveAwayFromAmp extends SequentialCommandGroup {
   /** Creates a new MoveAwayFromAmp. */
   public MoveAwayFromAmp() {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
     addCommands(
         new ParallelDeadlineGroup(
             new WaitCommand(Constants.Drive.BACK_UP_FROM_AMP_TIME),
