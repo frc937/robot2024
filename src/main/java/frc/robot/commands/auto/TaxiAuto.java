@@ -23,9 +23,9 @@ import frc.robot.Constants;
 public class TaxiAuto extends ParallelDeadlineGroup {
   /** Creates a new TaxiAuto. */
   public TaxiAuto() {
-    super(new WaitCommand(Constants.Drive.TAXI_AUTO_DURATION_SECONDS));
+    super(new WaitCommand(Constants.Auto.TAXI_AUTO_DURATION_SECONDS));
     addCommands(
         new DriveAutoRobotOriented(
-            new Translation2d(0, Constants.Drive.TAXI_AUTO_METERS_PER_SECOND), 0));
+            new Translation2d(0, Constants.Auto.TAXI_AUTO_METERS_PER_SECOND), 0));
   }
 }
