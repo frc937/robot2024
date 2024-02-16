@@ -29,7 +29,7 @@ public class OnePieceAuto extends SequentialCommandGroup {
         new SeekTargetWithLimelight(
             RobotContainer.limelight,
             Constants.Limelight.AimingLimelight.AMP_PIPELINE_NUMBER,
-            Constants.Drive.LIMELIGHT_SEEKING_RADIANS_PER_SECOND),
+            Constants.Limelight.LIMELIGHT_SEEKING_RADIANS_PER_SECOND),
         new AimAndFireRoutine(),
         new MoveAwayFromAmp());
   }

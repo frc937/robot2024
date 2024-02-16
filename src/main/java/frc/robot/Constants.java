@@ -29,9 +29,6 @@ public final class Constants {
     // It was me, DIO!
     /** DIO Port ID for the Mailbox limit switch. */
     public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
-
-    /** The amount of time that we want to run the fire note command in auto. */
-    public static final double FIRE_NOTE_FOR_TIME = 4.0;
   }
 
   /** Constants for the Pneumatics system. */
@@ -83,7 +80,10 @@ public final class Constants {
 
     /** The Rotation Drive PID for the robot. */
     public static PIDConstants ROTATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
+  }
 
+  /** Holds constants specfically related to autonomous. */
+  public static class Auto {
     /** The number of meters per second that we want to move forward during the taxi auto */
     public static double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
@@ -96,8 +96,8 @@ public final class Constants {
     /** The time we use to back away from the amp in auto. */
     public static double BACK_UP_FROM_AMP_TIME = 0.5;
 
-    /** Number of radians per second that we want to turn while seeking an unseen target. */
-    public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
+    /** The amount of time that we want to run the fire note command in auto. */
+    public static final double FIRE_NOTE_FOR_TIME = 4.0;
   }
 
   /** Constants for the Intake System */
@@ -157,5 +157,8 @@ public final class Constants {
       /** The Limelight pipeline number for amp AprilTags. */
       public static final double AMP_PIPELINE_NUMBER = 6;
     }
+
+    /** Number of radians per second that we want to turn while seeking an unseen target. */
+    public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
   }
 }

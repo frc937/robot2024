@@ -26,12 +26,12 @@ public class MoveAwayFromAmp extends SequentialCommandGroup {
   public MoveAwayFromAmp() {
     addCommands(
         new ParallelDeadlineGroup(
-            new WaitCommand(Constants.Drive.BACK_UP_FROM_AMP_TIME),
+            new WaitCommand(Constants.Auto.BACK_UP_FROM_AMP_TIME),
             new DriveAutoFieldOriented(
-                new Translation2d(Constants.Drive.TAXI_AUTO_METERS_PER_SECOND, 0), 0)),
+                new Translation2d(Constants.Auto.TAXI_AUTO_METERS_PER_SECOND, 0), 0)),
         new ParallelDeadlineGroup(
-            new WaitCommand(Constants.Drive.DRIVE_AWAY_FROM_AMP_TIME),
+            new WaitCommand(Constants.Auto.DRIVE_AWAY_FROM_AMP_TIME),
             new DriveAutoFieldOriented(
-                new Translation2d(0, Constants.Drive.TAXI_AUTO_METERS_PER_SECOND), 0)));
+                new Translation2d(0, Constants.Auto.TAXI_AUTO_METERS_PER_SECOND), 0)));
   }
 }

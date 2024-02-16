@@ -38,6 +38,6 @@ public class AimAndFireRoutine extends SequentialCommandGroup {
             Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
             Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT),
         new ParallelDeadlineGroup(
-            new WaitCommand(Constants.Mailbox.FIRE_NOTE_FOR_TIME), new FireNoteRoutine()));
+            new WaitCommand(Constants.Auto.FIRE_NOTE_FOR_TIME), new FireNoteRoutine()));
   }
 }
