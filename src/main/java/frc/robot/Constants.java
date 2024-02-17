@@ -97,15 +97,17 @@ public final class Constants {
 
   /** Constants for the Intake System */
   public static class Intake {
-    /** Motor id of the Intake motor. */
-    public static final int INTAKE_LOWER_MOTOR_ID = 0;
+    /** Motor id of the Lower Intake motor. */
+    public static final int LOWER_INTAKE_MOTOR_ID = 0;
 
-    public static final int INTAKE_UPPER_MOTOR_ID = 0;
+    /** Motor id of the Upper Intake motor. */
+    public static final int UPPER_INTAKE_MOTOR_ID = 0;
 
-    /** Inversion state of the upper and lower intake motor states. */
-    public static final boolean INTAKE_UPPER_MOTOR_INVERTED = false;
+    /** Inversion state of the upper intake motor states. */
+    public static final boolean UPPER_INTAKE_MOTOR_INVERTED = false;
 
-    public static final boolean INTAKE_LOWER_MOTOR_INVERTED = false;
+    /** Inversion state of the lower intake motor states. */
+    public static final boolean LOWER_INTAKE_MOTOR_INVERTED = false;
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */

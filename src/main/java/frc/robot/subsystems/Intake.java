@@ -27,13 +27,13 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   public Intake() {
     this.intakeLower =
-        new CANSparkMax(Constants.Intake.INTAKE_LOWER_MOTOR_ID, MotorType.kBrushless);
+        new CANSparkMax(Constants.Intake.LOWER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.intakeUpper =
-        new CANSparkMax(Constants.Intake.INTAKE_UPPER_MOTOR_ID, MotorType.kBrushless);
+        new CANSparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
 
-    intakeLower.setInverted(Constants.Intake.INTAKE_LOWER_MOTOR_INVERTED);
-    intakeUpper.setInverted(Constants.Intake.INTAKE_UPPER_MOTOR_INVERTED);
+    intakeLower.setInverted(Constants.Intake.LOWER_INTAKE_MOTOR_INVERTED);
+    intakeUpper.setInverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
   }
 
   /** Runs the intake motors. */
