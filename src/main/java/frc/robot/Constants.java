@@ -56,7 +56,7 @@ public final class Constants {
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = 1;
 
-    /** */
+    /** Inversion state of the upper and lower belt motor states. */
     public static final boolean UPPER_BELT_MOTOR_INVERTED = false;
 
     public static final boolean LOWER_BELT_MOTOR_INVERTED = false;
@@ -101,6 +101,11 @@ public final class Constants {
     public static final int INTAKE_LOWER_MOTOR_ID = 0;
 
     public static final int INTAKE_UPPER_MOTOR_ID = 0;
+
+    /** Inversion state of the upper and lower intake motor states. */
+    public static final boolean INTAKE_UPPER_MOTOR_INVERTED = false;
+
+    public static final boolean INTAKE_LOWER_MOTOR_INVERTED = false;
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */
