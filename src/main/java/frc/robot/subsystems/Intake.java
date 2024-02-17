@@ -20,18 +20,23 @@ import frc.robot.Constants;
 /** The intake of the robot. */
 public class Intake extends SubsystemBase {
 
-  private CANSparkMax intake;
+  private CANSparkMax intakeLower;
+  private CANSparkMax intakeUpper;
   private DigitalInput limitSwitch;
 
   /** Creates a new Intake. */
   public Intake() {
-    this.intake = new CANSparkMax(Constants.Intake.INTAKE_MOTOR_ID, MotorType.kBrushless);
+    this.intakeLower =
+        new CANSparkMax(Constants.Intake.INTAKE_LOWER_MOTOR_ID, MotorType.kBrushless);
+    this.intakeUpper =
+        new CANSparkMax(Constants.Intake.INTAKE_UPPER_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
   }
 
   /** Runs the intake motors. */
   public void runIntake() {
-    intake.set(Constants.Intake.INTAKE_MOTOR_SPEED);
+    intakeLower.set(Constants.Intake.INTAKE_MOTOR_SPEED);
+    intakeUpper.set(Constants.Intake.INTAKE_MOTOR_SPEED);
   }
 
   /**
@@ -46,7 +51,7 @@ public class Intake extends SubsystemBase {
 
   /** Stops the intake motors. */
   public void stop() {
-    intake.set(0);
+    intakeLower.set(0);
   }
 
   @Override

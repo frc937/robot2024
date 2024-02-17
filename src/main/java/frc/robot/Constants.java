@@ -91,7 +91,9 @@ public final class Constants {
   /** Constants for the Intake System */
   public static class Intake {
     /** Motor id of the Intake motor. */
-    public static final int INTAKE_MOTOR_ID = 0;
+    public static final int INTAKE_LOWER_MOTOR_ID = 0;
+
+    public static final int INTAKE_UPPER_MOTOR_ID = 0;
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */
