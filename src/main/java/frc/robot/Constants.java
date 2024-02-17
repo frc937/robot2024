@@ -80,6 +80,12 @@ public final class Constants {
 
     /** The Rotation Drive PID for the robot. */
     public static PIDConstants ROTATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
+
+    /** The number of meters per second that we want to move forward during the taxi auto */
+    public static double TAXI_AUTO_METERS_PER_SECOND = 1.0;
+
+    /** The number of seconds that we want to taxi for */
+    public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
   }
 
   /** Constants for the Intake System */
