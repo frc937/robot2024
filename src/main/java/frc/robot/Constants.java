@@ -60,6 +60,7 @@ public final class Constants {
     /** Driver station port number for the drive controller. */
     public static final int DRIVER_CONTROLLER_PORT = 0;
 
+    /** Axis deadband for driver controller. */
     public static double DRIVER_CONTROLLER_DEADBAND = 0.1;
   }
 
