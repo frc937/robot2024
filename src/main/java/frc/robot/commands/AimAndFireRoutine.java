@@ -23,7 +23,7 @@ import frc.robot.commands.mailbox.FireNoteRoutine;
  * timeout on the Note deopsit.
  */
 public class AimAndFireRoutine extends SequentialCommandGroup {
-  /** Creates a new AimAndFireRountine. */
+  /** Creates a new AimAndFireRoutine. */
   public AimAndFireRoutine() {
     addCommands(
         new AimWithLimelight(
