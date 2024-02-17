@@ -18,21 +18,27 @@ import frc.robot.Constants;
 
 /** Subsystem for the mailbox belt. */
 public class MailboxBelts extends SubsystemBase {
-  private CANSparkMax beltMotor;
+  private CANSparkMax UpperBeltMotor;
+  private CANSparkMax LowerBeltMotor;
 
   /** Constructer for MailboxBelts subsystem */
   public MailboxBelts() {
-    beltMotor = new CANSparkMax(Constants.MailboxBelts.BELT_MOTOR_ID, MotorType.kBrushless);
+    UpperBeltMotor =
+        new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
+    LowerBeltMotor =
+        new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
   }
 
   /** Runs the belt. */
   public void runBelts() {
-    beltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
+    UpperBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
+    LowerBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
   }
 
   /** Stops the belt. */
   public void stop() {
-    beltMotor.set(0);
+    UpperBeltMotor.set(0);
+    LowerBeltMotor.set(0);
   }
 
   @Override

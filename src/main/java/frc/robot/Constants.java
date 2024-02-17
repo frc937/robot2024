@@ -49,7 +49,9 @@ public final class Constants {
   /** Constants for the Belts system. */
   public static class MailboxBelts {
     /** The channel on the PCM for the belt motor */
-    public static final int BELT_MOTOR_ID = 0;
+    public static final int UPPER_BELT_MOTOR_ID = 0;
+
+    public static final int LOWER_BELT_MOTOR_ID = 0;
 
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = 1;
