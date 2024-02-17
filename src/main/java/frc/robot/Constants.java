@@ -54,6 +54,7 @@ public final class Constants {
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = 1;
 
+    /** Current limit (in amps) for the belt motor(s) */
     public static final int BELT_MOTOR_CURRENT_LIMIT = 30;
   }
 
@@ -102,6 +103,7 @@ public final class Constants {
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 1;
 
+    /** Current limit (in amps) for the intake motor(s) */
     public static final int INTAKE_MOTOR_CURRENT_LIMIT = 40;
   }
 
