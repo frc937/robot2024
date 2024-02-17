@@ -24,7 +24,7 @@ public class MailboxBelts extends SubsystemBase {
   public MailboxBelts() {
     beltMotor = new CANSparkMax(Constants.MailboxBelts.BELT_MOTOR_ID, MotorType.kBrushless);
 
-    beltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BLET_MOTOR_CURRENT_LIMIT);
+    beltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
   }
 
   /** Runs the belt. */

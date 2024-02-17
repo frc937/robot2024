@@ -54,7 +54,7 @@ public final class Constants {
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = 1;
 
-    public static final int BLET_MOTOR_CURRENT_LIMIT = 30;
+    public static final int BELT_MOTOR_CURRENT_LIMIT = 30;
   }
 
   /** Constants that are relating to the controllers. */
