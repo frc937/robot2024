@@ -27,6 +27,8 @@ public class Intake extends SubsystemBase {
   public Intake() {
     this.intake = new CANSparkMax(Constants.Intake.INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
+
+    intake.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
   }
 
   /** Runs the intake motors. */
