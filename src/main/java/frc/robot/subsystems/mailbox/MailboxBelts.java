@@ -18,30 +18,30 @@ import frc.robot.Constants;
 
 /** Subsystem for the mailbox belt. */
 public class MailboxBelts extends SubsystemBase {
-  private CANSparkMax UpperBeltMotor;
-  private CANSparkMax LowerBeltMotor;
+  private CANSparkMax upperBeltMotor;
+  private CANSparkMax lowerBeltMotor;
 
   /** Constructer for MailboxBelts subsystem */
   public MailboxBelts() {
-    UpperBeltMotor =
+    upperBeltMotor =
         new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
-    LowerBeltMotor =
+    lowerBeltMotor =
         new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
 
-    UpperBeltMotor.setInverted(Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED);
-    LowerBeltMotor.setInverted(Constants.MailboxBelts.LOWER_BELT_MOTOR_INVERTED);
+    upperBeltMotor.setInverted(Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED);
+    lowerBeltMotor.setInverted(Constants.MailboxBelts.LOWER_BELT_MOTOR_INVERTED);
   }
 
   /** Runs the belt. */
   public void runBelts() {
-    UpperBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
-    LowerBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
+    upperBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
+    lowerBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
   }
 
   /** Stops the belt. */
   public void stop() {
-    UpperBeltMotor.set(0);
-    LowerBeltMotor.set(0);
+    upperBeltMotor.set(0);
+    lowerBeltMotor.set(0);
   }
 
   @Override
