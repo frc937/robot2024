@@ -27,6 +27,9 @@ public class MailboxBelts extends SubsystemBase {
         new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
     LowerBeltMotor =
         new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
+
+    UpperBeltMotor.setInverted(Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED);
+    LowerBeltMotor.setInverted(Constants.MailboxBelts.LOWER_BELT_MOTOR_INVERTED);
   }
 
   /** Runs the belt. */

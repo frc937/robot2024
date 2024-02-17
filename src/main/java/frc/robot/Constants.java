@@ -55,6 +55,11 @@ public final class Constants {
 
     /** The speed for the belt motor. */
     public static final double BELT_MOTOR_SPEED = 1;
+
+    /** */
+    public static final boolean UPPER_BELT_MOTOR_INVERTED = false;
+
+    public static final boolean LOWER_BELT_MOTOR_INVERTED = false;
   }
 
   /** Constants that are relating to the controllers. */
