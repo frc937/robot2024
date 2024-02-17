@@ -48,17 +48,19 @@ public final class Constants {
 
   /** Constants for the Belts system. */
   public static class MailboxBelts {
-    /** The channel on the PCM for the belt motor */
+    /** The channel on the PCM for the upper belt motor */
     public static final int UPPER_BELT_MOTOR_ID = 0;
 
+    /** The channel on the PCM for the lower belt motor */
     public static final int LOWER_BELT_MOTOR_ID = 0;
 
-    /** The speed for the belt motor. */
+    /** The speed for the belt motors. */
     public static final double BELT_MOTOR_SPEED = 1;
 
-    /** Inversion state of the upper and lower belt motor states. */
+    /** Inversion state of the upper belt motor states. */
     public static final boolean UPPER_BELT_MOTOR_INVERTED = false;
 
+    /** Inversion state of the lower belt motor states. */
     public static final boolean LOWER_BELT_MOTOR_INVERTED = false;
   }
 
