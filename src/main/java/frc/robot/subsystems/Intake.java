@@ -32,14 +32,13 @@ public class Intake extends SubsystemBase {
         new CANSparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
 
-    intakeLower.setInverted(Constants.Intake.LOWER_INTAKE_MOTOR_INVERTED);
+    intakeLower.follow(intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
     intakeUpper.setInverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
   }
 
   /** Runs the intake motors. */
   public void runIntake() {
     intakeUpper.set(Constants.Intake.INTAKE_MOTOR_SPEED);
-    intakeLower.follow(intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
   }
 
   /**
