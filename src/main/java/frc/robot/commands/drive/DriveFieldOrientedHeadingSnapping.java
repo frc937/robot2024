@@ -15,7 +15,6 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 import java.util.function.Supplier;
@@ -93,7 +92,7 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
 
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
     if (headingX == 0 && headingY == 0 && Math.abs(zSupplier.get()) > 0) {
-      drive.driveFieldOriented(translation, zSupplier.get() * Constants.Drive.MAX_ANGULAR_SPEED);
+      drive.driveFieldOriented(translation, zSupplier.get() * drive.getMaximumAngularSpeed());
     } else {
       drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
     }
