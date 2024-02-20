@@ -24,8 +24,12 @@ import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.auto.DriveAutoFieldOriented;
+import frc.robot.commands.auto.MoveAwayFromAmp;
+import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
 import frc.robot.commands.drive.DriveFieldOriented;
+import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.DriveRobotOriented;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
@@ -110,6 +114,15 @@ public class RobotContainer {
           scaledControllerLeftXAxisSupplier,
           scaledControllerLeftYAxisSupplier,
           scaledControllerRightXAxisSupplier);
+  private DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping = 
+      new DriveFieldOrientedHeadingSnapping(
+          scaledControllerRightXAxisSupplier, 
+          scaledControllerLeftYAxisSupplier, 
+          scaledControllerLeftXAxisSupplier, 
+          povUpDirectionSupplier, 
+          povDownDirectionSupplier, 
+          povLeftDirectionSupplier, 
+          povRightDirectionSupplier);
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();
@@ -135,6 +148,8 @@ public class RobotContainer {
   private DeployUrMom deployUrMom = new DeployUrMom();
 
   /* Autos */
+  private MoveAwayFromAmp moveAwayFromAmp = new MoveAwayFromAmp();
+  private OnePieceAuto onePieceAuto = new OnePieceAuto();
   private TaxiAuto taxiAuto = new TaxiAuto();
 
   /*
