@@ -14,6 +14,7 @@ package frc.robot;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -39,6 +40,7 @@ import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
+import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
@@ -77,13 +79,37 @@ public class RobotContainer {
   public static UrMom urMom = new UrMom();
 
   /*
+   * *************
+   * * SUPPLIERS *
+   * *************
+   */
+  private Supplier<Double> scaledControllerLeftXAxisSupplier = () -> getScaledControllerLeftXAxis();
+  private Supplier<Double> scaledControllerLeftYAxisSupplier = () -> getScaledControllerLeftYAxis();
+  private Supplier<Double> scaledControllerRightXAxisSupplier =
+      () -> getScaledControllerRightXAxis();
+  private Supplier<Double> scaledControllerRightYAxisSupplier =
+      () -> getScaledControllerRightYAxis();
+  private Supplier<Boolean> povUpDirectionSupplier = () -> rawXboxController.getPOV() == 0;
+  private Supplier<Boolean> povRightDirectionSupplier = () -> rawXboxController.getPOV() == 90;
+  private Supplier<Boolean> povDownDirectionSupplier = () -> rawXboxController.getPOV() == 180;
+  private Supplier<Boolean> povLeftDirectionSupplier = () -> rawXboxController.getPOV() == 270;
+
+  /*
    * ************
    * * COMMANDS *
    * ************
    */
 
-  private DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
-  private DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
+  private DriveRobotOriented driveRobotOriented =
+      new DriveRobotOriented(
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerRightXAxisSupplier);
+  private DriveFieldOriented driveFieldOriented =
+      new DriveFieldOriented(
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerRightXAxisSupplier);
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
   private RunBelts runBelts = new RunBelts();
@@ -123,6 +149,8 @@ public class RobotContainer {
   /** Xbox controller for the driver. */
   public static CommandXboxController driverController =
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
+
+  private static XboxController rawXboxController = driverController.getHID();
 
   /** Sendable Chooser for autos. */
   private SendableChooser<Command> autoChooser;

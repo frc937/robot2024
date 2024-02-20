@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
+import java.util.function.Supplier;
 import swervelib.SwerveController;
 
 /**
@@ -27,11 +28,39 @@ import swervelib.SwerveController;
 public class DriveFieldOrientedHeadingSnapping extends Command {
   private Drive drive;
   private XboxController controller;
+  private final Supplier<Double> xSupplier, ySupplier, zSupplier;
+  private final Supplier<Boolean> upSupplier, downSupplier, leftSupplier, rightSupplier;
 
-  /** Creates a new DriveFieldOrientedHeadingSnapping. */
-  public DriveFieldOrientedHeadingSnapping() {
+  /**
+   * Drives the robot field oriented with heading snapping. All values are suppliers to make the
+   * command more versatile.
+   *
+   * @param xSupplier The joystick value for the Y axis. [-1, 1] left positive.
+   * @param ySupplier The joystick value for the Y axis. [-1, 1] back positive.
+   * @param zSupplier The joystick value for the Z axis. [-1, 1] counterclockwise positive.
+   * @param upSupplier If true, the robot heading will be set to move towards the opposing alliance
+   *     wall
+   * @param downSupplier If true, the robot heading will be set to move towards our alliance wall
+   * @param leftSupplier If true, the robot heading will be set to move towards the left
+   * @param rightSupplier If true, the robot heading will be set to move towards the right
+   */
+  public DriveFieldOrientedHeadingSnapping(
+      Supplier<Double> xSupplier,
+      Supplier<Double> ySupplier,
+      Supplier<Double> zSupplier,
+      Supplier<Boolean> upSupplier,
+      Supplier<Boolean> downSupplier,
+      Supplier<Boolean> leftSupplier,
+      Supplier<Boolean> rightSupplier) {
     this.controller = RobotContainer.driverController.getHID();
     this.drive = RobotContainer.drive;
+    this.xSupplier = xSupplier;
+    this.ySupplier = ySupplier;
+    this.zSupplier = zSupplier;
+    this.upSupplier = upSupplier;
+    this.downSupplier = downSupplier;
+    this.leftSupplier = leftSupplier;
+    this.rightSupplier = rightSupplier;
     addRequirements(RobotContainer.drive);
   }
 
@@ -46,33 +75,25 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
   public void execute() {
     double headingX = 0;
     double headingY = 0;
-    if (controller.getPOV() == 0) {
+    if (upSupplier.get()) {
       headingY = -1;
     }
-    if (controller.getPOV() == 90) {
+    if (rightSupplier.get()) {
       headingX = 1;
     }
-    if (controller.getPOV() == 180) {
+    if (downSupplier.get()) {
       headingY = 1;
     }
-    if (controller.getPOV() == 270) {
+    if (leftSupplier.get()) {
       headingX = -1;
     }
 
     ChassisSpeeds desiredSpeeds =
-        drive.getTargetSpeeds(
-            RobotContainer.getScaledControllerLeftXAxis(),
-            RobotContainer.getScaledControllerLeftYAxis(),
-            headingX,
-            headingY);
+        drive.getTargetSpeeds(xSupplier.get(), ySupplier.get(), headingX, headingY);
 
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
-    if (headingX == 0
-        && headingY == 0
-        && Math.abs(RobotContainer.getScaledControllerRightXAxis()) > 0) {
-      drive.driveFieldOriented(
-          translation,
-          (RobotContainer.getScaledControllerRightXAxis() * Constants.Drive.MAX_ANGULAR_SPEED));
+    if (headingX == 0 && headingY == 0 && Math.abs(zSupplier.get()) > 0) {
+      drive.driveFieldOriented(translation, zSupplier.get() * Constants.Drive.MAX_ANGULAR_SPEED);
     } else {
       drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
     }
