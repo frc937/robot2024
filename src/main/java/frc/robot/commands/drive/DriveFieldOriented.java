@@ -26,9 +26,9 @@ public class DriveFieldOriented extends Command {
   /**
    * Drives the robot field-oriented
    *
-   * @param xSupplier The x speed
-   * @param ySupplier The y speed
-   * @param zSupplier The z speed
+   * @param xSupplier The joystick value for the Y axis. [-1, 1] left positive.
+   * @param ySupplier The joystick value for the Y axis. [-1, 1] back positive.
+   * @param zSupplier The joystick value for the Z axis. [-1, 1] counterclockwise positive.
    */
   public DriveFieldOriented(
       Supplier<Double> xSupplier, Supplier<Double> ySupplier, Supplier<Double> zSupplier) {
