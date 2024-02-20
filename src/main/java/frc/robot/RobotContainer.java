@@ -13,8 +13,6 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-import com.pathplanner.lib.path.PathConstraints;
-
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -131,7 +129,7 @@ public class RobotContainer {
   }
 
   private void configureAuto() {
-    
+
     NamedCommands.registerCommand("runIntake", runIntake);
     NamedCommands.registerCommand("fireNote", fireNote);
     NamedCommands.registerCommand("aimToAmp", aimToAmp);
