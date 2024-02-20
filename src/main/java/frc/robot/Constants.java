@@ -118,6 +118,7 @@ public final class Constants {
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 1;
 
+    /** Inversion state for the intake follower motor. */
     public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
   }
 
