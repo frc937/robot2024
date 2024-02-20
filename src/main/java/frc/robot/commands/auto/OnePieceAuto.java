@@ -18,7 +18,7 @@ import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.SeekTargetWithLimelight;
 
 /**
- * Auto that deposits a proloaded Note into the Amp. Does so by spinning until the Limelight sees an
+ * Auto that deposits a preloaded Note into the Amp. Does so by spinning until the Limelight sees an
  * AprilTag for one of the Amps, moving the bot towards the Amp with the Limelight, depositing the
  * note in the Amp, and finally taxiing away from the Amp.
  */
