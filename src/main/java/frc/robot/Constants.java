@@ -60,9 +60,6 @@ public final class Constants {
     /** Inversion state of the upper belt motor. */
     public static final boolean UPPER_BELT_MOTOR_INVERTED = false;
 
-    /** Inversion state of the lower belt motor. */
-    public static final boolean LOWER_BELT_MOTOR_INVERTED = false;
-
     /** Inversion state of the belts follower motor. */
     public static final boolean BELTS_FOLLOWER_INVERSE_STATE = false;
   }
