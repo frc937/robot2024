@@ -16,16 +16,22 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
+/** Drives the robot field oriented autonomously. */
 public class DriveAutoFieldOriented extends Command {
   private Drive drive;
   private Translation2d destination;
   private double rotation;
 
-  /** Creates a new DriveAuto. */
-  public DriveAutoFieldOriented(Translation2d destination, double rotation) {
+  /**
+   * Creates a new DriveAutoFieldOriented.
+   *
+   * @param translation The velocities for the robot to drive while the command is running
+   * @param rotation The rotation velocity of the robot while the command is running.
+   */
+  public DriveAutoFieldOriented(Translation2d translation, double rotation) {
     this.drive = RobotContainer.drive;
     addRequirements(this.drive);
-    this.destination = destination;
+    this.destination = translation;
     this.rotation = rotation;
     // Use addRequirements() here to declare subsystem dependencies.
   }
