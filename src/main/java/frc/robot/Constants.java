@@ -62,6 +62,9 @@ public final class Constants {
 
     /** Inversion state of the lower belt motor states. */
     public static final boolean LOWER_BELT_MOTOR_INVERTED = false;
+
+    /** Inversion state of the belts follower motor. */
+    public static final boolean BELTS_FOLLOWER_INVERSE_STATE = false;
   }
 
   /** Constants that are relating to the controllers. */
