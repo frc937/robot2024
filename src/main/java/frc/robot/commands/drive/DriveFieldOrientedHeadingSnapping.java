@@ -35,7 +35,7 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
    * Drives the robot field oriented with heading snapping. All values are suppliers to make the
    * command more versatile.
    *
-   * @param xSupplier The joystick value for the x axis. [-1, 1] left positive.
+   * @param xSupplier The joystick value for the X axis. [-1, 1] left positive.
    * @param ySupplier The joystick value for the Y axis. [-1, 1] back positive.
    * @param zSupplier The joystick value for the Z axis. [-1, 1] counterclockwise positive.
    * @param upSupplier If true, the robot heading will be set to move towards the opposing alliance
