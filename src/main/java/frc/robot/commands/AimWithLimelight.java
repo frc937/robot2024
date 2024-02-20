@@ -17,6 +17,7 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Limelight;
 
+/** Aims with the limelight towards an object. */
 public class AimWithLimelight extends Command {
   private Drive drive;
   private Limelight limelight;
