@@ -59,6 +59,9 @@ public final class Constants {
   public static class Controllers {
     /** Driver station port number for the drive controller. */
     public static final int DRIVER_CONTROLLER_PORT = 0;
+
+    /** Axis deadband for driver controller. */
+    public static double DRIVER_CONTROLLER_DEADBAND = 0.1;
   }
 
   /** Constants for the Drivetrain */
@@ -80,12 +83,24 @@ public final class Constants {
 
     /** The Rotation Drive PID for the robot. */
     public static PIDConstants ROTATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
+  }
 
+  /** Holds constants specfically related to autonomous. */
+  public static class Auto {
     /** The number of meters per second that we want to move forward during the taxi auto */
     public static double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
     /** The number of seconds that we want to taxi for */
     public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
+
+    /** The amount of time we want/need to drive away from the amp in auto. */
+    public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
+
+    /** The time we use to back away from the amp in auto. */
+    public static double BACK_UP_FROM_AMP_TIME = 0.5;
+
+    /** The amount of time that we want to run the fire note command in auto. */
+    public static final double FIRE_NOTE_FOR_TIME = 4.0;
   }
 
   /** Constants for the Intake System */
@@ -141,6 +156,15 @@ public final class Constants {
        * Limelight's drive routine "done"
        */
       public static final double DISTANCE_DONE_THRESHOLD = 0;
+
+      /** Holds pipeline numbers for this Limelight. */
+      public static class PipelineNumbers {
+        /** The Limelight pipeline number for amp AprilTags. */
+        public static final double AMP_PIPELINE_NUMBER = 6;
+      }
     }
+
+    /** Number of radians per second that we want to turn while seeking an unseen target. */
+    public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
   }
 }
