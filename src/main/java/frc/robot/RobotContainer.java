@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
@@ -108,6 +109,7 @@ public class RobotContainer {
 
   /* Autos */
   private TaxiAuto taxiAuto = new TaxiAuto();
+  private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
 
   /*
    * ***********************
@@ -136,8 +138,7 @@ public class RobotContainer {
   private void configureAuto() {
 
     NamedCommands.registerCommand("runIntake", runIntake);
-    NamedCommands.registerCommand("fireNote", fireNote);
-    NamedCommands.registerCommand("aimToAmp", aimToAmp);
+    NamedCommands.registerCommand("aimAndFire", aimAndFire);
 
     /* Build an auto chooser. This will use Commands.none() as the default option. */
     autoChooser = AutoBuilder.buildAutoChooser();
