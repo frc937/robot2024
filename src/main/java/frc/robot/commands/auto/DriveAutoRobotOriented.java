@@ -23,15 +23,15 @@ public class DriveAutoRobotOriented extends Command {
   private double rotation;
 
   /**
-   * Creates a new DriveAutoFieldOriented.
+   * Creates a new DriveAutoRobotOriented.
    *
-   * @param destination The destination for the robot.
-   * @param rotation The rotation of the robot.
+   * @param translation The velocities for the robot to drive while the command is running
+   * @param rotation The rotation velocity of the robot while the command is running.
    */
-  public DriveAutoRobotOriented(Translation2d destination, double rotation) {
+  public DriveAutoRobotOriented(Translation2d translation, double rotation) {
     this.drive = RobotContainer.drive;
     addRequirements(this.drive);
-    this.destination = destination;
+    this.destination = translation;
     this.rotation = rotation;
     // Use addRequirements() here to declare subsystem dependencies.
   }
