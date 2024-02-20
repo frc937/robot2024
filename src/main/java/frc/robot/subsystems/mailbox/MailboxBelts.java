@@ -35,13 +35,12 @@ public class MailboxBelts extends SubsystemBase {
   /** Runs the belt. */
   public void runBelts() {
     upperBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
-    lowerBeltMotor.set(Constants.MailboxBelts.BELT_MOTOR_SPEED);
+    lowerBeltMotor.follow(upperBeltMotor, Constants.MailboxBelts.BELTS_FOLLOWER_INVERSE_STATE);
   }
 
   /** Stops the belt. */
   public void stop() {
     upperBeltMotor.set(0);
-    lowerBeltMotor.set(0);
   }
 
   @Override
