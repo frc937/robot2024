@@ -113,9 +113,11 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">DriveFieldOriented</a>()</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.function.Supplier,java.util.function.Supplier,java.util.function.Supplier)" class="member-name-link">DriveFieldOriented</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;xSupplier,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;ySupplier,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;zSupplier)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Creates a new DriveFieldOriented.</div>
+<div class="block">Drives the robot field-oriented</div>
 </div>
 </div>
 </section>
@@ -164,10 +166,18 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;()">
+<section class="detail" id="&lt;init&gt;(java.util.function.Supplier,java.util.function.Supplier,java.util.function.Supplier)">
 <h3>DriveFieldOriented</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DriveFieldOriented</span>()</div>
-<div class="block">Creates a new DriveFieldOriented.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DriveFieldOriented</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;xSupplier,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;ySupplier,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&nbsp;zSupplier)</span></div>
+<div class="block">Drives the robot field-oriented</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>xSupplier</code> - The joystick value for the Y axis. [-1, 1] left positive.</dd>
+<dd><code>ySupplier</code> - The joystick value for the Y axis. [-1, 1] back positive.</dd>
+<dd><code>zSupplier</code> - The joystick value for the Z axis. [-1, 1] counterclockwise positive.</dd>
+</dl>
 </section>
 </li>
 </ul>
