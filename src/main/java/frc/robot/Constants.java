@@ -48,11 +48,20 @@ public final class Constants {
 
   /** Constants for the Belts system. */
   public static class MailboxBelts {
-    /** The channel on the PCM for the belt motor */
-    public static final int BELT_MOTOR_ID = 0;
+    /** The CAN ID for the upper belt motor */
+    public static final int UPPER_BELT_MOTOR_ID = 0;
 
-    /** The speed for the belt motor. */
+    /** The CAN ID for the lower belt motor */
+    public static final int LOWER_BELT_MOTOR_ID = 0;
+
+    /** The speed for the belt motors. */
     public static final double BELT_MOTOR_SPEED = 1;
+
+    /** Inversion state of the upper belt motor. */
+    public static final boolean UPPER_BELT_MOTOR_INVERTED = false;
+
+    /** Inversion state of the belts follower motor. */
+    public static final boolean BELTS_FOLLOWER_INVERSE_STATE = false;
   }
 
   /** Constants that are relating to the controllers. */
@@ -105,8 +114,14 @@ public final class Constants {
 
   /** Constants for the Intake System */
   public static class Intake {
-    /** Motor id of the Intake motor. */
-    public static final int INTAKE_MOTOR_ID = 0;
+    /** Motor id of the Lower Intake motor. */
+    public static final int LOWER_INTAKE_MOTOR_ID = 0;
+
+    /** Motor id of the Upper Intake motor. */
+    public static final int UPPER_INTAKE_MOTOR_ID = 0;
+
+    /** Inversion state of the upper intake motor. */
+    public static final boolean UPPER_INTAKE_MOTOR_INVERTED = false;
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */
@@ -114,6 +129,9 @@ public final class Constants {
 
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 1;
+
+    /** Inversion state for the intake follower motor. */
+    public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
   }
 
   /** Holds contstants for the Limelights. */
