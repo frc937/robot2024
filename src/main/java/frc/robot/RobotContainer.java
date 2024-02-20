@@ -22,6 +22,7 @@ import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.auto.TaxiAuto;
 import frc.robot.commands.drive.DriveFieldOriented;
 import frc.robot.commands.drive.DriveRobotOriented;
 import frc.robot.commands.mailbox.DeindexNote;
@@ -38,6 +39,7 @@ import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
+@SuppressWarnings("unused")
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
 public class RobotContainer {
 
@@ -104,6 +106,9 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
   private DeployUrMom deployUrMom = new DeployUrMom();
 
+  /* Autos */
+  private TaxiAuto taxiAuto = new TaxiAuto();
+
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
@@ -140,6 +145,7 @@ public class RobotContainer {
     /* autoChooser = AutoBuilder.buildAutoChooser("My Default Auto"); */
 
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
+    autoChooser.addOption("Taxi", taxiAuto);
 
     SmartDashboard.putData("choose auto", autoChooser);
   }
@@ -148,10 +154,10 @@ public class RobotContainer {
     driverController.leftStick().toggleOnTrue(driveFieldOriented);
 
     driverController.x().onTrue(enterXMode);
-    driverController.y().onTrue(fireNote);
-    driverController.a().onTrue(runIntake);
-    driverController.rightTrigger().onTrue(deployMailbox);
-    driverController.b().onTrue(fireNoteRoutineNoLimitSwitch);
+    driverController.y().whileTrue(fireNote);
+    driverController.a().whileTrue(runIntake);
+    driverController.rightTrigger().whileTrue(deployMailbox);
+    driverController.b().whileTrue(runBelts);
   }
 
   /**
@@ -164,7 +170,8 @@ public class RobotContainer {
   }
 
   private static double scaleAxis(double axis) {
-    double deadbanded = MathUtil.applyDeadband(axis, 0.1);
+    double deadbanded =
+        MathUtil.applyDeadband(axis, Constants.Controllers.DRIVER_CONTROLLER_DEADBAND);
     return Math.pow(deadbanded, 3);
   }
 
