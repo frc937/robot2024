@@ -12,12 +12,14 @@
 package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
@@ -129,6 +131,7 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
+  private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
   private DeployUrMom deployUrMom = new DeployUrMom();
 
   /* Autos */
@@ -161,6 +164,10 @@ public class RobotContainer {
   }
 
   private void configureAuto() {
+
+    NamedCommands.registerCommand("runIntake", runIntake);
+    NamedCommands.registerCommand("aimAndFire", aimAndFire);
+
     /* Build an auto chooser. This will use Commands.none() as the default option. */
     autoChooser = AutoBuilder.buildAutoChooser();
     /* Another option that allows you to specify the default auto by its name */
