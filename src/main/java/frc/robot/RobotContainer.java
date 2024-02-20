@@ -131,11 +131,11 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
+  private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
   private DeployUrMom deployUrMom = new DeployUrMom();
 
   /* Autos */
   private TaxiAuto taxiAuto = new TaxiAuto();
-  private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
 
   /*
    * ***********************
