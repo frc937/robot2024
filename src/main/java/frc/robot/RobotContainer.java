@@ -24,7 +24,6 @@ import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
-import frc.robot.commands.auto.DriveAutoFieldOriented;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
@@ -114,14 +113,14 @@ public class RobotContainer {
           scaledControllerLeftXAxisSupplier,
           scaledControllerLeftYAxisSupplier,
           scaledControllerRightXAxisSupplier);
-  private DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping = 
+  private DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
       new DriveFieldOrientedHeadingSnapping(
-          scaledControllerRightXAxisSupplier, 
-          scaledControllerLeftYAxisSupplier, 
-          scaledControllerLeftXAxisSupplier, 
-          povUpDirectionSupplier, 
-          povDownDirectionSupplier, 
-          povLeftDirectionSupplier, 
+          scaledControllerRightXAxisSupplier,
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerLeftXAxisSupplier,
+          povUpDirectionSupplier,
+          povDownDirectionSupplier,
+          povLeftDirectionSupplier,
           povRightDirectionSupplier);
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
