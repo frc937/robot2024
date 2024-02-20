@@ -13,7 +13,6 @@ package frc.robot.commands.drive;
 
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
@@ -26,7 +25,6 @@ import swervelib.SwerveController;
  */
 public class DriveFieldOrientedHeadingSnapping extends Command {
   private Drive drive;
-  private XboxController controller;
   private final Supplier<Double> xSupplier, ySupplier, zSupplier;
   private final Supplier<Boolean> upSupplier, downSupplier, leftSupplier, rightSupplier;
 
@@ -51,7 +49,6 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
       Supplier<Boolean> downSupplier,
       Supplier<Boolean> leftSupplier,
       Supplier<Boolean> rightSupplier) {
-    this.controller = RobotContainer.driverController.getHID();
     this.drive = RobotContainer.drive;
     this.xSupplier = xSupplier;
     this.ySupplier = ySupplier;
