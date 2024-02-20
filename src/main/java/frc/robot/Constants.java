@@ -117,6 +117,8 @@ public final class Constants {
 
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 1;
+
+    public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
   }
 
   /** Holds contstants for the Limelights. */

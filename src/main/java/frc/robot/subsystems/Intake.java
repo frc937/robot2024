@@ -38,8 +38,8 @@ public class Intake extends SubsystemBase {
 
   /** Runs the intake motors. */
   public void runIntake() {
-    intakeLower.set(Constants.Intake.INTAKE_MOTOR_SPEED);
     intakeUpper.set(Constants.Intake.INTAKE_MOTOR_SPEED);
+    intakeLower.follow(intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
   }
 
   /**
