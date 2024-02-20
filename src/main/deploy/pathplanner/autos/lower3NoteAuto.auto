@@ -1,0 +1,93 @@
+{
+  "version": 1.0,
+  "startingPose": null,
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "lowerToAmp"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "aimAndFire"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "ampToNote1"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "runIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "note1ToAmp"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "aimAndFire"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "ampToNote2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "runIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "note2ToAmp"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "aimAndFire"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "taxi"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

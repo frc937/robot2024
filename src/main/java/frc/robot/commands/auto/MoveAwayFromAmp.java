@@ -13,19 +13,25 @@ package frc.robot.commands.auto;
 
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 
 /**
- * Auto that just taxis (or more accurately, moves us out of the auto starting box.) Taxi time and
- * velocity can be tuned in Constants.Drive.
+ * Moves the robot away from the Amp, then slams us towards the opposing alliance wall to taxi and
+ * get out of the way of the Amp.
  */
-public class TaxiAuto extends ParallelDeadlineGroup {
-  /** Creates a new TaxiAuto. */
-  public TaxiAuto() {
-    super(new WaitCommand(Constants.Auto.TAXI_AUTO_DURATION_SECONDS));
+public class MoveAwayFromAmp extends SequentialCommandGroup {
+  /** Creates a new MoveAwayFromAmp. */
+  public MoveAwayFromAmp() {
     addCommands(
-        new DriveAutoRobotOriented(
-            new Translation2d(0, Constants.Auto.TAXI_AUTO_METERS_PER_SECOND), 0));
+        new ParallelDeadlineGroup(
+            new WaitCommand(Constants.Auto.BACK_UP_FROM_AMP_TIME),
+            new DriveAutoFieldOriented(
+                new Translation2d(Constants.Auto.TAXI_AUTO_METERS_PER_SECOND, 0), 0)),
+        new ParallelDeadlineGroup(
+            new WaitCommand(Constants.Auto.DRIVE_AWAY_FROM_AMP_TIME),
+            new DriveAutoFieldOriented(
+                new Translation2d(0, Constants.Auto.TAXI_AUTO_METERS_PER_SECOND), 0)));
   }
 }
