@@ -90,15 +90,30 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#BELT_MOTOR_ID" class="member-name-link">BELT_MOTOR_ID</a></code></div>
+<div class="col-first even-row-color"><code>static final double</code></div>
+<div class="col-second even-row-color"><code><a href="#BELT_MOTOR_SPEED" class="member-name-link">BELT_MOTOR_SPEED</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The channel on the PCM for the belt motor</div>
+<div class="block">The speed for the belt motors.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final double</code></div>
-<div class="col-second odd-row-color"><code><a href="#BELT_MOTOR_SPEED" class="member-name-link">BELT_MOTOR_SPEED</a></code></div>
+<div class="col-first odd-row-color"><code>static final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#BELTS_FOLLOWER_INVERSE_STATE" class="member-name-link">BELTS_FOLLOWER_INVERSE_STATE</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">The speed for the belt motor.</div>
+<div class="block">Inversion state of the belts follower motor.</div>
+</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#LOWER_BELT_MOTOR_ID" class="member-name-link">LOWER_BELT_MOTOR_ID</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">The CAN ID for the lower belt motor</div>
+</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#UPPER_BELT_MOTOR_ID" class="member-name-link">UPPER_BELT_MOTOR_ID</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The CAN ID for the upper belt motor</div>
+</div>
+<div class="col-first even-row-color"><code>static final boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#UPPER_BELT_MOTOR_INVERTED" class="member-name-link">UPPER_BELT_MOTOR_INVERTED</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Inversion state of the upper belt motor.</div>
 </div>
 </div>
 </section>
@@ -135,15 +150,30 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="BELT_MOTOR_ID">
-<h3>BELT_MOTOR_ID</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">BELT_MOTOR_ID</span></div>
-<div class="block">The channel on the PCM for the belt motor</div>
+<section class="detail" id="UPPER_BELT_MOTOR_ID">
+<h3>UPPER_BELT_MOTOR_ID</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">UPPER_BELT_MOTOR_ID</span></div>
+<div class="block">The CAN ID for the upper belt motor</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="../../constant-values.html#frc.robot.Constants.MailboxBelts.BELT_MOTOR_ID">Constant Field Values</a></li>
+<li><a href="../../constant-values.html#frc.robot.Constants.MailboxBelts.UPPER_BELT_MOTOR_ID">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="LOWER_BELT_MOTOR_ID">
+<h3>LOWER_BELT_MOTOR_ID</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">LOWER_BELT_MOTOR_ID</span></div>
+<div class="block">The CAN ID for the lower belt motor</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.MailboxBelts.LOWER_BELT_MOTOR_ID">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -153,12 +183,42 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="BELT_MOTOR_SPEED">
 <h3>BELT_MOTOR_SPEED</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">BELT_MOTOR_SPEED</span></div>
-<div class="block">The speed for the belt motor.</div>
+<div class="block">The speed for the belt motors.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
 <li><a href="../../constant-values.html#frc.robot.Constants.MailboxBelts.BELT_MOTOR_SPEED">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="UPPER_BELT_MOTOR_INVERTED">
+<h3>UPPER_BELT_MOTOR_INVERTED</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">UPPER_BELT_MOTOR_INVERTED</span></div>
+<div class="block">Inversion state of the upper belt motor.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="BELTS_FOLLOWER_INVERSE_STATE">
+<h3>BELTS_FOLLOWER_INVERSE_STATE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">BELTS_FOLLOWER_INVERSE_STATE</span></div>
+<div class="block">Inversion state of the belts follower motor.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.MailboxBelts.BELTS_FOLLOWER_INVERSE_STATE">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>

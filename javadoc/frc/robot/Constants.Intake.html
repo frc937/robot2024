@@ -90,20 +90,35 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#INTAKE_LIMIT_SWITCH_DIO_PORT" class="member-name-link">INTAKE_LIMIT_SWITCH_DIO_PORT</a></code></div>
+<div class="col-first even-row-color"><code>static final boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#INTAKE_FOLLOWER_INVERSE_STATE" class="member-name-link">INTAKE_FOLLOWER_INVERSE_STATE</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">DIO Port ID for the Intake limit switch.</div>
+<div class="block">Inversion state for the intake follower motor.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
-<div class="col-second odd-row-color"><code><a href="#INTAKE_MOTOR_ID" class="member-name-link">INTAKE_MOTOR_ID</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#INTAKE_LIMIT_SWITCH_DIO_PORT" class="member-name-link">INTAKE_LIMIT_SWITCH_DIO_PORT</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Motor id of the Intake motor.</div>
+<div class="block">DIO Port ID for the Intake limit switch.</div>
 </div>
 <div class="col-first even-row-color"><code>static final double</code></div>
 <div class="col-second even-row-color"><code><a href="#INTAKE_MOTOR_SPEED" class="member-name-link">INTAKE_MOTOR_SPEED</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Speed we want to run the Intake at.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOWER_INTAKE_MOTOR_ID" class="member-name-link">LOWER_INTAKE_MOTOR_ID</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Motor id of the Lower Intake motor.</div>
+</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#UPPER_INTAKE_MOTOR_ID" class="member-name-link">UPPER_INTAKE_MOTOR_ID</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Motor id of the Upper Intake motor.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#UPPER_INTAKE_MOTOR_INVERTED" class="member-name-link">UPPER_INTAKE_MOTOR_INVERTED</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Inversion state of the upper intake motor.</div>
 </div>
 </div>
 </section>
@@ -140,15 +155,45 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="INTAKE_MOTOR_ID">
-<h3>INTAKE_MOTOR_ID</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">INTAKE_MOTOR_ID</span></div>
-<div class="block">Motor id of the Intake motor.</div>
+<section class="detail" id="LOWER_INTAKE_MOTOR_ID">
+<h3>LOWER_INTAKE_MOTOR_ID</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">LOWER_INTAKE_MOTOR_ID</span></div>
+<div class="block">Motor id of the Lower Intake motor.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="../../constant-values.html#frc.robot.Constants.Intake.INTAKE_MOTOR_ID">Constant Field Values</a></li>
+<li><a href="../../constant-values.html#frc.robot.Constants.Intake.LOWER_INTAKE_MOTOR_ID">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="UPPER_INTAKE_MOTOR_ID">
+<h3>UPPER_INTAKE_MOTOR_ID</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">UPPER_INTAKE_MOTOR_ID</span></div>
+<div class="block">Motor id of the Upper Intake motor.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.Intake.UPPER_INTAKE_MOTOR_ID">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="UPPER_INTAKE_MOTOR_INVERTED">
+<h3>UPPER_INTAKE_MOTOR_INVERTED</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">UPPER_INTAKE_MOTOR_INVERTED</span></div>
+<div class="block">Inversion state of the upper intake motor.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -179,6 +224,21 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="see-list">
 <li><a href="../../constant-values.html#frc.robot.Constants.Intake.INTAKE_MOTOR_SPEED">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="INTAKE_FOLLOWER_INVERSE_STATE">
+<h3>INTAKE_FOLLOWER_INVERSE_STATE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">INTAKE_FOLLOWER_INVERSE_STATE</span></div>
+<div class="block">Inversion state for the intake follower motor.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
