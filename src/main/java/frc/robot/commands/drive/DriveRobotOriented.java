@@ -13,7 +13,6 @@ package frc.robot.commands.drive;
 
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 import java.util.function.Supplier;
@@ -46,9 +45,9 @@ public class DriveRobotOriented extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double x = xSupplier.get() * Constants.Drive.MAX_SPEED;
-    double y = ySupplier.get() * Constants.Drive.MAX_SPEED;
-    double z = zSupplier.get() * Constants.Drive.MAX_ANGULAR_SPEED;
+    double x = xSupplier.get() * drive.getMaximumSpeed();
+    double y = ySupplier.get() * drive.getMaximumSpeed();
+    double z = zSupplier.get() * drive.getMaximumAngularSpeed();
     Translation2d translation = new Translation2d(x, y);
 
     drive.driveRobotOriented(translation, z);

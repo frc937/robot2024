@@ -111,6 +111,24 @@ public class Drive extends SubsystemBase {
   }
 
   /**
+   * Gets the maximum speed the robot chassis can acheive in m/s.
+   *
+   * @return Maximum speed the robot chassis can acheive in m/s.
+   */
+  public double getMaximumSpeed() {
+    return drive.getMaximumVelocity();
+  }
+
+  /**
+   * Gets the maximum angular speed the robot chassis can acheive in rad/s.
+   *
+   * @return Maximum angular speed the robot chassis can acheive in rad/s.
+   */
+  public double getMaximumAngularSpeed() {
+    return drive.getMaximumAngularVelocity();
+  }
+
+  /**
    * Set the heading correction capabilities of YAGSL. Should only be enabled when heading
    * correction capabilities are in use
    *
