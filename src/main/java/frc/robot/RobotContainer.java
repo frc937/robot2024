@@ -12,17 +12,23 @@
 package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.auto.MoveAwayFromAmp;
+import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
 import frc.robot.commands.drive.DriveFieldOriented;
+import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.DriveRobotOriented;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
@@ -37,6 +43,7 @@ import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
+import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
@@ -75,16 +82,48 @@ public class RobotContainer {
   public static UrMom urMom = new UrMom();
 
   /*
+   * *************
+   * * SUPPLIERS *
+   * *************
+   */
+  private Supplier<Double> scaledControllerLeftXAxisSupplier = () -> getScaledControllerLeftXAxis();
+  private Supplier<Double> scaledControllerLeftYAxisSupplier = () -> getScaledControllerLeftYAxis();
+  private Supplier<Double> scaledControllerRightXAxisSupplier =
+      () -> getScaledControllerRightXAxis();
+  private Supplier<Double> scaledControllerRightYAxisSupplier =
+      () -> getScaledControllerRightYAxis();
+  private Supplier<Boolean> povUpDirectionSupplier = () -> rawXboxController.getPOV() == 0;
+  private Supplier<Boolean> povRightDirectionSupplier = () -> rawXboxController.getPOV() == 90;
+  private Supplier<Boolean> povDownDirectionSupplier = () -> rawXboxController.getPOV() == 180;
+  private Supplier<Boolean> povLeftDirectionSupplier = () -> rawXboxController.getPOV() == 270;
+
+  /*
    * ************
    * * COMMANDS *
    * ************
    */
 
-  private DriveRobotOriented driveRobotOriented = new DriveRobotOriented();
-  private DriveFieldOriented driveFieldOriented = new DriveFieldOriented();
+  private DriveRobotOriented driveRobotOriented =
+      new DriveRobotOriented(
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerRightXAxisSupplier);
+  private DriveFieldOriented driveFieldOriented =
+      new DriveFieldOriented(
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerRightXAxisSupplier);
+  private DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
+      new DriveFieldOrientedHeadingSnapping(
+          scaledControllerRightXAxisSupplier,
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerLeftXAxisSupplier,
+          povUpDirectionSupplier,
+          povDownDirectionSupplier,
+          povLeftDirectionSupplier,
+          povRightDirectionSupplier);
   private EnterXMode enterXMode = new EnterXMode();
   private DeployPneumatics deployPneumatics = new DeployPneumatics();
-
   private RunBelts runBelts = new RunBelts();
   private DeployMailbox deployMailbox = new DeployMailbox();
   private DeindexNote deindexNote = new DeindexNote();
@@ -104,9 +143,12 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
+  private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
   private DeployUrMom deployUrMom = new DeployUrMom();
 
   /* Autos */
+  private MoveAwayFromAmp moveAwayFromAmp = new MoveAwayFromAmp();
+  private OnePieceAuto onePieceAuto = new OnePieceAuto();
   private TaxiAuto taxiAuto = new TaxiAuto();
 
   /*
@@ -122,6 +164,8 @@ public class RobotContainer {
   public static CommandXboxController driverController =
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
 
+  private static XboxController rawXboxController = driverController.getHID();
+
   /** Sendable Chooser for autos. */
   private SendableChooser<Command> autoChooser;
 
@@ -134,6 +178,10 @@ public class RobotContainer {
   }
 
   private void configureAuto() {
+
+    NamedCommands.registerCommand("runIntake", runIntake);
+    NamedCommands.registerCommand("aimAndFire", aimAndFire);
+
     /* Build an auto chooser. This will use Commands.none() as the default option. */
     autoChooser = AutoBuilder.buildAutoChooser();
     /* Another option that allows you to specify the default auto by its name */
@@ -165,8 +213,9 @@ public class RobotContainer {
   }
 
   private static double scaleAxis(double axis) {
-    double deadbanded = MathUtil.applyDeadband(axis, 0.1);
-    return -1 * Math.pow(deadbanded, 3);
+    double deadbanded =
+        MathUtil.applyDeadband(axis, Constants.Controllers.DRIVER_CONTROLLER_DEADBAND);
+    return Math.pow(deadbanded, 3);
   }
 
   /**

@@ -48,11 +48,20 @@ public final class Constants {
 
   /** Constants for the Belts system. */
   public static class MailboxBelts {
-    /** The channel on the PCM for the belt motor */
-    public static final int BELT_MOTOR_ID = 2;
+    /** The CAN ID for the upper belt motor */
+    public static final int UPPER_BELT_MOTOR_ID = 0;
 
-    /** The speed for the belt motor. */
+    /** The CAN ID for the lower belt motor */
+    public static final int LOWER_BELT_MOTOR_ID = 0;
+
+    /** The speed for the belt motors. */
     public static final double BELT_MOTOR_SPEED = 1;
+
+    /** Inversion state of the upper belt motor. */
+    public static final boolean UPPER_BELT_MOTOR_INVERTED = false;
+
+    /** Inversion state of the belts follower motor. */
+    public static final boolean BELTS_FOLLOWER_INVERSE_STATE = false;
 
     /** Current limit (in amps) for the belt motor(s) */
     public static final int BELT_MOTOR_CURRENT_LIMIT = 30;
@@ -62,6 +71,9 @@ public final class Constants {
   public static class Controllers {
     /** Driver station port number for the drive controller. */
     public static final int DRIVER_CONTROLLER_PORT = 0;
+
+    /** Axis deadband for driver controller. */
+    public static double DRIVER_CONTROLLER_DEADBAND = 0.1;
   }
 
   /** Constants for the Drivetrain */
@@ -83,18 +95,36 @@ public final class Constants {
 
     /** The Rotation Drive PID for the robot. */
     public static PIDConstants ROTATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
+  }
 
+  /** Holds constants specfically related to autonomous. */
+  public static class Auto {
     /** The number of meters per second that we want to move forward during the taxi auto */
     public static double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
     /** The number of seconds that we want to taxi for */
     public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
+
+    /** The amount of time we want/need to drive away from the amp in auto. */
+    public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
+
+    /** The time we use to back away from the amp in auto. */
+    public static double BACK_UP_FROM_AMP_TIME = 0.5;
+
+    /** The amount of time that we want to run the fire note command in auto. */
+    public static final double FIRE_NOTE_FOR_TIME = 4.0;
   }
 
   /** Constants for the Intake System */
   public static class Intake {
-    /** Motor id of the Intake motor. */
-    public static final int INTAKE_MOTOR_ID = 1;
+    /** Motor id of the Lower Intake motor. */
+    public static final int LOWER_INTAKE_MOTOR_ID = 0;
+
+    /** Motor id of the Upper Intake motor. */
+    public static final int UPPER_INTAKE_MOTOR_ID = 0;
+
+    /** Inversion state of the upper intake motor. */
+    public static final boolean UPPER_INTAKE_MOTOR_INVERTED = false;
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */
@@ -103,6 +133,9 @@ public final class Constants {
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 1;
 
+    /** Inversion state for the intake follower motor. */
+    public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
+    
     /** Current limit (in amps) for the intake motor(s) */
     public static final int INTAKE_MOTOR_CURRENT_LIMIT = 40;
   }
@@ -147,6 +180,15 @@ public final class Constants {
        * Limelight's drive routine "done"
        */
       public static final double DISTANCE_DONE_THRESHOLD = 0;
+
+      /** Holds pipeline numbers for this Limelight. */
+      public static class PipelineNumbers {
+        /** The Limelight pipeline number for amp AprilTags. */
+        public static final double AMP_PIPELINE_NUMBER = 6;
+      }
     }
+
+    /** Number of radians per second that we want to turn while seeking an unseen target. */
+    public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
   }
 }
