@@ -49,10 +49,10 @@ public final class Constants {
   /** Constants for the Belts system. */
   public static class MailboxBelts {
     /** The CAN ID for the upper belt motor */
-    public static final int UPPER_BELT_MOTOR_ID = 0;
+    public static final int UPPER_BELT_MOTOR_ID = 2;
 
     /** The CAN ID for the lower belt motor */
-    public static final int LOWER_BELT_MOTOR_ID = 0;
+    public static final int LOWER_BELT_MOTOR_ID = 1;
 
     /** The speed for the belt motors. */
     public static final double BELT_MOTOR_SPEED = 1;
@@ -135,7 +135,7 @@ public final class Constants {
 
     /** Inversion state for the intake follower motor. */
     public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
-    
+
     /** Current limit (in amps) for the intake motor(s) */
     public static final int INTAKE_MOTOR_CURRENT_LIMIT = 40;
   }
