@@ -16,11 +16,11 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.Climber;
 
 /** Climbs the robot down until the command is stopped. */
-public class ClimbRobotDown extends Command {
+public class ClimbDown extends Command {
   private Climber climber;
 
   /** Creates a new ClimbRobotUp. */
-  public ClimbRobotDown() {
+  public ClimbDown() {
     this.climber = RobotContainer.climber;
     addRequirements(this.climber);
   }
