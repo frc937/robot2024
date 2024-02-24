@@ -82,7 +82,7 @@ public class RobotContainer {
   /** Singleton instance of {@link UrMom} for the whole robot. */
   public static UrMom urMom = new UrMom();
 
-  /** Singleton instance of {@link CLimber} for the whole robot. */
+  /** Singleton instance of {@link Climber} for the whole robot. */
   public static Climber climber = new Climber();
 
   /*
