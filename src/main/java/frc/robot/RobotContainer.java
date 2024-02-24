@@ -36,6 +36,7 @@ import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
+import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
@@ -80,6 +81,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link UrMom} for the whole robot. */
   public static UrMom urMom = new UrMom();
+
+  /** Singleton instance of {@link CLimber} for the whole robot. */
+  public static Climber climber = new Climber();
 
   /*
    * *************

@@ -16,6 +16,7 @@ import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
+/** The subsystem for the climber. */
 public class Climber extends SubsystemBase {
   private CANSparkMax climberMotor;
 
@@ -32,6 +33,11 @@ public class Climber extends SubsystemBase {
   /** Tells the robot to climb down. */
   public void climbDown() {
     this.climberMotor.set(-Constants.Climber.CLIMBER_MOTOR_SPEED);
+  }
+
+  /** Stops the climber. */
+  public void stop() {
+    this.climberMotor.stopMotor();
   }
 
   @Override
