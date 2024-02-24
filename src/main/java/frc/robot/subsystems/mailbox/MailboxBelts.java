@@ -24,9 +24,9 @@ public class MailboxBelts extends SubsystemBase {
   /** Constructer for MailboxBelts subsystem */
   public MailboxBelts() {
     upperBeltMotor =
-        new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
+        new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushed);
     lowerBeltMotor =
-        new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
+        new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushed);
 
     lowerBeltMotor.follow(upperBeltMotor, Constants.MailboxBelts.BELTS_FOLLOWER_INVERSE_STATE);
     upperBeltMotor.setInverted(Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED);
