@@ -23,6 +23,8 @@ public class Climber extends SubsystemBase {
   /** Creates a new climber. */
   public Climber() {
     this.climberMotor = new CANSparkMax(Constants.Climber.CLIMBER_MOTOR_ID, MotorType.kBrushed);
+
+    climberMotor.setInverted(Constants.Climber.CLIMBER_INVERTED);
   }
 
   /** Tells the robot to climb up. */
