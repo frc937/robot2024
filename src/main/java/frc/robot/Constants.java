@@ -179,7 +179,7 @@ public final class Constants {
       /** Holds pipeline numbers for this Limelight. */
       public static class PipelineNumbers {
         /** The Limelight pipeline number for amp AprilTags. */
-        public static final double AMP_PIPELINE_NUMBER = 6;
+        public static final double AMP_PIPELINE_NUMBER = 1;
       }
     }
 
