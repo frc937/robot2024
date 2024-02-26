@@ -28,7 +28,7 @@ public final class Constants {
   public static class Mailbox {
     // It was me, DIO!
     /** DIO Port ID for the Mailbox limit switch. */
-    public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 4;
+    public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
   }
 
   /** Constants for the Pneumatics system. */
@@ -128,7 +128,7 @@ public final class Constants {
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */
-    public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 0;
+    public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 1;
 
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 1;
