@@ -186,4 +186,16 @@ public final class Constants {
     /** Number of radians per second that we want to turn while seeking an unseen target. */
     public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
   }
+
+  /** The constants for the climber. */
+  public static class Climber {
+    /** The motor id for the climber */
+    public static final int CLIMBER_MOTOR_ID = 13;
+
+    /** The speed the climber will climb. */
+    public static final double CLIMBER_MOTOR_SPEED = 0.5;
+
+    /** Whether or not the climber is inverted. */
+    public static final boolean CLIMBER_INVERTED = false;
+  }
 }
