@@ -144,6 +144,7 @@ public final class Constants {
   public static class Limelight {
     /** Constants for aiming Limelight. */
     public static class AimingLimelight {
+      /** Our name in the networktables for the limelight */
       public static final String LIMELIGHT_NAME = "limelight";
 
       /** The number of degrees the Limelight is mounted back from perfectly vertical */
@@ -184,11 +185,23 @@ public final class Constants {
       /** Holds pipeline numbers for this Limelight. */
       public static class PipelineNumbers {
         /** The Limelight pipeline number for amp AprilTags. */
-        public static final double AMP_PIPELINE_NUMBER = 6;
+        public static final double AMP_PIPELINE_NUMBER = 1;
       }
     }
 
     /** Number of radians per second that we want to turn while seeking an unseen target. */
     public static double LIMELIGHT_SEEKING_RADIANS_PER_SECOND = Math.PI / 2;
+  }
+
+  /** The constants for the climber. */
+  public static class Climber {
+    /** The motor id for the climber */
+    public static final int CLIMBER_MOTOR_ID = 13;
+
+    /** The speed the climber will climb. */
+    public static final double CLIMBER_MOTOR_SPEED = 0.5;
+
+    /** Whether or not the climber is inverted. */
+    public static final boolean CLIMBER_INVERTED = false;
   }
 }
