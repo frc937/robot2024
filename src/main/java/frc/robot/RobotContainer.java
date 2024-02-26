@@ -21,6 +21,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
+import frc.robot.commands.ClimbDown;
+import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
@@ -149,6 +151,8 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
   private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
   private DeployUrMom deployUrMom = new DeployUrMom();
+  private ClimbUp climbUp = new ClimbUp();
+  private ClimbDown climbDown = new ClimbDown();
 
   /* Autos */
   private MoveAwayFromAmp moveAwayFromAmp = new MoveAwayFromAmp();
@@ -205,6 +209,8 @@ public class RobotContainer {
     driverController.a().whileTrue(runIntake);
     driverController.rightTrigger().whileTrue(deployMailbox);
     driverController.b().whileTrue(runBelts);
+    driverController.leftBumper().whileTrue(climbDown);
+    driverController.rightBumper().whileTrue(climbUp);
   }
 
   /**
