@@ -51,7 +51,7 @@ public class Intake extends SubsystemBase {
    */
   public boolean getLimitSwitch() {
     /* Assumes the limit switch is wired to be normally open. */
-    return limitSwitch.get();
+    return !limitSwitch.get();
   }
 
   /** Stops the intake motors. */
