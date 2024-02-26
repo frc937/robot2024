@@ -33,6 +33,7 @@ public class Intake extends SubsystemBase {
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
 
     intakeLower.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
+    intakeUpper.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
 
     intakeLower.follow(intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
     intakeUpper.setInverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
