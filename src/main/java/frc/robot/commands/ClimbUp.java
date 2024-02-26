@@ -19,7 +19,7 @@ import frc.robot.subsystems.Climber;
 public class ClimbUp extends Command {
   private Climber climber;
 
-  /** Creates a new ClimbRobotUp. */
+  /** Creates a new ClimbUp. */
   public ClimbUp() {
     this.climber = RobotContainer.climber;
     addRequirements(this.climber);
