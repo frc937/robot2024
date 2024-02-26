@@ -138,7 +138,7 @@ public final class Constants {
   public static class Limelight {
     /** Constants for aiming Limelight. */
     public static class AimingLimelight {
-      /** Network table's name for the limelight */
+      /** OUR Network table's name for the limelight */
       public static final String LIMELIGHT_NAME = "limelight";
 
       /** The number of degrees the Limelight is mounted back from perfectly vertical */
