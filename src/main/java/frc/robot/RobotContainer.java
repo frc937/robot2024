@@ -225,7 +225,7 @@ public class RobotContainer {
   private static double scaleAxis(double axis) {
     double deadbanded =
         MathUtil.applyDeadband(axis, Constants.Controllers.DRIVER_CONTROLLER_DEADBAND);
-    return Math.pow(deadbanded, 3);
+    return -Math.pow(deadbanded, 3);
   }
 
   /**
