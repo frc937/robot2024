@@ -82,10 +82,10 @@ public final class Constants {
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
 
     /** The max speed the robot can go in m/s */
-    public static double MAX_SPEED = 1;
+    public static double MAX_SPEED = 2;
 
     /** The max speed the robot can rotate */
-    public static double MAX_ANGULAR_SPEED = Math.PI / 2;
+    public static double MAX_ANGULAR_SPEED = Math.PI;
 
     /** The distance from the center of the robot to any of the swerve modules. */
     public static double DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE = 0.3;
