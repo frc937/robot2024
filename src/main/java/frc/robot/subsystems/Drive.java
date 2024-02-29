@@ -116,7 +116,7 @@ public class Drive extends SubsystemBase {
    * @return Maximum speed the robot chassis can acheive in m/s.
    */
   public double getMaximumSpeed() {
-    return drive.getMaximumVelocity();
+    return Math.min(drive.getMaximumVelocity(), Constants.Drive.MAX_SPEED);
   }
 
   /**
@@ -125,7 +125,7 @@ public class Drive extends SubsystemBase {
    * @return Maximum angular speed the robot chassis can acheive in rad/s.
    */
   public double getMaximumAngularSpeed() {
-    return drive.getMaximumAngularVelocity();
+    return Math.min(drive.getMaximumAngularVelocity(), Constants.Drive.MAX_ANGULAR_SPEED);
   }
 
   /**
