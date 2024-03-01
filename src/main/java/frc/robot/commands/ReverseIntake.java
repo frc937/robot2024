@@ -12,11 +12,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.RobotContainer;
+import frc.robot.subsystems.Intake;
 
+/** Command that runs the intake in the opposite direction on the robot. */
 public class ReverseIntake extends Command {
+
+  private Intake intake;
+
   /** Creates a new ReverseIntake. */
   public ReverseIntake() {
-    // Use addRequirements() here to declare subsystem dependencies.
+    this.intake = RobotContainer.intake;
+    addRequirements(intake);
   }
 
   // Called when the command is initially scheduled.
