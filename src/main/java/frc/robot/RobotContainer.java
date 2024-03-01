@@ -25,7 +25,7 @@ import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
-import frc.robot.commands.ReverseIntake;
+import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
@@ -138,7 +138,7 @@ public class RobotContainer {
   private FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
       new FireNoteRoutineNoLimitSwitch();
   private RunIntake runIntake = new RunIntake();
-  private ReverseIntake reverseIntake = new ReverseIntake();
+  private RunIntakeReverse reverseIntake = new RunIntakeReverse();
   private AimWithLimelight aimToAmp =
       new AimWithLimelight(
           limelight,
