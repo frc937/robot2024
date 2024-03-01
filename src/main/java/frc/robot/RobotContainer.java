@@ -138,7 +138,7 @@ public class RobotContainer {
   private FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
       new FireNoteRoutineNoLimitSwitch();
   private RunIntake runIntake = new RunIntake();
-  private RunIntakeReverse reverseIntake = new RunIntakeReverse();
+  private RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
   private AimWithLimelight aimToAmp =
       new AimWithLimelight(
           limelight,
@@ -207,7 +207,7 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    gamePieceController.leftTrigger().whileTrue(reverseIntake);
+    gamePieceController.leftTrigger().whileTrue(runIntakeReverse);
     drivetrainController.leftStick().toggleOnTrue(driveFieldOriented);
 
     drivetrainController.x().onTrue(enterXMode);
