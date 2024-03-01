@@ -207,7 +207,7 @@ public class RobotContainer {
   private void configureBindings() {
     drivetrainController.leftStick().toggleOnTrue(driveFieldOriented);
 
-    gamePieceController.x().onTrue(enterXMode);
+    drivetrainController.x().onTrue(enterXMode);
     gamePieceController.y().whileTrue(fireNote);
     gamePieceController.a().whileTrue(runIntake);
     gamePieceController.rightTrigger().whileTrue(deployMailbox);
