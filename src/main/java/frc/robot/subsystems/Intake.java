@@ -42,7 +42,7 @@ public class Intake extends SubsystemBase {
   }
 
   /** Runs the intake motors in reverse. */
-  public void reverseIntake() {
+  public void runIntakeReverse() {
     intakeUpper.set(-Constants.Intake.INTAKE_MOTOR_SPEED);
   }
 
