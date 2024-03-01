@@ -16,12 +16,12 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
 
 /** Command that runs the intake in the opposite direction on the robot. */
-public class ReverseIntake extends Command {
+public class RunIntakeReverse extends Command {
 
   private Intake intake;
 
   /** Creates a new ReverseIntake. */
-  public ReverseIntake() {
+  public RunIntakeReverse() {
     this.intake = RobotContainer.intake;
     addRequirements(intake);
   }
