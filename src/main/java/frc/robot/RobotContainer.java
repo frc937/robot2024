@@ -169,10 +169,13 @@ public class RobotContainer {
    * to work.
    */
   /** Xbox controller for the driver. */
-  public static CommandXboxController driverController =
+  public static CommandXboxController drivetrainController =
       new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
 
-  private static XboxController rawXboxController = driverController.getHID();
+  public static CommandXboxController gamePieceController =
+      new CommandXboxController(Constants.Controllers.GAME_PIECE_CONTROLLER_PORT);
+
+  private static XboxController rawXboxController = drivetrainController.getHID();
 
   /** Sendable Chooser for autos. */
   private SendableChooser<Command> autoChooser;
@@ -202,15 +205,15 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    driverController.leftStick().toggleOnTrue(driveFieldOriented);
+    drivetrainController.leftStick().toggleOnTrue(driveFieldOriented);
 
-    driverController.x().onTrue(enterXMode);
-    driverController.y().whileTrue(fireNote);
-    driverController.a().whileTrue(runIntake);
-    driverController.rightTrigger().whileTrue(deployMailbox);
-    driverController.b().whileTrue(runBelts);
-    driverController.leftBumper().whileTrue(climbDown);
-    driverController.rightBumper().whileTrue(climbUp);
+    gamePieceController.x().onTrue(enterXMode);
+    gamePieceController.y().whileTrue(fireNote);
+    gamePieceController.a().whileTrue(runIntake);
+    gamePieceController.rightTrigger().whileTrue(deployMailbox);
+    gamePieceController.b().whileTrue(runBelts);
+    // gamePieceController.leftBumper().whileTrue(climbDown);
+    // gamePieceController.rightBumper().whileTrue(climbUp);
   }
 
   /**
@@ -234,7 +237,7 @@ public class RobotContainer {
    * @return x-axis of left stick of driver controller.
    */
   public static double getControllerLeftXAxis() {
-    return driverController.getLeftX();
+    return drivetrainController.getLeftX();
   }
 
   /**
@@ -252,7 +255,7 @@ public class RobotContainer {
    * @return y-axis of left stick of driver controller.
    */
   public static double getControllerLeftYAxis() {
-    return driverController.getLeftY();
+    return drivetrainController.getLeftY();
   }
 
   /**
@@ -270,7 +273,7 @@ public class RobotContainer {
    * @return x-axis of right stick of driver controller.
    */
   public static double getControllerRightXAxis() {
-    return driverController.getRightX();
+    return drivetrainController.getRightX();
   }
 
   /**
@@ -288,7 +291,7 @@ public class RobotContainer {
    * @return y-axis of right stick of driver controller.
    */
   public static double getControllerRightYAxis() {
-    return driverController.getRightY();
+    return drivetrainController.getRightY();
   }
 
   /**
