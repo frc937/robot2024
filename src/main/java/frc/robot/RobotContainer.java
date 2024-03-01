@@ -25,6 +25,7 @@ import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
+import frc.robot.commands.ReverseIntake;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
@@ -137,6 +138,7 @@ public class RobotContainer {
   private FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
       new FireNoteRoutineNoLimitSwitch();
   private RunIntake runIntake = new RunIntake();
+  private ReverseIntake reverseIntake = new ReverseIntake();
   private AimWithLimelight aimToAmp =
       new AimWithLimelight(
           limelight,
@@ -207,6 +209,7 @@ public class RobotContainer {
     driverController.x().onTrue(enterXMode);
     driverController.y().whileTrue(fireNote);
     driverController.a().whileTrue(runIntake);
+    driverController.leftStick().whileTrue(reverseIntake);
     driverController.rightTrigger().whileTrue(deployMailbox);
     driverController.b().whileTrue(runBelts);
     driverController.leftBumper().whileTrue(climbDown);
