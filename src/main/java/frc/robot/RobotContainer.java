@@ -148,7 +148,8 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.SPEED_LIMIT,
           Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
-          Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
+          Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT,
+          Constants.Limelight.AimingLimelight.PipelineNumbers.AMP_PIPELINE_NUMBER);
   private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
   private DeployUrMom deployUrMom = new DeployUrMom();
   private ClimbUp climbUp = new ClimbUp();
