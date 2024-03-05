@@ -13,7 +13,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
-/** Add your docs here. */
+/**
+ * The list of keybinds for our controllers for the robot. Call ONE of these methods in {@link
+ * RobotContainer}'s configureBindings() method.'
+ */
 public final class Keybinds {
   /**
    * Configures the robot with default keybinds for competition.
@@ -33,5 +36,24 @@ public final class Keybinds {
     pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
+  }
+
+  /**
+   * Configures the robot with the original keybinds. DOES NOT USE OPERATOR CONTROLLER
+   *
+   * @param pilotController
+   * @param operatorController
+   */
+  public static void configureOriginalKeybinds(
+      CommandXboxController pilotController, CommandXboxController operatorController) {
+    pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
+    pilotController.x().onTrue(RobotContainer.enterXMode);
+    pilotController.y().whileTrue(RobotContainer.fireNote);
+    pilotController.a().whileTrue(RobotContainer.runIntake);
+    /* TODO: bind intake reverse to povDown when issue 92 is closed. */
+    pilotController.b().whileTrue(RobotContainer.aimToAmp);
+    pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
+    pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
+    /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
   }
 }
