@@ -9,6 +9,9 @@ import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
+/**
+ * Command that sets the robot's max speed to a much higher number. 
+ */
 public class DriveBoost extends Command {
 
   private final Drive drive;
