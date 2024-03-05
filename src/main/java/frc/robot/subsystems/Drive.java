@@ -43,7 +43,7 @@ public class Drive extends SubsystemBase {
     try {
       drive =
           new SwerveParser(new File(Filesystem.getDeployDirectory(), "swerve"))
-              .createSwerveDrive(Units.feetToMeters(14.5));
+              .createSwerveDrive(Constants.Drive.MAX_SPEED_LIMIT);
     } catch (IOException e) {
       e.printStackTrace();
     }
