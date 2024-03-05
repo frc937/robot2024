@@ -81,10 +81,10 @@ public final class Constants {
     /** Empty translation to prevent creating 2 Translation2ds every time the drive train stops. */
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
 
-    /** The max speed the robot can go in autonomous in m/s */
+    /** The max speed the robot can go in m/s */
     public static double MAX_SPEED = 2;
 
-    /** The max speed the robot can rotate in autonomous */
+    /** The max speed the robot can rotate */
     public static double MAX_ANGULAR_SPEED = Math.PI;
 
     /** The distance from the center of the robot to any of the swerve modules. */
