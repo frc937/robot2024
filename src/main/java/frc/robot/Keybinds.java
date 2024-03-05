@@ -39,12 +39,14 @@ public final class Keybinds {
   }
 
   /**
-   * Configures the robot with keybinds for if we can't use the operator controller. (All buttons bound to pilotController)
+   * Configures the robot with keybinds for if we can't use the operator controller. (All buttons
+   * bound to pilotController)
    *
    * @param pilotController
    * @param operatorController
    */
-  public static void configureOperatorlessKeybinds(CommandXboxController pilotController, CommandXboxController operatorController) {
+  public static void configureOperatorlessKeybinds(
+      CommandXboxController pilotController, CommandXboxController operatorController) {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on right bumper (issue 86) */
     /* TODO: bind intake reverse to povDown when issue 92 is closed. */
@@ -54,7 +56,6 @@ public final class Keybinds {
     pilotController.b().whileTrue(RobotContainer.fireNote);
     pilotController.x().whileTrue(RobotContainer.climbUp);
     pilotController.y().whileTrue(RobotContainer.climbDown);
-
   }
 
   /**
