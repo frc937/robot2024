@@ -21,7 +21,7 @@ public final class Keybinds {
    * @param pilotController
    * @param operatorController
    */
-  public void configureDefaultKeybinds(
+  public static void configureDefaultKeybinds(
       CommandXboxController pilotController, CommandXboxController operatorController) {
     operatorController.y().whileTrue(RobotContainer.climbUp);
     operatorController.a().whileTrue(RobotContainer.climbDown);
@@ -32,6 +32,6 @@ public final class Keybinds {
 
     pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
-    /* TODO: angle / velocity steering toggle w/ right trigger and boost on left bumper */
+    /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
   }
 }

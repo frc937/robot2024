@@ -249,13 +249,14 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    drivetrainController.leftStick().toggleOnTrue(driveFieldOriented);
+    Keybinds.configureDefaultKeybinds(drivetrainController, gamePieceController);
+    // drivetrainController.leftStick().toggleOnTrue(driveFieldOriented);
 
-    drivetrainController.x().onTrue(enterXMode);
-    gamePieceController.y().whileTrue(fireNote);
-    gamePieceController.a().whileTrue(runIntake);
-    gamePieceController.rightTrigger().whileTrue(deployMailbox);
-    gamePieceController.b().whileTrue(runBelts);
+    // drivetrainController.x().onTrue(enterXMode);
+    // gamePieceController.y().whileTrue(fireNote);
+    // gamePieceController.a().whileTrue(runIntake);
+    // gamePieceController.rightTrigger().whileTrue(deployMailbox);
+    // gamePieceController.b().whileTrue(runBelts);
     // gamePieceController.leftBumper().whileTrue(climbDown);
     // gamePieceController.rightBumper().whileTrue(climbUp);
   }
