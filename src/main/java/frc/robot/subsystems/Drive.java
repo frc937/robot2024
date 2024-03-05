@@ -30,9 +30,13 @@ import swervelib.parser.SwerveParser;
 /** The subsystem that represents the drivetrain. */
 public class Drive extends SubsystemBase {
   private SwerveDrive drive;
+  private double maxSpeed;
 
   /** Creates a new Drive. */
   public Drive() {
+
+    this.maxSpeed = Constants.Drive.MAX_SPEED;
+
     /* Try-catch because otherwise the compiler tries to anticipate runtime errors and throws a
      * compiletime error for a missing file even though it shouldn't
      */
@@ -46,7 +50,7 @@ public class Drive extends SubsystemBase {
     /* setting the motors to brake mode */
     drive.setMotorIdleMode(true);
 
-    /* Configure AutoBuilder last */
+    /* Configure AutoBuilder */
     AutoBuilder.configureHolonomic(
         this.drive::getPose, /* Robot pose supplier */
         this.drive
@@ -111,21 +115,30 @@ public class Drive extends SubsystemBase {
   }
 
   /**
-   * Gets the maximum speed the robot chassis can acheive in m/s.
+   * Gets the maximum speed the robot chassis can achieve in m/s.
    *
-   * @return Maximum speed the robot chassis can acheive in m/s.
+   * @return Maximum speed the robot chassis can achieve in m/s.
    */
   public double getMaximumSpeed() {
-    return Math.min(drive.getMaximumVelocity(), Constants.Drive.MAX_SPEED);
+    return Math.min(drive.getMaximumVelocity(), Math.min(Constants.Drive.MAX_SPEED, maxSpeed));
   }
 
   /**
-   * Gets the maximum angular speed the robot chassis can acheive in rad/s.
+   * Gets the maximum angular speed the robot chassis can achieve in rad/s.
    *
-   * @return Maximum angular speed the robot chassis can acheive in rad/s.
+   * @return Maximum angular speed the robot chassis can achieve in rad/s.
    */
   public double getMaximumAngularSpeed() {
     return Math.min(drive.getMaximumAngularVelocity(), Constants.Drive.MAX_ANGULAR_SPEED);
+  }
+
+  /**
+   * Sets the maximum speed the robot chassis can achieve in m/s.
+   *
+   * @param speed New maximum speed for the robot in m/s.
+   */
+  public void setMaximumSpeed(double speed) {
+    this.maxSpeed = speed;
   }
 
   /**
@@ -157,7 +170,7 @@ public class Drive extends SubsystemBase {
         headingX,
         headingY,
         drive.getPose().getRotation().getRadians(),
-        Constants.Drive.MAX_SPEED);
+        maxSpeed);
   }
 
   /** Runs every scheduler run. */
