@@ -100,7 +100,7 @@ public class RobotContainer {
   public static CommandXboxController operatorController =
       new CommandXboxController(Constants.Controllers.OPERATOR_CONTROLLER_PORT);
 
-  private static XboxController rawXboxController = pilotController.getHID();
+  private static XboxController rawPilotController = pilotController.getHID();
 
   /*
    * *************
@@ -115,13 +115,13 @@ public class RobotContainer {
       () -> getScaledControllerRightXAxis();
   private static Supplier<Double> scaledControllerRightYAxisSupplier =
       () -> getScaledControllerRightYAxis();
-  private static Supplier<Boolean> povUpDirectionSupplier = () -> rawXboxController.getPOV() == 0;
+  private static Supplier<Boolean> povUpDirectionSupplier = () -> rawPilotController.getPOV() == 0;
   private static Supplier<Boolean> povRightDirectionSupplier =
-      () -> rawXboxController.getPOV() == 90;
+      () -> rawPilotController.getPOV() == 90;
   private static Supplier<Boolean> povDownDirectionSupplier =
-      () -> rawXboxController.getPOV() == 180;
+      () -> rawPilotController.getPOV() == 180;
   private static Supplier<Boolean> povLeftDirectionSupplier =
-      () -> rawXboxController.getPOV() == 270;
+      () -> rawPilotController.getPOV() == 270;
 
   /*
    * ************
