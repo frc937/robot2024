@@ -35,7 +35,7 @@ public class Drive extends SubsystemBase {
   /** Creates a new Drive. */
   public Drive() {
 
-    this.maxSpeed = Constants.Drive.MAX_SPEED;
+    this.maxSpeed = Constants.Drive.MAX_NORMAL_SPEED;
 
     /* Try-catch because otherwise the compiler tries to anticipate runtime errors and throws a
      * compiletime error for a missing file even though it shouldn't
@@ -62,7 +62,7 @@ public class Drive extends SubsystemBase {
             /* HolonomicPathFollowerConfig, this should likely live in your Constants class */
             Constants.Drive.TRANSLATION_DRIVE_PID, /* Translation PID constants */
             Constants.Drive.ROTATION_DRIVE_PID, /* Rotation PID constants */
-            Constants.Drive.MAX_SPEED, /* Max module speed, in m/s */
+            Constants.Drive.MAX_NORMAL_SPEED, /* Max module speed, in m/s */
             Constants.Drive
                 .DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE, /* Drive base radius in meters. Distance from robot center to furthest module. */
             new ReplanningConfig() /* Default path replanning config. See the API for the options here */),
@@ -120,7 +120,7 @@ public class Drive extends SubsystemBase {
    * @return Maximum speed the robot chassis can achieve in m/s.
    */
   public double getMaximumSpeed() {
-    return Math.min(drive.getMaximumVelocity(), Math.min(Constants.Drive.MAX_SPEED, maxSpeed));
+    return Math.min(drive.getMaximumVelocity(), Math.max(Constants.Drive.MAX_NORMAL_SPEED, maxSpeed));
   }
 
   /**

@@ -13,6 +13,7 @@ package frc.robot;
 
 import com.pathplanner.lib.util.PIDConstants;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.util.Units;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -81,8 +82,11 @@ public final class Constants {
     /** Empty translation to prevent creating 2 Translation2ds every time the drive train stops. */
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
 
-    /** The max speed the robot can go in m/s */
-    public static double MAX_SPEED = 2;
+    /** The MAXIMUM possible speed for our robot. We cannot go above this. */
+    public static double MAX_SPEED_LIMIT = Units.feetToMeters(14.5);
+
+    /** The max speed we want the robot can go in m/s */
+    public static double MAX_NORMAL_SPEED = 2;
 
     /** The max speed the robot can rotate */
     public static double MAX_ANGULAR_SPEED = Math.PI;
