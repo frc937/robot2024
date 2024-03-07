@@ -178,7 +178,7 @@ public class RobotContainer {
       new FireNoteRoutineNoLimitSwitch();
 
   /** Singleton instance of {@link RunIntakeReverse} for the whole robot. */
-  public RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
+  public static RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
 
   /** Singleton instance of {@link RunIntake} for the whole robot. */
   public static RunIntake runIntake = new RunIntake();
