@@ -48,6 +48,11 @@ public class Intake extends SubsystemBase {
     intakeUpper.set(Constants.Intake.INTAKE_MOTOR_SPEED);
   }
 
+  /** Runs the intake motors in reverse. */
+  public void runIntakeReverse() {
+    intakeUpper.set(-Constants.Intake.INTAKE_MOTOR_SPEED);
+  }
+
   /**
    * Returns a boolean value on whether or not the Limit Switch (for the intake) has been activated.
    *

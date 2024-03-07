@@ -26,6 +26,7 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
@@ -175,6 +176,11 @@ public class RobotContainer {
   /** Singleton instance of {@link FireNoteRoutineNoLimitSwitch} for the whole robot. */
   public static FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
       new FireNoteRoutineNoLimitSwitch();
+  private RunIntake runIntake = new RunIntake();
+  private AimWithLimelight aimToAmp =
+
+  /** Singleton instance of {@link RunIntakeReverse} for the whole robot. */
+  public RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
 
   /** Singleton instance of {@link RunIntake} for the whole robot. */
   public static RunIntake runIntake = new RunIntake();
