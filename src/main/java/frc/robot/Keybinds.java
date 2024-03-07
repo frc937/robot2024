@@ -29,7 +29,7 @@ public final class Keybinds {
     operatorController.y().whileTrue(RobotContainer.climbUp);
     operatorController.a().whileTrue(RobotContainer.climbDown);
     operatorController.povUp().whileTrue(RobotContainer.runIntake);
-    /* TODO: bind intake reverse to povDown when issue 92 is closed. */
+    operatorController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
 
@@ -49,7 +49,7 @@ public final class Keybinds {
       CommandXboxController pilotController, CommandXboxController operatorController) {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on right bumper (issue 86) */
-    /* TODO: bind intake reverse to povDown when issue 92 is closed. */
+    pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     pilotController.povUp().toggleOnTrue(RobotContainer.enterXMode);
     pilotController.rightTrigger().whileTrue(RobotContainer.runIntake);
     pilotController.a().whileTrue(RobotContainer.aimToAmp);
@@ -70,7 +70,7 @@ public final class Keybinds {
     pilotController.x().onTrue(RobotContainer.enterXMode);
     pilotController.y().whileTrue(RobotContainer.fireNote);
     pilotController.a().whileTrue(RobotContainer.runIntake);
-    /* TODO: bind intake reverse to povDown when issue 92 is closed. */
+    pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     pilotController.b().whileTrue(RobotContainer.aimToAmp);
     pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
