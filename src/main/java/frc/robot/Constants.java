@@ -69,8 +69,11 @@ public final class Constants {
 
   /** Constants that are relating to the controllers. */
   public static class Controllers {
-    /** Driver station port number for the drive controller. */
-    public static final int DRIVER_CONTROLLER_PORT = 0;
+    /** Driver station port number for the pilot controller */
+    public static final int PILOT_CONTROLLER_PORT = 0;
+
+    /** Driver station port number for the operator controller */
+    public static final int OPERATOR_CONTROLLER_PORT = 2;
 
     /** Axis deadband for driver controller. */
     public static double DRIVER_CONTROLLER_DEADBAND = 0.1;
