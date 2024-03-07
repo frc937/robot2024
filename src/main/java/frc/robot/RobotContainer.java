@@ -26,6 +26,7 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
@@ -176,6 +177,9 @@ public class RobotContainer {
   public static FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
       new FireNoteRoutineNoLimitSwitch();
 
+  /** Singleton instance of {@link RunIntakeReverse} for the whole robot. */
+  private RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
+
   /** Singleton instance of {@link RunIntake} for the whole robot. */
   public static RunIntake runIntake = new RunIntake();
 
@@ -249,7 +253,6 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    // TODO: CHANGE THIS TO configureDefaultKeybinds() FOR COMP
     Keybinds.configureOperatorlessKeybinds(pilotController, operatorController);
   }
 
