@@ -89,20 +89,40 @@ public class RobotContainer {
   public static Climber climber = new Climber();
 
   /*
+   * ***************
+   * * CONTROLLERS *
+   * ***************
+   */
+  /** Xbox controller for the pilot. */
+  public static CommandXboxController pilotController =
+      new CommandXboxController(Constants.Controllers.PILOT_CONTROLLER_PORT);
+
+  /** Xbox controller for the operator */
+  public static CommandXboxController operatorController =
+      new CommandXboxController(Constants.Controllers.OPERATOR_CONTROLLER_PORT);
+
+  private static XboxController rawPilotController = pilotController.getHID();
+
+  /*
    * *************
    * * SUPPLIERS *
    * *************
    */
-  private Supplier<Double> scaledControllerLeftXAxisSupplier = () -> getScaledControllerLeftXAxis();
-  private Supplier<Double> scaledControllerLeftYAxisSupplier = () -> getScaledControllerLeftYAxis();
-  private Supplier<Double> scaledControllerRightXAxisSupplier =
+  private static Supplier<Double> scaledControllerLeftXAxisSupplier =
+      () -> getScaledControllerLeftXAxis();
+  private static Supplier<Double> scaledControllerLeftYAxisSupplier =
+      () -> getScaledControllerLeftYAxis();
+  private static Supplier<Double> scaledControllerRightXAxisSupplier =
       () -> getScaledControllerRightXAxis();
-  private Supplier<Double> scaledControllerRightYAxisSupplier =
+  private static Supplier<Double> scaledControllerRightYAxisSupplier =
       () -> getScaledControllerRightYAxis();
-  private Supplier<Boolean> povUpDirectionSupplier = () -> rawXboxController.getPOV() == 0;
-  private Supplier<Boolean> povRightDirectionSupplier = () -> rawXboxController.getPOV() == 90;
-  private Supplier<Boolean> povDownDirectionSupplier = () -> rawXboxController.getPOV() == 180;
-  private Supplier<Boolean> povLeftDirectionSupplier = () -> rawXboxController.getPOV() == 270;
+  private static Supplier<Boolean> povUpDirectionSupplier = () -> rawPilotController.getPOV() == 0;
+  private static Supplier<Boolean> povRightDirectionSupplier =
+      () -> rawPilotController.getPOV() == 90;
+  private static Supplier<Boolean> povDownDirectionSupplier =
+      () -> rawPilotController.getPOV() == 180;
+  private static Supplier<Boolean> povLeftDirectionSupplier =
+      () -> rawPilotController.getPOV() == 270;
 
   /*
    * ************
@@ -110,17 +130,22 @@ public class RobotContainer {
    * ************
    */
 
-  private DriveRobotOriented driveRobotOriented =
+  /** Singleton instance of {@link DriveRobotOriented} for the whole robot. */
+  public static DriveRobotOriented driveRobotOriented =
       new DriveRobotOriented(
           scaledControllerLeftYAxisSupplier,
           scaledControllerLeftXAxisSupplier,
           scaledControllerRightXAxisSupplier);
-  private DriveFieldOriented driveFieldOriented =
+
+  /** Singleton instance of {@link DriveFieldOriented} for the whole robot. */
+  public static DriveFieldOriented driveFieldOriented =
       new DriveFieldOriented(
           scaledControllerLeftXAxisSupplier,
           scaledControllerLeftYAxisSupplier,
           scaledControllerRightXAxisSupplier);
-  private DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
+
+  /** Singleton instance of {@link DriveFieldOrientedHeadingSnapping} for the whole robot. */
+  public static DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
       new DriveFieldOrientedHeadingSnapping(
           scaledControllerRightXAxisSupplier,
           scaledControllerLeftYAxisSupplier,
@@ -129,17 +154,37 @@ public class RobotContainer {
           povDownDirectionSupplier,
           povLeftDirectionSupplier,
           povRightDirectionSupplier);
-  private EnterXMode enterXMode = new EnterXMode();
-  private DeployPneumatics deployPneumatics = new DeployPneumatics();
-  private RunBelts runBelts = new RunBelts();
-  private DeployMailbox deployMailbox = new DeployMailbox();
-  private DeindexNote deindexNote = new DeindexNote();
-  private FireNoteRoutine fireNote = new FireNoteRoutine();
-  private FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
+
+  /** Singleton instance of {@link EnterXMode} for the whole robot. */
+  public static EnterXMode enterXMode = new EnterXMode();
+
+  /** Singleton instance of {@link DeployPneumatics} for the whole robot. */
+  public static DeployPneumatics deployPneumatics = new DeployPneumatics();
+
+  /** Singleton instance of {@link RunBelts} for the whole robot. */
+  public static RunBelts runBelts = new RunBelts();
+
+  /** Singleton instance of {@link DeployMailbox} for the whole robot. */
+  public static DeployMailbox deployMailbox = new DeployMailbox();
+
+  /** Singleton instance of {@link DeindexNote} for the whole robot. */
+  public static DeindexNote deindexNote = new DeindexNote();
+
+  /** Singleton instance of {@link FireNoteRoutine} for the whole robot. */
+  public static FireNoteRoutine fireNote = new FireNoteRoutine();
+
+  /** Singleton instance of {@link FireNoteRoutineNoLimitSwitch} for the whole robot. */
+  public static FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
       new FireNoteRoutineNoLimitSwitch();
-  private RunIntake runIntake = new RunIntake();
+  
+  /** Singleton instance of {@link RunIntakeReverse} for the whole robot. */
   private RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
-  private AimWithLimelight aimToAmp =
+
+  /** Singleton instance of {@link RunIntake} for the whole robot. */
+  public static RunIntake runIntake = new RunIntake();
+
+  /** Singleton instance of {@link AimWithLimelight} for the whole robot. */
+  public static AimWithLimelight aimToAmp =
       new AimWithLimelight(
           limelight,
           Constants.Limelight.AimingLimelight.STEER_STRENGTH,
@@ -151,33 +196,34 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
-  private AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
-  private DeployUrMom deployUrMom = new DeployUrMom();
-  private ClimbUp climbUp = new ClimbUp();
-  private ClimbDown climbDown = new ClimbDown();
+
+  /** Singleton instance of {@link AimAndFireRoutine} for the whole robot. */
+  public static AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
+
+  /** Singleton instance of {@link DeployUrMom} for the whole robot. */
+  public static DeployUrMom deployUrMom = new DeployUrMom();
+
+  /** Singleton instance of {@link ClimbUp} for the whole robot. */
+  public static ClimbUp climbUp = new ClimbUp();
+
+  /** Singleton instance of {@link ClimbDown} for the whole robot. */
+  public static ClimbDown climbDown = new ClimbDown();
 
   /* Autos */
-  private MoveAwayFromAmp moveAwayFromAmp = new MoveAwayFromAmp();
-  private OnePieceAuto onePieceAuto = new OnePieceAuto();
-  private TaxiAuto taxiAuto = new TaxiAuto();
+  /** Singleton instance of {@link MoveAwayFromAmp} for the whole robot. */
+  public static MoveAwayFromAmp moveAwayFromAmp = new MoveAwayFromAmp();
+
+  /** Singleton instance of {@link OnePieceAuto} for the whole robot. */
+  public static OnePieceAuto onePieceAuto = new OnePieceAuto();
+
+  /** Singleton instance of {@link TaxiAuto} for the whole robot. */
+  public static TaxiAuto taxiAuto = new TaxiAuto();
 
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
    * ***********************
    */
-
-  /* The CommandXboxController instance must be static to allow the getter methods for its axes
-   * to work.
-   */
-  /** Xbox controller for the driver. */
-  public static CommandXboxController drivetrainController =
-      new CommandXboxController(Constants.Controllers.DRIVER_CONTROLLER_PORT);
-
-  public static CommandXboxController gamePieceController =
-      new CommandXboxController(Constants.Controllers.GAME_PIECE_CONTROLLER_PORT);
-
-  private static XboxController rawXboxController = drivetrainController.getHID();
 
   /** Sendable Chooser for autos. */
   private SendableChooser<Command> autoChooser;
@@ -207,16 +253,7 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    gamePieceController.leftTrigger().whileTrue(runIntakeReverse);
-    drivetrainController.leftStick().toggleOnTrue(driveFieldOriented);
-
-    drivetrainController.x().onTrue(enterXMode);
-    gamePieceController.y().whileTrue(fireNote);
-    gamePieceController.a().whileTrue(runIntake);
-    gamePieceController.rightTrigger().whileTrue(deployMailbox);
-    gamePieceController.b().whileTrue(runBelts);
-    // gamePieceController.leftBumper().whileTrue(climbDown);
-    // gamePieceController.rightBumper().whileTrue(climbUp);
+    Keybinds.configureOperatorlessKeybinds(pilotController, operatorController);
   }
 
   /**
@@ -240,7 +277,7 @@ public class RobotContainer {
    * @return x-axis of left stick of driver controller.
    */
   public static double getControllerLeftXAxis() {
-    return drivetrainController.getLeftX();
+    return pilotController.getLeftX();
   }
 
   /**
@@ -258,7 +295,7 @@ public class RobotContainer {
    * @return y-axis of left stick of driver controller.
    */
   public static double getControllerLeftYAxis() {
-    return drivetrainController.getLeftY();
+    return pilotController.getLeftY();
   }
 
   /**
@@ -276,7 +313,7 @@ public class RobotContainer {
    * @return x-axis of right stick of driver controller.
    */
   public static double getControllerRightXAxis() {
-    return drivetrainController.getRightX();
+    return pilotController.getRightX();
   }
 
   /**
@@ -294,7 +331,7 @@ public class RobotContainer {
    * @return y-axis of right stick of driver controller.
    */
   public static double getControllerRightYAxis() {
-    return drivetrainController.getRightY();
+    return pilotController.getRightY();
   }
 
   /**
