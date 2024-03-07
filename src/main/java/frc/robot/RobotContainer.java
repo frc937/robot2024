@@ -176,8 +176,6 @@ public class RobotContainer {
   /** Singleton instance of {@link FireNoteRoutineNoLimitSwitch} for the whole robot. */
   public static FireNoteRoutineNoLimitSwitch fireNoteRoutineNoLimitSwitch =
       new FireNoteRoutineNoLimitSwitch();
-  private RunIntake runIntake = new RunIntake();
-  private AimWithLimelight aimToAmp =
 
   /** Singleton instance of {@link RunIntakeReverse} for the whole robot. */
   public RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
