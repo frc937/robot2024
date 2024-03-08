@@ -175,8 +175,8 @@ public class Drive extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     encoderEntries[0].setDouble(drive.getModules()[0].getAbsolutePosition()); // FL
-    encoderEntries[1].setDouble(drive.getModules()[2].getAbsolutePosition()); // FR
-    encoderEntries[2].setDouble(drive.getModules()[3].getAbsolutePosition()); // BL
-    encoderEntries[3].setDouble(drive.getModules()[4].getAbsolutePosition()); // BR
+    encoderEntries[1].setDouble(drive.getModules()[1].getAbsolutePosition()); // FR
+    encoderEntries[2].setDouble(drive.getModules()[2].getAbsolutePosition()); // BL
+    encoderEntries[3].setDouble(drive.getModules()[3].getAbsolutePosition()); // BR
   }
 }
