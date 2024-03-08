@@ -51,12 +51,19 @@ public final class Controllers {
     rightY
   }
 
+  public enum Keymap {
+    Default,
+    Operatorless,
+    Original
+  }
+
   /**
    * Configures the robot with default keybinds for competition.
    *
    * @param pilotController
    * @param operatorController
    */
+  @Deprecated
   public static void configureDefaultKeybinds() {
     operatorController.y().whileTrue(RobotContainer.climbUp);
     operatorController.a().whileTrue(RobotContainer.climbDown);
@@ -77,6 +84,7 @@ public final class Controllers {
    * @param pilotController
    * @param operatorController
    */
+  @Deprecated
   public static void configureOperatorlessKeybinds() {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on right bumper (issue 86) */
@@ -95,6 +103,7 @@ public final class Controllers {
    * @param pilotController
    * @param operatorController
    */
+  @Deprecated
   public static void configureOriginalKeybinds() {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.x().onTrue(RobotContainer.enterXMode);
@@ -105,6 +114,49 @@ public final class Controllers {
     pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
+  }
+
+  /**
+   * Configures robot keybinds.
+   *
+   * <p>Should be called at least once somewhere in robot initialization.
+   *
+   * @param keymap Which keymap to be used. Supplied by {@link Controllers.Keymap}.
+   */
+  public static void configureKeybinds(Keymap keymap) {
+    switch (keymap) {
+      case Default:
+        operatorController.y().whileTrue(RobotContainer.climbUp);
+        operatorController.a().whileTrue(RobotContainer.climbDown);
+        operatorController.povUp().whileTrue(RobotContainer.runIntake);
+        operatorController.povDown().whileTrue(RobotContainer.runIntakeReverse);
+        operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
+        operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
+
+        pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
+        pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
+      case Operatorless:
+        pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
+        pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
+        pilotController.povUp().toggleOnTrue(RobotContainer.enterXMode);
+        pilotController.rightTrigger().whileTrue(RobotContainer.runIntake);
+        pilotController.a().whileTrue(RobotContainer.aimToAmp);
+        pilotController.b().whileTrue(RobotContainer.fireNote);
+        pilotController.x().whileTrue(RobotContainer.climbUp);
+        pilotController.y().whileTrue(RobotContainer.climbDown);
+      case Original:
+        pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
+        pilotController.x().onTrue(RobotContainer.enterXMode);
+        pilotController.y().whileTrue(RobotContainer.fireNote);
+        pilotController.a().whileTrue(RobotContainer.runIntake);
+        pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
+        pilotController.b().whileTrue(RobotContainer.aimToAmp);
+        pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
+        pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
+      default:
+        throw new IllegalArgumentException(
+            "configureKeybinds() recieved an illegal enum constant argument");
+    }
   }
 
   /**
