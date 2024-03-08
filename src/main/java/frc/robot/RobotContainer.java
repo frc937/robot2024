@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Controllers.ControllerAxis;
+import frc.robot.Controllers.Keymap;
 import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.ClimbDown;
@@ -199,10 +200,11 @@ public class RobotContainer {
   /** Sendable Chooser for autos. */
   private SendableChooser<Command> autoChooser;
 
+  private SendableChooser<Keymap> keymapChooser;
+
   /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
-    // configureBindings();
-    Controllers.configureDefaultKeybinds();
+    configureBindings();
     configureAuto();
 
     drive.setDefaultCommand(driveRobotOriented);
@@ -224,7 +226,18 @@ public class RobotContainer {
     SmartDashboard.putData("choose auto", autoChooser);
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    keymapChooser = new SendableChooser<>();
+
+    keymapChooser.setDefaultOption("Default", Keymap.Default);
+    keymapChooser.addOption("Operatorless", Keymap.Operatorless);
+    keymapChooser.addOption("Original", Keymap.Original);
+
+    /* TODO: Test and make sure this actually works to change the keymap over whenever we switch keymaps in the chooser */
+    keymapChooser.onChange(Controllers.getConfigureKeybindsConsumer());
+
+    Controllers.configureKeybinds(keymapChooser.getSelected());
+  }
 
   /**
    * Gets the current autonomous command.

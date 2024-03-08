@@ -13,7 +13,9 @@ package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -135,6 +137,8 @@ public final class Controllers {
 
         pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
         pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
+
+        SmartDashboard.putString("Keymap", "Default");
       case Operatorless:
         pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
         pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
@@ -144,6 +148,8 @@ public final class Controllers {
         pilotController.b().whileTrue(RobotContainer.fireNote);
         pilotController.x().whileTrue(RobotContainer.climbUp);
         pilotController.y().whileTrue(RobotContainer.climbDown);
+
+        SmartDashboard.putString("Keymap", "Operatorless");
       case Original:
         pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
         pilotController.x().onTrue(RobotContainer.enterXMode);
@@ -153,10 +159,16 @@ public final class Controllers {
         pilotController.b().whileTrue(RobotContainer.aimToAmp);
         pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
         pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
+
+        SmartDashboard.putString("Keymap", "Original");
       default:
         throw new IllegalArgumentException(
             "configureKeybinds() recieved an illegal enum constant argument");
     }
+  }
+
+  public static Consumer<Keymap> getConfigureKeybindsConsumer() {
+    return keymap -> configureKeybinds(keymap);
   }
 
   /**
