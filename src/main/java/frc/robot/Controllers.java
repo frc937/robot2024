@@ -90,11 +90,7 @@ public final class Controllers {
     Original
   }
 
-  /**
-   * Configures the robot with default keybinds for competition.
-   *
-   * @return
-   */
+  /** Configures the robot with default keybinds for competition. */
   private static void configureDefaultKeybinds() {
     operatorController.y().whileTrue(RobotContainer.climbUp);
     operatorController.a().whileTrue(RobotContainer.climbDown);
