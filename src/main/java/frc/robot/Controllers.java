@@ -98,6 +98,8 @@ public final class Controllers {
     pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
+
+    SmartDashboard.putString("Keymap", "Default");
   }
 
   /**
@@ -114,6 +116,8 @@ public final class Controllers {
     pilotController.b().whileTrue(RobotContainer.fireNote);
     pilotController.x().whileTrue(RobotContainer.climbUp);
     pilotController.y().whileTrue(RobotContainer.climbDown);
+
+    SmartDashboard.putString("Keymap", "Operatorless");
   }
 
   /** Configures the robot with the original keybinds. DOES NOT USE OPERATOR CONTROLLER */
@@ -127,6 +131,8 @@ public final class Controllers {
     pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
+
+    SmartDashboard.putString("Keymap", "Original");
   }
 
   /**
