@@ -14,6 +14,7 @@ package frc.robot;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -126,6 +127,7 @@ public final class Controllers {
    * @param keymap Which keymap to be used. Supplied by {@link Controllers.Keymap}.
    */
   public static void configureKeybinds(Keymap keymap) {
+    CommandScheduler.getInstance().getActiveButtonLoop().clear();
     switch (keymap) {
       case Default:
         operatorController.y().whileTrue(RobotContainer.climbUp);
