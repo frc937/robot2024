@@ -18,6 +18,7 @@ import frc.robot.subsystems.Drive;
 import java.util.function.Supplier;
 
 /** Drives the robot in field-oriented mode. */
+@Deprecated // Use DriveRobot instead.
 public class DriveFieldOriented extends Command {
   private final Drive drive;
   private final Supplier<Double> xSupplier, ySupplier, zSupplier;
