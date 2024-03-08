@@ -242,7 +242,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
     configureAuto();
-    Shuffleboard.getTab("Drive")
+    Shuffleboard.getTab("Driver")
         .add("Clear PDP sticky faults", clearPDPStickyFaults)
         .withWidget(BuiltInWidgets.kCommand);
 
@@ -262,7 +262,7 @@ public class RobotContainer {
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
     autoChooser.addOption("Taxi", taxiAuto);
 
-    Shuffleboard.getTab("Drive")
+    Shuffleboard.getTab("Driver")
         .add("Choose Auto Routine", autoChooser)
         .withWidget(BuiltInWidgets.kComboBoxChooser);
   }
@@ -277,7 +277,7 @@ public class RobotContainer {
     /* TODO: Test and make sure this actually works to change the keymap over whenever we switch keymaps in the chooser */
     keymapChooser.onChange(Controllers::configureKeybinds);
 
-    Shuffleboard.getTab("Drive")
+    Shuffleboard.getTab("Driver")
         .add("Select Keymap", keymapChooser)
         .withWidget(BuiltInWidgets.kComboBoxChooser);
 
