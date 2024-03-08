@@ -23,6 +23,7 @@ public class PDP extends SubsystemBase {
     this.powerDistributionPanel = new PowerDistribution();
   }
 
+  /** Clears the sticky faults of the PDP */
   public void clearStickyFaults() {
     powerDistributionPanel.clearStickyFaults();
   }
