@@ -19,6 +19,7 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -158,7 +159,7 @@ public class Drive extends SubsystemBase {
    * @param driveMode The mode to display in SmartDashboard.
    */
   public void setDriveMode(String driveMode) {
-    SmartDashboard.putString("Drive mode", driveMode);
+    Shuffleboard.getTab("Driver").add("Drive mode", driveMode).withWidget(BuiltInWidgets.kTextView);
   }
 
   /** Runs every scheduler run. */
