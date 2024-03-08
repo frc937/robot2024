@@ -149,6 +149,17 @@ public class Drive extends SubsystemBase {
         Constants.Drive.MAX_SPEED);
   }
 
+  /**
+   * Sets the drive mode in SmartDashboard.
+   *
+   * <p><strong> THIS DOES NOT SET THE ROBOT'S DRIVE MODE</strong>
+   *
+   * @param driveMode The mode to display in SmartDashboard.
+   */
+  public void setDriveMode(String driveMode) {
+    SmartDashboard.putString("Drive mode", driveMode);
+  }
+
   /** Runs every scheduler run. */
   @Override
   public void periodic() {
