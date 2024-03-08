@@ -14,6 +14,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+/** PDP of the robot */
 public class PDP extends SubsystemBase {
 
   private PowerDistribution powerDistributionPanel;
