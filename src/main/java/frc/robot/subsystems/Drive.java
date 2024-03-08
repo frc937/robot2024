@@ -19,7 +19,8 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import java.io.File;
@@ -153,9 +154,10 @@ public class Drive extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("FL Encoder", drive.getModules()[0].getAbsolutePosition());
-    SmartDashboard.putNumber("FR Encoder", drive.getModules()[1].getAbsolutePosition());
-    SmartDashboard.putNumber("BL Encoder", drive.getModules()[2].getAbsolutePosition());
-    SmartDashboard.putNumber("BR Encoder", drive.getModules()[3].getAbsolutePosition());
+    ShuffleboardTab debugTab = Shuffleboard.getTab("Debug");
+    debugTab.add("FL Encoder", drive.getModules()[0].getAbsolutePosition());
+    debugTab.add("FR Encoder", drive.getModules()[1].getAbsolutePosition());
+    debugTab.add("BL Encoder", drive.getModules()[2].getAbsolutePosition());
+    debugTab.add("BR Encoder", drive.getModules()[3].getAbsolutePosition());
   }
 }
