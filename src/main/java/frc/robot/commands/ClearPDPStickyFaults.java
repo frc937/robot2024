@@ -12,16 +12,24 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.RobotContainer;
+import frc.robot.subsystems.PDP;
 
 public class ClearPDPStickyFaults extends Command {
+
+  private PDP pdp;
+
   /** Creates a new ClearPDPStickyFaults. */
   public ClearPDPStickyFaults() {
-    // Use addRequirements() here to declare subsystem dependencies.
+    this.pdp = RobotContainer.pdp;
+    addRequirements(this.pdp);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    pdp.clearStickyFaults();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
@@ -34,6 +42,6 @@ public class ClearPDPStickyFaults extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
