@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.PDP;
 
+/** Clears the PDP's sticky faults */
 public class ClearPDPStickyFaults extends Command {
 
   private PDP pdp;
