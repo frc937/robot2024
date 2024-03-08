@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /**
@@ -155,15 +154,6 @@ public final class Controllers {
         throw new IllegalArgumentException(
             "configureKeybinds() recieved an illegal enum constant argument");
     }
-  }
-
-  /**
-   * Gets an {@link Consumer} that will call {@link #configureKeybinds}
-   *
-   * @return The consumer
-   */
-  public static Consumer<Keymap> getConfigureKeybindsConsumer() {
-    return keymap -> configureKeybinds(keymap);
   }
 
   /**

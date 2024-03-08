@@ -234,7 +234,7 @@ public class RobotContainer {
     keymapChooser.addOption("Original", Keymap.Original);
 
     /* TODO: Test and make sure this actually works to change the keymap over whenever we switch keymaps in the chooser */
-    keymapChooser.onChange(Controllers.getConfigureKeybindsConsumer());
+    keymapChooser.onChange(Controllers::configureKeybinds);
 
     Controllers.configureKeybinds(keymapChooser.getSelected());
   }
