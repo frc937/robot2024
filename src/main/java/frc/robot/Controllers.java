@@ -12,6 +12,8 @@
 package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -39,6 +41,9 @@ public final class Controllers {
    * suppliers.
    */
   private static XboxController rawPilotController = pilotController.getHID();
+
+  /** Raw HID Xbox controller object for the {@link operatorController}. */
+  private static XboxController rawOpXboxController = operatorController.getHID();
 
   /** When this supplier returns true, the robot should snap towards the opposing alliance wall. */
   public static Supplier<Boolean> headingSnappingUpSupplier =
@@ -201,6 +206,17 @@ public final class Controllers {
           throw new IllegalArgumentException(
               "getControllerAxis() recieved an illegal enum constant argument");
       }
+    }
+  }
+
+  /** Rumbles the controllers while browning out */
+  public static void rumbleIfBrowningOut() {
+    if (RobotController.isBrownedOut()) {
+      rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
+      rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
+    } else {
+      rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 0);
+      rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 0);
     }
   }
 
