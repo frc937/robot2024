@@ -18,6 +18,12 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
  * RobotContainer}'s configureBindings() method.'
  */
 public final class Controllers {
+  public static CommandXboxController pilotController =
+      new CommandXboxController(Constants.Controllers.PILOT_CONTROLLER_PORT);
+  public static CommandXboxController operatorController =
+      new CommandXboxController(Constants.Controllers.OPERATOR_CONTROLLER_PORT);
+
+  public static XboxController rawPilotController = pilotController.getHID();
   /**
    * Configures the robot with default keybinds for competition.
    *
