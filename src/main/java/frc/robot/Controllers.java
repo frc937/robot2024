@@ -28,12 +28,13 @@ public final class Controllers {
 
   public static XboxController rawPilotController = pilotController.getHID();
 
-  public static Supplier<Boolean> povUpDirectionSupplier = () -> rawPilotController.getPOV() == 0;
-  public static Supplier<Boolean> povRightDirectionSupplier =
+  public static Supplier<Boolean> headingSnappingUpSupplier =
+      () -> rawPilotController.getPOV() == 0;
+  public static Supplier<Boolean> headingSnappingRightSupplier =
       () -> rawPilotController.getPOV() == 90;
-  public static Supplier<Boolean> povDownDirectionSupplier =
+  public static Supplier<Boolean> headingSnappingDownSupplier =
       () -> rawPilotController.getPOV() == 180;
-  public static Supplier<Boolean> povLeftDirectionSupplier =
+  public static Supplier<Boolean> headingSnappingLeftSupplier =
       () -> rawPilotController.getPOV() == 270;
 
   /**
@@ -56,8 +57,7 @@ public final class Controllers {
    * @param pilotController
    * @param operatorController
    */
-  public static void configureDefaultKeybinds(
-      CommandXboxController pilotController, CommandXboxController operatorController) {
+  public static void configureDefaultKeybinds() {
     operatorController.y().whileTrue(RobotContainer.climbUp);
     operatorController.a().whileTrue(RobotContainer.climbDown);
     operatorController.povUp().whileTrue(RobotContainer.runIntake);
@@ -77,8 +77,7 @@ public final class Controllers {
    * @param pilotController
    * @param operatorController
    */
-  public static void configureOperatorlessKeybinds(
-      CommandXboxController pilotController, CommandXboxController operatorController) {
+  public static void configureOperatorlessKeybinds() {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on right bumper (issue 86) */
     pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
@@ -96,8 +95,7 @@ public final class Controllers {
    * @param pilotController
    * @param operatorController
    */
-  public static void configureOriginalKeybinds(
-      CommandXboxController pilotController, CommandXboxController operatorController) {
+  public static void configureOriginalKeybinds() {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.x().onTrue(RobotContainer.enterXMode);
     pilotController.y().whileTrue(RobotContainer.fireNote);
