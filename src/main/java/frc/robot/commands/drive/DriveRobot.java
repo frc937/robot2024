@@ -22,8 +22,8 @@ public class DriveRobot extends Command {
   private final Drive drive;
   private final Supplier<Double> xSupplier, ySupplier, zSupplier;
   private final boolean isFieldOriented;
-  private double maxSpeed = RobotContainer.drive.getMaximumSpeed();
-  private double maxAngularSpeed = RobotContainer.drive.getMaximumAngularSpeed();
+  private double maxSpeed;
+  private double maxAngularSpeed;
 
   /**
    * Drives the robot.
@@ -43,11 +43,13 @@ public class DriveRobot extends Command {
     this.zSupplier = zSupplier;
     this.drive = RobotContainer.drive;
     this.isFieldOriented = isFieldOriented;
+    this.maxSpeed = RobotContainer.drive.getMaximumSpeed();
+    this.maxAngularSpeed = RobotContainer.drive.getMaximumAngularSpeed();
     addRequirements(drive);
   }
 
   /**
-   * Creates a DriveRobot with
+   * Creates a DriveRobot with the specified max speed and angular speed.
    *
    * @param xSupplier The joystick value for the Y axis. [-1, 1] left positive.
    * @param ySupplier The joystick value for the Y axis. [-1, 1] back positive.
