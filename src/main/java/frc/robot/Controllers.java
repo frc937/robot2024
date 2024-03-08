@@ -38,7 +38,7 @@ public final class Controllers {
    * Raw HID Xbox controller object for the {@link pilotController}. Only used for POV/button
    * suppliers.
    */
-  public static XboxController rawPilotController = pilotController.getHID();
+  private static XboxController rawPilotController = pilotController.getHID();
 
   /** When this supplier returns true, the robot should snap towards the opposing alliance wall. */
   public static Supplier<Boolean> headingSnappingUpSupplier =
