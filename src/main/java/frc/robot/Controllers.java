@@ -124,6 +124,8 @@ public final class Controllers {
   /**
    * Gets a given controller axis (a joystick value).
    *
+   * @throws IllegalArgumentException If an enum value for ControllerAxis is passed that doesn't
+   *     exist within that type
    * @param controller The controller to get the axis from. Should probably pass a public field of
    *     {@link Controllers}
    * @param controllerAxis Enum representing which axis (left stick vs. right stick and x axis vs. y
@@ -146,7 +148,8 @@ public final class Controllers {
         case rightY:
           return controller.getRightY();
         default:
-          throw new IllegalArgumentException();
+          throw new IllegalArgumentException(
+              "getControllerAxis() recieved an illegal enum constant argument");
       }
     }
   }
