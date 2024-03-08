@@ -56,7 +56,7 @@ public class SeekTargetWithLimelight extends Command {
   @Override
   public void execute() {
     if (!limelight.hasValidTarget()) {
-      drive.driveRobotOriented(Constants.Drive.EMPTY_TRANSLATION, rotationRadiansPerSecond);
+      drive.driveRobot(Constants.Drive.EMPTY_TRANSLATION, rotationRadiansPerSecond, false);
     }
   }
 

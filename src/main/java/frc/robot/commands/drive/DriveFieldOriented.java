@@ -53,7 +53,7 @@ public class DriveFieldOriented extends Command {
     double z = this.zSupplier.get() * drive.getMaximumAngularSpeed();
     Translation2d translation = new Translation2d(x, y);
 
-    drive.driveFieldOriented(translation, z);
+    // drive.driveFieldOriented(translation, z);
   }
 
   // Called once the command ends or is interrupted.

@@ -77,34 +77,6 @@ public class Drive extends SubsystemBase {
   }
 
   /**
-   * Drives the robot in robot-oriented mode.
-   *
-   * @param translation {@link Translation2d} that represents the commanded robot velocities on the
-   *     x and y axes. Front-left postitive.
-   * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
-   *     positive.
-   * @deprecated Use driveRobot instead
-   */
-  @Deprecated
-  public void driveRobotOriented(Translation2d translation, double z) {
-    drive.drive(translation, z, false, false);
-  }
-
-  /**
-   * Drives the robot in field-oriented mode.
-   *
-   * @param translation {@link Translation2d} that represents the commanded robot velocities on the
-   *     x and y axes. Front-left postitive. Reletive to the field.
-   * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
-   *     positive.
-   * @deprecated Use driveRobot instead
-   */
-  @Deprecated
-  public void driveFieldOriented(Translation2d translation, double z) {
-    drive.drive(translation, z, true, false);
-  }
-
-  /**
    * Drives the robot in either field relative or robot relative.
    *
    * @param translation {@link Translation2d} that represents the commanded robot velocities on the

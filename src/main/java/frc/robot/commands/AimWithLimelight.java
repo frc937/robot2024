@@ -102,7 +102,7 @@ public class AimWithLimelight extends Command {
       if (z > speedLimit) {
         z = speedLimit;
       }
-      drive.driveRobotOriented(new Translation2d(y * -1.0, 0.0), z);
+      drive.driveRobot(new Translation2d(y * -1.0, 0.0), z, false);
       boolean isAngled = Math.abs(limelight.getTX()) < turnDoneThreshold;
       boolean isDistanced =
           Math.abs(
