@@ -19,7 +19,9 @@ public class PDP extends SubsystemBase {
   private PowerDistribution powerDistribution;
 
   /** Creates a new PDP. */
-  public PDP() {}
+  public PDP() {
+    this.powerDistribution = new PowerDistribution();
+  }
 
   public void clearStickyFaults() {
     powerDistribution.clearStickyFaults();
