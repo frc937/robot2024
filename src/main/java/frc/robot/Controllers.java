@@ -210,7 +210,7 @@ public final class Controllers {
   }
 
   /** Rumbles the controllers while browning out */
-  public static void brumble() {
+  public static void rumbleIfBrowningOut() {
     if (RobotController.isBrownedOut()) {
       rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
       rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
