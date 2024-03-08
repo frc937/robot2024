@@ -121,7 +121,7 @@ public final class Controllers {
     pilotController.x().whileTrue(RobotContainer.climbUp);
     pilotController.y().whileTrue(RobotContainer.climbDown);
 
-    Shuffleboard.getTab("Driver").add("keymap", "Operatorless");
+    Shuffleboard.getTab("Driver").add("Keymap", "Operatorless");
   }
 
   /** Configures the robot with the original keybinds. DOES NOT USE OPERATOR CONTROLLER */
@@ -136,7 +136,7 @@ public final class Controllers {
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
 
-    Shuffleboard.getTab("Driver").add("keymap", "Original");
+    Shuffleboard.getTab("Driver").add("Keymap", "Original");
   }
 
   /**
