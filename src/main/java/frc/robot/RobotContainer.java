@@ -13,12 +13,11 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.Controllers.ControllerAxis;
+import frc.robot.Controllers.Keymap;
 import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.ClimbDown;
@@ -46,7 +45,6 @@ import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
-import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
@@ -88,42 +86,6 @@ public class RobotContainer {
   public static Climber climber = new Climber();
 
   /*
-   * ***************
-   * * CONTROLLERS *
-   * ***************
-   */
-  /** Xbox controller for the pilot. */
-  public static CommandXboxController pilotController =
-      new CommandXboxController(Constants.Controllers.PILOT_CONTROLLER_PORT);
-
-  /** Xbox controller for the operator */
-  public static CommandXboxController operatorController =
-      new CommandXboxController(Constants.Controllers.OPERATOR_CONTROLLER_PORT);
-
-  private static XboxController rawPilotController = pilotController.getHID();
-
-  /*
-   * *************
-   * * SUPPLIERS *
-   * *************
-   */
-  private static Supplier<Double> scaledControllerLeftXAxisSupplier =
-      () -> getScaledControllerLeftXAxis();
-  private static Supplier<Double> scaledControllerLeftYAxisSupplier =
-      () -> getScaledControllerLeftYAxis();
-  private static Supplier<Double> scaledControllerRightXAxisSupplier =
-      () -> getScaledControllerRightXAxis();
-  private static Supplier<Double> scaledControllerRightYAxisSupplier =
-      () -> getScaledControllerRightYAxis();
-  private static Supplier<Boolean> povUpDirectionSupplier = () -> rawPilotController.getPOV() == 0;
-  private static Supplier<Boolean> povRightDirectionSupplier =
-      () -> rawPilotController.getPOV() == 90;
-  private static Supplier<Boolean> povDownDirectionSupplier =
-      () -> rawPilotController.getPOV() == 180;
-  private static Supplier<Boolean> povLeftDirectionSupplier =
-      () -> rawPilotController.getPOV() == 270;
-
-  /*
    * ************
    * * COMMANDS *
    * ************
@@ -132,9 +94,12 @@ public class RobotContainer {
   /** Singleton instance of robot oriented {@link DriveRobot} for the whole robot. */
   public static DriveRobot driveRobotOriented =
       new DriveRobot(
-          scaledControllerLeftYAxisSupplier,
-          scaledControllerLeftXAxisSupplier,
-          scaledControllerRightXAxisSupplier,
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.RightX, true),
           false,
           Constants.Drive.MAX_NORMAL_SPEED,
           Constants.Drive.MAX_NORMAL_ANGULAR_SPEED);
@@ -142,37 +107,51 @@ public class RobotContainer {
   /** Singleton instance of field oriented {@link DriveRobot} for the whole robot. */
   public static DriveRobot driveFieldOriented =
       new DriveRobot(
-          scaledControllerLeftYAxisSupplier,
-          scaledControllerLeftXAxisSupplier,
-          scaledControllerRightXAxisSupplier,
-          true);
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.RightX, true),
+          true,
+          Constants.Drive.MAX_NORMAL_SPEED,
+          Constants.Drive.MAX_NORMAL_ANGULAR_SPEED);
 
   /** Singleton instance of robot oriented sprint {@link DriveRobot} for the whole robot. */
   public static DriveRobot driveRobotOrientedSprint =
       new DriveRobot(
-          scaledControllerLeftYAxisSupplier,
-          scaledControllerLeftXAxisSupplier,
-          scaledControllerRightXAxisSupplier,
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.RightX, true),
           false);
 
   /** Singleton instance of field oriented sprint {@link DriveRobot} for the whole robot. */
   public static DriveRobot driveFieldOrientedSprint =
       new DriveRobot(
-          scaledControllerLeftYAxisSupplier,
-          scaledControllerLeftXAxisSupplier,
-          scaledControllerRightXAxisSupplier,
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.RightX, true),
           true);
 
   /** Singleton instance of {@link DriveFieldOrientedHeadingSnapping} for the whole robot. */
   public static DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
       new DriveFieldOrientedHeadingSnapping(
-          scaledControllerRightXAxisSupplier,
-          scaledControllerLeftYAxisSupplier,
-          scaledControllerLeftXAxisSupplier,
-          povUpDirectionSupplier,
-          povDownDirectionSupplier,
-          povLeftDirectionSupplier,
-          povRightDirectionSupplier);
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.RightX, true),
+          Controllers.headingSnappingUpSupplier,
+          Controllers.headingSnappingDownSupplier,
+          Controllers.headingSnappingLeftSupplier,
+          Controllers.headingSnappingRightSupplier);
 
   /** Singleton instance of {@link EnterXMode} for the whole robot. */
   public static EnterXMode enterXMode = new EnterXMode();
@@ -248,6 +227,8 @@ public class RobotContainer {
   /** Sendable Chooser for autos. */
   private SendableChooser<Command> autoChooser;
 
+  private SendableChooser<Keymap> keymapChooser;
+
   /** Constructor for {@link RobotContainer} */
   public RobotContainer() {
     configureBindings();
@@ -273,8 +254,18 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    // TODO: CHANGE THIS TO configureDefaultKeybinds() FOR COMP
-    Keybinds.configureDefaultKeybinds(pilotController, operatorController);
+    keymapChooser = new SendableChooser<>();
+
+    keymapChooser.setDefaultOption("Default", Keymap.Default);
+    keymapChooser.addOption("Operatorless", Keymap.Operatorless);
+    keymapChooser.addOption("Original", Keymap.Original);
+
+    /* TODO: Test and make sure this actually works to change the keymap over whenever we switch keymaps in the chooser */
+    keymapChooser.onChange(Controllers::configureKeybinds);
+
+    SmartDashboard.putData("Choose Keymap", keymapChooser);
+
+    Controllers.configureKeybinds(keymapChooser.getSelected());
   }
 
   /**
@@ -284,86 +275,5 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     return autoChooser.getSelected();
-  }
-
-  private static double scaleAxis(double axis) {
-    if (axis == 0) {
-      return 0;
-    }
-    double deadbanded =
-        MathUtil.applyDeadband(axis, Constants.Controllers.DRIVER_CONTROLLER_DEADBAND);
-    return -Math.pow(deadbanded, 2) * (Math.abs(axis) / axis);
-  }
-
-  /**
-   * Gets x-axis of left stick of driver controller.
-   *
-   * @return x-axis of left stick of driver controller.
-   */
-  public static double getControllerLeftXAxis() {
-    return pilotController.getLeftX();
-  }
-
-  /**
-   * Gets scaled x-axis of left stick of driver controller.
-   *
-   * @return scaled x-axis of left stick of driver controller.
-   */
-  public static double getScaledControllerLeftXAxis() {
-    return scaleAxis(getControllerLeftXAxis());
-  }
-
-  /**
-   * Gets y-axis of left stick of driver controller.
-   *
-   * @return y-axis of left stick of driver controller.
-   */
-  public static double getControllerLeftYAxis() {
-    return pilotController.getLeftY();
-  }
-
-  /**
-   * Gets scaled y-axis of left stick of driver controller.
-   *
-   * @return scaled y-axis of left stick of driver controller.
-   */
-  public static double getScaledControllerLeftYAxis() {
-    return scaleAxis(getControllerLeftYAxis());
-  }
-
-  /**
-   * Gets x-axis of right stick of driver controller.
-   *
-   * @return x-axis of right stick of driver controller.
-   */
-  public static double getControllerRightXAxis() {
-    return pilotController.getRightX();
-  }
-
-  /**
-   * Gets scaled x-axis of right stick of driver controller.
-   *
-   * @return scaled x-axis of right stick of driver controller.
-   */
-  public static double getScaledControllerRightXAxis() {
-    return scaleAxis(getControllerRightXAxis());
-  }
-
-  /**
-   * Gets y-axis of right stick of driver controller.
-   *
-   * @return y-axis of right stick of driver controller.
-   */
-  public static double getControllerRightYAxis() {
-    return pilotController.getRightY();
-  }
-
-  /**
-   * Gets scaled y-axis of right stick of driver controller.
-   *
-   * @return scaled y-axis of right stick of driver controller.
-   */
-  public static double getScaledControllerRightYAxis() {
-    return scaleAxis(getControllerRightYAxis());
   }
 }
