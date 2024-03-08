@@ -52,6 +52,7 @@ public class AimWithLimelight extends Command {
    * @param turnDoneThreshold The threshold in degrees when we consider the aiming done.
    * @param distanceDoneThreshold The threshold in inches when we consider the aiming done.
    * @param targetHeight The height of the target off the floor.
+   * @param pipelineNumber The pipeline to use while aiming
    */
   public AimWithLimelight(
       Limelight limelight,
