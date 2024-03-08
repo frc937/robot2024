@@ -16,15 +16,15 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class PDP extends SubsystemBase {
 
-  private PowerDistribution powerDistribution;
+  private PowerDistribution powerDistributionPanel;
 
   /** Creates a new PDP. */
   public PDP() {
-    this.powerDistribution = new PowerDistribution();
+    this.powerDistributionPanel = new PowerDistribution();
   }
 
   public void clearStickyFaults() {
-    powerDistribution.clearStickyFaults();
+    powerDistributionPanel.clearStickyFaults();
   }
 
   @Override
