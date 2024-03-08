@@ -30,9 +30,8 @@ import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
-import frc.robot.commands.drive.DriveFieldOriented;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
-import frc.robot.commands.drive.DriveRobotOriented;
+import frc.robot.commands.drive.DriveRobot;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
@@ -130,19 +129,21 @@ public class RobotContainer {
    * ************
    */
 
-  /** Singleton instance of {@link DriveRobotOriented} for the whole robot. */
-  public static DriveRobotOriented driveRobotOriented =
-      new DriveRobotOriented(
+  /** Singleton instance of {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveRobotOriented =
+      new DriveRobot(
           scaledControllerLeftYAxisSupplier,
           scaledControllerLeftXAxisSupplier,
-          scaledControllerRightXAxisSupplier);
+          scaledControllerRightXAxisSupplier,
+          false);
 
-  /** Singleton instance of {@link DriveFieldOriented} for the whole robot. */
-  public static DriveFieldOriented driveFieldOriented =
-      new DriveFieldOriented(
-          scaledControllerLeftXAxisSupplier,
+  /** Singleton instance of {@link DriveRobotOriented} for the whole robot. */
+  public static DriveRobot driveFieldOriented =
+      new DriveRobot(
           scaledControllerLeftYAxisSupplier,
-          scaledControllerRightXAxisSupplier);
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerRightXAxisSupplier,
+          true);
 
   /** Singleton instance of {@link DriveFieldOrientedHeadingSnapping} for the whole robot. */
   public static DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
