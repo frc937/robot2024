@@ -360,19 +360,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="frc/robot/RobotContainer.html#driveFieldOriented" class="member-name-link">driveFieldOriented</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
-<div class="block">Singleton instance of <a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive"><code>DriveFieldOriented</code></a> for the whole robot.</div>
-</dd>
-<dt><a href="frc/robot/subsystems/Drive.html#driveFieldOriented(edu.wpi.first.math.geometry.Translation2d,double)" class="member-name-link">driveFieldOriented(Translation2d, double)</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems">Drive</a></dt>
-<dd>
-<div class="block">Drives the robot in field-oriented mode.</div>
-</dd>
-<dt><a href="frc/robot/commands/drive/DriveFieldOriented.html" class="type-name-link" title="class in frc.robot.commands.drive">DriveFieldOriented</a> - Class in <a href="frc/robot/commands/drive/package-summary.html">frc.robot.commands.drive</a></dt>
-<dd>
-<div class="block">Drives the robot in field-oriented mode.</div>
-</dd>
-<dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#%3Cinit%3E(java.util.function.Supplier,java.util.function.Supplier,java.util.function.Supplier)" class="member-name-link">DriveFieldOriented(Supplier&lt;Double&gt;, Supplier&lt;Double&gt;, Supplier&lt;Double&gt;)</a> - Constructor for class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
-<dd>
-<div class="block">Drives the robot field-oriented</div>
+<div class="block">Singleton instance of field oriented <a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive"><code>DriveRobot</code></a> for the whole robot.</div>
 </dd>
 <dt><a href="frc/robot/RobotContainer.html#driveFieldOrientedHeadingSnapping" class="member-name-link">driveFieldOrientedHeadingSnapping</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
@@ -387,25 +375,37 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Drives the robot field oriented with heading snapping.</div>
 </dd>
+<dt><a href="frc/robot/RobotContainer.html#driveFieldOrientedSprint" class="member-name-link">driveFieldOrientedSprint</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
+<dd>
+<div class="block">Singleton instance of field oriented sprint <a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive"><code>DriveRobot</code></a> for the whole robot.</div>
+</dd>
 <dt><a href="frc/robot/Constants.Controllers.html#DRIVER_CONTROLLER_DEADBAND" class="member-name-link">DRIVER_CONTROLLER_DEADBAND</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Controllers.html" title="class in frc.robot">Constants.Controllers</a></dt>
 <dd>
 <div class="block">Axis deadband for driver controller.</div>
 </dd>
+<dt><a href="frc/robot/subsystems/Drive.html#driveRobot(edu.wpi.first.math.geometry.Translation2d,double,boolean)" class="member-name-link">driveRobot(Translation2d, double, boolean)</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems">Drive</a></dt>
+<dd>
+<div class="block">Drives the robot in either field relative or robot relative.</div>
+</dd>
+<dt><a href="frc/robot/commands/drive/DriveRobot.html" class="type-name-link" title="class in frc.robot.commands.drive">DriveRobot</a> - Class in <a href="frc/robot/commands/drive/package-summary.html">frc.robot.commands.drive</a></dt>
+<dd>
+<div class="block">Drives the robot.</div>
+</dd>
+<dt><a href="frc/robot/commands/drive/DriveRobot.html#%3Cinit%3E(java.util.function.Supplier,java.util.function.Supplier,java.util.function.Supplier,boolean)" class="member-name-link">DriveRobot(Supplier&lt;Double&gt;, Supplier&lt;Double&gt;, Supplier&lt;Double&gt;, boolean)</a> - Constructor for class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive">DriveRobot</a></dt>
+<dd>
+<div class="block">Drives the robot.</div>
+</dd>
+<dt><a href="frc/robot/commands/drive/DriveRobot.html#%3Cinit%3E(java.util.function.Supplier,java.util.function.Supplier,java.util.function.Supplier,boolean,double,double)" class="member-name-link">DriveRobot(Supplier&lt;Double&gt;, Supplier&lt;Double&gt;, Supplier&lt;Double&gt;, boolean, double, double)</a> - Constructor for class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive">DriveRobot</a></dt>
+<dd>
+<div class="block">Creates a DriveRobot with the specified max speed and angular speed.</div>
+</dd>
 <dt><a href="frc/robot/RobotContainer.html#driveRobotOriented" class="member-name-link">driveRobotOriented</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
-<div class="block">Singleton instance of <a href="frc/robot/commands/drive/DriveRobotOriented.html" title="class in frc.robot.commands.drive"><code>DriveRobotOriented</code></a> for the whole robot.</div>
+<div class="block">Singleton instance of robot oriented <a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive"><code>DriveRobot</code></a> for the whole robot.</div>
 </dd>
-<dt><a href="frc/robot/subsystems/Drive.html#driveRobotOriented(edu.wpi.first.math.geometry.Translation2d,double)" class="member-name-link">driveRobotOriented(Translation2d, double)</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems">Drive</a></dt>
+<dt><a href="frc/robot/RobotContainer.html#driveRobotOrientedSprint" class="member-name-link">driveRobotOrientedSprint</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
-<div class="block">Drives the robot in robot-oriented mode.</div>
-</dd>
-<dt><a href="frc/robot/commands/drive/DriveRobotOriented.html" class="type-name-link" title="class in frc.robot.commands.drive">DriveRobotOriented</a> - Class in <a href="frc/robot/commands/drive/package-summary.html">frc.robot.commands.drive</a></dt>
-<dd>
-<div class="block">Drives the robot in robot-oriented mode.</div>
-</dd>
-<dt><a href="frc/robot/commands/drive/DriveRobotOriented.html#%3Cinit%3E(java.util.function.Supplier,java.util.function.Supplier,java.util.function.Supplier)" class="member-name-link">DriveRobotOriented(Supplier&lt;Double&gt;, Supplier&lt;Double&gt;, Supplier&lt;Double&gt;)</a> - Constructor for class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobotOriented.html" title="class in frc.robot.commands.drive">DriveRobotOriented</a></dt>
-<dd>
-<div class="block">Drives the robot robot-oriented</div>
+<div class="block">Singleton instance of robot oriented sprint <a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive"><code>DriveRobot</code></a> for the whole robot.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
@@ -426,11 +426,9 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html" title="class in frc.robot.commands.drive">DriveFieldOrientedHeadingSnapping</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveRobotOriented.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobotOriented.html" title="class in frc.robot.commands.drive">DriveRobotOriented</a></dt>
+<dt><a href="frc/robot/commands/drive/DriveRobot.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive">DriveRobot</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
@@ -474,11 +472,9 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html" title="class in frc.robot.commands.drive">DriveFieldOrientedHeadingSnapping</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveRobotOriented.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobotOriented.html" title="class in frc.robot.commands.drive">DriveRobotOriented</a></dt>
+<dt><a href="frc/robot/commands/drive/DriveRobot.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive">DriveRobot</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
@@ -641,11 +637,9 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html" title="class in frc.robot.commands.drive">DriveFieldOrientedHeadingSnapping</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveRobotOriented.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobotOriented.html" title="class in frc.robot.commands.drive">DriveRobotOriented</a></dt>
+<dt><a href="frc/robot/commands/drive/DriveRobot.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive">DriveRobot</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
@@ -703,11 +697,9 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveFieldOriented.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOriented.html" title="class in frc.robot.commands.drive">DriveFieldOriented</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html" title="class in frc.robot.commands.drive">DriveFieldOrientedHeadingSnapping</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="frc/robot/commands/drive/DriveRobotOriented.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobotOriented.html" title="class in frc.robot.commands.drive">DriveRobotOriented</a></dt>
+<dt><a href="frc/robot/commands/drive/DriveRobot.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveRobot.html" title="class in frc.robot.commands.drive">DriveRobot</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/EnterXMode.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/EnterXMode.html" title="class in frc.robot.commands">EnterXMode</a></dt>
 <dd>&nbsp;</dd>
@@ -829,6 +821,14 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/Constants.Drive.html#MAX_ANGULAR_SPEED" class="member-name-link">MAX_ANGULAR_SPEED</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Drive.html" title="class in frc.robot">Constants.Drive</a></dt>
 <dd>
 <div class="block">The max speed the robot can rotate</div>
+</dd>
+<dt><a href="frc/robot/Constants.Drive.html#MAX_NORMAL_ANGULAR_SPEED" class="member-name-link">MAX_NORMAL_ANGULAR_SPEED</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Drive.html" title="class in frc.robot">Constants.Drive</a></dt>
+<dd>
+<div class="block">The max angular speed (in randians) for the robot when not sprinting</div>
+</dd>
+<dt><a href="frc/robot/Constants.Drive.html#MAX_NORMAL_SPEED" class="member-name-link">MAX_NORMAL_SPEED</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Drive.html" title="class in frc.robot">Constants.Drive</a></dt>
+<dd>
+<div class="block">The max speed for the robot when not sprinting (in m/s)</div>
 </dd>
 <dt><a href="frc/robot/Constants.Drive.html#MAX_SPEED" class="member-name-link">MAX_SPEED</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Drive.html" title="class in frc.robot">Constants.Drive</a></dt>
 <dd>
