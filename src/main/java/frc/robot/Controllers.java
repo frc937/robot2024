@@ -15,7 +15,7 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import java.util.function.Supplier;
@@ -90,7 +90,11 @@ public final class Controllers {
     Original
   }
 
-  /** Configures the robot with default keybinds for competition. */
+  /**
+   * Configures the robot with default keybinds for competition.
+   *
+   * @return
+   */
   private static void configureDefaultKeybinds() {
     operatorController.y().whileTrue(RobotContainer.climbUp);
     operatorController.a().whileTrue(RobotContainer.climbDown);
@@ -103,7 +107,7 @@ public final class Controllers {
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
 
-    SmartDashboard.putString("Keymap", "Default");
+    Shuffleboard.getTab("Driver").add("Keymap", "Default");
   }
 
   /**
@@ -121,7 +125,7 @@ public final class Controllers {
     pilotController.x().whileTrue(RobotContainer.climbUp);
     pilotController.y().whileTrue(RobotContainer.climbDown);
 
-    SmartDashboard.putString("Keymap", "Operatorless");
+    Shuffleboard.getTab("Driver").add("keymap", "Operatorless");
   }
 
   /** Configures the robot with the original keybinds. DOES NOT USE OPERATOR CONTROLLER */
@@ -136,7 +140,7 @@ public final class Controllers {
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
 
-    SmartDashboard.putString("Keymap", "Original");
+    Shuffleboard.getTab("Driver").add("keymap", "Original");
   }
 
   /**
