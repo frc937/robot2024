@@ -255,7 +255,7 @@ public class RobotContainer {
 
   private void configureBindings() {
     // TODO: CHANGE THIS TO configureDefaultKeybinds() FOR COMP
-    Keybinds.configureDefaultKeybinds(pilotController, operatorController);
+    Controllers.configureDefaultKeybinds(pilotController, operatorController);
   }
 
   /**

@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
  * The list of keybinds for our controllers for the robot. Call ONE of these methods in {@link
  * RobotContainer}'s configureBindings() method.'
  */
-public final class Keybinds {
+public final class Controllers {
   /**
    * Configures the robot with default keybinds for competition.
    *
