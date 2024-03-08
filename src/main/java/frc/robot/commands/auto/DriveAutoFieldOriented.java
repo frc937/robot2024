@@ -39,7 +39,7 @@ public class DriveAutoFieldOriented extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    drive.driveFieldOriented(destination, rotation);
+    drive.driveRobot(destination, rotation, true);
   }
 
   // Called every time the scheduler runs while the command is scheduled.

@@ -24,9 +24,9 @@ public class MailboxBelts extends SubsystemBase {
   /** Constructer for MailboxBelts subsystem */
   public MailboxBelts() {
     upperBeltMotor =
-        new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushed);
+        new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
     lowerBeltMotor =
-        new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushed);
+        new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
 
     upperBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
     lowerBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
