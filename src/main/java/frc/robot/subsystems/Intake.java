@@ -59,7 +59,7 @@ public class Intake extends SubsystemBase {
    * @return the status of the limit switch
    */
   public boolean getLimitSwitch() {
-    /* Assumes the limit switch is wired to be normally open. */
+    /* Assumes the limit switch is wired to be normally closed. */
     return !limitSwitch.get();
   }
 
