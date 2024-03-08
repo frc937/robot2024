@@ -241,6 +241,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
     configureAuto();
+    SmartDashboard.putData("Clear PDP sticky faults", clearPDPStickyFaults);
 
     drive.setDefaultCommand(driveRobotOriented);
   }
