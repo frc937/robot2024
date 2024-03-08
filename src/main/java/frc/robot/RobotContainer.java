@@ -96,31 +96,31 @@ public class RobotContainer {
   public static DriveRobotOriented driveRobotOriented =
       new DriveRobotOriented(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.leftX, true),
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.leftY, true),
+              Controllers.pilotController, ControllerAxis.LeftY, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.rightX, true));
+              Controllers.pilotController, ControllerAxis.RightX, true));
 
   /** Singleton instance of {@link DriveFieldOriented} for the whole robot. */
   public static DriveFieldOriented driveFieldOriented =
       new DriveFieldOriented(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.leftX, true),
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.leftY, true),
+              Controllers.pilotController, ControllerAxis.LeftY, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.rightX, true));
+              Controllers.pilotController, ControllerAxis.RightX, true));
 
   /** Singleton instance of {@link DriveFieldOrientedHeadingSnapping} for the whole robot. */
   public static DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
       new DriveFieldOrientedHeadingSnapping(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.leftX, true),
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.leftY, true),
+              Controllers.pilotController, ControllerAxis.LeftY, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.rightX, true),
+              Controllers.pilotController, ControllerAxis.RightX, true),
           Controllers.headingSnappingUpSupplier,
           Controllers.headingSnappingDownSupplier,
           Controllers.headingSnappingLeftSupplier,

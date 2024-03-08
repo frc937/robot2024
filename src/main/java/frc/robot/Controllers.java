@@ -61,13 +61,13 @@ public final class Controllers {
    */
   public enum ControllerAxis {
     /** Left stick X axis (left to right) */
-    leftX,
+    LeftX,
     /** Left stick Y axis (up and down) */
-    leftY,
+    LeftY,
     /** Right stick X axis (left to right) */
-    rightX,
+    RightX,
     /** Right stick Y axis (up and down) */
-    rightY
+    RightY
   }
 
   /** Enumeration of possible keymaps for the robot. */
@@ -189,13 +189,13 @@ public final class Controllers {
       return scaleAxis(getControllerAxis(controller, controllerAxis, false));
     } else {
       switch (controllerAxis) {
-        case leftX:
+        case LeftX:
           return controller.getLeftX();
-        case leftY:
+        case LeftY:
           return controller.getLeftY();
-        case rightX:
+        case RightX:
           return controller.getRightX();
-        case rightY:
+        case RightY:
           return controller.getRightY();
         default:
           throw new IllegalArgumentException(
