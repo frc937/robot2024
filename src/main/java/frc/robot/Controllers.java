@@ -24,19 +24,36 @@ import java.util.function.Supplier;
  * RobotContainer}'s configureBindings() method.'
  */
 public final class Controllers {
+  /** Xbox controller used by the pilot, who is the student that controls the drivetrain */
   public static CommandXboxController pilotController =
       new CommandXboxController(Constants.Controllers.PILOT_CONTROLLER_PORT);
+
+  /**
+   * Xbox controller used by the operator, who is the student who controls all mechanisms other than
+   * the drivetrain
+   */
   public static CommandXboxController operatorController =
       new CommandXboxController(Constants.Controllers.OPERATOR_CONTROLLER_PORT);
 
+  /**
+   * Raw HID Xbox controller object for the {@link pilotController}. Only used for POV/button
+   * suppliers.
+   */
   public static XboxController rawPilotController = pilotController.getHID();
 
+  /** When this supplier returns true, the robot should snap towards the opposing alliance wall. */
   public static Supplier<Boolean> headingSnappingUpSupplier =
       () -> rawPilotController.getPOV() == 0;
+
+  /** When this supplier returns true, the robot should snap towards the right side of the field. */
   public static Supplier<Boolean> headingSnappingRightSupplier =
       () -> rawPilotController.getPOV() == 90;
+
+  /** When this supplier returns true, the robot should snap towards our alliance wall. */
   public static Supplier<Boolean> headingSnappingDownSupplier =
       () -> rawPilotController.getPOV() == 180;
+
+  /** When this supplier returns true, the robot should snap towards the left side of the field. */
   public static Supplier<Boolean> headingSnappingLeftSupplier =
       () -> rawPilotController.getPOV() == 270;
 
@@ -54,18 +71,22 @@ public final class Controllers {
     rightY
   }
 
+  /** Enumeration of possible keymaps for the robot. */
   public enum Keymap {
+    /** Default keymap defined by drive team. Uses both controllers. */
     Default,
+    /** Keymap that doesn't use the {@link operatorController}. */
     Operatorless,
+    /**
+     * Original testing keymap. Doesn't use the {@link operatorController}.
+     *
+     * @deprecated Because we don't use these keymaps anymore.
+     */
+    @Deprecated
     Original
   }
 
-  /**
-   * Configures the robot with default keybinds for competition.
-   *
-   * @param pilotController
-   * @param operatorController
-   */
+  /** Configures the robot with default keybinds for competition. */
   private static void configureDefaultKeybinds() {
     operatorController.y().whileTrue(RobotContainer.climbUp);
     operatorController.a().whileTrue(RobotContainer.climbDown);
@@ -82,9 +103,6 @@ public final class Controllers {
   /**
    * Configures the robot with keybinds for if we can't use the operator controller. (All buttons
    * bound to pilotController)
-   *
-   * @param pilotController
-   * @param operatorController
    */
   private static void configureOperatorlessKeybinds() {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
@@ -98,12 +116,7 @@ public final class Controllers {
     pilotController.y().whileTrue(RobotContainer.climbDown);
   }
 
-  /**
-   * Configures the robot with the original keybinds. DOES NOT USE OPERATOR CONTROLLER
-   *
-   * @param pilotController
-   * @param operatorController
-   */
+  /** Configures the robot with the original keybinds. DOES NOT USE OPERATOR CONTROLLER */
   private static void configureOriginalKeybinds() {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.x().onTrue(RobotContainer.enterXMode);
@@ -138,6 +151,11 @@ public final class Controllers {
     }
   }
 
+  /**
+   * Gets an {@link Consumer} that will call {@link #configureKeybinds}
+   *
+   * @return The consumer
+   */
   public static Consumer<Keymap> getConfigureKeybindsConsumer() {
     return keymap -> configureKeybinds(keymap);
   }
