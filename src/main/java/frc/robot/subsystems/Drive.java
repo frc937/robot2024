@@ -150,13 +150,13 @@ public class Drive extends SubsystemBase {
   }
 
   /**
-   * Sets the drive mode in smart dashboard.
+   * Sets the drive mode in SmartDashboard.
    *
    * <p><strong> THIS DOES NOT SET THE ROBOT'S DRIVE MODE</strong>
    *
-   * @param driveMode the mode to display in smart dashboard.
+   * @param driveMode The mode to display in SmartDashboard.
    */
-  public static void setDriveMode(String driveMode) {
+  public void setDriveMode(String driveMode) {
     SmartDashboard.putString("Drive mode", driveMode);
   }
 

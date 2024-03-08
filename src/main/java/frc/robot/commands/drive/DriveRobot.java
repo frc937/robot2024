@@ -78,9 +78,9 @@ public class DriveRobot extends Command {
   public void initialize() {
     drive.setHeadingCorrection(false);
     if (this.isFieldOriented) {
-      Drive.setDriveMode("Field Oriented" + (isMaxSpeed ? "" : " (Sprint)"));
+      drive.setDriveMode("Field Oriented" + (isMaxSpeed ? "" : " (Sprint)"));
     } else {
-      Drive.setDriveMode("Robot Oriented" + (isMaxSpeed ? "" : " (Sprint)"));
+      drive.setDriveMode("Robot Oriented" + (isMaxSpeed ? "" : " (Sprint)"));
     }
   }
 

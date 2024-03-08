@@ -63,7 +63,7 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Drive.setDriveMode("Field Oriented (Heading Snapping)");
+    drive.setDriveMode("Field Oriented (Heading Snapping)");
     drive.setHeadingCorrection(true);
   }
 
