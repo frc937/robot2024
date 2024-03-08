@@ -20,6 +20,7 @@ import frc.robot.Controllers.ControllerAxis;
 import frc.robot.Controllers.Keymap;
 import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
+import frc.robot.commands.ClearPDPStickyFaults;
 import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
@@ -41,6 +42,7 @@ import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
+import frc.robot.subsystems.PDP;
 import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
@@ -84,6 +86,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link Climber} for the whole robot. */
   public static Climber climber = new Climber();
+
+  /** Singleton instance of {@link PDP} for the whole robot. */
+  public static PDP pdp = new PDP();
 
   /*
    * ************
@@ -218,6 +223,9 @@ public class RobotContainer {
   /** Singleton instance of {@link TaxiAuto} for the whole robot. */
   public static TaxiAuto taxiAuto = new TaxiAuto();
 
+  /** Singleton instance of {@link ClearPDPStickyFaults} for the whole robot. */
+  public static ClearPDPStickyFaults clearPDPStickyFaults = new ClearPDPStickyFaults();
+
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
@@ -233,6 +241,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
     configureAuto();
+    SmartDashboard.putData("Clear PDP sticky faults", clearPDPStickyFaults);
 
     drive.setDefaultCommand(driveRobotOriented);
   }
