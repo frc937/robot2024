@@ -205,6 +205,6 @@ public final class Constants {
     public static final double CLIMBER_MOTOR_SPEED = 0.5;
 
     /** Whether or not the climber is inverted. */
-    public static final boolean CLIMBER_INVERTED = false;
+    public static final boolean CLIMBER_INVERTED = true;
   }
 }
