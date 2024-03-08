@@ -285,4 +285,8 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     return autoChooser.getSelected();
   }
+
+  public static void setDriveMode(String driveMode) {
+    SmartDashboard.putString("Drive mode", driveMode);
+  }
 }

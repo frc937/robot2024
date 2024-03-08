@@ -24,6 +24,7 @@ public class DriveRobot extends Command {
   private final boolean isFieldOriented;
   private double maxSpeed;
   private double maxAngularSpeed;
+  private boolean isMaxSpeed;
 
   /**
    * Drives the robot.
@@ -45,6 +46,7 @@ public class DriveRobot extends Command {
     this.isFieldOriented = isFieldOriented;
     this.maxSpeed = RobotContainer.drive.getMaximumSpeed();
     this.maxAngularSpeed = RobotContainer.drive.getMaximumAngularSpeed();
+    this.isMaxSpeed = true;
     addRequirements(drive);
   }
 
@@ -68,12 +70,18 @@ public class DriveRobot extends Command {
     this(xSupplier, ySupplier, zSupplier, isFieldOriented);
     this.maxSpeed = maxSpeed;
     this.maxAngularSpeed = maxAngularSpeed;
+    this.isMaxSpeed = false;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     drive.setHeadingCorrection(false);
+    if (this.isFieldOriented) {
+      RobotContainer.setDriveMode("Field Oriented" + (isMaxSpeed ? "" : " (Sprint)"));
+    } else {
+      RobotContainer.setDriveMode("Robot Oriented" + (isMaxSpeed ? "" : " (Sprint)"));
+    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
