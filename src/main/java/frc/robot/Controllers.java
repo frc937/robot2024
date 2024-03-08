@@ -146,10 +146,13 @@ public final class Controllers {
     switch (keymap) {
       case Default:
         configureDefaultKeybinds();
+        break;
       case Operatorless:
         configureOperatorlessKeybinds();
+        break;
       case Original:
         configureOriginalKeybinds();
+        break;
       default:
         throw new IllegalArgumentException(
             "configureKeybinds() recieved an illegal enum constant argument");
