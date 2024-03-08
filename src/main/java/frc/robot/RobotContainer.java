@@ -29,9 +29,8 @@ import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
-import frc.robot.commands.drive.DriveFieldOriented;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
-import frc.robot.commands.drive.DriveRobotOriented;
+import frc.robot.commands.drive.DriveRobot;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
@@ -92,25 +91,53 @@ public class RobotContainer {
    * ************
    */
 
-  /** Singleton instance of {@link DriveRobotOriented} for the whole robot. */
-  public static DriveRobotOriented driveRobotOriented =
-      new DriveRobotOriented(
+  /** Singleton instance of robot oriented {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveRobotOriented =
+      new DriveRobot(
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftY, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.RightX, true));
+              Controllers.pilotController, ControllerAxis.RightX, true),
+          false,
+          Constants.Drive.MAX_NORMAL_SPEED,
+          Constants.Drive.MAX_NORMAL_ANGULAR_SPEED);
 
-  /** Singleton instance of {@link DriveFieldOriented} for the whole robot. */
-  public static DriveFieldOriented driveFieldOriented =
-      new DriveFieldOriented(
+  /** Singleton instance of field oriented {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveFieldOriented =
+      new DriveRobot(
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftY, true),
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.RightX, true));
+              Controllers.pilotController, ControllerAxis.RightX, true),
+          true,
+          Constants.Drive.MAX_NORMAL_SPEED,
+          Constants.Drive.MAX_NORMAL_ANGULAR_SPEED);
+
+  /** Singleton instance of robot oriented sprint {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveRobotOrientedSprint =
+      new DriveRobot(
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.RightX, true),
+          false);
+
+  /** Singleton instance of field oriented sprint {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveFieldOrientedSprint =
+      new DriveRobot(
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.RightX, true),
+          true);
 
   /** Singleton instance of {@link DriveFieldOrientedHeadingSnapping} for the whole robot. */
   public static DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =

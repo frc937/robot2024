@@ -89,9 +89,9 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
 
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
     if (headingX == 0 && headingY == 0 && Math.abs(zSupplier.get()) > 0) {
-      drive.driveFieldOriented(translation, zSupplier.get() * drive.getMaximumAngularSpeed());
+      drive.driveRobot(translation, zSupplier.get() * drive.getMaximumAngularSpeed(), true);
     } else {
-      drive.driveFieldOriented(translation, desiredSpeeds.omegaRadiansPerSecond);
+      drive.driveRobot(translation, desiredSpeeds.omegaRadiansPerSecond, true);
     }
   }
 
