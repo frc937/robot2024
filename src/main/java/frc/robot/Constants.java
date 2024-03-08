@@ -61,7 +61,7 @@ public final class Constants {
     public static final boolean UPPER_BELT_MOTOR_INVERTED = false;
 
     /** Inversion state of the belts follower motor. */
-    public static final boolean BELTS_FOLLOWER_INVERSE_STATE = false;
+    public static final boolean BELTS_FOLLOWER_INVERSE_STATE = true;
 
     /** Current limit (in amps) for the belt motor(s) */
     public static final int BELT_MOTOR_CURRENT_LIMIT = 40;
