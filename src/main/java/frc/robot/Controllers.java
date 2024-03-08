@@ -11,7 +11,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import java.util.function.Supplier;
 
 /**
  * The list of keybinds for our controllers for the robot. Call ONE of these methods in {@link
@@ -24,6 +26,14 @@ public final class Controllers {
       new CommandXboxController(Constants.Controllers.OPERATOR_CONTROLLER_PORT);
 
   public static XboxController rawPilotController = pilotController.getHID();
+
+  public static Supplier<Boolean> povUpDirectionSupplier = () -> rawPilotController.getPOV() == 0;
+  public static Supplier<Boolean> povRightDirectionSupplier =
+      () -> rawPilotController.getPOV() == 90;
+  public static Supplier<Boolean> povDownDirectionSupplier =
+      () -> rawPilotController.getPOV() == 180;
+  public static Supplier<Boolean> povLeftDirectionSupplier =
+      () -> rawPilotController.getPOV() == 270;
   /**
    * Configures the robot with default keybinds for competition.
    *
