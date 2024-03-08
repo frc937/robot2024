@@ -17,6 +17,7 @@ import com.pathplanner.lib.util.ReplanningConfig;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
@@ -32,6 +33,13 @@ import swervelib.parser.SwerveParser;
 /** The subsystem that represents the drivetrain. */
 public class Drive extends SubsystemBase {
   private SwerveDrive drive;
+  private static ShuffleboardTab debugTab = Shuffleboard.getTab("Debug");
+  private static GenericEntry[] encoderEntries = {
+    debugTab.add("FL Encoder", 0).getEntry(),
+    debugTab.add("FR Encoder", 0).getEntry(),
+    debugTab.add("BL Encoder", 0).getEntry(),
+    debugTab.add("BR Encoder", 0).getEntry(),
+  };
 
   /** Creates a new Drive. */
   public Drive() {
@@ -166,10 +174,9 @@ public class Drive extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    ShuffleboardTab debugTab = Shuffleboard.getTab("Debug");
-    debugTab.add("FL Encoder", drive.getModules()[0].getAbsolutePosition());
-    debugTab.add("FR Encoder", drive.getModules()[1].getAbsolutePosition());
-    debugTab.add("BL Encoder", drive.getModules()[2].getAbsolutePosition());
-    debugTab.add("BR Encoder", drive.getModules()[3].getAbsolutePosition());
+    encoderEntries[0].setDouble(drive.getModules()[0].getAbsolutePosition()); // FL
+    encoderEntries[1].setDouble(drive.getModules()[2].getAbsolutePosition()); // FR
+    encoderEntries[2].setDouble(drive.getModules()[3].getAbsolutePosition()); // BL
+    encoderEntries[3].setDouble(drive.getModules()[4].getAbsolutePosition()); // BR
   }
 }
