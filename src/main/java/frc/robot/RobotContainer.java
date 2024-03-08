@@ -129,16 +129,34 @@ public class RobotContainer {
    * ************
    */
 
-  /** Singleton instance of {@link DriveRobot} for the whole robot. */
+  /** Singleton instance of robot oriented {@link DriveRobot} for the whole robot. */
   public static DriveRobot driveRobotOriented =
+      new DriveRobot(
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerRightXAxisSupplier,
+          false,
+          Constants.Drive.MAX_NORMAL_SPEED,
+          Constants.Drive.MAX_NORMAL_ANGULAR_SPEED);
+
+  /** Singleton instance of field oriented {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveFieldOriented =
+      new DriveRobot(
+          scaledControllerLeftYAxisSupplier,
+          scaledControllerLeftXAxisSupplier,
+          scaledControllerRightXAxisSupplier,
+          true);
+
+  /** Singleton instance of robot oriented sprint {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveRobotOrientedSprint =
       new DriveRobot(
           scaledControllerLeftYAxisSupplier,
           scaledControllerLeftXAxisSupplier,
           scaledControllerRightXAxisSupplier,
           false);
 
-  /** Singleton instance of {@link DriveRobotOriented} for the whole robot. */
-  public static DriveRobot driveFieldOriented =
+  /** Singleton instance of field oriented sprint {@link DriveRobot} for the whole robot. */
+  public static DriveRobot driveFieldOrientedSprint =
       new DriveRobot(
           scaledControllerLeftYAxisSupplier,
           scaledControllerLeftXAxisSupplier,

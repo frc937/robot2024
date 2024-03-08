@@ -93,6 +93,12 @@ public final class Constants {
     /** The distance from the center of the robot to any of the swerve modules. */
     public static double DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE = 0.3;
 
+    /** The max speed for the robot when not sprinting */
+    public static final double MAX_NORMAL_SPEED = 1;
+
+    /** The max angular speed for the robot when not sprinting */
+    public static final double MAX_NORMAL_ANGULAR_SPEED = 1;
+
     /** The Translation Drive PID for the robot. */
     public static PIDConstants TRANSLATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
 

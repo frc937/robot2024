@@ -35,7 +35,8 @@ public final class Keybinds {
 
     pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
-    /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
+    /* TODO: angle / velocity steering toggle w/ right trigger (no issue)*/
+    pilotController.leftBumper().whileTrue(RobotContainer.driveRobotOrientedSprint);
   }
 
   /**
@@ -48,7 +49,7 @@ public final class Keybinds {
   public static void configureOperatorlessKeybinds(
       CommandXboxController pilotController, CommandXboxController operatorController) {
     pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
-    /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on right bumper (issue 86) */
+    pilotController.leftBumper().whileTrue(RobotContainer.driveRobotOrientedSprint);
     pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     pilotController.povUp().toggleOnTrue(RobotContainer.enterXMode);
     pilotController.rightTrigger().whileTrue(RobotContainer.runIntake);
