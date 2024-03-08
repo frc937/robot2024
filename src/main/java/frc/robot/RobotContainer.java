@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
+import frc.robot.commands.ClearPDPStickyFaults;
 import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
@@ -223,6 +224,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link TaxiAuto} for the whole robot. */
   public static TaxiAuto taxiAuto = new TaxiAuto();
+
+  /** Singleton instance of {@link ClearPDPStickyFaults} for the whole robot. */
+  public static ClearPDPStickyFaults clearPDPStickyFaults = new ClearPDPStickyFaults();
 
   /*
    * ***********************
