@@ -11,6 +11,7 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -32,6 +33,12 @@ public class Intake extends SubsystemBase {
         new CANSparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
 
+    intakeLower.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
+    intakeUpper.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
+
+    intakeLower.setIdleMode(IdleMode.kBrake);
+    intakeUpper.setIdleMode(IdleMode.kBrake);
+
     intakeLower.follow(intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
     intakeUpper.setInverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
   }
@@ -52,8 +59,8 @@ public class Intake extends SubsystemBase {
    * @return the status of the limit switch
    */
   public boolean getLimitSwitch() {
-    /* Assumes the limit switch is wired to be normally open. */
-    return limitSwitch.get();
+    /* Assumes the limit switch is wired to be normally closed. */
+    return !limitSwitch.get();
   }
 
   /** Stops the intake motors. */

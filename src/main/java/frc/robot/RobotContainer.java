@@ -178,7 +178,7 @@ public class RobotContainer {
       new FireNoteRoutineNoLimitSwitch();
 
   /** Singleton instance of {@link RunIntakeReverse} for the whole robot. */
-  private RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
+  public static RunIntakeReverse runIntakeReverse = new RunIntakeReverse();
 
   /** Singleton instance of {@link RunIntake} for the whole robot. */
   public static RunIntake runIntake = new RunIntake();
@@ -195,7 +195,8 @@ public class RobotContainer {
           Constants.Limelight.AimingLimelight.SPEED_LIMIT,
           Constants.Limelight.AimingLimelight.TURN_DONE_THRESHOLD,
           Constants.Limelight.AimingLimelight.DISTANCE_DONE_THRESHOLD,
-          Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT);
+          Constants.Limelight.AimingLimelight.AMP_APRILTAG_HEIGHT,
+          Constants.Limelight.AimingLimelight.PipelineNumbers.AMP_PIPELINE_NUMBER);
 
   /** Singleton instance of {@link AimAndFireRoutine} for the whole robot. */
   public static AimAndFireRoutine aimAndFire = new AimAndFireRoutine();
@@ -253,7 +254,8 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    Keybinds.configureOperatorlessKeybinds(pilotController, operatorController);
+    // TODO: CHANGE THIS TO configureDefaultKeybinds() FOR COMP
+    Keybinds.configureDefaultKeybinds(pilotController, operatorController);
   }
 
   /**
@@ -266,9 +268,12 @@ public class RobotContainer {
   }
 
   private static double scaleAxis(double axis) {
+    if (axis == 0) {
+      return 0;
+    }
     double deadbanded =
         MathUtil.applyDeadband(axis, Constants.Controllers.DRIVER_CONTROLLER_DEADBAND);
-    return Math.pow(deadbanded, 3);
+    return -Math.pow(deadbanded, 2) * (Math.abs(axis) / axis);
   }
 
   /**

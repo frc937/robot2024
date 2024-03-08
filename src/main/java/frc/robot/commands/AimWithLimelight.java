@@ -33,7 +33,9 @@ public class AimWithLimelight extends Command {
       speedLimit,
       turnDoneThreshold,
       distanceDoneThreshold,
-      targetHeight;
+      targetHeight,
+      pipelineNumber,
+      oldPipelineNumber;
 
   /**
    * Creates a new command to aim with the Limelight.
@@ -61,7 +63,8 @@ public class AimWithLimelight extends Command {
       double speedLimit,
       double turnDoneThreshold,
       double distanceDoneThreshold,
-      double targetHeight) {
+      double targetHeight,
+      double pipelineNumber) {
     this.steerStrength = steerStrength;
     this.distanceFromTarget = distanceFromTarget;
     this.mountHeight = mountHeight;
@@ -71,6 +74,7 @@ public class AimWithLimelight extends Command {
     this.turnDoneThreshold = turnDoneThreshold;
     this.distanceDoneThreshold = distanceDoneThreshold;
     this.targetHeight = targetHeight;
+    this.pipelineNumber = pipelineNumber;
     this.drive = RobotContainer.drive;
     this.limelight = limelight;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -80,6 +84,8 @@ public class AimWithLimelight extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    this.oldPipelineNumber = limelight.getLimelightPipeline();
+    limelight.setLimelightPipeline(pipelineNumber);
     this.finished = false;
     this.counter = 0;
   }
@@ -115,7 +121,9 @@ public class AimWithLimelight extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    limelight.setLimelightPipeline(oldPipelineNumber);
+  }
 
   // Returns true when the command should end.
   @Override

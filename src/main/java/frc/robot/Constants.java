@@ -34,25 +34,25 @@ public final class Constants {
   /** Constants for the Pneumatics system. */
   public static class MailboxPneumatics {
     /** The channel on the PCM for the forward direction on the left solenoid. */
-    public static final int LEFT_SOLENOID_FORWARD_CHANNEL = 0;
+    public static final int LEFT_SOLENOID_FORWARD_CHANNEL = 5;
 
     /** The channel on the PCM for the reverse direction on the left solenoid. */
-    public static final int LEFT_SOLENOID_REVERSE_CHANNEL = 1;
+    public static final int LEFT_SOLENOID_REVERSE_CHANNEL = 4;
 
     /** The channel on the PCM for the forward direction on the right solenoid. */
-    public static final int RIGHT_SOLENOID_FORWARD_CHANNEL = 2;
+    public static final int RIGHT_SOLENOID_FORWARD_CHANNEL = 7;
 
     /** The channel on the PCM for the reverse direction on the right solenoid. */
-    public static final int RIGHT_SOLENOID_REVERSE_CHANNEL = 3;
+    public static final int RIGHT_SOLENOID_REVERSE_CHANNEL = 6;
   }
 
   /** Constants for the Belts system. */
   public static class MailboxBelts {
     /** The CAN ID for the upper belt motor */
-    public static final int UPPER_BELT_MOTOR_ID = 0;
+    public static final int UPPER_BELT_MOTOR_ID = 11;
 
     /** The CAN ID for the lower belt motor */
-    public static final int LOWER_BELT_MOTOR_ID = 0;
+    public static final int LOWER_BELT_MOTOR_ID = 12;
 
     /** The speed for the belt motors. */
     public static final double BELT_MOTOR_SPEED = 1;
@@ -62,6 +62,9 @@ public final class Constants {
 
     /** Inversion state of the belts follower motor. */
     public static final boolean BELTS_FOLLOWER_INVERSE_STATE = false;
+
+    /** Current limit (in amps) for the belt motor(s) */
+    public static final int BELT_MOTOR_CURRENT_LIMIT = 40;
   }
 
   /** Constants that are relating to the controllers. */
@@ -70,7 +73,7 @@ public final class Constants {
     public static final int PILOT_CONTROLLER_PORT = 0;
 
     /** Driver station port number for the operator controller */
-    public static final int OPERATOR_CONTROLLER_PORT = 1;
+    public static final int OPERATOR_CONTROLLER_PORT = 2;
 
     /** Axis deadband for driver controller. */
     public static double DRIVER_CONTROLLER_DEADBAND = 0.1;
@@ -118,23 +121,26 @@ public final class Constants {
   /** Constants for the Intake System */
   public static class Intake {
     /** Motor id of the Lower Intake motor. */
-    public static final int LOWER_INTAKE_MOTOR_ID = 0;
+    public static final int LOWER_INTAKE_MOTOR_ID = 1;
 
     /** Motor id of the Upper Intake motor. */
-    public static final int UPPER_INTAKE_MOTOR_ID = 0;
+    public static final int UPPER_INTAKE_MOTOR_ID = 2;
 
     /** Inversion state of the upper intake motor. */
     public static final boolean UPPER_INTAKE_MOTOR_INVERTED = false;
 
     // It was me, DIO!
     /** DIO Port ID for the Intake limit switch. */
-    public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 0;
+    public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 1;
 
     /** Speed we want to run the Intake at. */
     public static final double INTAKE_MOTOR_SPEED = 1;
 
     /** Inversion state for the intake follower motor. */
     public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
+
+    /** Current limit (in amps) for the intake motor(s) */
+    public static final int INTAKE_MOTOR_CURRENT_LIMIT = 40;
   }
 
   /** Holds contstants for the Limelights. */
@@ -145,39 +151,39 @@ public final class Constants {
       public static final String LIMELIGHT_NAME = "limelight";
 
       /** The number of degrees the Limelight is mounted back from perfectly vertical */
-      public static final double MOUNT_ANGLE = 0;
+      public static final double MOUNT_ANGLE = 50;
 
       /** The number of inches from the center of the Limelight lens to the floor */
-      public static final double MOUNT_HEIGHT = 0;
+      public static final double MOUNT_HEIGHT = 10.0625;
 
       /** The height to the Amp Apriltag off the ground. */
-      public static final double AMP_APRILTAG_HEIGHT = 0;
+      public static final double AMP_APRILTAG_HEIGHT = 53.13;
 
       /** How far in inches we want to be from the target when we shoot */
-      public static final double DISTANCE_FROM_TARGET = 0;
+      public static final double DISTANCE_FROM_TARGET = 14;
 
       /**
        * How hard to turn toward the target. Double between 0 and 1, standard way to drive a motor
        */
-      public static final double STEER_STRENGTH = 0;
+      public static final double STEER_STRENGTH = 0.01;
 
       /** How hard to drive toward the target. Same notation as above. */
-      public static final double DRIVE_STRENGTH = 0;
+      public static final double DRIVE_STRENGTH = 0.01;
 
       /** VERY BASIC speed limit to make sure we don't drive too fast towards the target. */
-      public static final double SPEED_LIMIT = 0;
+      public static final double SPEED_LIMIT = 0.2;
 
       /**
        * When we're at or below this number of degrees from where we want to be, we'll consider the
        * Limelight's aim routine "done"
        */
-      public static final double TURN_DONE_THRESHOLD = 0;
+      public static final double TURN_DONE_THRESHOLD = 1;
 
       /**
        * When we're at or below this number of inches from the target distance, we'll consider the
        * Limelight's drive routine "done"
        */
-      public static final double DISTANCE_DONE_THRESHOLD = 0;
+      public static final double DISTANCE_DONE_THRESHOLD = 4;
 
       /** Holds pipeline numbers for this Limelight. */
       public static class PipelineNumbers {
