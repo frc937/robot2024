@@ -11,6 +11,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import java.util.function.Supplier;
@@ -34,6 +35,21 @@ public final class Controllers {
       () -> rawPilotController.getPOV() == 180;
   public static Supplier<Boolean> povLeftDirectionSupplier =
       () -> rawPilotController.getPOV() == 270;
+
+  /**
+   * Represents an axis on a controller. Used to pass into {@link Controllers#getControllerAxis}.
+   */
+  public enum ControllerAxis {
+    /** Left stick X axis (left to right) */
+    leftX,
+    /** Left stick Y axis (up and down) */
+    leftY,
+    /** Right stick X axis (left to right) */
+    rightX,
+    /** Right stick Y axis (up and down) */
+    rightY
+  }
+
   /**
    * Configures the robot with default keybinds for competition.
    *
@@ -91,5 +107,62 @@ public final class Controllers {
     pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
+  }
+
+  /**
+   * Scales a controller axis (joystick value).
+   *
+   * @param axis Axis value to scale.
+   * @return Scaled axis value.
+   */
+  private static double scaleAxis(double axis) {
+    double deadbanded =
+        MathUtil.applyDeadband(axis, Constants.Controllers.DRIVER_CONTROLLER_DEADBAND);
+    return -Math.pow(deadbanded, 2) * Math.signum(axis);
+  }
+
+  /**
+   * Gets a given controller axis (a joystick value).
+   *
+   * @param controller The controller to get the axis from. Should probably pass a public field of
+   *     {@link Controllers}
+   * @param controllerAxis Enum representing which axis (left stick vs. right stick and x axis vs. y
+   *     axis) to get.
+   * @param scaled Whether or not to deadband and quadratically scale the axis.
+   * @return Axis value.
+   */
+  public static double getControllerAxis(
+      CommandXboxController controller, ControllerAxis controllerAxis, boolean scaled) {
+    if (scaled) {
+      return scaleAxis(getControllerAxis(controller, controllerAxis, false));
+    } else {
+      switch (controllerAxis) {
+        case leftX:
+          return controller.getLeftX();
+        case leftY:
+          return controller.getLeftY();
+        case rightX:
+          return controller.getRightX();
+        case rightY:
+          return controller.getRightY();
+        default:
+          throw new IllegalArgumentException();
+      }
+    }
+  }
+
+  /**
+   * Gets supplier for a given controller axis (a joystick value).
+   *
+   * @param controller The controller to get the axis from. Should probably pass a public field of
+   *     {@link Controllers}
+   * @param controllerAxis Enum representing which axis (left stick vs. right stick and x axis vs. y
+   *     axis) to get.
+   * @param scaled Whether or not to deadband and quadratically scale the axis.
+   * @return Supplier that, when .get() is run, will return the requested axis value.
+   */
+  public static Supplier<Double> getControllerAxisSupplier(
+      CommandXboxController controller, ControllerAxis controllerAxis, boolean scaled) {
+    return () -> getControllerAxis(controller, controllerAxis, scaled);
   }
 }
