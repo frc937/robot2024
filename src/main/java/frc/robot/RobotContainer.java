@@ -236,7 +236,7 @@ public class RobotContainer {
     /* TODO: Test and make sure this actually works to change the keymap over whenever we switch keymaps in the chooser */
     keymapChooser.onChange(Controllers::configureKeybinds);
 
-    SmartDashboard.putData(keymapChooser);
+    SmartDashboard.putData("Choose Keymap", keymapChooser);
 
     Controllers.configureKeybinds(keymapChooser.getSelected());
   }
