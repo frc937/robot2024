@@ -151,13 +151,18 @@ loadScripts(document, 'script');</script>
 <div class="block">Runs every scheduler run.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHeadingCorrection(boolean)" class="member-name-link">setHeadingCorrection</a><wbr>(boolean&nbsp;state)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDriveMode(java.lang.String)" class="member-name-link">setDriveMode</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;driveMode)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Set the heading correction capabilities of YAGSL.</div>
+<div class="block">Sets the drive mode in SmartDashboard.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHeadingCorrection(boolean)" class="member-name-link">setHeadingCorrection</a><wbr>(boolean&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set the heading correction capabilities of YAGSL.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Stops all motors in the subsystem.</div>
 </div>
 </div>
@@ -281,6 +286,19 @@ loadScripts(document, 'script');</script>
 <dd><code>headingY</code> - y component of the cartesian angle of the robot's heading</dd>
 <dt>Returns:</dt>
 <dd><code>ChassisSpeeds</code> object that represents the commanded robot velocities</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setDriveMode(java.lang.String)">
+<h3>setDriveMode</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDriveMode</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;driveMode)</span></div>
+<div class="block">Sets the drive mode in SmartDashboard.
+
+ <p><strong> THIS DOES NOT SET THE ROBOT'S DRIVE MODE</strong></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>driveMode</code> - The mode to display in SmartDashboard.</dd>
 </dl>
 </section>
 </li>
