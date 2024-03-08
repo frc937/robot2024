@@ -63,7 +63,7 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.setDriveMode("Field Oriented (Heading Snapping)");
+    Drive.setDriveMode("Field Oriented (Heading Snapping)");
     drive.setHeadingCorrection(true);
   }
 
