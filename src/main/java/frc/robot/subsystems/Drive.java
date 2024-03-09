@@ -17,9 +17,11 @@ import com.pathplanner.lib.util.ReplanningConfig;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import java.io.File;
@@ -30,6 +32,15 @@ import swervelib.parser.SwerveParser;
 /** The subsystem that represents the drivetrain. */
 public class Drive extends SubsystemBase {
   private SwerveDrive drive;
+  private ShuffleboardTab debugTab = Shuffleboard.getTab("Debug");
+  private GenericEntry[] encoderEntries = {
+    debugTab.add("FL Encoder", 0).getEntry(),
+    debugTab.add("FR Encoder", 0).getEntry(),
+    debugTab.add("BL Encoder", 0).getEntry(),
+    debugTab.add("BR Encoder", 0).getEntry(),
+  };
+  private GenericEntry driveLabelEntry =
+      Shuffleboard.getTab("Driver").add("Drive Mode", "").getEntry();
 
   /** Creates a new Drive. */
   public Drive() {
@@ -157,16 +168,16 @@ public class Drive extends SubsystemBase {
    * @param driveMode The mode to display in SmartDashboard.
    */
   public void setDriveMode(String driveMode) {
-    SmartDashboard.putString("Drive mode", driveMode);
+    driveLabelEntry.setString(driveMode);
   }
 
   /** Runs every scheduler run. */
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("FL Encoder", drive.getModules()[0].getAbsolutePosition());
-    SmartDashboard.putNumber("FR Encoder", drive.getModules()[1].getAbsolutePosition());
-    SmartDashboard.putNumber("BL Encoder", drive.getModules()[2].getAbsolutePosition());
-    SmartDashboard.putNumber("BR Encoder", drive.getModules()[3].getAbsolutePosition());
+    encoderEntries[0].setDouble(drive.getModules()[0].getAbsolutePosition()); // FL
+    encoderEntries[1].setDouble(drive.getModules()[1].getAbsolutePosition()); // FR
+    encoderEntries[2].setDouble(drive.getModules()[2].getAbsolutePosition()); // BL
+    encoderEntries[3].setDouble(drive.getModules()[3].getAbsolutePosition()); // BR
   }
 }

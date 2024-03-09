@@ -13,8 +13,8 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Controllers.ControllerAxis;
 import frc.robot.Controllers.Keymap;
@@ -241,7 +241,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
     configureAuto();
-    SmartDashboard.putData("Clear PDP sticky faults", clearPDPStickyFaults);
+    Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
 
     drive.setDefaultCommand(driveRobotOriented);
   }
@@ -259,7 +259,7 @@ public class RobotContainer {
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
     autoChooser.addOption("Taxi", taxiAuto);
 
-    SmartDashboard.putData("choose auto", autoChooser);
+    Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
 
   private void configureBindings() {
@@ -272,7 +272,7 @@ public class RobotContainer {
     /* TODO: Test and make sure this actually works to change the keymap over whenever we switch keymaps in the chooser */
     keymapChooser.onChange(Controllers::configureKeybinds);
 
-    SmartDashboard.putData("Choose Keymap", keymapChooser);
+    Shuffleboard.getTab("Driver").add("Select Keymap", keymapChooser);
 
     Controllers.configureKeybinds(keymapChooser.getSelected());
   }
