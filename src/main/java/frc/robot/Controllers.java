@@ -12,6 +12,7 @@
 package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.XboxController;
@@ -61,6 +62,9 @@ public final class Controllers {
   public static Supplier<Boolean> headingSnappingLeftSupplier =
       () -> rawPilotController.getPOV() == 270;
 
+  public static GenericEntry keymapEntry =
+      Shuffleboard.getTab("Driver").add("Keymap", "Default").getEntry();
+
   /**
    * Represents an axis on a controller. Used to pass into {@link Controllers#getControllerAxis}.
    */
@@ -103,7 +107,7 @@ public final class Controllers {
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
 
-    Shuffleboard.getTab("Driver").add("Keymap", "Default");
+    keymapEntry.setString("Default");
   }
 
   /**
@@ -121,7 +125,7 @@ public final class Controllers {
     pilotController.x().whileTrue(RobotContainer.climbUp);
     pilotController.y().whileTrue(RobotContainer.climbDown);
 
-    Shuffleboard.getTab("Driver").add("Keymap", "Operatorless");
+    keymapEntry.setString("Operatorless");
   }
 
   /** Configures the robot with the original keybinds. DOES NOT USE OPERATOR CONTROLLER */
@@ -136,7 +140,7 @@ public final class Controllers {
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
 
-    Shuffleboard.getTab("Driver").add("Keymap", "Original");
+    keymapEntry.setString("Original ");
   }
 
   /**
