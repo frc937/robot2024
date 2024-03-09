@@ -32,14 +32,14 @@ import swervelib.parser.SwerveParser;
 /** The subsystem that represents the drivetrain. */
 public class Drive extends SubsystemBase {
   private SwerveDrive drive;
-  private static ShuffleboardTab debugTab = Shuffleboard.getTab("Debug");
-  private static GenericEntry[] encoderEntries = {
+  private ShuffleboardTab debugTab = Shuffleboard.getTab("Debug");
+  private GenericEntry[] encoderEntries = {
     debugTab.add("FL Encoder", 0).getEntry(),
     debugTab.add("FR Encoder", 0).getEntry(),
     debugTab.add("BL Encoder", 0).getEntry(),
     debugTab.add("BR Encoder", 0).getEntry(),
   };
-  private static GenericEntry driveLabelEntry =
+  private GenericEntry driveLabelEntry =
       Shuffleboard.getTab("Driver").add("Drive Mode", "").getEntry();
 
   /** Creates a new Drive. */

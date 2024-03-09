@@ -242,9 +242,7 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
     configureAuto();
-    Shuffleboard.getTab("Driver")
-        .add("Clear PDP sticky faults", clearPDPStickyFaults)
-        .withWidget(BuiltInWidgets.kCommand);
+    Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
 
     drive.setDefaultCommand(driveRobotOriented);
   }
@@ -277,9 +275,7 @@ public class RobotContainer {
     /* TODO: Test and make sure this actually works to change the keymap over whenever we switch keymaps in the chooser */
     keymapChooser.onChange(Controllers::configureKeybinds);
 
-    Shuffleboard.getTab("Driver")
-        .add("Select Keymap", keymapChooser)
-        .withWidget(BuiltInWidgets.kComboBoxChooser);
+    Shuffleboard.getTab("Driver").add("Select Keymap", keymapChooser);
 
     Controllers.configureKeybinds(keymapChooser.getSelected());
   }
