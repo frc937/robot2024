@@ -13,7 +13,6 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
-import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -260,9 +259,7 @@ public class RobotContainer {
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
     autoChooser.addOption("Taxi", taxiAuto);
 
-    Shuffleboard.getTab("Driver")
-        .add("Choose Auto Routine", autoChooser)
-        .withWidget(BuiltInWidgets.kComboBoxChooser);
+    Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
 
   private void configureBindings() {
