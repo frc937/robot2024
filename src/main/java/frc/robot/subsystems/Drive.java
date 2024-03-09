@@ -20,7 +20,6 @@ import edu.wpi.first.math.util.Units;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
-import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -40,6 +39,8 @@ public class Drive extends SubsystemBase {
     debugTab.add("BL Encoder", 0).getEntry(),
     debugTab.add("BR Encoder", 0).getEntry(),
   };
+  private static GenericEntry driveLabelEntry =
+      Shuffleboard.getTab("Driver").add("Drive Mode", "").getEntry();
 
   /** Creates a new Drive. */
   public Drive() {
@@ -167,7 +168,7 @@ public class Drive extends SubsystemBase {
    * @param driveMode The mode to display in SmartDashboard.
    */
   public void setDriveMode(String driveMode) {
-    Shuffleboard.getTab("Driver").add("Drive mode", driveMode).withWidget(BuiltInWidgets.kTextView);
+    driveLabelEntry.setString(driveMode);
   }
 
   /** Runs every scheduler run. */
