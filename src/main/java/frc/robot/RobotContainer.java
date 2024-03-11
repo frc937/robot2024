@@ -21,8 +21,6 @@ import frc.robot.Controllers.Keymap;
 import frc.robot.commands.AimAndFireRoutine;
 import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.ClearPDPStickyFaults;
-import frc.robot.commands.ClimbDown;
-import frc.robot.commands.ClimbUp;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
@@ -38,7 +36,6 @@ import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
-import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
@@ -85,7 +82,7 @@ public class RobotContainer {
   public static UrMom urMom = new UrMom();
 
   /** Singleton instance of {@link Climber} for the whole robot. */
-  public static Climber climber = new Climber();
+  // public static Climber climber = new Climber();
 
   /** Singleton instance of {@link PDP} for the whole robot. */
   public static PDP pdp = new PDP();
@@ -208,10 +205,10 @@ public class RobotContainer {
   public static DeployUrMom deployUrMom = new DeployUrMom();
 
   /** Singleton instance of {@link ClimbUp} for the whole robot. */
-  public static ClimbUp climbUp = new ClimbUp();
+  // public static ClimbUp climbUp = new ClimbUp();
 
   /** Singleton instance of {@link ClimbDown} for the whole robot. */
-  public static ClimbDown climbDown = new ClimbDown();
+  // public static ClimbDown climbDown = new ClimbDown();
 
   /* Autos */
   /** Singleton instance of {@link MoveAwayFromAmp} for the whole robot. */

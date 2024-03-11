@@ -96,8 +96,8 @@ public final class Controllers {
 
   /** Configures the robot with default keybinds for competition. */
   private static void configureDefaultKeybinds() {
-    operatorController.y().whileTrue(RobotContainer.climbUp);
-    operatorController.a().whileTrue(RobotContainer.climbDown);
+    // operatorController.y().whileTrue(RobotContainer.climbUp);
+    // operatorController.a().whileTrue(RobotContainer.climbDown);
     operatorController.povUp().whileTrue(RobotContainer.runIntake);
     operatorController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
@@ -122,8 +122,8 @@ public final class Controllers {
     pilotController.rightTrigger().whileTrue(RobotContainer.runIntake);
     pilotController.a().whileTrue(RobotContainer.aimToAmp);
     pilotController.b().whileTrue(RobotContainer.fireNote);
-    pilotController.x().whileTrue(RobotContainer.climbUp);
-    pilotController.y().whileTrue(RobotContainer.climbDown);
+    // pilotController.x().whileTrue(RobotContainer.climbUp);
+    // pilotController.y().whileTrue(RobotContainer.climbDown);
 
     keymapEntry.setString("Operatorless");
   }
@@ -136,8 +136,8 @@ public final class Controllers {
     pilotController.a().whileTrue(RobotContainer.runIntake);
     pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     pilotController.b().whileTrue(RobotContainer.aimToAmp);
-    pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
-    pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
+    // pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
+    // pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
 
     keymapEntry.setString("Original");
