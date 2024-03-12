@@ -12,6 +12,8 @@
 package frc.robot.commands.mailbox;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.Constants;
 import frc.robot.commands.RunIntake;
 
 /**
@@ -21,6 +23,9 @@ import frc.robot.commands.RunIntake;
 public class FireNoteRoutineNoLimitSwitch extends ParallelCommandGroup {
   /** Creates a new FireNoteRoutineNoLimitSwitch. */
   public FireNoteRoutineNoLimitSwitch() {
-    addCommands(new DeployMailbox(), new RunIntake());
+    addCommands(
+        new DeployMailbox(),
+        new WaitCommand(Constants.Mailbox.FIRE_NODE_DELAY_TIME),
+        new RunIntake());
   }
 }

@@ -29,6 +29,9 @@ public final class Constants {
     // It was me, DIO!
     /** DIO Port ID for the Mailbox limit switch. */
     public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
+
+    /** The delay between raising the mailbox and firing the note. In seconds. */
+    public static final double FIRE_NODE_DELAY_TIME = 0.25;
   }
 
   /** Constants for the Pneumatics system. */
