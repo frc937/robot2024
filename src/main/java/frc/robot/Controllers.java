@@ -103,8 +103,9 @@ public final class Controllers {
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
 
-    pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
+    // pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
+    pilotController.leftBumper().whileTrue(RobotContainer.driveRobotOrientedSprint);
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
 
     keymapEntry.setString("Default");
