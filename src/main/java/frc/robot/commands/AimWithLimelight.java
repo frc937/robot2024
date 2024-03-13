@@ -22,7 +22,7 @@ public class AimWithLimelight extends Command {
   private Drive drive;
   private Limelight limelight;
 
-  private boolean finished;
+  private boolean finished, hasSeenTarget;
   private int counter;
 
   private double steerStrength,
@@ -88,6 +88,7 @@ public class AimWithLimelight extends Command {
     this.oldPipelineNumber = limelight.getLimelightPipeline();
     limelight.setLimelightPipeline(pipelineNumber);
     this.finished = false;
+    this.hasSeenTarget = false;
     this.counter = 0;
   }
 
@@ -95,15 +96,16 @@ public class AimWithLimelight extends Command {
   @Override
   public void execute() {
     if (limelight.hasValidTarget()) {
+      hasSeenTarget = true;
       double z = limelight.getTX() * steerStrength;
-      double yComponent =
+      double xComponent =
           distanceFromTarget
               - ((targetHeight - mountHeight) / Math.tan((mountAngle + limelight.getTY())));
-      double y = yComponent * (Math.PI / 180.0) * driveStrength;
+      double x = xComponent * (Math.PI / 180.0) * driveStrength;
       if (z > speedLimit) {
         z = speedLimit;
       }
-      drive.driveRobot(new Translation2d(y * -1.0, 0.0), z, false);
+      drive.driveRobot(new Translation2d(x * -1.0, 0.0), z, false);
       boolean isAngled = Math.abs(limelight.getTX()) < turnDoneThreshold;
       boolean isDistanced =
           Math.abs(
@@ -117,6 +119,8 @@ public class AimWithLimelight extends Command {
           this.finished = true;
         }
       }
+    } else if (hasSeenTarget) {
+      this.finished = true;
     }
   }
 
