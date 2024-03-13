@@ -47,9 +47,6 @@ public final class Controllers {
   /** Raw HID Xbox controller object for the {@link operatorController}. */
   private static XboxController rawOpXboxController = operatorController.getHID();
 
-  /** Variable determining whether to rumble if battery voltage is less than 10.5v */
-  public static boolean rumbleBrowningOutWorking = true;
-
   /** When this supplier returns true, the robot should snap towards the opposing alliance wall. */
   public static Supplier<Boolean> headingSnappingUpSupplier =
       () -> rawPilotController.getPOV() == 0;
