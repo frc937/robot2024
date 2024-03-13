@@ -12,20 +12,16 @@
 package frc.robot.commands.mailbox;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.robot.Constants;
 import frc.robot.commands.RunIntake;
 
 /**
  * Scores the note into the amp. Raises the mailbox, runs the mailbox belts, and then runs the index
  * belts to send the note into the belts without a limit switch.
  */
+@Deprecated
 public class FireNoteRoutineNoLimitSwitch extends ParallelCommandGroup {
   /** Creates a new FireNoteRoutineNoLimitSwitch. */
   public FireNoteRoutineNoLimitSwitch() {
-    addCommands(
-        new DeployMailbox(),
-        new WaitCommand(Constants.Mailbox.FIRE_NODE_DELAY_TIME),
-        new RunIntake());
+    addCommands(new DeployMailbox(), new RunIntake());
   }
 }

@@ -24,7 +24,7 @@ public class FireNoteRoutine extends ParallelCommandGroup {
   public FireNoteRoutine() {
     addCommands(
         new DeployMailbox(),
-        new WaitCommand(Constants.Mailbox.FIRE_NODE_DELAY_TIME),
+        new WaitCommand(Constants.Mailbox.FIRE_NOTE_DELAY_TIME),
         new DeindexNote());
   }
 }
