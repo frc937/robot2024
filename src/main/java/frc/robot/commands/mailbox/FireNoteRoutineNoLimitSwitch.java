@@ -17,6 +17,9 @@ import frc.robot.commands.RunIntake;
 /**
  * Scores the note into the amp. Raises the mailbox, runs the mailbox belts, and then runs the index
  * belts to send the note into the belts without a limit switch.
+ *
+ * @deprecated This class does not work consistantly when there is an intake limit switch present,
+ *     which will be present for the forseeable future.
  */
 @Deprecated
 public class FireNoteRoutineNoLimitSwitch extends ParallelCommandGroup {
