@@ -218,6 +218,7 @@ public final class Controllers {
     }
   }
 
+  /** Widget for brownout rumble toggle */
   public static SimpleWidget browningOutRumble =
       Shuffleboard.getTab("Driver")
           .add("Rumble if battery voltage is below 10.5v", rumbleBrowningOutWorking);
