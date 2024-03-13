@@ -62,6 +62,7 @@ public final class Controllers {
   public static Supplier<Boolean> headingSnappingLeftSupplier =
       () -> rawPilotController.getPOV() == 270;
 
+  /** Shuffleboard (NT) entry for the keymap selector */
   public static GenericEntry keymapEntry =
       Shuffleboard.getTab("Driver").add("Keymap", "Default").getEntry();
 
