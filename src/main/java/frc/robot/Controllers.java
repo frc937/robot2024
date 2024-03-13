@@ -103,7 +103,7 @@ public final class Controllers {
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
 
-    pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
+    // pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
     pilotController.leftBumper().whileTrue(RobotContainer.driveRobotOrientedSprint);
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
@@ -215,12 +215,14 @@ public final class Controllers {
   }
 
   private static GenericEntry browningOutRumble =
-      Shuffleboard.getTab("Driver").add("Rumble if battery voltage is below 10.5v");
+      Shuffleboard.getTab("Driver")
+          .add("Rumble if battery voltage is below 10.5v", true)
+          .getEntry();
 
   /** Rumbles the controllers while browning out */
   public static void rumbleIfBrowningOut() {
     if (RobotController.getBatteryVoltage() < 10.5
-        && browningOutRumble == true
+        && browningOutRumble.getBoolean(false) == true
         && !RobotController.isBrownedOut()) {
       rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
       rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
