@@ -227,7 +227,7 @@ public final class Controllers {
     if (RobotController.getBatteryVoltage() < 10.5 && rumbleBrowningOutWorking == true) {
       rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
       rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
-    } else if (RobotController.getBatteryVoltage() < 7) {
+    } else if (RobotController.isBrownedOut()) {
       rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
       rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
     } else {
