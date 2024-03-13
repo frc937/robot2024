@@ -165,6 +165,11 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Stops all motors in the subsystem.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#zeroGyro()" class="member-name-link">zeroGyro</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Zeroes the NavX gyro.</div>
+</div>
 </div>
 </div>
 </div>
@@ -232,6 +237,16 @@ loadScripts(document, 'script');</script>
 <h3>enterXMode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">enterXMode</span>()</div>
 <div class="block">Points the wheels toward the inside and stops the wheels from moving in any direction.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="zeroGyro()">
+<h3>zeroGyro</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">zeroGyro</span>()</div>
+<div class="block">Zeroes the NavX gyro. Mostly used for resetting the angle for field-oriented drive (for now).
+
+ <p>Somewhat notably, this will also reset odometry to the same position it's currently at, but
+ facing towards zero.</div>
 </section>
 </li>
 <li>
