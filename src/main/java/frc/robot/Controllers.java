@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.SimpleWidget;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import java.util.function.Supplier;
@@ -215,14 +214,13 @@ public final class Controllers {
     }
   }
 
-  private static SimpleWidget browningOutRumble =
-      Shuffleboard.getTab("Driver")
-          .add("Rumble if battery voltage is below 10.5v", rumbleBrowningOutWorking);
+  private static GenericEntry browningOutRumble =
+      Shuffleboard.getTab("Driver").add("Rumble if battery voltage is below 10.5v");
 
   /** Rumbles the controllers while browning out */
   public static void rumbleIfBrowningOut() {
     if (RobotController.getBatteryVoltage() < 10.5
-        && rumbleBrowningOutWorking == true
+        && browningOutRumble == true
         && !RobotController.isBrownedOut()) {
       rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
       rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
