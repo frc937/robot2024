@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
+/** Zeroes the robot's NavX gyro. See {@link Drive#zeroGyro} for more information. */
 public class ZeroGyro extends Command {
   private Drive drive;
 
