@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.SimpleWidget;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import java.util.function.Supplier;
@@ -45,6 +46,9 @@ public final class Controllers {
 
   /** Raw HID Xbox controller object for the {@link operatorController}. */
   private static XboxController rawOpXboxController = operatorController.getHID();
+
+  /** Variable determining whether to rumble if battery voltage is less than 10.5v */
+  public static boolean rumbleBrowningOutWorking = true;
 
   /** When this supplier returns true, the robot should snap towards the opposing alliance wall. */
   public static Supplier<Boolean> headingSnappingUpSupplier =
@@ -214,11 +218,15 @@ public final class Controllers {
     }
   }
 
+  public static SimpleWidget browningOutRumble =
+      Shuffleboard.getTab("Driver")
+          .add("Rumble if battery voltage is below 10.5v", rumbleBrowningOutWorking);
+
   /** Rumbles the controllers while browning out */
   public static void rumbleIfBrowningOut() {
-    if (RobotController.getBatteryVoltage() < 10.5) {
-      rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, .5);
-      rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, .5);
+    if (RobotController.getBatteryVoltage() < 10.5 && rumbleBrowningOutWorking == true) {
+      rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
+      rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 0.5);
     } else if (RobotController.getBatteryVoltage() < 7) {
       rawOpXboxController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
       rawPilotController.setRumble(GenericHID.RumbleType.kBothRumble, 1);
