@@ -22,7 +22,7 @@ public class AimWithLimelight extends Command {
   private Drive drive;
   private Limelight limelight;
 
-  private boolean finished;
+  private boolean finished, hasSeenTarget;
   private int counter;
 
   private double steerStrength,
@@ -88,6 +88,7 @@ public class AimWithLimelight extends Command {
     this.oldPipelineNumber = limelight.getLimelightPipeline();
     limelight.setLimelightPipeline(pipelineNumber);
     this.finished = false;
+    this.hasSeenTarget = false;
     this.counter = 0;
   }
 
@@ -95,6 +96,7 @@ public class AimWithLimelight extends Command {
   @Override
   public void execute() {
     if (limelight.hasValidTarget()) {
+      hasSeenTarget = true;
       double z = limelight.getTX() * steerStrength;
       double yComponent =
           distanceFromTarget
@@ -117,6 +119,8 @@ public class AimWithLimelight extends Command {
           this.finished = true;
         }
       }
+    } else if (hasSeenTarget) {
+      this.finished = true;
     }
   }
 
