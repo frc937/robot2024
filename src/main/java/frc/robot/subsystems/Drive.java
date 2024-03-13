@@ -111,6 +111,16 @@ public class Drive extends SubsystemBase {
   }
 
   /**
+   * Zeroes the NavX gyro. Mostly used for resetting the angle for field-oriented drive (for now).
+   *
+   * <p>Somewhat notably, this will also reset odometry to the same position it's currently at, but
+   * facing towards zero.
+   */
+  public void zeroGyro() {
+    drive.zeroGyro();
+  }
+
+  /**
    * Gets the maximum speed the robot chassis can acheive in m/s.
    *
    * @return Maximum speed the robot chassis can acheive in m/s.
