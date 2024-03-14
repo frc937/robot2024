@@ -248,7 +248,7 @@ public class RobotContainer {
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
 
-    drive.setDefaultCommand(driveRobotOriented);
+    drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
   }
 
   private void configureAuto() {
