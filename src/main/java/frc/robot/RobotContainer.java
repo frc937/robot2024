@@ -30,6 +30,7 @@ import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.DriveRobot;
+import frc.robot.commands.drive.ZeroGyro;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
@@ -223,6 +224,9 @@ public class RobotContainer {
   /** Singleton instance of {@link ClearPDPStickyFaults} for the whole robot. */
   public static ClearPDPStickyFaults clearPDPStickyFaults = new ClearPDPStickyFaults();
 
+  /** Singleton instance of {@link ZeroGyro} for the whole robot. */
+  public static ZeroGyro zeroGyro = new ZeroGyro();
+
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
@@ -239,6 +243,7 @@ public class RobotContainer {
     configureBindings();
     configureAuto();
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
+    Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
 
     drive.setDefaultCommand(driveRobotOriented);
   }

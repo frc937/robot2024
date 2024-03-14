@@ -12,6 +12,8 @@
 package frc.robot.commands.mailbox;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.Constants;
 
 /**
  * Scores the note into the amp. Raises the mailbox, runs the mailbox belts, and then runs the index
@@ -20,6 +22,9 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 public class FireNoteRoutine extends ParallelCommandGroup {
   /** Creates a new FireNote. */
   public FireNoteRoutine() {
-    addCommands(new DeployMailbox(), new DeindexNote());
+    addCommands(
+        new DeployMailbox(),
+        new WaitCommand(Constants.Mailbox.FIRE_NOTE_DELAY_TIME),
+        new DeindexNote());
   }
 }
