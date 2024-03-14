@@ -84,6 +84,16 @@ public final class Constants {
 
   /** Constants for the Drivetrain */
   public static class Drive {
+
+    /* TODO: MAKE THIS TOGGLEABLE BY DRIVERS - PROBABLY POST-HEARTLAND */
+    public static enum DrivePerspectiveOptions {
+      RobotOriented,
+      FieldOriented
+    }
+
+    public static DrivePerspectiveOptions currentDrivePerspective =
+        DrivePerspectiveOptions.RobotOriented;
+
     /** Empty translation to prevent creating 2 Translation2ds every time the drive train stops. */
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
 

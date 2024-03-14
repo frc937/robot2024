@@ -248,6 +248,16 @@ public class RobotContainer {
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
 
+    switch (Constants.Drive.currentDrivePerspective) {
+      case RobotOriented:
+        drive.setDefaultCommand(driveRobotOriented);
+        break;
+      case FieldOriented:
+        drive.setDefaultCommand(driveFieldOriented);
+        break;
+      default:
+        throw new IllegalStateException();
+    }
     drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
   }
 
