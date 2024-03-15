@@ -67,7 +67,7 @@ public class Limelight extends SubsystemBase {
 
     Shuffleboard.getTab("Driver")
         .add(SendableCameraWrapper.wrap("Limelight", "http://10.9.37.5:5800/stream.mjpg"))
-        .withSize(4, 3);
+        .withSize(4, 4);
 
     /* TODO: CONSTANTS */
     limelightHasTarget =
