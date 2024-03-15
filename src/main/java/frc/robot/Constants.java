@@ -92,7 +92,7 @@ public final class Constants {
     }
 
     public static DrivePerspectiveOptions currentDrivePerspective =
-        DrivePerspectiveOptions.RobotOriented;
+        DrivePerspectiveOptions.FieldOriented;
 
     /** Empty translation to prevent creating 2 Translation2ds every time the drive train stops. */
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
