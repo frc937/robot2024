@@ -65,7 +65,7 @@ public class Limelight extends SubsystemBase {
             .getDoubleArrayTopic(fmtPath("botpose"))
             .subscribe(defaultBotpos);
 
-    this.limelightHttpCamera = new HttpCamera("Limelight", "http://10.9.37.5:1181/stream.mjpg");
+    this.limelightHttpCamera = new HttpCamera("Limelight", "http://10.9.37.5:5800/stream.mjpg");
     CameraServer.addCamera(limelightHttpCamera);
     Shuffleboard.getTab("Driver").add(limelightHttpCamera);
   }
