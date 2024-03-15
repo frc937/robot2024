@@ -11,8 +11,6 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.cscore.HttpCamera;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -21,7 +19,9 @@ import edu.wpi.first.networktables.DoubleArraySubscriber;
 import edu.wpi.first.networktables.DoublePublisher;
 import edu.wpi.first.networktables.DoubleSubscriber;
 import edu.wpi.first.networktables.DoubleTopic;
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.shuffleboard.SendableCameraWrapper;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -37,8 +37,6 @@ public class Limelight extends SubsystemBase {
   private DoubleSubscriber pipelineSubcriber;
   private DoublePublisher pipelinePublisher;
   private String name;
-
-  private HttpCamera limelightHttpCamera;
 
   private String fmtPath(String end) {
     return "/" + name + "/" + end;
@@ -65,9 +63,9 @@ public class Limelight extends SubsystemBase {
             .getDoubleArrayTopic(fmtPath("botpose"))
             .subscribe(defaultBotpos);
 
-    this.limelightHttpCamera = new HttpCamera("Limelight", "http://10.9.37.5:5800/stream.mjpg");
-    CameraServer.addCamera(limelightHttpCamera);
-    Shuffleboard.getTab("Driver").add(limelightHttpCamera);
+    Shuffleboard.getTab("Driver")
+        .add(SendableCameraWrapper.wrap("Limelight", "http://10.9.37.5:5800/stream.mjpg"))
+        .withSize(4, 3);
   }
 
   /* now its time for getter method chaingun, which I have to write manually because VS Code */
