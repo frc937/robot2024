@@ -117,7 +117,6 @@ public final class Controllers {
       default:
         throw new IllegalStateException();
     }
-    pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedSprint);
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
 
     keymapEntry.setString("Default");

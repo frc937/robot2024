@@ -258,7 +258,6 @@ public class RobotContainer {
       default:
         throw new IllegalStateException();
     }
-    drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
   }
 
   private void configureAuto() {
