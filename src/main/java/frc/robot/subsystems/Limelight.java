@@ -42,6 +42,8 @@ public class Limelight extends SubsystemBase {
     return "/" + name + "/" + end;
   }
 
+  private GenericEntry limelightHasTarget;
+
   /**
    * Creates a new Limelight.
    *
@@ -66,6 +68,10 @@ public class Limelight extends SubsystemBase {
     Shuffleboard.getTab("Driver")
         .add(SendableCameraWrapper.wrap("Limelight", "http://10.9.37.5:5800/stream.mjpg"))
         .withSize(4, 3);
+
+    /* TODO: CONSTANTS */
+    limelightHasTarget =
+        Shuffleboard.getTab("Driver").add("limelight has target", false).getEntry();
   }
 
   /* now its time for getter method chaingun, which I have to write manually because VS Code */
@@ -161,5 +167,6 @@ public class Limelight extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
 
+    limelightHasTarget.setBoolean(hasValidTarget());
   }
 }
