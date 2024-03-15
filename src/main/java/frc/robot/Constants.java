@@ -125,7 +125,7 @@ public final class Constants {
     public static double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
     /** The number of seconds that we want to taxi for */
-    public static double TAXI_AUTO_DURATION_SECONDS = 2.0;
+    public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
 
     /** The amount of time we want/need to drive away from the amp in auto. */
     public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
