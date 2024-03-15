@@ -105,9 +105,18 @@ public final class Controllers {
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
 
-    pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
+    // pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
     pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
-    pilotController.leftBumper().whileTrue(RobotContainer.driveRobotOrientedSprint);
+    switch (Constants.Drive.currentDrivePerspective) {
+      case RobotOriented:
+        pilotController.leftBumper().whileTrue(RobotContainer.driveRobotOrientedSprint);
+        break;
+      case FieldOriented:
+        pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedSprint);
+        break;
+      default:
+        throw new IllegalStateException();
+    }
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
 
     keymapEntry.setString("Default");

@@ -11,6 +11,8 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.HttpCamera;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -20,6 +22,7 @@ import edu.wpi.first.networktables.DoublePublisher;
 import edu.wpi.first.networktables.DoubleSubscriber;
 import edu.wpi.first.networktables.DoubleTopic;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /** Subsystem for the Limelight 2+ that we use for vision. */
@@ -34,6 +37,8 @@ public class Limelight extends SubsystemBase {
   private DoubleSubscriber pipelineSubcriber;
   private DoublePublisher pipelinePublisher;
   private String name;
+
+  private HttpCamera limelightHttpCamera;
 
   private String fmtPath(String end) {
     return "/" + name + "/" + end;
@@ -59,6 +64,10 @@ public class Limelight extends SubsystemBase {
         NetworkTableInstance.getDefault()
             .getDoubleArrayTopic(fmtPath("botpose"))
             .subscribe(defaultBotpos);
+
+    this.limelightHttpCamera = new HttpCamera("Limelight", "http://10.9.37.5:1181/stream.mjpg");
+    CameraServer.addCamera(limelightHttpCamera);
+    Shuffleboard.getTab("Driver").add(limelightHttpCamera);
   }
 
   /* now its time for getter method chaingun, which I have to write manually because VS Code */
