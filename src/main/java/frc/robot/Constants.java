@@ -153,7 +153,7 @@ public final class Constants {
     public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 1;
 
     /** Speed we want to run the Intake at. */
-    public static final double INTAKE_MOTOR_SPEED = .6;
+    public static final double INTAKE_MOTOR_SPEED = .75;
 
     /** Inversion state for the intake follower motor. */
     public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
