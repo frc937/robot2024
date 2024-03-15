@@ -31,7 +31,7 @@ public final class Constants {
     public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
 
     /** The delay between raising the mailbox and firing the note. In seconds. */
-    public static final double FIRE_NOTE_DELAY_TIME = 0.25;
+    public static final double FIRE_NOTE_DELAY_TIME = 0.75;
   }
 
   /** Constants for the Pneumatics system. */
@@ -153,7 +153,7 @@ public final class Constants {
     public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 1;
 
     /** Speed we want to run the Intake at. */
-    public static final double INTAKE_MOTOR_SPEED = 1;
+    public static final double INTAKE_MOTOR_SPEED = .6;
 
     /** Inversion state for the intake follower motor. */
     public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
