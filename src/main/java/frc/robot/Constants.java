@@ -125,7 +125,7 @@ public final class Constants {
     public static double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
     /** The number of seconds that we want to taxi for */
-    public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
+    public static double TAXI_AUTO_DURATION_SECONDS = 2.0;
 
     /** The amount of time we want/need to drive away from the amp in auto. */
     public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
@@ -153,7 +153,7 @@ public final class Constants {
     public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 1;
 
     /** Speed we want to run the Intake at. */
-    public static final double INTAKE_MOTOR_SPEED = .75;
+    public static final double INTAKE_MOTOR_SPEED = 1;
 
     /** Inversion state for the intake follower motor. */
     public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
