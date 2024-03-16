@@ -31,7 +31,7 @@ public final class Constants {
     public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
 
     /** The delay between raising the mailbox and firing the note. In seconds. */
-    public static final double FIRE_NOTE_DELAY_TIME = 0.75;
+    public static final double FIRE_NOTE_DELAY_TIME = 1.25;
   }
 
   /** Constants for the Pneumatics system. */
