@@ -16,6 +16,7 @@ import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Controllers.ControllerAxis;
 import frc.robot.Controllers.Keymap;
 import frc.robot.commands.AimAndFireRoutine;
@@ -39,6 +40,7 @@ import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
+import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
@@ -90,6 +92,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link PDP} for the whole robot. */
   public static PDP pdp = new PDP();
+
+  /* TODO: JAVADOC */
+  public static Camera intakeCamera = new Camera(0);
 
   /*
    * ************
@@ -229,6 +234,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
+
+  public static InstantCommand startCamera =
+      new InstantCommand(intakeCamera::startCamera, intakeCamera);
 
   /*
    * ***********************
