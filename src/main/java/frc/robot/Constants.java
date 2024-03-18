@@ -12,6 +12,7 @@
 package frc.robot;
 
 import com.pathplanner.lib.util.PIDConstants;
+import com.revrobotics.CANSparkBase.IdleMode;
 import edu.wpi.first.math.geometry.Translation2d;
 
 /**
@@ -160,6 +161,8 @@ public final class Constants {
 
     /** Current limit (in amps) for the intake motor(s) */
     public static final int INTAKE_MOTOR_CURRENT_LIMIT = 40;
+
+    public static final IdleMode INTAKE_MOTOR_IDLE_MODE = IdleMode.kBrake;
   }
 
   /** Holds contstants for the Limelights. */
