@@ -12,6 +12,7 @@
 package frc.robot;
 
 import com.pathplanner.lib.util.PIDConstants;
+import com.revrobotics.CANSparkBase.IdleMode;
 import edu.wpi.first.math.geometry.Translation2d;
 
 /**
@@ -31,7 +32,7 @@ public final class Constants {
     public static final int MAILBOX_LIMIT_SWITCH_DIO_PORT = 0;
 
     /** The delay between raising the mailbox and firing the note. In seconds. */
-    public static final double FIRE_NOTE_DELAY_TIME = 0.25;
+    public static final double FIRE_NOTE_DELAY_TIME = 1.25;
   }
 
   /** Constants for the Pneumatics system. */
@@ -84,23 +85,33 @@ public final class Constants {
 
   /** Constants for the Drivetrain */
   public static class Drive {
+
+    /* TODO: MAKE THIS TOGGLEABLE BY DRIVERS - PROBABLY POST-HEARTLAND */
+    public static enum DrivePerspectiveOptions {
+      RobotOriented,
+      FieldOriented
+    }
+
+    public static DrivePerspectiveOptions currentDrivePerspective =
+        DrivePerspectiveOptions.FieldOriented;
+
     /** Empty translation to prevent creating 2 Translation2ds every time the drive train stops. */
     public static Translation2d EMPTY_TRANSLATION = new Translation2d();
 
     /** The max speed the robot can go in m/s */
-    public static double MAX_SPEED = 2;
+    public static double MAX_SPEED = 100;
 
     /** The max speed the robot can rotate */
-    public static double MAX_ANGULAR_SPEED = Math.PI;
+    public static double MAX_ANGULAR_SPEED = 100;
 
     /** The distance from the center of the robot to any of the swerve modules. */
     public static double DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE = 0.3;
 
     /** The max speed for the robot when not sprinting (in m/s) */
-    public static final double MAX_NORMAL_SPEED = 1;
+    public static final double MAX_NORMAL_SPEED = 2;
 
     /** The max angular speed (in randians) for the robot when not sprinting */
-    public static final double MAX_NORMAL_ANGULAR_SPEED = Math.PI;
+    public static final double MAX_NORMAL_ANGULAR_SPEED = 2 * Math.PI;
 
     /** The Translation Drive PID for the robot. */
     public static PIDConstants TRANSLATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
@@ -115,7 +126,7 @@ public final class Constants {
     public static double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
     /** The number of seconds that we want to taxi for */
-    public static double TAXI_AUTO_DURATION_SECONDS = 4.0;
+    public static double TAXI_AUTO_DURATION_SECONDS = 2.0;
 
     /** The amount of time we want/need to drive away from the amp in auto. */
     public static double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
@@ -143,13 +154,15 @@ public final class Constants {
     public static final int INTAKE_LIMIT_SWITCH_DIO_PORT = 1;
 
     /** Speed we want to run the Intake at. */
-    public static final double INTAKE_MOTOR_SPEED = 1;
+    public static final double INTAKE_MOTOR_SPEED = .6;
 
     /** Inversion state for the intake follower motor. */
     public static final boolean INTAKE_FOLLOWER_INVERSE_STATE = false;
 
     /** Current limit (in amps) for the intake motor(s) */
     public static final int INTAKE_MOTOR_CURRENT_LIMIT = 40;
+
+    public static final IdleMode INTAKE_MOTOR_IDLE_MODE = IdleMode.kBrake;
   }
 
   /** Holds contstants for the Limelights. */

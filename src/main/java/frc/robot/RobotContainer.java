@@ -16,6 +16,7 @@ import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Controllers.ControllerAxis;
 import frc.robot.Controllers.Keymap;
 import frc.robot.commands.AimAndFireRoutine;
@@ -39,6 +40,7 @@ import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
+import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
@@ -91,6 +93,9 @@ public class RobotContainer {
   /** Singleton instance of {@link PDP} for the whole robot. */
   public static PDP pdp = new PDP();
 
+  /* TODO: JAVADOC */
+  public static Camera intakeCamera = new Camera(0);
+
   /*
    * ************
    * * COMMANDS *
@@ -101,9 +106,9 @@ public class RobotContainer {
   public static DriveRobot driveRobotOriented =
       new DriveRobot(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.LeftX, true),
-          Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.RightX, true),
           false,
@@ -114,9 +119,9 @@ public class RobotContainer {
   public static DriveRobot driveFieldOriented =
       new DriveRobot(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.LeftX, true),
-          Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.RightX, true),
           true,
@@ -127,9 +132,9 @@ public class RobotContainer {
   public static DriveRobot driveRobotOrientedSprint =
       new DriveRobot(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.LeftX, true),
-          Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.RightX, true),
           false);
@@ -138,9 +143,9 @@ public class RobotContainer {
   public static DriveRobot driveFieldOrientedSprint =
       new DriveRobot(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.LeftX, true),
-          Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.RightX, true),
           true);
@@ -149,9 +154,9 @@ public class RobotContainer {
   public static DriveFieldOrientedHeadingSnapping driveFieldOrientedHeadingSnapping =
       new DriveFieldOrientedHeadingSnapping(
           Controllers.getControllerAxisSupplier(
-              Controllers.pilotController, ControllerAxis.LeftX, true),
-          Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.LeftY, true),
+          Controllers.getControllerAxisSupplier(
+              Controllers.pilotController, ControllerAxis.LeftX, true),
           Controllers.getControllerAxisSupplier(
               Controllers.pilotController, ControllerAxis.RightX, true),
           Controllers.headingSnappingUpSupplier,
@@ -230,6 +235,9 @@ public class RobotContainer {
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
 
+  public static InstantCommand startCamera =
+      new InstantCommand(intakeCamera::startCamera, intakeCamera);
+
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
@@ -248,7 +256,16 @@ public class RobotContainer {
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
 
-    drive.setDefaultCommand(driveRobotOriented);
+    switch (Constants.Drive.currentDrivePerspective) {
+      case RobotOriented:
+        drive.setDefaultCommand(driveRobotOriented);
+        break;
+      case FieldOriented:
+        drive.setDefaultCommand(driveFieldOriented);
+        break;
+      default:
+        throw new IllegalStateException();
+    }
   }
 
   private void configureAuto() {

@@ -26,6 +26,6 @@ public class TaxiAuto extends ParallelDeadlineGroup {
     super(new WaitCommand(Constants.Auto.TAXI_AUTO_DURATION_SECONDS));
     addCommands(
         new DriveAutoRobotOriented(
-            new Translation2d(0, Constants.Auto.TAXI_AUTO_METERS_PER_SECOND), 0));
+            new Translation2d(Constants.Auto.TAXI_AUTO_METERS_PER_SECOND, 0), 0));
   }
 }

@@ -36,6 +36,9 @@ public class Intake extends SubsystemBase {
     intakeLower.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
     intakeUpper.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
 
+    intakeLower.setIdleMode(Constants.Intake.INTAKE_MOTOR_IDLE_MODE);
+    intakeUpper.setIdleMode(Constants.Intake.INTAKE_MOTOR_IDLE_MODE);
+
     intakeLower.setIdleMode(IdleMode.kBrake);
     intakeUpper.setIdleMode(IdleMode.kBrake);
 

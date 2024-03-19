@@ -19,7 +19,10 @@ import edu.wpi.first.networktables.DoubleArraySubscriber;
 import edu.wpi.first.networktables.DoublePublisher;
 import edu.wpi.first.networktables.DoubleSubscriber;
 import edu.wpi.first.networktables.DoubleTopic;
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.shuffleboard.SendableCameraWrapper;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /** Subsystem for the Limelight 2+ that we use for vision. */
@@ -38,6 +41,8 @@ public class Limelight extends SubsystemBase {
   private String fmtPath(String end) {
     return "/" + name + "/" + end;
   }
+
+  private GenericEntry limelightHasTarget;
 
   /**
    * Creates a new Limelight.
@@ -59,6 +64,14 @@ public class Limelight extends SubsystemBase {
         NetworkTableInstance.getDefault()
             .getDoubleArrayTopic(fmtPath("botpose"))
             .subscribe(defaultBotpos);
+
+    Shuffleboard.getTab("Driver")
+        .add(SendableCameraWrapper.wrap("Limelight", "http://10.9.37.5:5800/stream.mjpg"))
+        .withSize(4, 4);
+
+    /* TODO: CONSTANTS */
+    limelightHasTarget =
+        Shuffleboard.getTab("Driver").add("limelight has target", false).getEntry();
   }
 
   /* now its time for getter method chaingun, which I have to write manually because VS Code */
@@ -154,5 +167,6 @@ public class Limelight extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
 
+    limelightHasTarget.setBoolean(hasValidTarget());
   }
 }
