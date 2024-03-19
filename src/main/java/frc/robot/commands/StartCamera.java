@@ -7,13 +7,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Camera;
 
+/** Command that starts up a camera and sends it to shuffleboard. */
 public class StartCamera extends Command {
   Camera camera;
   /** Creates a new StartCamera. */
   public StartCamera(Camera camera) {
     this.camera = camera;
     addRequirements(camera);
-    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
