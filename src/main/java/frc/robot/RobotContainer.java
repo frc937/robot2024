@@ -93,7 +93,7 @@ public class RobotContainer {
   /** Singleton instance of {@link PDP} for the whole robot. */
   public static PDP pdp = new PDP();
 
-  /* TODO: JAVADOC */
+  /** Singleton instance of the intake {@link Camera} for the whole robot. */
   public static Camera intakeCamera = new Camera(Constants.Camera.INTAKE_CAMERA_ID);
 
   /*
