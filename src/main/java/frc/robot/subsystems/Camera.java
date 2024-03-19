@@ -17,6 +17,7 @@ import edu.wpi.first.cscore.VideoSource.ConnectionStrategy;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+/** Subsystem for a USB camera. */
 public class Camera extends SubsystemBase {
   private int port;
   private UsbCamera camera;
