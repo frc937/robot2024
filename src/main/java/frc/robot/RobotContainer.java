@@ -28,6 +28,7 @@ import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.RunIntakeReverse;
+import frc.robot.commands.StartCamera;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
@@ -218,6 +219,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link ClimbDown} for the whole robot. */
   public static ClimbDown climbDown = new ClimbDown();
+
+  /** Singleton instance of {@link StartCamera} for the intake camera for the whole robot. */
+  public static StartCamera startIntakeCamera = new StartCamera(intakeCamera);
 
   /* Autos */
   /** Singleton instance of {@link MoveAwayFromAmp} for the whole robot. */
