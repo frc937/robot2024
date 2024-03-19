@@ -162,6 +162,7 @@ public final class Constants {
     /** Current limit (in amps) for the intake motor(s) */
     public static final int INTAKE_MOTOR_CURRENT_LIMIT = 40;
 
+    /** Idle mode for the intake motors. (Either brake or coast) */
     public static final IdleMode INTAKE_MOTOR_IDLE_MODE = IdleMode.kBrake;
   }
 
