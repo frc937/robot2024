@@ -220,7 +220,7 @@ public class RobotContainer {
   /** Singleton instance of {@link ClimbDown} for the whole robot. */
   public static ClimbDown climbDown = new ClimbDown();
 
-  /** Singleton instance of {@link StartCamera} for the intake camera for the whole robot. */
+  /** Singleton instance of the intake {@link StartCamera} for the whole robot. */
   public static StartCamera startIntakeCamera = new StartCamera(intakeCamera);
 
   /* Autos */
