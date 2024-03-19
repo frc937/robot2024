@@ -25,7 +25,7 @@ public class ClimbDown extends Command {
     addRequirements(this.climber);
   }
 
-  // Called when the command is initially scheduled. /
+  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     climber.climbDown();
