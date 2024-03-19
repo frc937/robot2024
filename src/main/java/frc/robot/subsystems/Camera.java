@@ -22,7 +22,12 @@ public class Camera extends SubsystemBase {
   private int port;
   private UsbCamera camera;
 
-  /** Creates a new Camera. */
+  /**
+   * Creates a new Camera.
+   *
+   * @param port The USB port number on the RoboRIO that the camera is plugged into. (This will
+   *     determine which /dev/videoX device the CameraServer tries to find).
+   */
   public Camera(int port) {
     this.port = port;
   }
