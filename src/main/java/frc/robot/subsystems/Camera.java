@@ -32,6 +32,9 @@ public class Camera extends SubsystemBase {
     this.port = port;
   }
 
+  /**
+   * Starts the camera that this subsystem represents and adds it to the Driver tab on Shuffleboard.
+   */
   public void startCamera() {
     camera = CameraServer.startAutomaticCapture(port);
     camera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
