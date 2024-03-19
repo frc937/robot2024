@@ -95,7 +95,7 @@ public class RobotContainer {
   public static PDP pdp = new PDP();
 
   /* TODO: JAVADOC */
-  public static Camera intakeCamera = new Camera(0);
+  public static Camera intakeCamera = new Camera(Constants.Camera.INTAKE_CAMERA_ID);
 
   /*
    * ************
