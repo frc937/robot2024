@@ -257,6 +257,8 @@ public class RobotContainer {
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
 
+    startIntakeCamera.schedule();
+
     switch (Constants.Drive.currentDrivePerspective) {
       case RobotOriented:
         drive.setDefaultCommand(driveRobotOriented);
