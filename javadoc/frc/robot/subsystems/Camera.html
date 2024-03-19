@@ -84,6 +84,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Camera</span>
 <span class="extends-implements">extends edu.wpi.first.wpilibj2.command.SubsystemBase</span></div>
+<div class="block">Subsystem for a USB camera.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -118,7 +119,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startCamera()" class="member-name-link">startCamera</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Starts the camera that this subsystem represents and adds it to the Driver tab on Shuffleboard.</div>
+</div>
 </div>
 </div>
 </div>
@@ -147,6 +150,11 @@ loadScripts(document, 'script');</script>
 <h3>Camera</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Camera</span><wbr><span class="parameters">(int&nbsp;port)</span></div>
 <div class="block">Creates a new Camera.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>port</code> - The USB port number on the RoboRIO that the camera is plugged into. (This will
+     determine which /dev/videoX device the CameraServer tries to find).</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -161,6 +169,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="startCamera()">
 <h3>startCamera</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">startCamera</span>()</div>
+<div class="block">Starts the camera that this subsystem represents and adds it to the Driver tab on Shuffleboard.</div>
 </section>
 </li>
 <li>
