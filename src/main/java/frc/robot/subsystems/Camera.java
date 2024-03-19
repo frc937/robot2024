@@ -17,20 +17,27 @@ import edu.wpi.first.cscore.VideoSource.ConnectionStrategy;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+/** Subsystem for a USB camera. */
 public class Camera extends SubsystemBase {
   private int port;
   private UsbCamera camera;
 
-  /** Creates a new Camera. */
+  /**
+   * Creates a new Camera.
+   *
+   * @param port The USB port number on the RoboRIO that the camera is plugged into. (This will
+   *     determine which /dev/videoX device the CameraServer tries to find).
+   */
   public Camera(int port) {
     this.port = port;
   }
 
+  /**
+   * Starts the camera that this subsystem represents and adds it to the Driver tab on Shuffleboard.
+   */
   public void startCamera() {
     camera = CameraServer.startAutomaticCapture(port);
     camera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
-
-    System.out.println("Camera started");
 
     Shuffleboard.getTab("Driver").add(camera).withSize(4, 4);
   }
