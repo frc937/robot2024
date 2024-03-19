@@ -66,12 +66,11 @@ public class Limelight extends SubsystemBase {
             .subscribe(defaultBotpos);
 
     Shuffleboard.getTab("Driver")
-        .add(SendableCameraWrapper.wrap("Limelight", "http://10.9.37.5:5800/stream.mjpg"))
+        .add(SendableCameraWrapper.wrap(name, "http://" + name + ".local:5800/stream.mjpg"))
         .withSize(4, 4);
 
     /* TODO: CONSTANTS */
-    limelightHasTarget =
-        Shuffleboard.getTab("Driver").add("limelight has target", false).getEntry();
+    limelightHasTarget = Shuffleboard.getTab("Driver").add(name + "has target", false).getEntry();
   }
 
   /* now its time for getter method chaingun, which I have to write manually because VS Code */
@@ -165,8 +164,6 @@ public class Limelight extends SubsystemBase {
   /** Subsystem periodic; runs every scheduler run. */
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
-
     limelightHasTarget.setBoolean(hasValidTarget());
   }
 }
