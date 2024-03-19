@@ -39,8 +39,6 @@ public class Camera extends SubsystemBase {
     camera = CameraServer.startAutomaticCapture(port);
     camera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
 
-    System.out.println("Camera started");
-
     Shuffleboard.getTab("Driver").add(camera).withSize(4, 4);
   }
 
