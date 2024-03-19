@@ -235,9 +235,6 @@ public class RobotContainer {
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
 
-  public static InstantCommand startCamera =
-      new InstantCommand(intakeCamera::startCamera, intakeCamera);
-
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
