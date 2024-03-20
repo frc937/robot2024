@@ -258,16 +258,7 @@ public class RobotContainer {
 
     startIntakeCamera.schedule();
 
-    switch (Constants.Drive.currentDrivePerspective) {
-      case RobotOriented:
-        drive.setDefaultCommand(driveRobotOriented);
-        break;
-      case FieldOriented:
-        drive.setDefaultCommand(driveFieldOriented);
-        break;
-      default:
-        throw new IllegalStateException();
-    }
+    drive.setDefaultCommand(driveFieldOriented);
   }
 
   private void configureAuto() {
