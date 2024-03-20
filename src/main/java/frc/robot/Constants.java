@@ -229,6 +229,9 @@ public final class Constants {
 
     /** Whether or not the climber is inverted. */
     public static final boolean CLIMBER_INVERTED = true;
+
+    /** Idle mode for the climber motors. (Either brake or coast) */
+    public static IdleMode CLIMBER_MOTOR_IDLE_MODE = IdleMode.kBrake;
   }
 
   /** The constants for the USB cameras */
