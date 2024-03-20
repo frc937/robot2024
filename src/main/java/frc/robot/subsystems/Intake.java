@@ -14,7 +14,9 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -24,6 +26,7 @@ public class Intake extends SubsystemBase {
   private CANSparkMax intakeLower;
   private CANSparkMax intakeUpper;
   private DigitalInput limitSwitch;
+  private GenericEntry noteLog;
 
   /** Creates a new Intake. */
   public Intake() {
@@ -47,6 +50,8 @@ public class Intake extends SubsystemBase {
 
     intakeLower.burnFlash();
     intakeUpper.burnFlash();
+
+    Shuffleboard.getTab("Driver").add("Note in intake", false).getEntry();
   }
 
   /** Runs the intake motors. */
@@ -67,6 +72,14 @@ public class Intake extends SubsystemBase {
   public boolean getLimitSwitch() {
     /* Assumes the limit switch is wired to be normally closed. */
     return !limitSwitch.get();
+  }
+
+  public void noteLogged() {
+    noteLog.setBoolean(true);
+  }
+
+  public void noteUnlogged() {
+    noteLog.setBoolean(false);
   }
 
   /** Stops the intake motors. */
