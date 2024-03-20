@@ -9,6 +9,7 @@ import frc.robot.Controllers;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
+/** Sets the current drive perspective to field oriented with heading snapping. */
 public class SetDrivePerspectiveFieldOrientedHeadingSnapping extends Command {
   /** Creates a new SetDrivePerspectiveFieldOriented. */
 
