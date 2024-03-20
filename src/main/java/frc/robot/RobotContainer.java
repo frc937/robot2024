@@ -226,13 +226,20 @@ public class RobotContainer {
   public static StartCamera startIntakeCamera = new StartCamera(intakeCamera);
 
   /** Singleton instance of {@link SetDrivePerspectiveFieldOriented} for the whole robot. */
-  public static SetDrivePerspectiveFieldOriented setDrivePerspectiveFieldOriented = new SetDrivePerspectiveFieldOriented();
+  public static SetDrivePerspectiveFieldOriented setDrivePerspectiveFieldOriented =
+      new SetDrivePerspectiveFieldOriented();
 
-  /** Singleton instance of {@link SetDrivePerspectiveFieldOrientedHeadingSnapping} for the whole robot. */
-  public static SetDrivePerspectiveFieldOrientedHeadingSnapping setDrivePerspectiveFieldOrientedHeadingSnapping = new SetDrivePerspectiveFieldOrientedHeadingSnapping();
+  /**
+   * Singleton instance of {@link SetDrivePerspectiveFieldOrientedHeadingSnapping} for the whole
+   * robot.
+   */
+  public static SetDrivePerspectiveFieldOrientedHeadingSnapping
+      setDrivePerspectiveFieldOrientedHeadingSnapping =
+          new SetDrivePerspectiveFieldOrientedHeadingSnapping();
 
   /** Singleton instance of {@link SetDrivePerspectiveRobotOriented} for the whole robot. */
-  public static SetDrivePerspectiveRobotOriented setDrivePerspectiveRobotOriented = new SetDrivePerspectiveRobotOriented();
+  public static SetDrivePerspectiveRobotOriented setDrivePerspectiveRobotOriented =
+      new SetDrivePerspectiveRobotOriented();
 
   /* Autos */
   /** Singleton instance of {@link MoveAwayFromAmp} for the whole robot. */
@@ -268,7 +275,9 @@ public class RobotContainer {
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
     Shuffleboard.getTab("Driver").add("Set Field Oriented", setDrivePerspectiveFieldOriented);
-    Shuffleboard.getTab("Driver").add("Set Field Oriented Heading Snapping", setDrivePerspectiveFieldOrientedHeadingSnapping);
+    Shuffleboard.getTab("Driver")
+        .add(
+            "Set Field Oriented Heading Snapping", setDrivePerspectiveFieldOrientedHeadingSnapping);
     Shuffleboard.getTab("Driver").add("Set Robot Oriented", setDrivePerspectiveRobotOriented);
 
     startIntakeCamera.schedule();
