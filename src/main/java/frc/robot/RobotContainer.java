@@ -274,11 +274,14 @@ public class RobotContainer {
     configureAuto();
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
-    Shuffleboard.getTab("Driver").add("Set Drive Perspective to Field Oriented", setDrivePerspectiveFieldOriented);
+    Shuffleboard.getTab("Driver")
+        .add("Set Drive Perspective to Field Oriented", setDrivePerspectiveFieldOriented);
     Shuffleboard.getTab("Driver")
         .add(
-            "Set Drive Perspective to Field Oriented Heading Snapping", setDrivePerspectiveFieldOrientedHeadingSnapping);
-    Shuffleboard.getTab("Driver").add("Set Drive Perspective Robot Oriented", setDrivePerspectiveRobotOriented);
+            "Set Drive Perspective to Field Oriented Heading Snapping",
+            setDrivePerspectiveFieldOrientedHeadingSnapping);
+    Shuffleboard.getTab("Driver")
+        .add("Set Drive Perspective Robot Oriented", setDrivePerspectiveRobotOriented);
 
     startIntakeCamera.schedule();
 
