@@ -26,7 +26,7 @@ public class AimWithLimelight extends Command {
   private int counter;
 
   private double steerStrength,
-      distanceFromTarget,
+      desiredDistanceFromTarget,
       mountHeight,
       mountAngle,
       driveStrength,
@@ -42,7 +42,7 @@ public class AimWithLimelight extends Command {
    *
    * @param limelight The Limelight subsystem to aim with.
    * @param steerStrength How hard to turn towards the target; between 0 and 1.
-   * @param distanceFromTarget How far from in inches we want to be from the target.
+   * @param desiredDistanceFromTarget How far from in inches we want to be from the target.
    * @param mountHeight The height of the center of the Limelight lens off the floor.
    * @param mountAngle The number of degrees the Limelight is mounted back from perfectly vertical.
    *     Positive means rotated such that the lens is facing up, and not down.
@@ -67,7 +67,7 @@ public class AimWithLimelight extends Command {
       double targetHeight,
       double pipelineNumber) {
     this.steerStrength = steerStrength;
-    this.distanceFromTarget = distanceFromTarget;
+    this.desiredDistanceFromTarget = distanceFromTarget;
     this.mountHeight = mountHeight;
     this.mountAngle = mountAngle;
     this.driveStrength = driveStrength;
@@ -80,6 +80,31 @@ public class AimWithLimelight extends Command {
     this.limelight = limelight;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(drive, limelight);
+  }
+
+  private double getCurrentDistance() {
+    return desiredDistanceFromTarget
+        - ((targetHeight - mountHeight) / Math.tan(Math.toRadians(mountAngle + limelight.getTY())));
+  }
+
+  private double getRotation() {
+    double rot = limelight.getTX() * steerStrength;
+    if (rot > speedLimit) {
+      rot = speedLimit;
+    }
+    return rot;
+  }
+
+  private double getX() {
+    return getCurrentDistance() * driveStrength;
+  }
+
+  private boolean isAngled() {
+    return Math.abs(getRotation()) <= turnDoneThreshold;
+  }
+
+  private boolean isDistanced() {
+    return Math.abs(getCurrentDistance()) <= distanceDoneThreshold;
   }
 
   // Called when the command is initially scheduled.
@@ -97,23 +122,23 @@ public class AimWithLimelight extends Command {
   public void execute() {
     if (limelight.hasValidTarget()) {
       hasSeenTarget = true;
-      double z = limelight.getTX() * steerStrength;
+      /* double z = limelight.getTX() * steerStrength;
       double xComponent =
-          distanceFromTarget
+          desiredDistanceFromTarget
               - ((targetHeight - mountHeight) / Math.tan((mountAngle + limelight.getTY())));
       double x = xComponent * (Math.PI / 180.0) * driveStrength;
       if (z > speedLimit) {
         z = speedLimit;
-      }
-      drive.driveRobot(new Translation2d(x * -1.0, 0.0), z, false);
-      boolean isAngled = Math.abs(limelight.getTX()) < turnDoneThreshold;
+      } */
+      drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), getRotation(), false);
+      /*boolean isAngled = Math.abs(limelight.getTX()) < turnDoneThreshold;
       boolean isDistanced =
           Math.abs(
-                  (distanceFromTarget)
+                  (desiredDistanceFromTarget)
                       - ((targetHeight - mountHeight)
                           / Math.tan((mountAngle + limelight.getTY()) * (Math.PI / 180.0))))
-              <= distanceDoneThreshold;
-      if (isAngled && isDistanced) {
+              <= distanceDoneThreshold; */
+      if (isAngled() && isDistanced()) {
         counter++;
         if (counter > 5) {
           this.finished = true;
