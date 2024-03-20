@@ -27,6 +27,8 @@ public class Climber extends SubsystemBase {
     climberMotor.setInverted(Constants.Climber.CLIMBER_INVERTED);
 
     climberMotor.setIdleMode(Constants.Climber.CLIMBER_MOTOR_IDLE_MODE);
+
+    climberMotor.burnFlash();
   }
 
   /** Tells the robot to climb up. */
