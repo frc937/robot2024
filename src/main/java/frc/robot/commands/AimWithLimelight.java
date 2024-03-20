@@ -103,7 +103,7 @@ public class AimWithLimelight extends Command {
     if (rot > speedLimit) {
       rot = speedLimit;
     }
-    return rot;
+    return rot * drive.getMaximumAngularSpeed();
   }
 
   /**
@@ -113,7 +113,10 @@ public class AimWithLimelight extends Command {
    *     the target.
    */
   private double getX() {
-    return getCurrentDistance() * driveStrength;
+    if (getCurrentDistance() > speedLimit) {
+      return speedLimit * driveStrength * drive.getMaximumSpeed();
+    }
+    return getCurrentDistance() * driveStrength * drive.getMaximumSpeed();
   }
 
   /**
