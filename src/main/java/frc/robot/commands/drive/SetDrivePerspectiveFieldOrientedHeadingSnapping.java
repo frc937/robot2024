@@ -30,7 +30,7 @@ public class SetDrivePerspectiveFieldOrientedHeadingSnapping extends Command {
   @Override
   public void initialize() {
     drive.setDefaultCommand(RobotContainer.driveFieldOrientedHeadingSnapping);
-    Controllers.pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
+    Controllers.pilotController.leftBumper().toggleOnTrue(RobotContainer.driveFieldOriented);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
