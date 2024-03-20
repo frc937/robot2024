@@ -16,7 +16,6 @@ import com.pathplanner.lib.auto.NamedCommands;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.Controllers.ControllerAxis;
 import frc.robot.Controllers.Keymap;
 import frc.robot.commands.AimAndFireRoutine;
@@ -28,6 +27,7 @@ import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.RunIntakeReverse;
+import frc.robot.commands.StartCamera;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
@@ -94,7 +94,7 @@ public class RobotContainer {
   public static PDP pdp = new PDP();
 
   /** Singleton instance of the intake {@link Camera} for the whole robot. */
-  public static Camera intakeCamera = new Camera(0);
+  public static Camera intakeCamera = new Camera(Constants.Camera.INTAKE_CAMERA_ID);
 
   /*
    * ************
@@ -219,6 +219,9 @@ public class RobotContainer {
   /** Singleton instance of {@link ClimbDown} for the whole robot. */
   public static ClimbDown climbDown = new ClimbDown();
 
+  /** Singleton instance of the intake {@link StartCamera} for the whole robot. */
+  public static StartCamera startIntakeCamera = new StartCamera(intakeCamera);
+
   /* Autos */
   /** Singleton instance of {@link MoveAwayFromAmp} for the whole robot. */
   public static MoveAwayFromAmp moveAwayFromAmp = new MoveAwayFromAmp();
@@ -234,9 +237,6 @@ public class RobotContainer {
 
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
-
-  public static InstantCommand startCamera =
-      new InstantCommand(intakeCamera::startCamera, intakeCamera);
 
   /*
    * ***********************
@@ -255,6 +255,8 @@ public class RobotContainer {
     configureAuto();
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
+
+    startIntakeCamera.schedule();
 
     switch (Constants.Drive.currentDrivePerspective) {
       case RobotOriented:

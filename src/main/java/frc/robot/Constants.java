@@ -230,4 +230,10 @@ public final class Constants {
     /** Whether or not the climber is inverted. */
     public static final boolean CLIMBER_INVERTED = true;
   }
+
+  /** The constants for the USB cameras */
+  public static class Camera {
+    /** The camera id for the intake camera. */
+    public static final int INTAKE_CAMERA_ID = 0;
+  }
 }
