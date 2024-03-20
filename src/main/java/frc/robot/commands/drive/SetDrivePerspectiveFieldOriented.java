@@ -5,6 +5,7 @@
 package frc.robot.commands.drive;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Controllers;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 
@@ -21,6 +22,7 @@ public class SetDrivePerspectiveFieldOriented extends Command {
   @Override
   public void initialize() {
     drive.setDefaultCommand(RobotContainer.driveFieldOriented);
+    Controllers.pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
