@@ -20,7 +20,7 @@ public class SetDrivePerspectiveFieldOriented extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    drive.setDefaultCommand(RobotContainer.driveRobotOriented);
+    drive.setDefaultCommand(RobotContainer.driveFieldOriented);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
