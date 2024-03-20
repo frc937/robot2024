@@ -25,6 +25,8 @@ public class Climber extends SubsystemBase {
     this.climberMotor = new CANSparkMax(Constants.Climber.CLIMBER_MOTOR_ID, MotorType.kBrushed);
 
     climberMotor.setInverted(Constants.Climber.CLIMBER_INVERTED);
+
+    climberMotor.setIdleMode(Constants.Climber.CLIMBER_MOTOR_IDLE_MODE);
   }
 
   /** Tells the robot to climb up. */
