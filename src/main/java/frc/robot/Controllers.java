@@ -104,20 +104,9 @@ public final class Controllers {
     operatorController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
+    pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
 
-    // pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
-    pilotController.rightBumper().toggleOnTrue(RobotContainer.enterXMode);
-    switch (Constants.Drive.currentDrivePerspective) {
-      case RobotOriented:
-        pilotController.leftBumper().whileTrue(RobotContainer.driveRobotOrientedSprint);
-        break;
-      case FieldOriented:
-        pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedSprint);
-        break;
-      default:
-        throw new IllegalStateException();
-    }
-    /* TODO: angle / velocity steering toggle w/ right trigger (no issue) and boost on left bumper (issue 86) */
+    /* TODO: angle / velocity steering toggle w/ right trigger (no issue) */
 
     keymapEntry.setString("Default");
   }
@@ -150,6 +139,7 @@ public final class Controllers {
     pilotController.b().whileTrue(RobotContainer.aimToAmp);
     pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
+    
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
 
     keymapEntry.setString("Original");
