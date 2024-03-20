@@ -69,6 +69,9 @@ public final class Constants {
 
     /** Current limit (in amps) for the belt motor(s) */
     public static final int BELT_MOTOR_CURRENT_LIMIT = 40;
+
+    /** Idle mode for the belt motors. (Either brake or coast) */
+    public static final IdleMode BELTS_IDLE_MODE = IdleMode.kBrake;
   }
 
   /** Constants that are relating to the controllers. */
@@ -220,6 +223,9 @@ public final class Constants {
 
     /** Whether or not the climber is inverted. */
     public static final boolean CLIMBER_INVERTED = true;
+
+    /** Idle mode for the climber motors. (Either brake or coast) */
+    public static IdleMode CLIMBER_MOTOR_IDLE_MODE = IdleMode.kBrake;
   }
 
   /** The constants for the USB cameras */

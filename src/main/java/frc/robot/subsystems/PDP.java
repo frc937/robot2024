@@ -11,6 +11,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -19,9 +20,14 @@ public class PDP extends SubsystemBase {
 
   private PowerDistribution powerDistributionPanel;
 
+  private TalonFX dummyTalon;
+
   /** Creates a new PDP. */
   public PDP() {
     this.powerDistributionPanel = new PowerDistribution();
+
+    /* Creating a dummy Talon FX that doesn't actually exist so that Phoenix framework runs, allowing us to use Phoenix tuner for the PDP and PCM. */
+    this.dummyTalon = new TalonFX(0);
   }
 
   /** Clears the sticky faults of the PDP */
