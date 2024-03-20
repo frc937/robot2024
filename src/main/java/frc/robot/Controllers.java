@@ -139,7 +139,6 @@ public final class Controllers {
     pilotController.b().whileTrue(RobotContainer.aimToAmp);
     pilotController.leftTrigger().whileTrue(RobotContainer.climbDown);
     pilotController.rightTrigger().whileTrue(RobotContainer.climbUp);
-
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on left bumper (issue 86) */
 
     keymapEntry.setString("Original");
