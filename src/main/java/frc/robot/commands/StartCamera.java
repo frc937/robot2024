@@ -16,7 +16,7 @@ import frc.robot.subsystems.Camera;
 
 /** Command that starts up a camera and sends it to shuffleboard. */
 public class StartCamera extends Command {
-  Camera camera;
+  private Camera camera;
 
   /** Creates a new StartCamera. */
   public StartCamera(Camera camera) {
