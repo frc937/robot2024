@@ -36,6 +36,9 @@ public class MailboxBelts extends SubsystemBase {
 
     upperBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
     lowerBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
+
+    upperBeltMotor.burnFlash();
+    lowerBeltMotor.burnFlash();
   }
 
   /** Runs the belt. */
