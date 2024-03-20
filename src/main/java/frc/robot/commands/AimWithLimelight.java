@@ -82,11 +82,22 @@ public class AimWithLimelight extends Command {
     addRequirements(drive, limelight);
   }
 
+  /**
+   * Get the current distance to the target.
+   *
+   * @return The distance to the target.
+   */
   private double getCurrentDistance() {
     return desiredDistanceFromTarget
         - ((targetHeight - mountHeight) / Math.tan(Math.toRadians(mountAngle + limelight.getTY())));
   }
 
+  /**
+   * Gets the velocity that we want to command the drivetrain to rotate.
+   *
+   * @return The velocity (in radians/s) that the drivetrain should rotate at to aim towards the
+   *     target.
+   */
   private double getRotation() {
     double rot = limelight.getTX() * steerStrength;
     if (rot > speedLimit) {
@@ -95,14 +106,30 @@ public class AimWithLimelight extends Command {
     return rot;
   }
 
+  /**
+   * Gets the x-axis velocity that we want to command the drivetrain to drive.
+   *
+   * @return The x-axis (forward/backward) velocity that the drivetrain should drive to aim towards
+   *     the target.
+   */
   private double getX() {
     return getCurrentDistance() * driveStrength;
   }
 
+  /**
+   * Checks if the robot is currently angled to the target within the tolerance for this command.
+   *
+   * @return True if we are angled.
+   */
   private boolean isAngled() {
     return Math.abs(getRotation()) <= turnDoneThreshold;
   }
 
+  /**
+   * Checks if the robot is currently distanced to the target within the tolerance for this command.
+   *
+   * @return True if we are at the correct distance.
+   */
   private boolean isDistanced() {
     return Math.abs(getCurrentDistance()) <= distanceDoneThreshold;
   }
@@ -120,17 +147,27 @@ public class AimWithLimelight extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    /* Only try to aim if Limelight has a target */
     if (limelight.hasValidTarget()) {
+      /* Remember if we've seen a target so that we can assume we're aimed if we lose sight of the target
+       * Only reason we assume this is because of where the Limelight is, which results in us not actually seeing the target if we're properly aimed
+       */
       hasSeenTarget = true;
 
       drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), getRotation(), false);
 
+      /* End the command if we're at our "aimed" threshold */
       if (isAngled() && isDistanced()) {
         counter++;
+
         if (counter > 5) {
           this.finished = true;
         }
       }
+
+      /* If we've seen a target before but lost sight of it, assume we're aimed
+       * See above for details on why this is
+       */
     } else if (hasSeenTarget) {
       this.finished = true;
     }
