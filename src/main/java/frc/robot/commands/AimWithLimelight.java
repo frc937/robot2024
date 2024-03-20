@@ -122,22 +122,9 @@ public class AimWithLimelight extends Command {
   public void execute() {
     if (limelight.hasValidTarget()) {
       hasSeenTarget = true;
-      /* double z = limelight.getTX() * steerStrength;
-      double xComponent =
-          desiredDistanceFromTarget
-              - ((targetHeight - mountHeight) / Math.tan((mountAngle + limelight.getTY())));
-      double x = xComponent * (Math.PI / 180.0) * driveStrength;
-      if (z > speedLimit) {
-        z = speedLimit;
-      } */
+
       drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), getRotation(), false);
-      /*boolean isAngled = Math.abs(limelight.getTX()) < turnDoneThreshold;
-      boolean isDistanced =
-          Math.abs(
-                  (desiredDistanceFromTarget)
-                      - ((targetHeight - mountHeight)
-                          / Math.tan((mountAngle + limelight.getTY()) * (Math.PI / 180.0))))
-              <= distanceDoneThreshold; */
+
       if (isAngled() && isDistanced()) {
         counter++;
         if (counter > 5) {
