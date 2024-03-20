@@ -30,7 +30,7 @@ public class SetDrivePerspectiveFieldOriented extends Command {
   @Override
   public void initialize() {
     drive.setDefaultCommand(RobotContainer.driveFieldOriented);
-    Controllers.pilotController.leftBumper().toggleOnTrue(RobotContainer.driveFieldOriented);
+    Controllers.pilotController.leftBumper().toggleOnTrue(RobotContainer.driveFieldOrientedSprint);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
