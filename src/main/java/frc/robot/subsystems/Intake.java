@@ -44,6 +44,9 @@ public class Intake extends SubsystemBase {
 
     intakeLower.follow(intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
     intakeUpper.setInverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
+
+    intakeLower.burnFlash();
+    intakeUpper.burnFlash();
   }
 
   /** Runs the intake motors. */
