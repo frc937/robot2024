@@ -33,6 +33,9 @@ import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.TaxiAuto;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.DriveRobot;
+import frc.robot.commands.drive.SetDrivePerspectiveFieldOriented;
+import frc.robot.commands.drive.SetDrivePerspectiveFieldOrientedHeadingSnapping;
+import frc.robot.commands.drive.SetDrivePerspectiveRobotOriented;
 import frc.robot.commands.drive.ZeroGyro;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
@@ -222,6 +225,22 @@ public class RobotContainer {
   /** Singleton instance of the intake {@link StartCamera} for the whole robot. */
   public static StartCamera startIntakeCamera = new StartCamera(intakeCamera);
 
+  /** Singleton instance of {@link SetDrivePerspectiveFieldOriented} for the whole robot. */
+  public static SetDrivePerspectiveFieldOriented setDrivePerspectiveFieldOriented =
+      new SetDrivePerspectiveFieldOriented();
+
+  /**
+   * Singleton instance of {@link SetDrivePerspectiveFieldOrientedHeadingSnapping} for the whole
+   * robot.
+   */
+  public static SetDrivePerspectiveFieldOrientedHeadingSnapping
+      setDrivePerspectiveFieldOrientedHeadingSnapping =
+          new SetDrivePerspectiveFieldOrientedHeadingSnapping();
+
+  /** Singleton instance of {@link SetDrivePerspectiveRobotOriented} for the whole robot. */
+  public static SetDrivePerspectiveRobotOriented setDrivePerspectiveRobotOriented =
+      new SetDrivePerspectiveRobotOriented();
+
   /* Autos */
   /** Singleton instance of {@link MoveAwayFromAmp} for the whole robot. */
   public static MoveAwayFromAmp moveAwayFromAmp = new MoveAwayFromAmp();
@@ -255,19 +274,18 @@ public class RobotContainer {
     configureAuto();
     Shuffleboard.getTab("Driver").add("Clear PDP sticky faults", clearPDPStickyFaults);
     Shuffleboard.getTab("Driver").add("Zero Gyro", zeroGyro);
+    Shuffleboard.getTab("Driver")
+        .add("Set Drive Perspective to Field Oriented", setDrivePerspectiveFieldOriented);
+    Shuffleboard.getTab("Driver")
+        .add(
+            "Set Drive Perspective to Field Oriented Heading Snapping",
+            setDrivePerspectiveFieldOrientedHeadingSnapping);
+    Shuffleboard.getTab("Driver")
+        .add("Set Drive Perspective Robot Oriented", setDrivePerspectiveRobotOriented);
 
     startIntakeCamera.schedule();
 
-    switch (Constants.Drive.currentDrivePerspective) {
-      case RobotOriented:
-        drive.setDefaultCommand(driveRobotOriented);
-        break;
-      case FieldOriented:
-        drive.setDefaultCommand(driveFieldOriented);
-        break;
-      default:
-        throw new IllegalStateException();
-    }
+    drive.setDefaultCommand(driveFieldOriented);
   }
 
   private void configureAuto() {
