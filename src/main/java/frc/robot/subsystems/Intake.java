@@ -26,7 +26,7 @@ public class Intake extends SubsystemBase {
   private CANSparkMax intakeLower;
   private CANSparkMax intakeUpper;
   private DigitalInput limitSwitch;
-  private GenericEntry noteLog;
+  private GenericEntry noteIsInIntake;
 
   /** Creates a new Intake. */
   public Intake() {
@@ -76,12 +76,12 @@ public class Intake extends SubsystemBase {
 
   /** Tells drivers the intake is full */
   public void noteLogged() {
-    noteLog.setBoolean(true);
+    noteIsInIntake.setBoolean(true);
   }
 
   /** Tells drivers the intake is empty */
   public void noteUnlogged() {
-    noteLog.setBoolean(false);
+    noteIsInIntake.setBoolean(false);
   }
 
   /** Stops the intake motors. */
