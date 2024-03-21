@@ -74,10 +74,12 @@ public class Intake extends SubsystemBase {
     return !limitSwitch.get();
   }
 
+  /** Tells drivers the intake is full */
   public void noteLogged() {
     noteLog.setBoolean(true);
   }
 
+  /** Tells drivers the intake is empty */
   public void noteUnlogged() {
     noteLog.setBoolean(false);
   }
