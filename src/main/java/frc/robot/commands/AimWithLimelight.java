@@ -26,7 +26,7 @@ public class AimWithLimelight extends Command {
   private int counter;
 
   private double steerStrength,
-      distanceFromTarget,
+      desiredDistanceFromTarget,
       mountHeight,
       mountAngle,
       driveStrength,
@@ -42,7 +42,7 @@ public class AimWithLimelight extends Command {
    *
    * @param limelight The Limelight subsystem to aim with.
    * @param steerStrength How hard to turn towards the target; between 0 and 1.
-   * @param distanceFromTarget How far from in inches we want to be from the target.
+   * @param desiredDistanceFromTarget How far from in inches we want to be from the target.
    * @param mountHeight The height of the center of the Limelight lens off the floor.
    * @param mountAngle The number of degrees the Limelight is mounted back from perfectly vertical.
    *     Positive means rotated such that the lens is facing up, and not down.
@@ -67,7 +67,7 @@ public class AimWithLimelight extends Command {
       double targetHeight,
       double pipelineNumber) {
     this.steerStrength = steerStrength;
-    this.distanceFromTarget = distanceFromTarget;
+    this.desiredDistanceFromTarget = distanceFromTarget;
     this.mountHeight = mountHeight;
     this.mountAngle = mountAngle;
     this.driveStrength = driveStrength;
@@ -80,6 +80,61 @@ public class AimWithLimelight extends Command {
     this.limelight = limelight;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(drive, limelight);
+  }
+
+  /**
+   * Get the current distance to the target.
+   *
+   * @return The distance to the target.
+   */
+  private double getCurrentDistance() {
+    return desiredDistanceFromTarget
+        - ((targetHeight - mountHeight) / Math.tan(Math.toRadians(mountAngle + limelight.getTY())));
+  }
+
+  /**
+   * Gets the velocity that we want to command the drivetrain to rotate.
+   *
+   * @return The velocity (in radians/s) that the drivetrain should rotate at to aim towards the
+   *     target.
+   */
+  private double getRotation() {
+    double rot = limelight.getTX() * steerStrength;
+    if (rot > speedLimit) {
+      rot = speedLimit;
+    }
+    return rot * drive.getMaximumAngularSpeed();
+  }
+
+  /**
+   * Gets the x-axis velocity that we want to command the drivetrain to drive.
+   *
+   * @return The x-axis (forward/backward) velocity that the drivetrain should drive to aim towards
+   *     the target.
+   */
+  private double getX() {
+    if (getCurrentDistance() > speedLimit) {
+      return speedLimit * driveStrength * drive.getMaximumSpeed();
+    }
+    return getCurrentDistance() * driveStrength * drive.getMaximumSpeed();
+  }
+
+  /**
+   * Checks if the robot is currently angled to the target within the tolerance for this command.
+   *
+   * @return True if we are angled.
+   */
+  private boolean isAngled() {
+    return Math.abs(getRotation()) <= turnDoneThreshold;
+  }
+
+  /**
+   * Checks if the robot is currently distanced to the target within the tolerance for this command.
+   *
+   * @return True if we are at the correct distance.
+   */
+  private boolean isDistanced() {
+    return Math.abs(getCurrentDistance()) <= distanceDoneThreshold;
   }
 
   // Called when the command is initially scheduled.
@@ -95,30 +150,27 @@ public class AimWithLimelight extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    /* Only try to aim if Limelight has a target */
     if (limelight.hasValidTarget()) {
+      /* Remember if we've seen a target so that we can assume we're aimed if we lose sight of the target
+       * Only reason we assume this is because of where the Limelight is, which results in us not actually seeing the target if we're properly aimed
+       */
       hasSeenTarget = true;
-      double z = limelight.getTX() * steerStrength;
-      double xComponent =
-          distanceFromTarget
-              - ((targetHeight - mountHeight) / Math.tan((mountAngle + limelight.getTY())));
-      double x = xComponent * (Math.PI / 180.0) * driveStrength;
-      if (z > speedLimit) {
-        z = speedLimit;
-      }
-      drive.driveRobot(new Translation2d(x * -1.0, 0.0), z, false);
-      boolean isAngled = Math.abs(limelight.getTX()) < turnDoneThreshold;
-      boolean isDistanced =
-          Math.abs(
-                  (distanceFromTarget)
-                      - ((targetHeight - mountHeight)
-                          / Math.tan((mountAngle + limelight.getTY()) * (Math.PI / 180.0))))
-              <= distanceDoneThreshold;
-      if (isAngled && isDistanced) {
+
+      drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), getRotation(), false);
+
+      /* End the command if we're at our "aimed" threshold */
+      if (isAngled() && isDistanced()) {
         counter++;
+
         if (counter > 5) {
           this.finished = true;
         }
       }
+
+      /* If we've seen a target before but lost sight of it, assume we're aimed
+       * See above for details on why this is
+       */
     } else if (hasSeenTarget) {
       this.finished = true;
     }
