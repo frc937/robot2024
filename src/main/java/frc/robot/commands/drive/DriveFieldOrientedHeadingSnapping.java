@@ -11,6 +11,7 @@
 
 package frc.robot.commands.drive;
 
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -27,6 +28,8 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
   private Drive drive;
   private final Supplier<Double> xSupplier, ySupplier, zSupplier;
   private final Supplier<Boolean> upSupplier, downSupplier, leftSupplier, rightSupplier;
+
+  private boolean resetHeading = false;
 
   /**
    * Drives the robot field oriented with heading snapping. All values are suppliers to make the
@@ -65,6 +68,8 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
   public void initialize() {
     drive.setDriveMode("Field Oriented (Heading Snapping)");
     drive.setHeadingCorrection(true);
+
+    resetHeading = true;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -85,11 +90,24 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
       headingX = -1;
     }
 
+    /* Allows us to adjust the heading using the joystick without it immediately snapping back */
+    if (resetHeading) {
+      if (headingX == 0 && headingY == 0 && Math.abs(zSupplier.get()) > 0) {
+        Rotation2d currentHeading = drive.getHeading();
+
+        headingX = currentHeading.getSin();
+        headingY = currentHeading.getCos();
+      }
+
+      resetHeading = false;
+    }
+
     ChassisSpeeds desiredSpeeds =
         drive.getTargetSpeeds(xSupplier.get(), ySupplier.get(), headingX, headingY);
 
     Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
     if (headingX == 0 && headingY == 0 && Math.abs(zSupplier.get()) > 0) {
+      resetHeading = true;
       drive.driveRobot(translation, zSupplier.get() * drive.getMaximumAngularSpeed(), true);
     } else {
       drive.driveRobot(translation, desiredSpeeds.omegaRadiansPerSecond, true);
