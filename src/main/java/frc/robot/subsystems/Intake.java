@@ -75,7 +75,7 @@ public class Intake extends SubsystemBase {
   }
 
   /** Tells drivers the intake is full */
-  public void noteLogged() {
+  public void reportNoteIsInIntake() {
     noteIsInIntake.setBoolean(true);
   }
 

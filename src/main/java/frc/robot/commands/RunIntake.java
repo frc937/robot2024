@@ -41,7 +41,7 @@ public class RunIntake extends Command {
   public void end(boolean interrupted) {
     intake.stop();
     if (!interrupted) {
-      intake.noteLogged();
+      intake.reportNoteIsInIntake();
     }
   }
 
