@@ -11,6 +11,8 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -50,6 +52,9 @@ public class SeekTargetWithLimelight extends Command {
   public void initialize() {
     this.oldPipelineNumber = limelight.getLimelightPipeline();
     limelight.setLimelightPipeline(seekingPipelineNumber);
+    if (DriverStation.getAlliance().equals(Alliance.Red)) {
+      this.rotationRadiansPerSecond = rotationRadiansPerSecond * -1;
+    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
