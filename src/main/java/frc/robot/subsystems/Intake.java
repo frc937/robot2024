@@ -80,7 +80,7 @@ public class Intake extends SubsystemBase {
   }
 
   /** Tells drivers the intake is empty */
-  public void noteUnlogged() {
+  public void reportNoteIsNotInIntake() {
     noteIsInIntake.setBoolean(false);
   }
 

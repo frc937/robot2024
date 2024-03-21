@@ -52,7 +52,7 @@ public class DeindexNote extends Command {
   @Override
   public void end(boolean interrupted) {
     intake.stop();
-    intake.noteUnlogged();
+    intake.reportNoteIsNotInIntake();
   }
 
   // Returns true when the command should end.
