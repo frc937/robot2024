@@ -12,7 +12,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -53,7 +52,8 @@ public class SeekTargetWithLimelight extends Command {
     this.oldPipelineNumber = limelight.getLimelightPipeline();
     limelight.setLimelightPipeline(seekingPipelineNumber);
 
-    if (DriverStation.getAlliance().get().equals(Alliance.Red)) {
+    var alliance = DriverStation.getAlliance();
+    if (alliance.isPresent() ? alliance.get() == DriverStation.Alliance.Red : false) {
       this.rotationRadiansPerSecond = rotationRadiansPerSecond * -1;
     }
   }
