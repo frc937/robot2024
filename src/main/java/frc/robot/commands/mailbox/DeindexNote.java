@@ -37,14 +37,14 @@ public class DeindexNote extends Command {
   @Override
   public void execute() {
     /* If the mailbox is fully raised, run the intake. */
-    // if (mailbox.getLimitSwitch()) {
-    //   intake.runIntake();
-    // }
-    // /* This else isn't neccessary, just advised for safety. If it interferes with anything, feel
-    // free to remove it. */
-    // else {
-    //   intake.stop();
-    // }
+    if (mailbox.getLimitSwitch()) {
+      intake.runIntake();
+    }
+    /* This else isn't neccessary, just advised for safety. If it interferes with anything, feel
+    free to remove it. */
+    else {
+      intake.stop();
+    }
     intake.runIntake();
   }
 
