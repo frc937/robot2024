@@ -45,7 +45,6 @@ public class DeindexNote extends Command {
     else {
       intake.stop();
     }
-    intake.runIntake();
   }
 
   // Called once the command ends or is interrupted.
