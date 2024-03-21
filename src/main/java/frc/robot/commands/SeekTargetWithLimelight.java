@@ -52,7 +52,7 @@ public class SeekTargetWithLimelight extends Command {
   public void initialize() {
     this.oldPipelineNumber = limelight.getLimelightPipeline();
     limelight.setLimelightPipeline(seekingPipelineNumber);
-    if (DriverStation.getAlliance().equals(Alliance.Red)) {
+    if (DriverStation.getAlliance().get().equals(Alliance.Red)) {
       this.rotationRadiansPerSecond = rotationRadiansPerSecond * -1;
     }
   }
