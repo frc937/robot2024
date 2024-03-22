@@ -13,6 +13,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class AddressableLightStrip extends SubsystemBase {
@@ -54,6 +55,55 @@ public class AddressableLightStrip extends SubsystemBase {
    */
   public void setHSVLight(int lightNumber, int h, int s, int v) {
     this.buffer.setHSV(lightNumber, h, s, v);
+  }
+
+  /**
+   * Sets a light on the light strip to a {@link edu.wpi.first.wpilibj.util.Color}
+   *
+   * @param lightNumber
+   * @param color
+   */
+  public void setColorLight(int lightNumber, Color color) {
+    this.buffer.setLED(lightNumber, color);
+  }
+
+  /**
+   * Sets the strip with a color.
+   *
+   * @param color The color to set the strip to.
+   */
+  public void setStripColor(Color color) {
+    for (int i = 0; i < this.buffer.getLength(); i++) {
+      this.buffer.setLED(i, color);
+    }
+  }
+
+  private static double lerp(double v0, double v1, double amount) {
+    return (1 - amount) * v0 + amount * v1;
+  }
+
+  /**
+   * Lineraly interpolates 2 colors. Utility method for fading colors into eachother.
+   *
+   * @param color1 The start color
+   * @param color2 The color to fade into
+   * @param amount The amount to interporlate. [0, 1]
+   * @return The interpolated color.
+   */
+  public static Color lerpColors(Color color1, Color color2, double amount) {
+    return new Color(
+        lerp(color1.red, color2.red, amount),
+        lerp(color1.blue, color2.blue, amount),
+        lerp(color1.green, color2.green, amount));
+  }
+
+  /**
+   * Gets the internal buffer used to send to the lights.
+   *
+   * @return the internal buffer used to send to the lights.
+   */
+  public AddressableLEDBuffer getLEDBuffer() {
+    return this.buffer;
   }
 
   /** Fushes the buffer to the light strip. */
