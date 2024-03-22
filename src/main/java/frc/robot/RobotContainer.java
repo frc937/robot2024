@@ -43,6 +43,7 @@ import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
+import frc.robot.subsystems.AddressableLightStrip;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drive;
@@ -228,6 +229,11 @@ public class RobotContainer {
   /** Singleton instance of {@link SetDrivePerspectiveFieldOriented} for the whole robot. */
   public static SetDrivePerspectiveFieldOriented setDrivePerspectiveFieldOriented =
       new SetDrivePerspectiveFieldOriented();
+
+  /** Singleton instance of {@link AddressableLightStrip} for the whole robot. */
+  public static AddressableLightStrip robotUnderglow =
+      new AddressableLightStrip(
+          Constants.LightStrips.UNDERGLOW_PWM_ID, Constants.LightStrips.UNDERGLOW_LED_COUNT);
 
   /**
    * Singleton instance of {@link SetDrivePerspectiveFieldOrientedHeadingSnapping} for the whole

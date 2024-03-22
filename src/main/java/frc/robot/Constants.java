@@ -233,4 +233,13 @@ public final class Constants {
     /** The camera id for the intake camera. */
     public static final int INTAKE_CAMERA_ID = 0;
   }
+
+  /** The constants for the light strips */
+  public static class LightStrips {
+    /** The PWM ID for the underglow light strip */
+    public static final int UNDERGLOW_PWM_ID = 0;
+
+    /** The count of leds for the underglow light strip. */
+    public static final int UNDERGLOW_LED_COUNT = 60;
+  }
 }
