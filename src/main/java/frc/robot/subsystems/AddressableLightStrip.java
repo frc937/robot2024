@@ -79,15 +79,18 @@ public class AddressableLightStrip extends SubsystemBase {
   }
 
   private static double lerp(double v0, double v1, double amount) {
+    if (v0 == v1) {
+      return v0;
+    }
     return (1 - amount) * v0 + amount * v1;
   }
 
   /**
-   * Lineraly interpolates 2 colors. Utility method for fading colors into eachother.
+   * Linearly interpolates 2 colors. Utility method for fading colors into each other.
    *
    * @param color1 The start color
    * @param color2 The color to fade into
-   * @param amount The amount to interporlate. [0, 1]
+   * @param amount The amount to interpolate. [0, 1]
    * @return The interpolated color.
    */
   public static Color lerpColors(Color color1, Color color2, double amount) {
@@ -106,7 +109,7 @@ public class AddressableLightStrip extends SubsystemBase {
     return this.buffer;
   }
 
-  /** Fushes the buffer to the light strip. */
+  /** Flushes the buffer to the light strip. */
   public void flush() {
     this.ledStrip.setData(this.buffer);
   }
