@@ -18,12 +18,12 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 
 /** Activates when the robot is disabled. */
-public class RobotDisabledLights extends Command {
+public class DisabledLights extends Command {
   private AddressableLightStrip robotLights;
   private boolean isInitial = true;
 
   /** Creates a new RobotDisabledLights. */
-  public RobotDisabledLights() {
+  public DisabledLights() {
     this.robotLights = RobotContainer.robotUnderglow;
     addRequirements(this.robotLights);
   }
