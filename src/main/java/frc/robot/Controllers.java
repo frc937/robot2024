@@ -48,20 +48,19 @@ public final class Controllers {
   private static XboxController rawOpXboxController = operatorController.getHID();
 
   /** When this supplier returns true, the robot should snap towards the opposing alliance wall. */
-  public static Supplier<Boolean> headingSnappingUpSupplier =
-      () -> rawPilotController.getPOV() == 0;
+  public static Supplier<Boolean> headingSnappingUpSupplier = () -> rawPilotController.getYButton();
 
   /** When this supplier returns true, the robot should snap towards the right side of the field. */
   public static Supplier<Boolean> headingSnappingRightSupplier =
-      () -> rawPilotController.getPOV() == 90;
+      () -> rawPilotController.getBButton();
 
   /** When this supplier returns true, the robot should snap towards our alliance wall. */
   public static Supplier<Boolean> headingSnappingDownSupplier =
-      () -> rawPilotController.getPOV() == 180;
+      () -> rawPilotController.getAButton();
 
   /** When this supplier returns true, the robot should snap towards the left side of the field. */
   public static Supplier<Boolean> headingSnappingLeftSupplier =
-      () -> rawPilotController.getPOV() == 270;
+      () -> rawPilotController.getXButton();
 
   /** Shuffleboard (NT) entry for the keymap selector */
   public static GenericEntry keymapEntry =
@@ -104,7 +103,7 @@ public final class Controllers {
     operatorController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
-    pilotController.leftTrigger().toggleOnTrue(RobotContainer.driveFieldOriented);
+    pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedSprint);
 
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) */
 
@@ -116,7 +115,6 @@ public final class Controllers {
    * bound to pilotController)
    */
   private static void configureOperatorlessKeybinds() {
-    pilotController.leftStick().toggleOnTrue(RobotContainer.driveFieldOriented);
     /* TODO: angle / velocity steering toggle w/ right stick (no issue) and boost on right bumper (issue 86) */
     pilotController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     pilotController.povUp().toggleOnTrue(RobotContainer.enterXMode);
