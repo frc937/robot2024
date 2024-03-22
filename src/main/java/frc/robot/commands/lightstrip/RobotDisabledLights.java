@@ -31,8 +31,9 @@ public class RobotDisabledLights extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    robotLights.setStripColor(Constants.LightStrips.DISABLED_COLOR);
+    robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);
     robotLights.flush();
+    robotLights.startLights();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -45,6 +46,7 @@ public class RobotDisabledLights extends Command {
     // Signal that the next run of this command should not to the fancy start animation
     robotLights.setStripColor(Color.kBlack);
     robotLights.flush();
+    robotLights.stopLights();
     isInitial = false;
   }
 
