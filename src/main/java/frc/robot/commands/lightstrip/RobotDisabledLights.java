@@ -11,11 +11,13 @@
 
 package frc.robot.commands.lightstrip;
 
+import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 
+/** Activates when the robot is disabled. */
 public class RobotDisabledLights extends Command {
   private AddressableLightStrip robotLights;
   private boolean isInitial = true;
@@ -30,6 +32,7 @@ public class RobotDisabledLights extends Command {
   @Override
   public void initialize() {
     robotLights.setStripColor(Constants.LightStrips.DISABLED_COLOR);
+    robotLights.flush();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -40,6 +43,8 @@ public class RobotDisabledLights extends Command {
   @Override
   public void end(boolean interrupted) {
     // Signal that the next run of this command should not to the fancy start animation
+    robotLights.setStripColor(Color.kBlack);
+    robotLights.flush();
     isInitial = false;
   }
 

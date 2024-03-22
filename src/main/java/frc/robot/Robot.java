@@ -33,13 +33,17 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+    CommandScheduler.getInstance().schedule(RobotContainer.disabledLights);
+  }
 
   @Override
   public void disabledPeriodic() {}
 
   @Override
-  public void disabledExit() {}
+  public void disabledExit() {
+    CommandScheduler.getInstance().cancel(RobotContainer.disabledLights);
+  }
 
   @Override
   public void autonomousInit() {

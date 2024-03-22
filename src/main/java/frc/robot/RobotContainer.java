@@ -37,6 +37,7 @@ import frc.robot.commands.drive.SetDrivePerspectiveFieldOriented;
 import frc.robot.commands.drive.SetDrivePerspectiveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.SetDrivePerspectiveRobotOriented;
 import frc.robot.commands.drive.ZeroGyro;
+import frc.robot.commands.lightstrip.RobotDisabledLights;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
@@ -262,6 +263,9 @@ public class RobotContainer {
 
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
+
+  /** Singleton instance of {@link RobotDisabledLights} for the whole robot. */
+  public static RobotDisabledLights disabledLights = new RobotDisabledLights();
 
   /*
    * ***********************
