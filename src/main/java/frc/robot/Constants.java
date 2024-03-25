@@ -114,10 +114,9 @@ public final class Constants {
     public static final PIDConstants ROTATION_DRIVE_PID = new PIDConstants(1.0, 0.0, 0.0);
   }
 
-
   /** Holds constants specifically related to autonomous. */
   public static class Auto {
-    
+
     /** The number of meters per second that we want to move forward during the taxi auto */
     public static final double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
@@ -162,12 +161,11 @@ public final class Constants {
     public static final IdleMode INTAKE_MOTOR_IDLE_MODE = IdleMode.kBrake;
   }
 
-
-  /** Holds contstants for the Limelights. */
+  /** Holds constants for the Limelights. */
   public static final class Limelight {
     /** Constants for aiming Limelight. */
     public static final class AimingLimelight {
-      /** Our name in the networktables for the limelight */
+      /** Our name in the network tables for the limelight */
       public static final String LIMELIGHT_NAME = "limelight";
 
       /** The number of degrees the Limelight is mounted back from perfectly vertical */
