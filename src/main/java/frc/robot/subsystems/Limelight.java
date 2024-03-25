@@ -28,13 +28,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 /** Subsystem for the Limelight 2+ that we use for vision. */
 public class Limelight extends SubsystemBase {
 
-  /* variable chaingun, I promise we use all of these */
+  /* variable chain-gun, I promise we use all of these */
   private DoubleSubscriber tvSubscriber, txSubscriber, tySubscriber, taSubscriber;
   /* See https://docs.limelightvision.io/en/latest/apriltags_in_3d.html#robot-localization-botpose-and-megatag
    * to understand what the heck the different indices in this array mean
    */
   private DoubleArraySubscriber botposSubscriber;
-  private DoubleSubscriber pipelineSubcriber;
+  private DoubleSubscriber pipelineSubscriber;
   private DoublePublisher pipelinePublisher;
   private String name;
 
@@ -57,7 +57,7 @@ public class Limelight extends SubsystemBase {
     taSubscriber = NetworkTableInstance.getDefault().getDoubleTopic(fmtPath("ta")).subscribe(0.0);
     DoubleTopic pipelineTopic =
         NetworkTableInstance.getDefault().getDoubleTopic(fmtPath("pipeline"));
-    this.pipelineSubcriber = pipelineTopic.subscribe(0.0);
+    this.pipelineSubscriber = pipelineTopic.subscribe(0.0);
     this.pipelinePublisher = pipelineTopic.publish();
     double[] defaultBotpos = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     botposSubscriber =
@@ -73,7 +73,7 @@ public class Limelight extends SubsystemBase {
     limelightHasTarget = Shuffleboard.getTab("Driver").add(name + "has target", false).getEntry();
   }
 
-  /* now its time for getter method chaingun, which I have to write manually because VS Code */
+  /* now its time for getter method chain-gun, which I have to write manually because VS Code */
 
   /**
    * Returns whether the Limelight has a valid target.
@@ -149,7 +149,7 @@ public class Limelight extends SubsystemBase {
    * @return the current Limelight pipeline number.
    */
   public double getLimelightPipeline() {
-    return pipelineSubcriber.get();
+    return pipelineSubscriber.get();
   }
 
   /**

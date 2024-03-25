@@ -40,7 +40,7 @@ public class DeindexNote extends Command {
     if (mailbox.getLimitSwitch()) {
       intake.runIntake();
     }
-    /* This else isn't neccessary, just advised for safety. If it interferes with anything, feel
+    /* This else isn't necessary, just advised for safety. If it interferes with anything, feel
     free to remove it. */
     else {
       intake.stop();

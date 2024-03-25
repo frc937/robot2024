@@ -46,7 +46,7 @@ public class Drive extends SubsystemBase {
   /** Creates a new Drive. */
   public Drive() {
     /* Try-catch because otherwise the compiler tries to anticipate runtime errors and throws a
-     * compiletime error for a missing file even though it shouldn't
+     * comp-time error for a missing file even though it shouldn't
      */
     try {
       drive =
@@ -92,7 +92,7 @@ public class Drive extends SubsystemBase {
    * Drives the robot in either field relative or robot relative.
    *
    * @param translation {@link Translation2d} that represents the commanded robot velocities on the
-   *     x and y axes. Front-left postitive. Reletive to the field.
+   *     x and y axes. Front-left positive. Relative to the field.
    * @param z Robot angular velocity around the z-axis in radians per second. Counter-clockwise is
    *     positive.
    * @param isFieldOriented If the robot should either drive field oriented or robot oriented.
@@ -122,18 +122,18 @@ public class Drive extends SubsystemBase {
   }
 
   /**
-   * Gets the maximum speed the robot chassis can acheive in m/s.
+   * Gets the maximum speed the robot chassis can achieve in m/s.
    *
-   * @return Maximum speed the robot chassis can acheive in m/s.
+   * @return Maximum speed the robot chassis can achieve in m/s.
    */
   public double getMaximumSpeed() {
     return Math.min(drive.getMaximumVelocity(), Constants.Drive.MAX_SPEED);
   }
 
   /**
-   * Gets the maximum angular speed the robot chassis can acheive in rad/s.
+   * Gets the maximum angular speed the robot chassis can achieve in rad/s.
    *
-   * @return Maximum angular speed the robot chassis can acheive in rad/s.
+   * @return Maximum angular speed the robot chassis can achieve in rad/s.
    */
   public double getMaximumAngularSpeed() {
     return Math.min(drive.getMaximumAngularVelocity(), Constants.Drive.MAX_ANGULAR_SPEED);
