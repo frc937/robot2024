@@ -21,7 +21,7 @@ public class MailboxBelts extends SubsystemBase {
   private CANSparkMax upperBeltMotor;
   private CANSparkMax lowerBeltMotor;
 
-  /** Constructer for MailboxBelts subsystem */
+  /** Constructor for MailboxBelts subsystem */
   public MailboxBelts() {
     upperBeltMotor =
         new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);

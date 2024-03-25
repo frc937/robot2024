@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 /**
- * Represents the pistons that raise the Mailbox, which is the system that outputs gamepieces from
+ * Represents the pistons that raise the Mailbox, which is the system that outputs game pieces from
  * our robot
  */
 public class MailboxPneumatics extends SubsystemBase {
