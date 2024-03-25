@@ -73,7 +73,7 @@ public class Limelight extends SubsystemBase {
     limelightHasTarget = Shuffleboard.getTab("Driver").add(name + "has target", false).getEntry();
   }
 
-  /* now its time for getter method chain gun, which I have to write manually because VS Code */
+  /* now its time for getter method chain-gun, which I have to write manually because VS Code */
 
   /**
    * Returns whether the Limelight has a valid target.
