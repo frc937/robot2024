@@ -168,7 +168,7 @@ public class Drive extends SubsystemBase {
         headingX,
         headingY,
         drive.getPose().getRotation().getRadians(),
-        Constants.Drive.MAX_SPEED);
+        getMaximumSpeed());
   }
 
   /**
