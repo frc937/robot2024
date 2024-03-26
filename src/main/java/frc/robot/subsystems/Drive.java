@@ -70,7 +70,7 @@ public class Drive extends SubsystemBase {
             /* HolonomicPathFollowerConfig, this should likely live in your Constants class */
             Constants.Drive.TRANSLATION_DRIVE_PID, /* Translation PID constants */
             Constants.Drive.ROTATION_DRIVE_PID, /* Rotation PID constants */
-            Constants.Drive.MAX_SPEED, /* Max module speed, in m/s */
+            getMaximumSpeed(), /* Max module speed, in m/s */
             Constants.Drive
                 .DISTANCE_ROBOT_CENTER_TO_SWERVE_MODULE, /* Drive base radius in meters. Distance from robot center to furthest module. */
             new ReplanningConfig() /* Default path replanning config. See the API for the options here */),
