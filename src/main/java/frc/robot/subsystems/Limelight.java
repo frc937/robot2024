@@ -21,7 +21,6 @@ import edu.wpi.first.networktables.DoubleSubscriber;
 import edu.wpi.first.networktables.DoubleTopic;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.shuffleboard.SendableCameraWrapper;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -65,9 +64,9 @@ public class Limelight extends SubsystemBase {
             .getDoubleArrayTopic(fmtPath("botpose"))
             .subscribe(defaultBotpos);
 
-    Shuffleboard.getTab("Driver")
-        .add(SendableCameraWrapper.wrap(name, "http://" + name + ".local:5800/stream.mjpg"))
-        .withSize(4, 4);
+    /* Shuffleboard.getTab("Driver")
+    .add(SendableCameraWrapper.wrap(name, "http://" + name + ".local:5800/stream.mjpg"))
+    .withSize(4, 4); */
 
     /* TODO: CONSTANTS */
     limelightHasTarget = Shuffleboard.getTab("Driver").add(name + "has target", false).getEntry();
