@@ -21,6 +21,7 @@ public class SetDrivePerspectiveFieldOrientedHeadingSnapping extends Command {
   /** Creates a new SetDrivePerspectiveFieldOriented. */
   private Drive drive;
 
+  /** Creates a new SetDrivePerspectiveFieldOrientedHeadingSnapping. */
   public SetDrivePerspectiveFieldOrientedHeadingSnapping() {
     this.drive = RobotContainer.drive;
     addRequirements(drive);
