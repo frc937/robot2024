@@ -15,7 +15,10 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
-/* Don't put code here, most likely put it in RobotContainer. */
+/**
+ * The core of robot code. You Probably don't want to put code here. You might be looking for {@link
+ * frc.robot.RobotContainer}
+ */
 public class Robot extends TimedRobot {
   private Command autonomousCommand;
 
