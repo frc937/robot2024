@@ -50,6 +50,12 @@ public class MailboxPneumatics extends SubsystemBase {
     rightPiston.set(DoubleSolenoid.Value.kReverse);
   }
 
+  /** Sets pistons to off */
+  public void off() {
+    leftPiston.set(DoubleSolenoid.Value.kOff);
+    rightPiston.set(DoubleSolenoid.Value.kOff);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
