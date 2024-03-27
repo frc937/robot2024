@@ -242,7 +242,7 @@ public final class Constants {
     public static final int UNDERGLOW_PWM_ID = 8;
 
     /** The count of LEDs for the underglow light strip. */
-    public static final int UNDERGLOW_LED_COUNT = 66;
+    public static final int UNDERGLOW_LED_COUNT = 148;
 
     public static final class Colors {
       /** The color for the lights when the robot is disabled. */
