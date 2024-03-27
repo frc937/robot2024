@@ -183,9 +183,9 @@ public class Drive extends SubsystemBase {
   }
 
   /**
-   * Returns the heading of the robot
+   * Returns the heading of the robot.
    *
-   * @return the heading of the robot
+   * @return The heading of the robot.
    */
   public Rotation2d getHeading() {
     return drive.getPose().getRotation();

@@ -15,10 +15,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
-/**
- * The core of robot code. You Probably don't want to put code here. You might be looking for {@link
- * frc.robot.RobotContainer}
- */
+// Hey! You probably don't want to put code here! Your might looking for RobotContainer.
+/** The core of robot code. Runs our command based robot structure. */
 public class Robot extends TimedRobot {
   private Command autonomousCommand;
 

@@ -13,15 +13,13 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
 
-/**
- * The robots entrypoint. You Probably don't want to put code here. You might be looking for {@link
- * frc.robot.RobotContainer}
- */
+// Hey! You probably don't want to put code here! Your might looking for RobotContainer.
+/** The robot's entrypoint. */
 public final class Main {
   private Main() {}
 
   /**
-   * The entrypoint for the robot. You almost certainly don't want to put code here are.
+   * The entrypoint for the robot.
    *
    * @param args The args passed from the RoboRIO
    */
