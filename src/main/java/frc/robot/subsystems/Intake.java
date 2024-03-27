@@ -51,7 +51,7 @@ public class Intake extends SubsystemBase {
     intakeLower.burnFlash();
     intakeUpper.burnFlash();
 
-    Shuffleboard.getTab("Driver").add("Note in intake", false).getEntry();
+    noteIsInIntake = Shuffleboard.getTab("Driver").add("Note in intake", false).getEntry();
   }
 
   /** Runs the intake motors. */
