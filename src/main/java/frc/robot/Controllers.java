@@ -163,7 +163,7 @@ public final class Controllers {
         break;
       default:
         throw new IllegalArgumentException(
-            "configureKeybinds() recieved an illegal enum constant argument");
+            "configureKeybinds() received an illegal enum constant argument");
     }
   }
 
@@ -207,7 +207,7 @@ public final class Controllers {
           return controller.getRightY();
         default:
           throw new IllegalArgumentException(
-              "getControllerAxis() recieved an illegal enum constant argument");
+              "getControllerAxis() received an illegal enum constant argument");
       }
     }
   }
