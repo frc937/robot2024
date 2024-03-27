@@ -39,6 +39,7 @@ import frc.robot.commands.drive.SetDrivePerspectiveRobotOriented;
 import frc.robot.commands.drive.ZeroGyro;
 import frc.robot.commands.lightstrip.DisabledLights;
 import frc.robot.commands.lightstrip.EnabledLights;
+import frc.robot.commands.lightstrip.NodeLight;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
@@ -270,6 +271,8 @@ public class RobotContainer {
 
   /** Singleton instance of {@link EnableLights} for the whole robot. */
   public static EnabledLights enabledLights = new EnabledLights();
+
+  public static NodeLight nodeLight = new NodeLight();
 
   /*
    * ***********************

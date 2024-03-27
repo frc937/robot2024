@@ -20,6 +20,7 @@ public class AddressableLightStrip extends SubsystemBase {
 
   private final AddressableLED ledStrip;
   private final AddressableLEDBuffer buffer;
+  private int rainbowHue = 0;
 
   /**
    * Creates a new AddressableLightStrip
@@ -122,6 +123,14 @@ public class AddressableLightStrip extends SubsystemBase {
   /** Stops the light strip. */
   public void stopLights() {
     this.ledStrip.stop();
+  }
+
+  public void updateRainbow() {
+    rainbowHue++;
+    for (int led = 0; led < buffer.getLength(); led++) {
+      this.buffer.setHSV(led, (rainbowHue + led) % 180, 255, 255);
+    }
+    this.flush();
   }
 
   @Override

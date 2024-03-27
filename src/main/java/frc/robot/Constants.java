@@ -242,11 +242,11 @@ public final class Constants {
     public static final int UNDERGLOW_PWM_ID = 0;
 
     /** The count of LEDs for the underglow light strip. */
-    public static final int UNDERGLOW_LED_COUNT = 148;
+    public static final int UNDERGLOW_LED_COUNT = 150;
 
     public static final class Colors {
       /** The color for the lights when the robot is disabled. */
-      public static final Color DISABLED_COLOR = Color.fromHSV(30, 255, 100);
+      public static final Color DISABLED_COLOR = Color.fromHSV(15, 255, 100);
 
       public static final Color ENABLE_COLOR_NO_ALLIANCE = Color.fromHSV(137, 255, 200);
 

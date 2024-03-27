@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.RobotContainer;
 
 /** The intake of the robot. */
 public class Intake extends SubsystemBase {
@@ -77,11 +78,13 @@ public class Intake extends SubsystemBase {
   /** Tells drivers the intake is full */
   public void reportNoteIsInIntake() {
     noteIsInIntake.setBoolean(true);
+    RobotContainer.nodeLight.schedule();
   }
 
   /** Tells drivers the intake is empty */
   public void reportNoteIsNotInIntake() {
     noteIsInIntake.setBoolean(false);
+    RobotContainer.nodeLight.cancel();
   }
 
   /** Stops the intake motors. */
