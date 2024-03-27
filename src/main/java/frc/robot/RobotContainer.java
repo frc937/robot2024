@@ -302,7 +302,7 @@ public class RobotContainer {
 
     startIntakeCamera.schedule();
 
-    drive.setDefaultCommand(driveFieldOriented);
+    drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
     robotUnderglow.setDefaultCommand(enabledLights);
   }
 
