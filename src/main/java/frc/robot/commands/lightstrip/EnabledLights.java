@@ -11,18 +11,19 @@
 
 package frc.robot.commands.lightstrip;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 
 /** Activates when the robot is disabled. */
-public class DisabledLights extends Command {
+public class EnabledLights extends Command {
   private AddressableLightStrip robotLights;
-  private boolean isInitial = true;
 
   /** Creates a new RobotDisabledLights. */
-  public DisabledLights() {
+  public EnabledLights() {
     this.robotLights = RobotContainer.robotUnderglow;
     addRequirements(this.robotLights);
   }
@@ -30,7 +31,15 @@ public class DisabledLights extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);
+    if (DriverStation.getAlliance().isPresent()) {
+      if (DriverStation.getAlliance().get() == Alliance.Red) {
+        robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_RED_ALLIANCE);
+      } else {
+        robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_BLUE_ALLIANCE);
+      }
+    } else {
+      robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_NO_ALLIANCE);
+    }
     robotLights.flush();
     robotLights.startLights();
   }
@@ -46,15 +55,9 @@ public class DisabledLights extends Command {
     // robotLights.setStripColor(Color.kBlack);
     // robotLights.flush();
     // robotLights.stopLights();
-    // isInitial = false;
   }
 
-  @Override
-  public boolean runsWhenDisabled() {
-    return true;
-  }
-
-  // Returns true when the ∏command should end.
+  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return true;

@@ -38,6 +38,7 @@ import frc.robot.commands.drive.SetDrivePerspectiveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.SetDrivePerspectiveRobotOriented;
 import frc.robot.commands.drive.ZeroGyro;
 import frc.robot.commands.lightstrip.DisabledLights;
+import frc.robot.commands.lightstrip.EnabledLights;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
@@ -267,6 +268,9 @@ public class RobotContainer {
   /** Singleton instance of {@link DisabledLights} for the whole robot. */
   public static DisabledLights disabledLights = new DisabledLights();
 
+  /** Singleton instance of {@link EnableLights} for the whole robot. */
+  public static EnabledLights enabledLights = new EnabledLights();
+
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
@@ -296,6 +300,7 @@ public class RobotContainer {
     startIntakeCamera.schedule();
 
     drive.setDefaultCommand(driveFieldOriented);
+    robotUnderglow.setDefaultCommand(enabledLights);
   }
 
   private void configureAuto() {

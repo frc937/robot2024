@@ -34,19 +34,15 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
-    // HACK: Because the command scheduler doesn't run in disabled, we have to manually schedule
-    // disabledLights.
-    RobotContainer.disabledLights.initialize();
+    CommandScheduler.getInstance().schedule(RobotContainer.disabledLights);
   }
 
   @Override
-  public void disabledPeriodic() {
-    RobotContainer.disabledLights.execute();
-  }
+  public void disabledPeriodic() {}
 
   @Override
   public void disabledExit() {
-    RobotContainer.disabledLights.end(true);
+    RobotContainer.disabledLights.cancel();
   }
 
   @Override
@@ -75,7 +71,9 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {}
 
   @Override
-  public void teleopExit() {}
+  public void teleopExit() {
+    RobotContainer.enabledLights.end(true);
+  }
 
   @Override
   public void testInit() {

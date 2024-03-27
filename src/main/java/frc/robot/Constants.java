@@ -239,14 +239,19 @@ public final class Constants {
   /** The constants for the light strips */
   public static class LightStrips {
     /** The PWM ID for the underglow light strip */
-    public static final int UNDERGLOW_PWM_ID = 8;
+    public static final int UNDERGLOW_PWM_ID = 0;
 
     /** The count of LEDs for the underglow light strip. */
     public static final int UNDERGLOW_LED_COUNT = 148;
 
     public static final class Colors {
       /** The color for the lights when the robot is disabled. */
-      public static final Color DISABLED_COLOR = Color.fromHSV(30, 255, 200);
+      public static final Color DISABLED_COLOR = Color.fromHSV(30, 255, 100);
+
+      public static final Color ENABLE_COLOR_NO_ALLIANCE = Color.fromHSV(137, 255, 200);
+
+      public static final Color ENABLE_COLOR_BLUE_ALLIANCE = Color.fromHSV(120, 255, 200);
+      public static final Color ENABLE_COLOR_RED_ALLIANCE = Color.fromHSV(0, 255, 200);
     }
   }
 }
