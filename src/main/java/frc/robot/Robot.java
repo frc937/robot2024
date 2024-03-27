@@ -33,13 +33,17 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+    RobotContainer.mailboxPneumatics.off();
+  }
 
   @Override
   public void disabledPeriodic() {}
 
   @Override
-  public void disabledExit() {}
+  public void disabledExit() {
+    RobotContainer.mailboxPneumatics.retract();
+  }
 
   @Override
   public void autonomousInit() {
