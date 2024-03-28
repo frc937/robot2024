@@ -54,8 +54,8 @@ import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 
-@SuppressWarnings("unused")
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
+@SuppressWarnings("unused")
 public class RobotContainer {
 
   /*

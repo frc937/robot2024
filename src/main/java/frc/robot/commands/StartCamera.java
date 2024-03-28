@@ -18,7 +18,11 @@ import frc.robot.subsystems.Camera;
 public class StartCamera extends Command {
   private Camera camera;
 
-  /** Creates a new StartCamera. */
+  /**
+   * Creates a new StartCamera.
+   *
+   * @param camera The camera to start.
+   */
   public StartCamera(Camera camera) {
     this.camera = camera;
     addRequirements(camera);
