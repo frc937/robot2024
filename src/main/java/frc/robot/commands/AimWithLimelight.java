@@ -57,7 +57,7 @@ public class AimWithLimelight extends Command {
   public AimWithLimelight(
       Limelight limelight,
       double steerStrength,
-      double distanceFromTarget,
+      double desiredDistanceFromTarget,
       double mountHeight,
       double mountAngle,
       double driveStrength,
@@ -67,7 +67,7 @@ public class AimWithLimelight extends Command {
       double targetHeight,
       double pipelineNumber) {
     this.steerStrength = steerStrength;
-    this.desiredDistanceFromTarget = distanceFromTarget;
+    this.desiredDistanceFromTarget = desiredDistanceFromTarget;
     this.mountHeight = mountHeight;
     this.mountAngle = mountAngle;
     this.driveStrength = driveStrength;

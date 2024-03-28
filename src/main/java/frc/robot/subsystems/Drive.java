@@ -182,6 +182,11 @@ public class Drive extends SubsystemBase {
     driveLabelEntry.setString(driveMode);
   }
 
+  /**
+   * Returns the heading of the robot.
+   *
+   * @return The heading of the robot.
+   */
   public Rotation2d getHeading() {
     return drive.getPose().getRotation();
   }

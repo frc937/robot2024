@@ -18,9 +18,9 @@ import frc.robot.subsystems.Drive;
 
 /** Sets the current drive perspective to robot oriented. */
 public class SetDrivePerspectiveRobotOriented extends Command {
-  /** Creates a new SetDrivePerspectiveFieldOriented. */
   private Drive drive;
 
+  /** Creates a new SetDrivePerspectiveRobotOriented */
   public SetDrivePerspectiveRobotOriented() {
     this.drive = RobotContainer.drive;
     addRequirements(drive);

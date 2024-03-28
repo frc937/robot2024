@@ -13,10 +13,16 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
 
-/* Probably don't put code here, most likely put it in RobotContainer. */
+/* Hey! You probably don't want to put code here! Your might looking for RobotContainer. */
+/** The robot's entrypoint. */
 public final class Main {
   private Main() {}
 
+  /**
+   * The entrypoint for the robot.
+   *
+   * @param args The args passed from the RoboRIO
+   */
   public static void main(String... args) {
     RobotBase.startRobot(Robot::new);
   }
