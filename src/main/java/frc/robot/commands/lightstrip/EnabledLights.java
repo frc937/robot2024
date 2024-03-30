@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
+import java.util.Optional;
 
 /** Activates when the robot is disabled. */
 public class EnabledLights extends Command {
@@ -31,8 +32,9 @@ public class EnabledLights extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    if (DriverStation.getAlliance().isPresent()) {
-      if (DriverStation.getAlliance().get() == Alliance.Red) {
+    Optional<Alliance> alliance = DriverStation.getAlliance();
+    if (alliance.isPresent()) {
+      if (alliance.get() == Alliance.Red) {
         robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_RED_ALLIANCE);
       } else {
         robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_BLUE_ALLIANCE);
@@ -50,12 +52,7 @@ public class EnabledLights extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    // Signal that the next run of this command should not to the fancy start animation
-    // robotLights.setStripColor(Color.kBlack);
-    // robotLights.flush();
-    // robotLights.stopLights();
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

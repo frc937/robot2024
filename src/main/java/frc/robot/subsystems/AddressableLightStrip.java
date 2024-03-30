@@ -135,6 +135,7 @@ public class AddressableLightStrip extends SubsystemBase {
 
   @Override
   public void periodic() {
+    updateRainbow();
     // This method will be called once per scheduler run
   }
 }
