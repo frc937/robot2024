@@ -15,11 +15,11 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 
-/** Activates when the robot is disabled. */
+/** Activates when the robot has a node. */
 public class NodeLight extends Command {
   private AddressableLightStrip robotLights;
 
-  /** Creates a new RobotDisabledLights. */
+  /** Creates a new RobotNodeLight. */
   public NodeLight() {
     this.robotLights = RobotContainer.robotLights;
     addRequirements(this.robotLights);

@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import org.jspecify.annotations.Nullable;
 
+/** The subsystem for the lights on the robot. */
 public class AddressableLightStrip extends SubsystemBase {
 
   private final AddressableLED ledStrip;
