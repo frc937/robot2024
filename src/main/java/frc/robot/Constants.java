@@ -232,6 +232,6 @@ public final class Constants {
   /** The constants for the Compressor */
   public static final class Compressor {
     public static final int PRESSURE_SWITCH_DIO_PORT = 0;
-    public static final int COMPRESSOR_RELAY_PORT = 0;
+    public static final int COMPRESSOR_RELAY_PORT = 1;
   }
 }

@@ -12,7 +12,6 @@
 package frc.robot.subsystems.mailbox;
 
 import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -32,20 +31,20 @@ public class MailboxPneumatics extends SubsystemBase {
 
   /** Lifts the mailbox. */
   public void extend() {
-    leftRelay.set(Value.kForward);
-    rightRelay.set(Value.kForward);
+    leftRelay.set(Relay.Value.kForward);
+    rightRelay.set(Relay.Value.kForward);
   }
 
   /** Lowers the mailbox. */
   public void retract() {
-    leftRelay.set(Value.kReverse);
-    rightRelay.set(Value.kReverse);
+    leftRelay.set(Relay.Value.kReverse);
+    rightRelay.set(Relay.Value.kReverse);
   }
 
   /** Sets pistons to off */
   public void off() {
-    leftRelay.set(Value.kOff);
-    rightRelay.set(Value.kOff);
+    leftRelay.set(Relay.Value.kOff);
+    rightRelay.set(Relay.Value.kOff);
   }
 
   @Override

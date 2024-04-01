@@ -12,6 +12,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -38,8 +39,8 @@ public class Compressor extends SubsystemBase {
       this.compressorRelay.set(Value.kForward);
       return true;
     } else {
-      System.err.println(
-          "Warning: Attempted to activate compressor while pressure switch activated");
+      DriverStation.reportWarning(
+          "Warning: Attempted to activate compressor while pressure switch activated", false);
       disableCompressor();
       return false;
     }
@@ -47,7 +48,7 @@ public class Compressor extends SubsystemBase {
 
   /** Disables the compressor. */
   public void disableCompressor() {
-    this.compressorRelay.set(Value.kOff);
+    this.compressorRelay.set(Relay.Value.kOff);
   }
 
   /**
