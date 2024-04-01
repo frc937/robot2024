@@ -234,4 +234,10 @@ public final class Constants {
     /** The camera id for the intake camera. */
     public static final int INTAKE_CAMERA_ID = 0;
   }
+
+  /** The constants for the Compressor */
+  public static final class Compressor {
+    public static final int PRESSURE_SWITCH_DIO_PORT = 0;
+    public static final int COMPRESSOR_RELAY_PORT = 0;
+  }
 }
