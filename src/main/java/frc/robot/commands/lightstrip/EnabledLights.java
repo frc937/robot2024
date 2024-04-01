@@ -25,7 +25,7 @@ public class EnabledLights extends Command {
 
   /** Creates a new RobotDisabledLights. */
   public EnabledLights() {
-    this.robotLights = RobotContainer.robotUnderglow;
+    this.robotLights = RobotContainer.robotLights;
     addRequirements(this.robotLights);
   }
 

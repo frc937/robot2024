@@ -234,7 +234,7 @@ public class RobotContainer {
       new SetDrivePerspectiveFieldOriented();
 
   /** Singleton instance of {@link AddressableLightStrip} for the whole robot. */
-  public static AddressableLightStrip robotUnderglow =
+  public static AddressableLightStrip robotLights =
       new AddressableLightStrip(
           Constants.LightStrips.UNDERGLOW_PWM_ID, Constants.LightStrips.UNDERGLOW_LED_COUNT);
 
@@ -303,7 +303,7 @@ public class RobotContainer {
     startIntakeCamera.schedule();
 
     drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
-    robotUnderglow.setDefaultCommand(enabledLights);
+    robotLights.setDefaultCommand(enabledLights);
   }
 
   private void configureAuto() {

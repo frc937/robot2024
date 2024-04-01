@@ -19,11 +19,10 @@ import frc.robot.subsystems.AddressableLightStrip;
 /** Activates when the robot is disabled. */
 public class DisabledLights extends Command {
   private AddressableLightStrip robotLights;
-  private boolean isInitial = true;
 
   /** Creates a new RobotDisabledLights. */
   public DisabledLights() {
-    this.robotLights = RobotContainer.robotUnderglow;
+    this.robotLights = RobotContainer.robotLights;
     addRequirements(this.robotLights);
   }
 
@@ -41,13 +40,7 @@ public class DisabledLights extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    // Signal that the next run of this command should not to the fancy start animation
-    // robotLights.setStripColor(Color.kBlack);
-    // robotLights.flush();
-    // robotLights.stopLights();
-    // isInitial = false;
-  }
+  public void end(boolean interrupted) {}
 
   @Override
   public boolean runsWhenDisabled() {
