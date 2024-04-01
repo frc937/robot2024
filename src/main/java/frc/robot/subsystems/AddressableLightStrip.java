@@ -84,6 +84,17 @@ public class AddressableLightStrip extends SubsystemBase {
     targetStripColor = color;
   }
 
+  /**
+   * Directly sets the LED colors with no fade effect.
+   *
+   * @param color The color to set the LEDs to.
+   */
+  public void setStripColorRaw(Color color) {
+    for (int led = 0; led < this.buffer.getLength(); led++) {
+      this.buffer.setLED(led, color);
+    }
+  }
+
   private static double lerp(double v0, double v1, double amount) {
     if (v0 == v1) {
       return v0;

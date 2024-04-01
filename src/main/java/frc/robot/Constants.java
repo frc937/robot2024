@@ -245,7 +245,7 @@ public final class Constants {
     public static final int UNDERGLOW_LED_COUNT = 150;
 
     /** The speed of the fade animation. [0, 1] */
-    public static final double STRIP_FADE_AMOUNT = 0.1;
+    public static final double STRIP_FADE_AMOUNT = 0.05;
 
     public static final class Colors {
       /** The color for the lights when the robot is disabled. */

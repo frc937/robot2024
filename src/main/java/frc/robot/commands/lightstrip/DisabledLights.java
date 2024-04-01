@@ -11,6 +11,7 @@
 
 package frc.robot.commands.lightstrip;
 
+import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -19,6 +20,9 @@ import frc.robot.subsystems.AddressableLightStrip;
 /** Activates when the robot is disabled. */
 public class DisabledLights extends Command {
   private AddressableLightStrip robotLights;
+  private boolean firstStart = true;
+  private int rainbowTick = 0;
+  private int ledCount = 1;
 
   /** Creates a new RobotDisabledLights. */
   public DisabledLights() {
@@ -29,18 +33,37 @@ public class DisabledLights extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);
-    robotLights.flush();
+    if (!firstStart) {
+      robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);
+      robotLights.flush();
+    }
     robotLights.startLights();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    if (firstStart) {
+      rainbowTick++;
+      for (int led = 0; led < ledCount; led++) {
+        robotLights.setColorLight(
+            led, Color.fromHSV((led + rainbowTick) % 180, 255, rainbowTick - led));
+      }
+      robotLights.flush();
+      if ((rainbowTick >= robotLights.getLength() * 2)) {
+        firstStart = false;
+        robotLights.setStripColorRaw(Color.kGhostWhite);
+        robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);
+      }
+      ledCount = Math.min(ledCount + 1, robotLights.getLength());
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    firstStart = false;
+  }
 
   @Override
   public boolean runsWhenDisabled() {
@@ -50,6 +73,6 @@ public class DisabledLights extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    return false;
   }
 }
