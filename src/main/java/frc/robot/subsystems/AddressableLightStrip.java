@@ -23,6 +23,7 @@ public class AddressableLightStrip extends SubsystemBase {
   private final AddressableLED ledStrip;
   private final AddressableLEDBuffer buffer;
   private int rainbowHue = 0;
+  private double fadeSpeed = Constants.LightStrips.STRIP_FADE_SPEED;
   @Nullable private Color targetStripColor = null;
 
   /**
@@ -178,13 +179,25 @@ public class AddressableLightStrip extends SubsystemBase {
     return true;
   }
 
+  /**
+   * Sets the speed {@link #setStripColor(Color)} fades with.
+   *
+   * @param speed The speed. [0, 1]
+   */
+  public void setFadeSpeed(double speed) {
+    this.fadeSpeed = speed;
+  }
+
+  /** Resets the speed {@link #setStripColor(Color)} fades with to default; */
+  public void resetFadeSpeed() {
+    this.fadeSpeed = Constants.LightStrips.STRIP_FADE_SPEED;
+  }
+
   @Override
   public void periodic() {
     if (!stripAtTargetColor()) {
       for (int led = 0; led < this.buffer.getLength(); led++) {
-        Color c =
-            lerpColors(
-                this.buffer.getLED(led), targetStripColor, Constants.LightStrips.STRIP_FADE_SPEED);
+        Color c = lerpColors(this.buffer.getLED(led), targetStripColor, fadeSpeed);
         this.buffer.setLED(led, c);
       }
       this.flush();
