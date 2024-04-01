@@ -54,7 +54,7 @@ public class DisabledLights extends Command {
     return true;
   }
 
-  // Returns true when the ∏command should end.
+  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return true;
