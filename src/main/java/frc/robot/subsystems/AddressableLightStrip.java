@@ -15,12 +15,15 @@ import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import org.jspecify.annotations.Nullable;
 
 public class AddressableLightStrip extends SubsystemBase {
 
   private final AddressableLED ledStrip;
   private final AddressableLEDBuffer buffer;
   private int rainbowHue = 0;
+  @Nullable private Color targetStripColor = null;
 
   /**
    * Creates a new AddressableLightStrip
@@ -32,6 +35,7 @@ public class AddressableLightStrip extends SubsystemBase {
     this.ledStrip = new AddressableLED(pwmPort);
     this.buffer = new AddressableLEDBuffer(lightCount);
     this.ledStrip.setLength(lightCount);
+    updateRainbow();
   }
 
   /**
@@ -43,6 +47,7 @@ public class AddressableLightStrip extends SubsystemBase {
    * @param b The blue component
    */
   public void setRgbLight(int lightNumber, int r, int g, int b) {
+    this.targetStripColor = null;
     this.buffer.setRGB(lightNumber, r, g, b);
   }
 
@@ -55,6 +60,7 @@ public class AddressableLightStrip extends SubsystemBase {
    * @param v The value component
    */
   public void setHSVLight(int lightNumber, int h, int s, int v) {
+    this.targetStripColor = null;
     this.buffer.setHSV(lightNumber, h, s, v);
   }
 
@@ -65,6 +71,7 @@ public class AddressableLightStrip extends SubsystemBase {
    * @param color
    */
   public void setColorLight(int lightNumber, Color color) {
+    this.targetStripColor = null;
     this.buffer.setLED(lightNumber, color);
   }
 
@@ -74,14 +81,15 @@ public class AddressableLightStrip extends SubsystemBase {
    * @param color The color to set the strip to.
    */
   public void setStripColor(Color color) {
-    for (int i = 0; i < this.buffer.getLength(); i++) {
-      this.buffer.setLED(i, color);
-    }
+    targetStripColor = color;
   }
 
   private static double lerp(double v0, double v1, double amount) {
     if (v0 == v1) {
       return v0;
+    }
+    if (v0 < v1) {
+      return (1 - amount) * v1 + amount * v0;
     }
     return (1 - amount) * v0 + amount * v1;
   }
@@ -125,7 +133,9 @@ public class AddressableLightStrip extends SubsystemBase {
     this.ledStrip.stop();
   }
 
+  /** Updates the LED rainbow pattern. Must be ran for it to animate. */
   public void updateRainbow() {
+    this.targetStripColor = null;
     rainbowHue++;
     for (int led = 0; led < buffer.getLength(); led++) {
       this.buffer.setHSV(led, (rainbowHue + led) % 180, 255, 255);
@@ -133,9 +143,31 @@ public class AddressableLightStrip extends SubsystemBase {
     this.flush();
   }
 
+  private boolean stripAtTargetColor() {
+    if (this.targetStripColor == null) {
+      // targetStripColor being null means that the light strip has been manually changed, and we
+      // should not touch the values.
+      return true;
+    }
+    for (int led = 0; led < this.buffer.getLength(); led++) {
+      // This is a kinda gross way to do this, but it removes the like 10 Math.floors or (int)s
+      if (this.targetStripColor.toHexString() != this.buffer.getLED(led).toHexString()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   @Override
   public void periodic() {
-    updateRainbow();
-    // This method will be called once per scheduler run
+    if (!stripAtTargetColor()) {
+      for (int led = 0; led < this.buffer.getLength(); led++) {
+        Color c =
+            lerpColors(
+                this.buffer.getLED(led), targetStripColor, Constants.LightStrips.STRIP_FADE_AMOUNT);
+        this.buffer.setLED(led, c);
+      }
+      this.flush();
+    }
   }
 }
