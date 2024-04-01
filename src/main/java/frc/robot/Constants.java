@@ -37,17 +37,11 @@ public final class Constants {
 
   /** Constants for the Pneumatics system. */
   public static final class MailboxPneumatics {
-    /** The channel on the PCM for the forward direction on the left solenoid. */
-    public static final int LEFT_SOLENOID_FORWARD_CHANNEL = 5;
+    /** The ID for the left solenoid relay */
+    public static final int LEFT_SOLENOID_RELAY_ID = 0;
 
-    /** The channel on the PCM for the reverse direction on the left solenoid. */
-    public static final int LEFT_SOLENOID_REVERSE_CHANNEL = 4;
-
-    /** The channel on the PCM for the forward direction on the right solenoid. */
-    public static final int RIGHT_SOLENOID_FORWARD_CHANNEL = 7;
-
-    /** The channel on the PCM for the reverse direction on the right solenoid. */
-    public static final int RIGHT_SOLENOID_REVERSE_CHANNEL = 6;
+    /** The ID for the right solenoid relay */
+    public static final int RIGHT_SOLENOID_RELAY_ID = 0;
   }
 
   /** Constants for the Belts system. */
