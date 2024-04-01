@@ -36,6 +36,8 @@ public class DisabledLights extends Command {
     if (!firstStart) {
       robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);
       robotLights.flush();
+    } else {
+      robotLights.setFadeSpeed(0.01);
     }
     robotLights.startLights();
   }
@@ -52,7 +54,7 @@ public class DisabledLights extends Command {
       robotLights.flush();
       if ((rainbowTick >= robotLights.getLength() * 2)) {
         firstStart = false;
-        robotLights.setStripColorRaw(Color.kGhostWhite);
+        robotLights.setStripColorRaw(Constants.LightStrips.Colors.BOOT_SEQUENCE_PULSE_COLOR);
         robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);
       }
       ledCount = Math.min(ledCount + 1, robotLights.getLength());
@@ -63,6 +65,7 @@ public class DisabledLights extends Command {
   @Override
   public void end(boolean interrupted) {
     firstStart = false;
+    robotLights.resetFadeSpeed();
   }
 
   @Override
