@@ -251,11 +251,16 @@ public final class Constants {
       /** The color for the lights when the robot is disabled. */
       public static final Color DISABLED_COLOR = Color.fromHSV(15, 255, 100);
 
+      /** The color for the pulse during the boot sequence. */
       public static final Color BOOT_SEQUENCE_PULSE_COLOR = Color.fromHSV(0, 0, 255);
 
+      /** The enable color for when the robot is not on an alliance */
       public static final Color ENABLE_COLOR_NO_ALLIANCE = Color.fromHSV(137, 255, 200);
 
+      /** The enable color for when the robot is on the blue alliance */
       public static final Color ENABLE_COLOR_BLUE_ALLIANCE = Color.fromHSV(120, 255, 200);
+
+      /** The enable color for when the robot is on the red alliance */
       public static final Color ENABLE_COLOR_RED_ALLIANCE = Color.fromHSV(0, 255, 200);
     }
   }
