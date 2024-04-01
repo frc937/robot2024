@@ -272,6 +272,7 @@ public class RobotContainer {
   /** Singleton instance of {@link EnableLights} for the whole robot. */
   public static EnabledLight enabledLights = new EnabledLight();
 
+  /** Singleton instance of {@link NodeLight} for the whole robot. */
   public static NodeLight nodeLight = new NodeLight();
 
   /*

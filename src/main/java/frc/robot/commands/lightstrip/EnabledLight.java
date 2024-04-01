@@ -19,7 +19,7 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 import java.util.Optional;
 
-/** Activates when the robot is enabled. */
+/** Activates the light strip when the robot is enabled. */
 public class EnabledLight extends Command {
   private AddressableLightStrip robotLights;
 

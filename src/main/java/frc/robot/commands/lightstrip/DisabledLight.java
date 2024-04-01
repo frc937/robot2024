@@ -17,7 +17,7 @@ import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 
-/** Activates when the robot is disabled. */
+/** Activates the light strip when the robot is disabled. */
 public class DisabledLight extends Command {
   private AddressableLightStrip robotLights;
   private boolean firstStart = true;

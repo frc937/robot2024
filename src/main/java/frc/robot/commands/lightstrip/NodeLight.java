@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 
-/** Activates when the robot has a node. */
+/** Activates the light strip when the robot has a node. */
 public class NodeLight extends Command {
   private AddressableLightStrip robotLights;
 
