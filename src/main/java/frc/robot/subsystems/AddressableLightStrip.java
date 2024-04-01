@@ -118,6 +118,15 @@ public class AddressableLightStrip extends SubsystemBase {
     return this.buffer;
   }
 
+  /**
+   * Gets the length of the LED buffer.
+   *
+   * @return the length of the LED buffer.
+   */
+  public int getLength() {
+    return this.buffer.getLength();
+  }
+
   /** Flushes the buffer to the light strip. */
   public void flush() {
     this.ledStrip.setData(this.buffer);
