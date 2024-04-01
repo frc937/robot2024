@@ -184,7 +184,7 @@ public class AddressableLightStrip extends SubsystemBase {
       for (int led = 0; led < this.buffer.getLength(); led++) {
         Color c =
             lerpColors(
-                this.buffer.getLED(led), targetStripColor, Constants.LightStrips.STRIP_FADE_AMOUNT);
+                this.buffer.getLED(led), targetStripColor, Constants.LightStrips.STRIP_FADE_SPEED);
         this.buffer.setLED(led, c);
       }
       this.flush();
