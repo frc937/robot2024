@@ -20,31 +20,26 @@ import frc.robot.Constants;
  * our robot
  */
 public class MailboxPneumatics extends SubsystemBase {
-  private Relay leftRelay;
-  private Relay rightRelay;
+  private Relay pneumaticsRelay;
 
   /** Constructor for the mailbox pneumatics subsystem. */
   public MailboxPneumatics() {
-    leftRelay = new Relay(Constants.MailboxPneumatics.LEFT_SOLENOID_RELAY_ID);
-    rightRelay = new Relay(Constants.MailboxPneumatics.RIGHT_SOLENOID_RELAY_ID);
+    pneumaticsRelay = new Relay(Constants.MailboxPneumatics.MAILBOX_SOLENOID_RELAY_ID);
   }
 
   /** Lifts the mailbox. */
   public void extend() {
-    leftRelay.set(Relay.Value.kForward);
-    rightRelay.set(Relay.Value.kForward);
+    pneumaticsRelay.set(Relay.Value.kForward);
   }
 
   /** Lowers the mailbox. */
   public void retract() {
-    leftRelay.set(Relay.Value.kReverse);
-    rightRelay.set(Relay.Value.kReverse);
+    pneumaticsRelay.set(Relay.Value.kReverse);
   }
 
   /** Sets pistons to off */
   public void off() {
-    leftRelay.set(Relay.Value.kOff);
-    rightRelay.set(Relay.Value.kOff);
+    pneumaticsRelay.set(Relay.Value.kOff);
   }
 
   @Override
