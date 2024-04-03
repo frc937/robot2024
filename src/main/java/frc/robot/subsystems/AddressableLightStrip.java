@@ -11,8 +11,10 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -26,6 +28,7 @@ public class AddressableLightStrip extends SubsystemBase {
   private int rainbowHue = 0;
   private double fadeSpeed = Constants.LightStrips.STRIP_FADE_SPEED;
   @Nullable private Color targetStripColor = null;
+  private GenericEntry targetLightEntry;
 
   /**
    * Creates a new AddressableLightStrip
@@ -36,8 +39,8 @@ public class AddressableLightStrip extends SubsystemBase {
   public AddressableLightStrip(int pwmPort, int lightCount) {
     this.ledStrip = new AddressableLED(pwmPort);
     this.buffer = new AddressableLEDBuffer(lightCount);
+    this.targetLightEntry = Shuffleboard.getTab("Debug").add("Lights at target?", false).getEntry();
     this.ledStrip.setLength(lightCount);
-    updateRainbow();
   }
 
   /**
@@ -196,7 +199,9 @@ public class AddressableLightStrip extends SubsystemBase {
 
   @Override
   public void periodic() {
-    if (!stripAtTargetColor()) {
+    boolean atTarget = stripAtTargetColor();
+    this.targetLightEntry.setBoolean(atTarget);
+    if (!atTarget) {
       for (int led = 0; led < this.buffer.getLength(); led++) {
         Color c = lerpColors(this.buffer.getLED(led), targetStripColor, fadeSpeed);
         this.buffer.setLED(led, c);

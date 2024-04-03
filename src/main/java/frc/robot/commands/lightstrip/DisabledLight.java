@@ -45,14 +45,15 @@ public class DisabledLight extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    final int loopCount = 4;
     if (firstStart) {
       rainbowTick++;
       for (int led = 0; led < ledCount; led++) {
         robotLights.setColorLight(
-            led, Color.fromHSV((led + rainbowTick) % 180, 255, rainbowTick - led));
+            led, Color.fromHSV((led + rainbowTick) % 180, 255, (rainbowTick - led) / loopCount));
       }
       robotLights.flush();
-      if ((rainbowTick >= robotLights.getLength() * 2)) {
+      if ((rainbowTick >= robotLights.getLength() * loopCount)) {
         firstStart = false;
         robotLights.setStripColorRaw(Constants.LightStrips.Colors.BOOT_SEQUENCE_PULSE_COLOR);
         robotLights.setStripColor(Constants.LightStrips.Colors.DISABLED_COLOR);

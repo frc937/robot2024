@@ -249,7 +249,7 @@ public final class Constants {
 
     public static final class Colors {
       /** The color for the lights when the robot is disabled. */
-      public static final Color DISABLED_COLOR = Color.fromHSV(15, 255, 100);
+      public static final Color DISABLED_COLOR = Color.fromHSV(15, 255, 50);
 
       /** The color for the pulse during the boot sequence. */
       public static final Color BOOT_SEQUENCE_PULSE_COLOR = Color.fromHSV(0, 0, 255);
