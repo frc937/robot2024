@@ -44,32 +44,6 @@ public class AddressableLightStrip extends SubsystemBase {
   }
 
   /**
-   * Sets a light on the light strip to a color in RGB.
-   *
-   * @param lightNumber The light number
-   * @param r The red component
-   * @param g The green component
-   * @param b The blue component
-   */
-  public void setRgbLight(int lightNumber, int r, int g, int b) {
-    this.targetStripColor = null;
-    this.buffer.setRGB(lightNumber, r, g, b);
-  }
-
-  /**
-   * Sets a light on the light strip to a color in HSV
-   *
-   * @param lightNumber The light number
-   * @param h The hue component
-   * @param s The saturation component
-   * @param v The value component
-   */
-  public void setHSVLight(int lightNumber, int h, int s, int v) {
-    this.targetStripColor = null;
-    this.buffer.setHSV(lightNumber, h, s, v);
-  }
-
-  /**
    * Sets a light on the light strip to a {@link edu.wpi.first.wpilibj.util.Color}
    *
    * @param lightNumber
@@ -126,15 +100,6 @@ public class AddressableLightStrip extends SubsystemBase {
   }
 
   /**
-   * Gets the internal buffer used to send to the lights.
-   *
-   * @return the internal buffer used to send to the lights.
-   */
-  public AddressableLEDBuffer getLEDBuffer() {
-    return this.buffer;
-  }
-
-  /**
    * Gets the length of the LED buffer.
    *
    * @return the length of the LED buffer.
@@ -156,16 +121,6 @@ public class AddressableLightStrip extends SubsystemBase {
   /** Stops the light strip. */
   public void stopLights() {
     this.ledStrip.stop();
-  }
-
-  /** Updates the LED rainbow pattern. Must be ran for it to animate. */
-  public void updateRainbow() {
-    this.targetStripColor = null;
-    rainbowHue++;
-    for (int led = 0; led < buffer.getLength(); led++) {
-      this.buffer.setHSV(led, (rainbowHue + led) % 180, 255, 255);
-    }
-    this.flush();
   }
 
   private boolean stripAtTargetColor() {

@@ -39,7 +39,7 @@ import frc.robot.commands.drive.SetDrivePerspectiveRobotOriented;
 import frc.robot.commands.drive.ZeroGyro;
 import frc.robot.commands.lightstrip.DisabledLight;
 import frc.robot.commands.lightstrip.EnabledLight;
-import frc.robot.commands.lightstrip.NodeLight;
+import frc.robot.commands.lightstrip.NoteLight;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
@@ -235,8 +235,7 @@ public class RobotContainer {
 
   /** Singleton instance of {@link AddressableLightStrip} for the whole robot. */
   public static AddressableLightStrip robotLights =
-      new AddressableLightStrip(
-          Constants.LightStrips.PWM_ID, Constants.LightStrips.LED_COUNT);
+      new AddressableLightStrip(Constants.LightStrips.PWM_ID, Constants.LightStrips.LED_COUNT);
 
   /**
    * Singleton instance of {@link SetDrivePerspectiveFieldOrientedHeadingSnapping} for the whole
@@ -272,8 +271,8 @@ public class RobotContainer {
   /** Singleton instance of {@link EnableLights} for the whole robot. */
   public static EnabledLight enabledLights = new EnabledLight();
 
-  /** Singleton instance of {@link NodeLight} for the whole robot. */
-  public static NodeLight nodeLight = new NodeLight();
+  /** Singleton instance of {@link NoteLight} for the whole robot. */
+  public static NoteLight noteLight = new NoteLight();
 
   /*
    * ***********************

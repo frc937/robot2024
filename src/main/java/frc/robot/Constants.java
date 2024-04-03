@@ -247,6 +247,9 @@ public final class Constants {
     /** The speed of the fade animation. [0, 1] */
     public static final double STRIP_FADE_SPEED = 0.05;
 
+    /** The amount of times to loop the rainbow in the boot sequence */
+    public static final int BOOT_SEQUENCE_LOOP_COUNT = 4;
+
     public static final class Colors {
       /** The color for the lights when the robot is disabled. */
       public static final Color DISABLED_COLOR = Color.fromHSV(15, 255, 50); /* Yellow */

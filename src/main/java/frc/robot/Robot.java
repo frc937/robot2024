@@ -35,7 +35,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
-    CommandScheduler.getInstance().schedule(RobotContainer.disabledLights);
+    RobotContainer.disabledLights.schedule();
     RobotContainer.mailboxPneumatics.off();
   }
 

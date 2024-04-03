@@ -78,13 +78,13 @@ public class Intake extends SubsystemBase {
   /** Tells drivers the intake is full */
   public void reportNoteIsInIntake() {
     noteIsInIntake.setBoolean(true);
-    RobotContainer.nodeLight.schedule();
+    RobotContainer.noteLight.schedule();
   }
 
   /** Tells drivers the intake is empty */
   public void reportNoteIsNotInIntake() {
     noteIsInIntake.setBoolean(false);
-    RobotContainer.nodeLight.cancel();
+    RobotContainer.noteLight.cancel();
   }
 
   /** Stops the intake motors. */

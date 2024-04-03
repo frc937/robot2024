@@ -11,16 +11,18 @@
 
 package frc.robot.commands.lightstrip;
 
+import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
 
 /** Activates the light strip when the robot has a node. */
-public class NodeLight extends Command {
+public class NoteLight extends Command {
   private AddressableLightStrip robotLights;
+  private int rainbowHue = 0;
 
   /** Creates a new RobotNodeLight. */
-  public NodeLight() {
+  public NoteLight() {
     this.robotLights = RobotContainer.robotLights;
     addRequirements(this.robotLights);
   }
@@ -34,7 +36,11 @@ public class NodeLight extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    robotLights.updateRainbow();
+    rainbowHue++;
+    for (int led = 0; led < robotLights.getLength(); led++) {
+      robotLights.setColorLight(led, Color.fromHSV((rainbowHue + led) % 180, 255, 255));
+    }
+    robotLights.flush();
   }
 
   // Called once the command ends or is interrupted.
