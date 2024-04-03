@@ -236,7 +236,7 @@ public class RobotContainer {
   /** Singleton instance of {@link AddressableLightStrip} for the whole robot. */
   public static AddressableLightStrip robotLights =
       new AddressableLightStrip(
-          Constants.LightStrips.UNDERGLOW_PWM_ID, Constants.LightStrips.UNDERGLOW_LED_COUNT);
+          Constants.LightStrips.PWM_ID, Constants.LightStrips.LED_COUNT);
 
   /**
    * Singleton instance of {@link SetDrivePerspectiveFieldOrientedHeadingSnapping} for the whole

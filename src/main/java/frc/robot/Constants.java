@@ -239,29 +239,31 @@ public final class Constants {
   /** The constants for the light strips */
   public static class LightStrips {
     /** The PWM ID for the underglow light strip */
-    public static final int UNDERGLOW_PWM_ID = 0;
+    public static final int PWM_ID = 0;
 
     /** The count of LEDs for the underglow light strip. */
-    public static final int UNDERGLOW_LED_COUNT = 150;
+    public static final int LED_COUNT = 150;
 
     /** The speed of the fade animation. [0, 1] */
     public static final double STRIP_FADE_SPEED = 0.05;
 
     public static final class Colors {
       /** The color for the lights when the robot is disabled. */
-      public static final Color DISABLED_COLOR = Color.fromHSV(15, 255, 50);
+      public static final Color DISABLED_COLOR = Color.fromHSV(15, 255, 50); /* Yellow */
 
       /** The color for the pulse during the boot sequence. */
-      public static final Color BOOT_SEQUENCE_PULSE_COLOR = Color.fromHSV(0, 0, 255);
+      public static final Color BOOT_SEQUENCE_PULSE_COLOR = Color.fromHSV(0, 0, 255); /* White */
 
       /** The enable color for when the robot is not on an alliance */
-      public static final Color ENABLE_COLOR_NO_ALLIANCE = Color.fromHSV(137, 255, 200);
+      public static final Color ENABLE_COLOR_NO_ALLIANCE =
+          Color.fromHSV(137, 255, 200); /* Purple */
 
       /** The enable color for when the robot is on the blue alliance */
-      public static final Color ENABLE_COLOR_BLUE_ALLIANCE = Color.fromHSV(120, 255, 200);
+      public static final Color ENABLE_COLOR_BLUE_ALLIANCE =
+          Color.fromHSV(120, 255, 200); /* Blue */
 
       /** The enable color for when the robot is on the red alliance */
-      public static final Color ENABLE_COLOR_RED_ALLIANCE = Color.fromHSV(0, 255, 200);
+      public static final Color ENABLE_COLOR_RED_ALLIANCE = Color.fromHSV(0, 255, 200); /* Red */
     }
   }
 }
