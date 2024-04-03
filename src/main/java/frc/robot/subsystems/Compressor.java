@@ -35,13 +35,12 @@ public class Compressor extends SubsystemBase {
    * @return If the compressor was able to be turned on.
    */
   public boolean activateCompressor() {
-    if (this.pressureSwitch.get()) {
+    if (!this.pressureSwitch.get()) {
       this.compressorRelay.set(Value.kForward);
       return true;
     } else {
       DriverStation.reportWarning(
           "Warning: Attempted to activate compressor while pressure switch activated", false);
-      disableCompressor();
       return false;
     }
   }
@@ -57,7 +56,7 @@ public class Compressor extends SubsystemBase {
    * @return true if the compressor is at pressure. False otherwise.
    */
   public boolean isAtPressure() {
-    return !this.pressureSwitch.get();
+    return this.pressureSwitch.get();
   }
 
   @Override

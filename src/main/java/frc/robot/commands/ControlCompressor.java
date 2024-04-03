@@ -12,12 +12,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Compressor;
 
 /** Keeps the compressor at the pressure the pressure switch looks for. */
 public class ControlCompressor extends Command {
   private Compressor compressor;
+  private int callsAtPressure = 0;
 
   /** Create a new ControlCompressor */
   public ControlCompressor() {
@@ -32,7 +34,12 @@ public class ControlCompressor extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (!compressor.isAtPressure()) {
+    if (compressor.isAtPressure()) {
+      callsAtPressure++;
+    } else {
+      callsAtPressure = Math.max(0, callsAtPressure - 1);
+    }
+    if (callsAtPressure < Constants.Compressor.COMPRESSOR_PRESSURE_SWITCH_DEADBAND) {
       compressor.activateCompressor();
     } else {
       compressor.disableCompressor();
