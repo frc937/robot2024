@@ -101,6 +101,7 @@ public class RobotContainer {
   /** Singleton instance of the intake {@link Camera} for the whole robot. */
   public static Camera intakeCamera = new Camera(Constants.Camera.INTAKE_CAMERA_ID);
 
+  /** Singleton instance of the intake {@link Compressor} for the whole robot. */
   public static Compressor compressor = new Compressor();
 
   /*
@@ -261,6 +262,7 @@ public class RobotContainer {
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
 
+  /** Singleton instance of {@link ControlCompressor} for the whole robot. */
   public static ControlCompressor controlCompressor = new ControlCompressor();
 
   /*
