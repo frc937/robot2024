@@ -157,7 +157,7 @@ public class AimWithLimelight extends Command {
        */
       hasSeenTarget = true;
 
-      drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), getRotation(), false);
+      drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), -1 * getRotation(), false);
 
       /* End the command if we're at our "aimed" threshold */
       if (isAngled() && isDistanced()) {
