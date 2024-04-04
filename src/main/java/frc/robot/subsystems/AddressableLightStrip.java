@@ -50,6 +50,9 @@ public class AddressableLightStrip extends SubsystemBase {
    * @param color
    */
   public void setColorLight(int lightNumber, Color color) {
+    if (lightNumber > this.buffer.getLength()) {
+      throw new ArrayIndexOutOfBoundsException(lightNumber);
+    }
     this.targetStripColor = null;
     this.buffer.setLED(lightNumber, color);
   }
@@ -74,7 +77,7 @@ public class AddressableLightStrip extends SubsystemBase {
     }
   }
 
-  private static double lerp(double v0, double v1, double amount) {
+  private static double interpolate(double v0, double v1, double amount) {
     if (v0 == v1) {
       return v0;
     }
@@ -92,11 +95,11 @@ public class AddressableLightStrip extends SubsystemBase {
    * @param amount The amount to interpolate. [0, 1]
    * @return The interpolated color.
    */
-  public static Color lerpColors(Color color1, Color color2, double amount) {
+  public static Color interpolateColors(Color color1, Color color2, double amount) {
     return new Color(
-        lerp(color1.red, color2.red, amount),
-        lerp(color1.blue, color2.blue, amount),
-        lerp(color1.green, color2.green, amount));
+        interpolate(color1.red, color2.red, amount),
+        interpolate(color1.blue, color2.blue, amount),
+        interpolate(color1.green, color2.green, amount));
   }
 
   /**
@@ -158,7 +161,7 @@ public class AddressableLightStrip extends SubsystemBase {
     this.targetLightEntry.setBoolean(atTarget);
     if (!atTarget) {
       for (int led = 0; led < this.buffer.getLength(); led++) {
-        Color c = lerpColors(this.buffer.getLED(led), targetStripColor, fadeSpeed);
+        Color c = interpolateColors(this.buffer.getLED(led), targetStripColor, fadeSpeed);
         this.buffer.setLED(led, c);
       }
       this.flush();

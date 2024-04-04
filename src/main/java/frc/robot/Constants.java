@@ -238,10 +238,10 @@ public final class Constants {
 
   /** The constants for the light strips */
   public static class LightStrips {
-    /** The PWM ID for the underglow light strip */
+    /** The PWM ID for the lights */
     public static final int PWM_ID = 0;
 
-    /** The count of LEDs for the underglow light strip. */
+    /** The count of LEDs for the lights. */
     public static final int LED_COUNT = 150;
 
     /** The speed of the fade animation. [0, 1] */
