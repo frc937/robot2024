@@ -103,7 +103,7 @@ public final class Controllers {
     operatorController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
-    pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedSprint);
+    pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedHeadingSnapping);
 
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) */
 
