@@ -53,6 +53,10 @@ loadScripts(document, 'script');</script>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:Z">Z</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="constant-values.html">Constant&nbsp;Field&nbsp;Values</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
+<dt><a href="frc/robot/subsystems/Compressor.html#activateCompressor()" class="member-name-link">activateCompressor()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Compressor.html" title="class in frc.robot.subsystems">Compressor</a></dt>
+<dd>
+<div class="block">Activates the compressor.</div>
+</dd>
 <dt><a href="frc/robot/RobotContainer.html#aimAndFire" class="member-name-link">aimAndFire</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
 <div class="block">Singleton instance of <a href="frc/robot/commands/AimAndFireRoutine.html" title="class in frc.robot.commands"><code>AimAndFireRoutine</code></a> for the whole robot.</div>
@@ -209,6 +213,28 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Creates a new ClimbUp.</div>
 </dd>
+<dt><a href="frc/robot/RobotContainer.html#compressor" class="member-name-link">compressor</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
+<dd>
+<div class="block">Singleton instance of the intake <a href="frc/robot/subsystems/Compressor.html" title="class in frc.robot.subsystems"><code>Compressor</code></a> for the whole robot.</div>
+</dd>
+<dt><a href="frc/robot/subsystems/Compressor.html" class="type-name-link" title="class in frc.robot.subsystems">Compressor</a> - Class in <a href="frc/robot/subsystems/package-summary.html">frc.robot.subsystems</a></dt>
+<dd>
+<div class="block">The subsystem for the compressor</div>
+</dd>
+<dt><a href="frc/robot/Constants.Compressor.html#%3Cinit%3E()" class="member-name-link">Compressor()</a> - Constructor for class frc.robot.<a href="frc/robot/Constants.Compressor.html" title="class in frc.robot">Constants.Compressor</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/subsystems/Compressor.html#%3Cinit%3E()" class="member-name-link">Compressor()</a> - Constructor for class frc.robot.subsystems.<a href="frc/robot/subsystems/Compressor.html" title="class in frc.robot.subsystems">Compressor</a></dt>
+<dd>
+<div class="block">Creates a new Compressor.</div>
+</dd>
+<dt><a href="frc/robot/Constants.Compressor.html#COMPRESSOR_PRESSURE_SWITCH_DEADBAND" class="member-name-link">COMPRESSOR_PRESSURE_SWITCH_DEADBAND</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Compressor.html" title="class in frc.robot">Constants.Compressor</a></dt>
+<dd>
+<div class="block">How many periodic loops do we want to wait for to turn off the compressor.</div>
+</dd>
+<dt><a href="frc/robot/Constants.Compressor.html#COMPRESSOR_RELAY_PORT" class="member-name-link">COMPRESSOR_RELAY_PORT</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Compressor.html" title="class in frc.robot">Constants.Compressor</a></dt>
+<dd>
+<div class="block">The relay port for the compressor</div>
+</dd>
 <dt><a href="frc/robot/Controllers.html#configureKeybinds(frc.robot.Controllers.Keymap)" class="member-name-link">configureKeybinds(Controllers.Keymap)</a> - Static method in class frc.robot.<a href="frc/robot/Controllers.html" title="class in frc.robot">Controllers</a></dt>
 <dd>
 <div class="block">Configures robot keybinds.</div>
@@ -231,6 +257,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/Constants.Climber.html" class="type-name-link" title="class in frc.robot">Constants.Climber</a> - Class in <a href="frc/robot/package-summary.html">frc.robot</a></dt>
 <dd>
 <div class="block">The constants for the climber.</div>
+</dd>
+<dt><a href="frc/robot/Constants.Compressor.html" class="type-name-link" title="class in frc.robot">Constants.Compressor</a> - Class in <a href="frc/robot/package-summary.html">frc.robot</a></dt>
+<dd>
+<div class="block">The constants for the Compressor</div>
 </dd>
 <dt><a href="frc/robot/Constants.Controllers.html" class="type-name-link" title="class in frc.robot">Constants.Controllers</a> - Class in <a href="frc/robot/package-summary.html">frc.robot</a></dt>
 <dd>
@@ -267,6 +297,18 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/Constants.MailboxPneumatics.html" class="type-name-link" title="class in frc.robot">Constants.MailboxPneumatics</a> - Class in <a href="frc/robot/package-summary.html">frc.robot</a></dt>
 <dd>
 <div class="block">Constants for the Pneumatics system.</div>
+</dd>
+<dt><a href="frc/robot/RobotContainer.html#controlCompressor" class="member-name-link">controlCompressor</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
+<dd>
+<div class="block">Singleton instance of <a href="frc/robot/commands/ControlCompressor.html" title="class in frc.robot.commands"><code>ControlCompressor</code></a> for the whole robot.</div>
+</dd>
+<dt><a href="frc/robot/commands/ControlCompressor.html" class="type-name-link" title="class in frc.robot.commands">ControlCompressor</a> - Class in <a href="frc/robot/commands/package-summary.html">frc.robot.commands</a></dt>
+<dd>
+<div class="block">Keeps the compressor at the pressure the pressure switch looks for.</div>
+</dd>
+<dt><a href="frc/robot/commands/ControlCompressor.html#%3Cinit%3E()" class="member-name-link">ControlCompressor()</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/ControlCompressor.html" title="class in frc.robot.commands">ControlCompressor</a></dt>
+<dd>
+<div class="block">Create a new ControlCompressor</div>
 </dd>
 <dt><a href="frc/robot/Controllers.html" class="type-name-link" title="class in frc.robot">Controllers</a> - Class in <a href="frc/robot/package-summary.html">frc.robot</a></dt>
 <dd>
@@ -338,6 +380,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/commands/DeployUrMom.html#%3Cinit%3E()" class="member-name-link">DeployUrMom()</a> - Constructor for class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>
 <div class="block">Creates a new DeployUrMom.</div>
+</dd>
+<dt><a href="frc/robot/subsystems/Compressor.html#disableCompressor()" class="member-name-link">disableCompressor()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Compressor.html" title="class in frc.robot.subsystems">Compressor</a></dt>
+<dd>
+<div class="block">Disables the compressor.</div>
 </dd>
 <dt><a href="frc/robot/Robot.html#disabledExit()" class="member-name-link">disabledExit()</a> - Method in class frc.robot.<a href="frc/robot/Robot.html" title="class in frc.robot">Robot</a></dt>
 <dd>&nbsp;</dd>
@@ -464,6 +510,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/ClimbUp.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ClimbUp.html" title="class in frc.robot.commands">ClimbUp</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/ControlCompressor.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ControlCompressor.html" title="class in frc.robot.commands">ControlCompressor</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html#end(boolean)" class="member-name-link">end(boolean)</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html" title="class in frc.robot.commands.drive">DriveFieldOrientedHeadingSnapping</a></dt>
@@ -521,6 +569,8 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/commands/ClimbDown.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ClimbDown.html" title="class in frc.robot.commands">ClimbDown</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/ClimbUp.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ClimbUp.html" title="class in frc.robot.commands">ClimbUp</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/ControlCompressor.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ControlCompressor.html" title="class in frc.robot.commands">ControlCompressor</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#execute()" class="member-name-link">execute()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
@@ -711,6 +761,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/ClimbUp.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ClimbUp.html" title="class in frc.robot.commands">ClimbUp</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/ControlCompressor.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ControlCompressor.html" title="class in frc.robot.commands">ControlCompressor</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html#initialize()" class="member-name-link">initialize()</a> - Method in class frc.robot.commands.drive.<a href="frc/robot/commands/drive/DriveFieldOrientedHeadingSnapping.html" title="class in frc.robot.commands.drive">DriveFieldOrientedHeadingSnapping</a></dt>
@@ -783,6 +835,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Singleton instance of the intake <a href="frc/robot/subsystems/Camera.html" title="class in frc.robot.subsystems"><code>Camera</code></a> for the whole robot.</div>
 </dd>
+<dt><a href="frc/robot/subsystems/Compressor.html#isAtPressure()" class="member-name-link">isAtPressure()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Compressor.html" title="class in frc.robot.subsystems">Compressor</a></dt>
+<dd>
+<div class="block">Returns true if the compressor is at pressure.</div>
+</dd>
 <dt><a href="frc/robot/commands/AimWithLimelight.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/AimWithLimelight.html" title="class in frc.robot.commands">AimWithLimelight</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/auto/DriveAutoFieldOriented.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.auto.<a href="frc/robot/commands/auto/DriveAutoFieldOriented.html" title="class in frc.robot.commands.auto">DriveAutoFieldOriented</a></dt>
@@ -794,6 +850,8 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/commands/ClimbDown.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ClimbDown.html" title="class in frc.robot.commands">ClimbDown</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/ClimbUp.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ClimbUp.html" title="class in frc.robot.commands">ClimbUp</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="frc/robot/commands/ControlCompressor.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/ControlCompressor.html" title="class in frc.robot.commands">ControlCompressor</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/commands/DeployUrMom.html#isFinished()" class="member-name-link">isFinished()</a> - Method in class frc.robot.commands.<a href="frc/robot/commands/DeployUrMom.html" title="class in frc.robot.commands">DeployUrMom</a></dt>
 <dd>&nbsp;</dd>
@@ -835,14 +893,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:L">L</h2>
 <dl class="index">
-<dt><a href="frc/robot/Constants.MailboxPneumatics.html#LEFT_SOLENOID_FORWARD_CHANNEL" class="member-name-link">LEFT_SOLENOID_FORWARD_CHANNEL</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.MailboxPneumatics.html" title="class in frc.robot">Constants.MailboxPneumatics</a></dt>
-<dd>
-<div class="block">The channel on the PCM for the forward direction on the left solenoid.</div>
-</dd>
-<dt><a href="frc/robot/Constants.MailboxPneumatics.html#LEFT_SOLENOID_REVERSE_CHANNEL" class="member-name-link">LEFT_SOLENOID_REVERSE_CHANNEL</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.MailboxPneumatics.html" title="class in frc.robot">Constants.MailboxPneumatics</a></dt>
-<dd>
-<div class="block">The channel on the PCM for the reverse direction on the left solenoid.</div>
-</dd>
 <dt><a href="frc/robot/Controllers.ControllerAxis.html#LeftX" class="member-name-link">LeftX</a> - Enum constant in enum class frc.robot.<a href="frc/robot/Controllers.ControllerAxis.html" title="enum class in frc.robot">Controllers.ControllerAxis</a></dt>
 <dd>
 <div class="block">Left stick X axis (left to right)</div>
@@ -901,6 +951,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/Constants.Mailbox.html#MAILBOX_LIMIT_SWITCH_DIO_PORT" class="member-name-link">MAILBOX_LIMIT_SWITCH_DIO_PORT</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Mailbox.html" title="class in frc.robot">Constants.Mailbox</a></dt>
 <dd>
 <div class="block">DIO Port ID for the Mailbox limit switch.</div>
+</dd>
+<dt><a href="frc/robot/Constants.MailboxPneumatics.html#MAILBOX_SOLENOID_RELAY_ID" class="member-name-link">MAILBOX_SOLENOID_RELAY_ID</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.MailboxPneumatics.html" title="class in frc.robot">Constants.MailboxPneumatics</a></dt>
+<dd>
+<div class="block">The ID for the relay that controls the mailbox's solenoids</div>
 </dd>
 <dt><a href="frc/robot/RobotContainer.html#mailboxBelts" class="member-name-link">mailboxBelts</a> - Static variable in class frc.robot.<a href="frc/robot/RobotContainer.html" title="class in frc.robot">RobotContainer</a></dt>
 <dd>
@@ -1033,6 +1087,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/Climber.html#periodic()" class="member-name-link">periodic()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Climber.html" title="class in frc.robot.subsystems">Climber</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="frc/robot/subsystems/Compressor.html#periodic()" class="member-name-link">periodic()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Compressor.html" title="class in frc.robot.subsystems">Compressor</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="frc/robot/subsystems/Drive.html#periodic()" class="member-name-link">periodic()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/Drive.html" title="class in frc.robot.subsystems">Drive</a></dt>
 <dd>
 <div class="block">Runs every scheduler run.</div>
@@ -1063,6 +1119,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="frc/robot/Constants.Limelight.AimingLimelight.PipelineNumbers.html#%3Cinit%3E()" class="member-name-link">PipelineNumbers()</a> - Constructor for class frc.robot.<a href="frc/robot/Constants.Limelight.AimingLimelight.PipelineNumbers.html" title="class in frc.robot">Constants.Limelight.AimingLimelight.PipelineNumbers</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="frc/robot/Constants.Compressor.html#PRESSURE_SWITCH_DIO_PORT" class="member-name-link">PRESSURE_SWITCH_DIO_PORT</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.Compressor.html" title="class in frc.robot">Constants.Compressor</a></dt>
+<dd>
+<div class="block">The DIO port for the pressure switch.</div>
+</dd>
 <dt><a href="frc/robot/subsystems/UrMom.html#printUrMom()" class="member-name-link">printUrMom()</a> - Method in class frc.robot.subsystems.<a href="frc/robot/subsystems/UrMom.html" title="class in frc.robot.subsystems">UrMom</a></dt>
 <dd>
 <div class="block">Does what you think it does.</div>
@@ -1081,14 +1141,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="frc/robot/subsystems/mailbox/MailboxPneumatics.html#retract()" class="member-name-link">retract()</a> - Method in class frc.robot.subsystems.mailbox.<a href="frc/robot/subsystems/mailbox/MailboxPneumatics.html" title="class in frc.robot.subsystems.mailbox">MailboxPneumatics</a></dt>
 <dd>
 <div class="block">Lowers the mailbox.</div>
-</dd>
-<dt><a href="frc/robot/Constants.MailboxPneumatics.html#RIGHT_SOLENOID_FORWARD_CHANNEL" class="member-name-link">RIGHT_SOLENOID_FORWARD_CHANNEL</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.MailboxPneumatics.html" title="class in frc.robot">Constants.MailboxPneumatics</a></dt>
-<dd>
-<div class="block">The channel on the PCM for the forward direction on the right solenoid.</div>
-</dd>
-<dt><a href="frc/robot/Constants.MailboxPneumatics.html#RIGHT_SOLENOID_REVERSE_CHANNEL" class="member-name-link">RIGHT_SOLENOID_REVERSE_CHANNEL</a> - Static variable in class frc.robot.<a href="frc/robot/Constants.MailboxPneumatics.html" title="class in frc.robot">Constants.MailboxPneumatics</a></dt>
-<dd>
-<div class="block">The channel on the PCM for the reverse direction on the right solenoid.</div>
 </dd>
 <dt><a href="frc/robot/Controllers.ControllerAxis.html#RightX" class="member-name-link">RightX</a> - Enum constant in enum class frc.robot.<a href="frc/robot/Controllers.ControllerAxis.html" title="enum class in frc.robot">Controllers.ControllerAxis</a></dt>
 <dd>
