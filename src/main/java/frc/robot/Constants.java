@@ -161,10 +161,10 @@ public final class Constants {
       public static final String LIMELIGHT_NAME = "limelight";
 
       /** The number of degrees the Limelight is mounted back from perfectly vertical */
-      public static final double MOUNT_ANGLE = 50;
+      public static final double MOUNT_ANGLE = 45;
 
       /** The number of inches from the center of the Limelight lens to the floor */
-      public static final double MOUNT_HEIGHT = 10.0625;
+      public static final double MOUNT_HEIGHT = 19.5;
 
       /** The height to the Amp Apriltag off the ground. */
       public static final double AMP_APRILTAG_HEIGHT = 53.13;
