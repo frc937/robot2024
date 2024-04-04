@@ -39,7 +39,7 @@ public final class Constants {
   /** Constants for the Pneumatics system. */
   public static final class MailboxPneumatics {
     /** The ID for the relay that controls the mailbox's solenoids */
-    public static final int MAILBOX_SOLENOID_RELAY_ID = 0;
+    public static final int MAILBOX_SOLENOID_RELAY_ID = 1;
   }
 
   /** Constants for the Belts system. */
