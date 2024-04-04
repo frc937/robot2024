@@ -273,6 +273,6 @@ public final class Constants {
      * How many periodic loops do we want to wait for to turn off the compressor. Used to prevent
      * rapidly turning on and off the compressor.
      */
-    public static final int COMPRESSOR_PRESSURE_SWITCH_DEADBAND = 100; /* = 2 Seconds */
+    public static final int COMPRESSOR_PRESSURE_SWITCH_DEADBAND = 50; /* 1 second */
   }
 }
