@@ -38,12 +38,16 @@ import frc.robot.commands.drive.SetDrivePerspectiveFieldOriented;
 import frc.robot.commands.drive.SetDrivePerspectiveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.SetDrivePerspectiveRobotOriented;
 import frc.robot.commands.drive.ZeroGyro;
+import frc.robot.commands.lightstrip.DisabledLight;
+import frc.robot.commands.lightstrip.EnabledLight;
+import frc.robot.commands.lightstrip.NoteLight;
 import frc.robot.commands.mailbox.DeindexNote;
 import frc.robot.commands.mailbox.DeployMailbox;
 import frc.robot.commands.mailbox.DeployPneumatics;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
+import frc.robot.subsystems.AddressableLightStrip;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Compressor;
@@ -234,6 +238,10 @@ public class RobotContainer {
   public static SetDrivePerspectiveFieldOriented setDrivePerspectiveFieldOriented =
       new SetDrivePerspectiveFieldOriented();
 
+  /** Singleton instance of {@link AddressableLightStrip} for the whole robot. */
+  public static AddressableLightStrip robotLights =
+      new AddressableLightStrip(Constants.LightStrips.PWM_ID, Constants.LightStrips.LED_COUNT);
+
   /**
    * Singleton instance of {@link SetDrivePerspectiveFieldOrientedHeadingSnapping} for the whole
    * robot.
@@ -261,6 +269,15 @@ public class RobotContainer {
 
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
+
+  /** Singleton instance of {@link DisabledLight} for the whole robot. */
+  public static DisabledLight disabledLights = new DisabledLight();
+
+  /** Singleton instance of {@link EnableLights} for the whole robot. */
+  public static EnabledLight enabledLights = new EnabledLight();
+
+  /** Singleton instance of {@link NoteLight} for the whole robot. */
+  public static NoteLight noteLight = new NoteLight();
 
   /** Singleton instance of {@link ControlCompressor} for the whole robot. */
   public static ControlCompressor controlCompressor = new ControlCompressor();
@@ -294,6 +311,7 @@ public class RobotContainer {
     startIntakeCamera.schedule();
 
     drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
+    robotLights.setDefaultCommand(enabledLights);
     compressor.setDefaultCommand(controlCompressor);
   }
 

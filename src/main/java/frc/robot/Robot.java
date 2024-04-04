@@ -35,6 +35,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
+    RobotContainer.disabledLights.schedule();
     RobotContainer.mailboxPneumatics.off();
   }
 
@@ -44,6 +45,7 @@ public class Robot extends TimedRobot {
   @Override
   public void disabledExit() {
     RobotContainer.mailboxPneumatics.retract();
+    RobotContainer.disabledLights.cancel();
   }
 
   @Override
