@@ -11,8 +11,7 @@
 
 package frc.robot.subsystems.mailbox;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -21,39 +20,26 @@ import frc.robot.Constants;
  * our robot
  */
 public class MailboxPneumatics extends SubsystemBase {
-  private DoubleSolenoid leftPiston;
-  private DoubleSolenoid rightPiston;
+  private Relay pneumaticsRelay;
 
   /** Constructor for the mailbox pneumatics subsystem. */
   public MailboxPneumatics() {
-    leftPiston =
-        new DoubleSolenoid(
-            PneumaticsModuleType.CTREPCM,
-            Constants.MailboxPneumatics.LEFT_SOLENOID_FORWARD_CHANNEL,
-            Constants.MailboxPneumatics.LEFT_SOLENOID_REVERSE_CHANNEL);
-    rightPiston =
-        new DoubleSolenoid(
-            PneumaticsModuleType.CTREPCM,
-            Constants.MailboxPneumatics.RIGHT_SOLENOID_FORWARD_CHANNEL,
-            Constants.MailboxPneumatics.RIGHT_SOLENOID_REVERSE_CHANNEL);
+    pneumaticsRelay = new Relay(Constants.MailboxPneumatics.MAILBOX_SOLENOID_RELAY_ID);
   }
 
   /** Lifts the mailbox. */
   public void extend() {
-    leftPiston.set(DoubleSolenoid.Value.kForward);
-    rightPiston.set(DoubleSolenoid.Value.kForward);
+    pneumaticsRelay.set(Relay.Value.kForward);
   }
 
   /** Lowers the mailbox. */
   public void retract() {
-    leftPiston.set(DoubleSolenoid.Value.kReverse);
-    rightPiston.set(DoubleSolenoid.Value.kReverse);
+    pneumaticsRelay.set(Relay.Value.kReverse);
   }
 
   /** Sets pistons to off */
   public void off() {
-    leftPiston.set(DoubleSolenoid.Value.kOff);
-    rightPiston.set(DoubleSolenoid.Value.kOff);
+    pneumaticsRelay.set(Relay.Value.kOff);
   }
 
   @Override
