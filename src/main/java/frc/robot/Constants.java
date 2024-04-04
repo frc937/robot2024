@@ -37,17 +37,8 @@ public final class Constants {
 
   /** Constants for the Pneumatics system. */
   public static final class MailboxPneumatics {
-    /** The channel on the PCM for the forward direction on the left solenoid. */
-    public static final int LEFT_SOLENOID_FORWARD_CHANNEL = 5;
-
-    /** The channel on the PCM for the reverse direction on the left solenoid. */
-    public static final int LEFT_SOLENOID_REVERSE_CHANNEL = 4;
-
-    /** The channel on the PCM for the forward direction on the right solenoid. */
-    public static final int RIGHT_SOLENOID_FORWARD_CHANNEL = 7;
-
-    /** The channel on the PCM for the reverse direction on the right solenoid. */
-    public static final int RIGHT_SOLENOID_REVERSE_CHANNEL = 6;
+    /** The ID for the relay that controls the mailbox's solenoids */
+    public static final int MAILBOX_SOLENOID_RELAY_ID = 0;
   }
 
   /** Constants for the Belts system. */
@@ -233,5 +224,20 @@ public final class Constants {
   public static final class Camera {
     /** The camera id for the intake camera. */
     public static final int INTAKE_CAMERA_ID = 0;
+  }
+
+  /** The constants for the Compressor */
+  public static final class Compressor {
+    /** The DIO port for the pressure switch. */
+    public static final int PRESSURE_SWITCH_DIO_PORT = 9;
+
+    /** The relay port for the compressor */
+    public static final int COMPRESSOR_RELAY_PORT = 0;
+
+    /**
+     * How many periodic loops do we want to wait for to turn off the compressor. Used to prevent
+     * rapidly turning on and off the compressor.
+     */
+    public static final int COMPRESSOR_PRESSURE_SWITCH_DEADBAND = 100; /* = 2 Seconds */
   }
 }

@@ -23,6 +23,7 @@ import frc.robot.commands.AimWithLimelight;
 import frc.robot.commands.ClearPDPStickyFaults;
 import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
+import frc.robot.commands.ControlCompressor;
 import frc.robot.commands.DeployUrMom;
 import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
@@ -45,6 +46,7 @@ import frc.robot.commands.mailbox.FireNoteRoutineNoLimitSwitch;
 import frc.robot.commands.mailbox.RunBelts;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Compressor;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Limelight;
@@ -98,6 +100,9 @@ public class RobotContainer {
 
   /** Singleton instance of the intake {@link Camera} for the whole robot. */
   public static Camera intakeCamera = new Camera(Constants.Camera.INTAKE_CAMERA_ID);
+
+  /** Singleton instance of the intake {@link Compressor} for the whole robot. */
+  public static Compressor compressor = new Compressor();
 
   /*
    * ************
@@ -257,6 +262,9 @@ public class RobotContainer {
   /** Singleton instance of {@link ZeroGyro} for the whole robot. */
   public static ZeroGyro zeroGyro = new ZeroGyro();
 
+  /** Singleton instance of {@link ControlCompressor} for the whole robot. */
+  public static ControlCompressor controlCompressor = new ControlCompressor();
+
   /*
    * ***********************
    * * OTHER INSTANCE VARS *
@@ -286,6 +294,7 @@ public class RobotContainer {
     startIntakeCamera.schedule();
 
     drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
+    compressor.setDefaultCommand(controlCompressor);
   }
 
   private void configureAuto() {
