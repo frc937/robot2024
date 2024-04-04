@@ -328,6 +328,8 @@ public class RobotContainer {
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
     autoChooser.addOption("Taxi", taxiAuto);
 
+    autoChooser.addOption("One Note With Limelight", onePieceAuto);
+
     Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
 
