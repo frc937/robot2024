@@ -12,10 +12,7 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.Constants;
-import frc.robot.RobotContainer;
 import frc.robot.commands.AimAndFireRoutine;
-import frc.robot.commands.SeekTargetWithLimelight;
 
 /* Enter weeb joke here. */
 /**
@@ -27,11 +24,10 @@ public class OnePieceAuto extends SequentialCommandGroup {
   /** Creates a new OnePieceAuto. */
   public OnePieceAuto() {
     addCommands(
-        new SeekTargetWithLimelight(
-            RobotContainer.limelight,
-            Constants.Limelight.AimingLimelight.PipelineNumbers.AMP_PIPELINE_NUMBER,
-            Constants.Limelight.LIMELIGHT_SEEKING_RADIANS_PER_SECOND),
-        new AimAndFireRoutine(),
-        new MoveAwayFromAmp());
+        /* new SeekTargetWithLimelight(
+        RobotContainer.limelight,
+        Constants.Limelight.AimingLimelight.PipelineNumbers.AMP_PIPELINE_NUMBER,
+        Constants.Limelight.LIMELIGHT_SEEKING_RADIANS_PER_SECOND),*/
+        new AimAndFireRoutine(), new MoveAwayFromAmp());
   }
 }
