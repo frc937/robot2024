@@ -175,7 +175,7 @@ public final class Constants {
       /**
        * How hard to turn toward the target. Double between 0 and 1, standard way to drive a motor
        */
-      public static final double STEER_STRENGTH = 0.01;
+      public static final double STEER_STRENGTH = 0.02;
 
       /** How hard to drive toward the target. Same notation as above. */
       public static final double DRIVE_STRENGTH = 0.01;
@@ -233,7 +233,7 @@ public final class Constants {
     public static final int PWM_ID = 0;
 
     /** The count of LEDs for the lights. */
-    public static final int LED_COUNT = 150;
+    public static final int LED_COUNT = 149;
 
     /** The speed of the fade animation. [0, 1] */
     public static final double STRIP_FADE_SPEED = 0.05;
