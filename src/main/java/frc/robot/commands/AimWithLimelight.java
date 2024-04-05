@@ -12,19 +12,21 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Limelight;
+import swervelib.SwerveController;
 
 /** Aims with the limelight towards an object. */
 public class AimWithLimelight extends Command {
   private Drive drive;
   private Limelight limelight;
 
-  private boolean finished, hasSeenTarget;
-  private int counter;
-
+  private boolean finished, hasSeenTarget, isBlueAlliance;
+  private int counter, snapAngleXComponent;
   private double steerStrength,
       desiredDistanceFromTarget,
       mountHeight,
@@ -142,9 +144,17 @@ public class AimWithLimelight extends Command {
   public void initialize() {
     this.oldPipelineNumber = limelight.getLimelightPipeline();
     limelight.setLimelightPipeline(pipelineNumber);
+    drive.setHeadingCorrection(true);
     this.finished = false;
     this.hasSeenTarget = false;
     this.counter = 0;
+
+    this.snapAngleXComponent = -1;
+
+    var alliance = DriverStation.getAlliance();
+    if (alliance.isPresent() ? alliance.get() == DriverStation.Alliance.Red : false) {
+      this.snapAngleXComponent *= -1;
+    }
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -155,9 +165,13 @@ public class AimWithLimelight extends Command {
       /* Remember if we've seen a target so that we can assume we're aimed if we lose sight of the target
        * Only reason we assume this is because of where the Limelight is, which results in us not actually seeing the target if we're properly aimed
        */
-      hasSeenTarget = true;
+      // hasSeenTarget = true;
 
-      drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), -1 * getRotation(), false);
+      ChassisSpeeds desiredSpeeds =
+          drive.getTargetSpeeds(getX(), getRotation(), snapAngleXComponent, 0);
+
+      Translation2d translation = SwerveController.getTranslation2d(desiredSpeeds);
+      drive.driveRobot(translation, desiredSpeeds.omegaRadiansPerSecond, false);
 
       /* End the command if we're at our "aimed" threshold */
       if (isAngled() && isDistanced()) {
