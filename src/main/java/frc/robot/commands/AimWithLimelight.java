@@ -155,9 +155,9 @@ public class AimWithLimelight extends Command {
       /* Remember if we've seen a target so that we can assume we're aimed if we lose sight of the target
        * Only reason we assume this is because of where the Limelight is, which results in us not actually seeing the target if we're properly aimed
        */
-      hasSeenTarget = true;
+      // hasSeenTarget = true;
 
-      drive.driveRobot(new Translation2d(getX() * -1.0, 0.0), -1 * getRotation(), false);
+      drive.driveRobot(new Translation2d(getX(), getRotation()), 0, false);
 
       /* End the command if we're at our "aimed" threshold */
       if (isAngled() && isDistanced()) {
