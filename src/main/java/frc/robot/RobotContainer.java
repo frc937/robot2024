@@ -31,7 +31,10 @@ import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.StartCamera;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
+import frc.robot.commands.auto.OnePieceAutoButItWorksISwear;
+import frc.robot.commands.auto.PickUpFromCenterAuto;
 import frc.robot.commands.auto.TaxiAuto;
+import frc.robot.commands.auto.TaxiLongAuto;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.DriveRobot;
 import frc.robot.commands.drive.SetDrivePerspectiveFieldOriented;
@@ -261,6 +264,13 @@ public class RobotContainer {
   /** Singleton instance of {@link OnePieceAuto} for the whole robot. */
   public static OnePieceAuto onePieceAuto = new OnePieceAuto();
 
+  public static OnePieceAutoButItWorksISwear onePieceAutoButItWorksISwear =
+      new OnePieceAutoButItWorksISwear();
+
+  public static TaxiLongAuto taxiLongAuto = new TaxiLongAuto();
+
+  public static PickUpFromCenterAuto pickUpFromCenterAuto = new PickUpFromCenterAuto();
+
   /** Singleton instance of {@link TaxiAuto} for the whole robot. */
   public static TaxiAuto taxiAuto = new TaxiAuto();
 
@@ -328,7 +338,13 @@ public class RobotContainer {
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
     autoChooser.addOption("Taxi", taxiAuto);
 
-    autoChooser.addOption("One Note With Limelight", onePieceAuto);
+    // autoChooser.addOption("One Note With Limelight", onePieceAuto);
+
+    autoChooser.addOption("WORKING ONE PIECE AUTO I HOPE", onePieceAutoButItWorksISwear);
+
+    autoChooser.addOption("LONG taxi auto", taxiLongAuto);
+
+    autoChooser.addOption("Pick Up Note From Center", pickUpFromCenterAuto);
 
     Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
