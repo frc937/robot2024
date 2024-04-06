@@ -103,7 +103,7 @@ public final class Controllers {
     operatorController.povDown().whileTrue(RobotContainer.runIntakeReverse);
     operatorController.leftTrigger().whileTrue(RobotContainer.aimToAmp);
     operatorController.rightTrigger().whileTrue(RobotContainer.fireNote);
-    pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedHeadingSnapping);
+    pilotController.leftBumper().whileTrue(RobotContainer.driveFieldOrientedSprint);
 
     /* TODO: angle / velocity steering toggle w/ right trigger (no issue) */
 
@@ -123,6 +123,7 @@ public final class Controllers {
     pilotController.b().whileTrue(RobotContainer.fireNote);
     pilotController.x().whileTrue(RobotContainer.climbUp);
     pilotController.y().whileTrue(RobotContainer.climbDown);
+    pilotController.rightBumper().whileTrue(RobotContainer.driveFieldOrientedHeadingSnapping);
 
     keymapEntry.setString("Operatorless");
   }
