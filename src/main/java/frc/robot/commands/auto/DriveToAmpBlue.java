@@ -12,19 +12,37 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class DriveToAmpBlue extends ParallelDeadlineGroup {
+public class DriveToAmpBlue extends SequentialCommandGroup {
 
   /** Creates a new DriveToAmp. */
   public DriveToAmpBlue() {
     super(
-        new WaitCommand(2),
-        new DriveFieldOrientedHeadingSnapping(
-            () -> 1.0, () -> 0.0, () -> 0.0, () -> false, () -> false, () -> true, () -> false));
+        new ParallelDeadlineGroup(
+            new WaitCommand(1),
+            new DriveFieldOrientedHeadingSnapping(
+                () -> 0.0,
+                () -> 0.0,
+                () -> 0.0,
+                () -> false,
+                () -> false,
+                () -> true,
+                () -> false)),
+        new ParallelDeadlineGroup(
+            new WaitCommand(0.5),
+            new DriveFieldOrientedHeadingSnapping(
+                () -> 0.0,
+                () -> 1.0,
+                () -> 0.0,
+                () -> false,
+                () -> false,
+                () -> false,
+                () -> false)));
   }
 }
