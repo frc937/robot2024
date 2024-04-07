@@ -118,6 +118,7 @@ public class DriveFieldOrientedHeadingSnapping extends Command {
   @Override
   public void end(boolean interrupted) {
     drive.setHeadingCorrection(false);
+    drive.stop();
   }
 
   // Returns true when the command should end.
