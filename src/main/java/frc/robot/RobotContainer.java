@@ -29,6 +29,7 @@ import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.StartCamera;
+import frc.robot.commands.auto.DriveToCenterAuto;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
 import frc.robot.commands.auto.OnePieceAutoButItWorksISwear;
@@ -271,6 +272,8 @@ public class RobotContainer {
 
   public static PickUpFromCenterAuto pickUpFromCenterAuto = new PickUpFromCenterAuto();
 
+  public static DriveToCenterAuto driveToCenterAuto = new DriveToCenterAuto();
+
   /** Singleton instance of {@link TaxiAuto} for the whole robot. */
   public static TaxiAuto taxiAuto = new TaxiAuto();
 
@@ -345,6 +348,8 @@ public class RobotContainer {
     autoChooser.addOption("LONG taxi auto", taxiLongAuto);
 
     autoChooser.addOption("Pick Up Note From Center", pickUpFromCenterAuto);
+
+    autoChooser.addOption("NO INTAKE drive to center", driveToCenterAuto);
 
     Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
