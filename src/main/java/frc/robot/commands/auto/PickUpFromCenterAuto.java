@@ -11,11 +11,11 @@
 
 package frc.robot.commands.auto;
 
-import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.RunIntake;
+import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -28,6 +28,14 @@ public class PickUpFromCenterAuto extends ParallelCommandGroup {
     addCommands(
         new RunIntake(),
         new ParallelDeadlineGroup(
-            new WaitCommand(5), new DriveAutoRobotOriented(new Translation2d(1, 0), 0)));
+            new WaitCommand(5),
+            new DriveFieldOrientedHeadingSnapping(
+                () -> 1.0,
+                () -> 0.0,
+                () -> 0.0,
+                () -> false,
+                () -> true,
+                () -> false,
+                () -> false)));
   }
 }
