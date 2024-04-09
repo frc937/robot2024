@@ -32,11 +32,10 @@ public class MailboxBelts extends SubsystemBase {
     lowerBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
 
     upperBeltMotor.setInverted(Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED);
+    lowerBeltMotor.follow(upperBeltMotor, Constants.MailboxBelts.BELTS_FOLLOWER_INVERSE_STATE);
 
     upperBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
     lowerBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
-
-    lowerBeltMotor.follow(upperBeltMotor, Constants.MailboxBelts.BELTS_FOLLOWER_INVERSE_STATE);
 
     upperBeltMotor.burnFlash();
     lowerBeltMotor.burnFlash();
