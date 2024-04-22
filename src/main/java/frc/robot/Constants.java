@@ -130,7 +130,16 @@ public final class Constants {
       public static final double LEFT_WAIT_TIME = 1;
 
       /** The time for the robot to drive forwards towards the amp. */
-      public static final double FORWARD_WAIT_TIME = 0.1;
+      public static final double FORWARD_WAIT_TIME = 0.5;
+    }
+
+    /** Constants for the DriveToAmpRed auto */
+    public static class DriveToAmpRed {
+      /** The time for the robot to drive left towards the amp. */
+      public static final double LEFT_WAIT_TIME = 1;
+
+      /** The time for the robot to drive forwards towards the amp. */
+      public static final double FORWARD_WAIT_TIME = 0.5;
     }
   }
 
