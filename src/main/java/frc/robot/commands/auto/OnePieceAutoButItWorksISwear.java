@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 // One piece - the anime thing
-/** Auto that drives to the amp and offloads the note. */
+/** Auto that manually drives to the amp and offloads the note. Made due to faulty limelight at comp. */
 public class OnePieceAutoButItWorksISwear extends SequentialCommandGroup {
   /** Creates a new OnePieceAutoButItWorksISwear. */
   public OnePieceAutoButItWorksISwear() {
