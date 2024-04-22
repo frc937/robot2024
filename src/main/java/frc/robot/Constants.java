@@ -123,6 +123,15 @@ public final class Constants {
 
     /** The amount of time that we want to run the fire note command in auto. */
     public static final double FIRE_NOTE_FOR_TIME = 4.0;
+
+    /** Constants for the DriveToAmpBlue auto */
+    public static class DriveToAmpBlue {
+      /** The time for the robot to drive left towards the amp. */
+      public static final double LEFT_WAIT_TIME = 1;
+
+      /** The time for the robot to drive forwards towards the amp. */
+      public static final double FORWARD_WAIT_TIME = 0.1;
+    }
   }
 
   /** Constants for the Intake System */
