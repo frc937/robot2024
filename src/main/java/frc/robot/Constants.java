@@ -141,6 +141,10 @@ public final class Constants {
       /** The time for the robot to drive forwards towards the amp. */
       public static final double FORWARD_WAIT_TIME = 0.5;
     }
+
+    public static class DriveToCenter {
+      public static final double DRIVE_CENTER_WAIT_TIME = 5.0;
+    }
   }
 
   /** Constants for the Intake System */

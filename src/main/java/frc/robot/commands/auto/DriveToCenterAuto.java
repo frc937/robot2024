@@ -14,6 +14,7 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.Constants;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -26,7 +27,7 @@ public class DriveToCenterAuto extends ParallelCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
         new ParallelDeadlineGroup(
-            new WaitCommand(5),
+            new WaitCommand(Constants.Auto.DriveToCenter.DRIVE_CENTER_WAIT_TIME),
             new DriveFieldOrientedHeadingSnapping(
                 () -> 1.0,
                 () -> 0.0,
