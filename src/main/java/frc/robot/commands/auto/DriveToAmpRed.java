@@ -19,9 +19,10 @@ import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
+/** Drives bot to red amp. */
 public class DriveToAmpRed extends SequentialCommandGroup {
 
-  /** Creates a new DriveToAmp. */
+  /** Creates a new DriveToAmpRed. */
   public DriveToAmpRed() {
     super(
         new ParallelDeadlineGroup(
