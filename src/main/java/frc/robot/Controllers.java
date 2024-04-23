@@ -123,7 +123,7 @@ public final class Controllers {
     pilotController.b().whileTrue(RobotContainer.fireNote);
     pilotController.x().whileTrue(RobotContainer.climbUp);
     pilotController.y().whileTrue(RobotContainer.climbDown);
-    pilotController.rightBumper().whileTrue(RobotContainer.driveFieldOrientedSprint);
+    pilotController.rightBumper().whileTrue(RobotContainer.driveFieldOrientedHeadingSnapping);
 
     keymapEntry.setString("Operatorless");
   }
