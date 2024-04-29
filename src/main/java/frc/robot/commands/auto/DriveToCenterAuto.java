@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
+/** Auto that drives bot to center of field. */
 public class DriveToCenterAuto extends ParallelCommandGroup {
   /** Creates a new PickUpFromCenterAuto. */
   public DriveToCenterAuto() {

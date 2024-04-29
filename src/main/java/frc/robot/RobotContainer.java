@@ -269,13 +269,17 @@ public class RobotContainer {
   /** Singleton instance of {@link OnePieceAuto} for the whole robot. */
   public static OnePieceAuto onePieceAuto = new OnePieceAuto();
 
+  /** Singleton instance of {@link OnePieceAutoButItWorksISwear} for the whole robot. */
   public static OnePieceAutoButItWorksISwear onePieceAutoButItWorksISwear =
       new OnePieceAutoButItWorksISwear();
 
+  /** Singleton instance of {@link TaxiLongAuto} for the whole robot. */
   public static TaxiLongAuto taxiLongAuto = new TaxiLongAuto();
 
+  /** Singleton instance of {@link PickUpFromCenterAuto} for the whole robot. */
   public static PickUpFromCenterAuto pickUpFromCenterAuto = new PickUpFromCenterAuto();
 
+  /** Singleton instance of {@link DriveToCenterAuto} for the whole robot. */
   public static DriveToCenterAuto driveToCenterAuto = new DriveToCenterAuto();
 
   /** Singleton instance of {@link TaxiAuto} for the whole robot. */
@@ -290,7 +294,7 @@ public class RobotContainer {
   /** Singleton instance of {@link DisabledLight} for the whole robot. */
   public static DisabledLight disabledLights = new DisabledLight();
 
-  /** Singleton instance of {@link EnableLights} for the whole robot. */
+  /** Singleton instance of {@link EnabledLight} for the whole robot. */
   public static EnabledLight enabledLights = new EnabledLight();
 
   /** Singleton instance of {@link NoteLight} for the whole robot. */

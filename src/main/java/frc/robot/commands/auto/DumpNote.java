@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 
+/** Auto that dumps the preloaded note in the robot after 4 seconds. */
 public class DumpNote extends ParallelDeadlineGroup {
   /** Creates a new DumpNote. */
   public DumpNote() {

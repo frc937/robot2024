@@ -46,8 +46,8 @@ public class AddressableLightStrip extends SubsystemBase {
   /**
    * Sets a light on the light strip to a {@link edu.wpi.first.wpilibj.util.Color}
    *
-   * @param lightNumber
-   * @param color
+   * @param lightNumber the number of the LED.
+   * @param color The color to set the LED to.
    */
   public void setColorLight(int lightNumber, Color color) {
     if (lightNumber > this.buffer.getLength()) {

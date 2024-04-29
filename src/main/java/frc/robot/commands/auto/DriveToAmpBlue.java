@@ -17,9 +17,10 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
+/** Auto that manually drives bot to blue amp. Made due to faulty limelight at comp. */
 public class DriveToAmpBlue extends SequentialCommandGroup {
 
-  /** Creates a new DriveToAmp. */
+  /** Creates a new DriveToAmpBlue. */
   public DriveToAmpBlue() {
     super(
         new ParallelDeadlineGroup(

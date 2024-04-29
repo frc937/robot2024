@@ -15,6 +15,10 @@ import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.RobotContainer;
 
+// One piece - the anime thing
+/**
+ * Auto that manually drives to the amp and offloads the note. Made due to faulty limelight at comp.
+ */
 public class OnePieceAutoButItWorksISwear extends SequentialCommandGroup {
   /** Creates a new OnePieceAutoButItWorksISwear. */
   public OnePieceAutoButItWorksISwear() {

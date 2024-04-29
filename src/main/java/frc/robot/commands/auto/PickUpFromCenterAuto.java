@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
+/** Auto that drives the bot to a note and intakes it. */
 public class PickUpFromCenterAuto extends ParallelCommandGroup {
   /** Creates a new PickUpFromCenterAuto. */
   public PickUpFromCenterAuto() {
