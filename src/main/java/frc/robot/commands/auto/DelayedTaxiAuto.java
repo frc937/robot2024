@@ -19,8 +19,6 @@ import frc.robot.Constants;
 public class DelayedTaxiAuto extends SequentialCommandGroup {
   /** Creates a new DelayedTaxiAuto. */
   public DelayedTaxiAuto() {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
     addCommands(new WaitCommand(Constants.Auto.TAXI_DELAY_TIME), new TaxiAuto());
   }
 }
