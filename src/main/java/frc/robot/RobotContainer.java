@@ -29,6 +29,7 @@ import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.StartCamera;
+import frc.robot.commands.auto.DelayedTaxiAuto;
 import frc.robot.commands.auto.DriveToCenterAuto;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
@@ -277,6 +278,9 @@ public class RobotContainer {
   /** Singleton instance of {@link TaxiAuto} for the whole robot. */
   public static TaxiAuto taxiAuto = new TaxiAuto();
 
+  /** Singleton instance of {@link DelayedTaxiAuto} for the whole robot. */
+  public static DelayedTaxiAuto delayedTaxiAuto = new DelayedTaxiAuto();
+
   /** Singleton instance of {@link ClearPDPStickyFaults} for the whole robot. */
   public static ClearPDPStickyFaults clearPDPStickyFaults = new ClearPDPStickyFaults();
 
@@ -350,6 +354,8 @@ public class RobotContainer {
     autoChooser.addOption("Pick Up Note From Center", pickUpFromCenterAuto);
 
     autoChooser.addOption("NO INTAKE drive to center", driveToCenterAuto);
+
+    autoChooser.addOption("Taxi with 10 second delay", delayedTaxiAuto);
 
     Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
