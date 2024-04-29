@@ -123,6 +123,9 @@ public final class Constants {
 
     /** The amount of time that we want to run the fire note command in auto. */
     public static final double FIRE_NOTE_FOR_TIME = 4.0;
+
+    /** Time in seconds that we delay our taxi in the delayed taxi auto. */
+    public static final double TAXI_DELAY_TIME = 10.0;
   }
 
   /** Constants for the Intake System */
