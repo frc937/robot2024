@@ -11,8 +11,9 @@
 
 package frc.robot.commands.auto;
 
-import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.RobotContainer;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -22,8 +23,7 @@ public class OnePieceAutoButItWorksISwear extends SequentialCommandGroup {
   public OnePieceAutoButItWorksISwear() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    var alliance = DriverStation.getAlliance();
-    if (alliance.isPresent() ? alliance.get() == DriverStation.Alliance.Red : false) {
+    if (RobotContainer.getAlliance() == Alliance.Red) {
       addCommands(new DriveToAmpRed(), new DumpNote());
     } else {
       addCommands(new DriveToAmpBlue(), new DumpNote());

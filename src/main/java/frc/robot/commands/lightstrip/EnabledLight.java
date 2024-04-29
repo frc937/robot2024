@@ -11,13 +11,11 @@
 
 package frc.robot.commands.lightstrip;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.AddressableLightStrip;
-import java.util.Optional;
 
 /** Activates the light strip when the robot is enabled. */
 public class EnabledLight extends Command {
@@ -32,16 +30,13 @@ public class EnabledLight extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Optional<Alliance> alliance = DriverStation.getAlliance();
-    if (alliance.isPresent()) {
-      if (alliance.get() == Alliance.Red) {
-        robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_RED_ALLIANCE);
-      } else {
-        robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_BLUE_ALLIANCE);
-      }
+
+    if (RobotContainer.getAlliance() == Alliance.Red) {
+      robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_RED_ALLIANCE);
     } else {
-      robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_NO_ALLIANCE);
+      robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_BLUE_ALLIANCE);
     }
+
     robotLights.flush();
     robotLights.startLights();
   }

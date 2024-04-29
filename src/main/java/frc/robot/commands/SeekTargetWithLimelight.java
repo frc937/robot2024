@@ -52,8 +52,7 @@ public class SeekTargetWithLimelight extends Command {
     this.oldPipelineNumber = limelight.getLimelightPipeline();
     limelight.setLimelightPipeline(seekingPipelineNumber);
 
-    var alliance = DriverStation.getAlliance();
-    if (alliance.isPresent() ? alliance.get() == DriverStation.Alliance.Red : false) {
+    if (RobotContainer.getAlliance() == DriverStation.Alliance.Red) {
       this.rotationRadiansPerSecond = rotationRadiansPerSecond * -1;
     }
   }

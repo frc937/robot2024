@@ -13,6 +13,8 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -63,6 +65,8 @@ import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
+import java.util.Optional;
+import org.jspecify.annotations.Nullable;
 
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
 @SuppressWarnings("unused")
@@ -376,5 +380,19 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     return autoChooser.getSelected();
+  }
+
+  /**
+   * Gets the current alliance. Returns null if there is no alliance.
+   *
+   * @return the current alliance. Nullable.
+   */
+  public static @Nullable Alliance getAlliance() {
+    Optional<Alliance> alliance = DriverStation.getAlliance();
+    if (!alliance.isEmpty()) {
+      return alliance.get();
+    } else {
+      return null;
+    }
   }
 }
