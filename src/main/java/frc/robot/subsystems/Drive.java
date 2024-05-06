@@ -19,7 +19,6 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.networktables.GenericEntry;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
@@ -80,7 +79,7 @@ public class Drive extends SubsystemBase {
           /* This will flip the path being followed to the red side of the field. */
           /* THE ORIGIN WILL REMAIN ON THE BLUE SIDE */
 
-          return RobotContainer.getAlliance() == DriverStation.Alliance.Red;
+          return RobotContainer.getAlliance();
         },
         this /* Reference to this subsystem to set requirements */);
   }

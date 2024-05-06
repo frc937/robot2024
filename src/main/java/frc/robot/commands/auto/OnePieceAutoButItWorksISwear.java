@@ -11,7 +11,6 @@
 
 package frc.robot.commands.auto;
 
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.RobotContainer;
 
@@ -23,7 +22,7 @@ public class OnePieceAutoButItWorksISwear extends SequentialCommandGroup {
   /** Creates a new OnePieceAutoButItWorksISwear. */
   public OnePieceAutoButItWorksISwear() {
 
-    if (RobotContainer.getAlliance() == Alliance.Red) {
+    if (RobotContainer.getAlliance()) {
       addCommands(new DriveToAmpRed(), new DumpNote());
     } else {
       addCommands(new DriveToAmpBlue(), new DumpNote());

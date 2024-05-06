@@ -11,7 +11,6 @@
 
 package frc.robot.commands.lightstrip;
 
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -31,7 +30,7 @@ public class EnabledLight extends Command {
   @Override
   public void initialize() {
 
-    if (RobotContainer.getAlliance() == Alliance.Red) {
+    if (RobotContainer.getAlliance()) {
       robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_RED_ALLIANCE);
     } else {
       robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_BLUE_ALLIANCE);

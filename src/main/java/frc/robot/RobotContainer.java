@@ -67,7 +67,6 @@ import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
 import java.util.Optional;
-import org.jspecify.annotations.Nullable;
 
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
 @SuppressWarnings("unused")
@@ -397,12 +396,12 @@ public class RobotContainer {
    *
    * @return the current alliance. Nullable.
    */
-  public static @Nullable Alliance getAlliance() {
+  public static boolean getAlliance() {
     Optional<Alliance> alliance = DriverStation.getAlliance();
     if (!alliance.isEmpty()) {
-      return alliance.get();
+      return alliance.get() == Alliance.Red;
     } else {
-      return null;
+      return false;
     }
   }
 }

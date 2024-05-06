@@ -127,6 +127,12 @@ public final class Constants {
     /** Time in seconds that we delay our taxi in the delayed taxi auto. */
     public static final double TAXI_DELAY_TIME = 10.0;
 
+    /** Time in seconds that we wait for FireNoteRoutine to end. */
+    public static final double DUMP_NOTE_WAIT_TIME = 4.0;
+
+    /** Time in seconds that we wait for PickupFromCenter to end. */
+    public static final double PICKUP_CENTER_WAIT_TIME = 5.0;
+
     /** Constants for the DriveToAmpBlue auto */
     public static class DriveToAmpBlue {
       /** The time for the robot to drive left towards the amp. */

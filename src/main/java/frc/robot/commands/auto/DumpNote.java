@@ -13,12 +13,13 @@ package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.Constants;
 import frc.robot.commands.mailbox.FireNoteRoutine;
 
 /** Auto that dumps the preloaded note in the robot after 4 seconds. */
 public class DumpNote extends ParallelDeadlineGroup {
   /** Creates a new DumpNote. */
   public DumpNote() {
-    super(new WaitCommand(4), new FireNoteRoutine());
+    super(new WaitCommand(Constants.Auto.DUMP_NOTE_WAIT_TIME), new FireNoteRoutine());
   }
 }

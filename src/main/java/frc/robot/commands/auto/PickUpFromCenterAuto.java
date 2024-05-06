@@ -14,6 +14,7 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.Constants;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
@@ -25,7 +26,7 @@ public class PickUpFromCenterAuto extends ParallelCommandGroup {
     addCommands(
         new RunIntake(),
         new ParallelDeadlineGroup(
-            new WaitCommand(5),
+            new WaitCommand(Constants.Auto.PICKUP_CENTER_WAIT_TIME),
             new DriveFieldOrientedHeadingSnapping(
                 () -> 1.0,
                 () -> 0.0,
