@@ -151,7 +151,9 @@ public final class Constants {
       public static final double FORWARD_WAIT_TIME = 0.5;
     }
 
+    /** Constants for the auto that drives bot to center of field. */
     public static class DriveToCenter {
+      /** The time for the robot to drive to the center. */
       public static final double DRIVE_CENTER_WAIT_TIME = 5.0;
     }
   }

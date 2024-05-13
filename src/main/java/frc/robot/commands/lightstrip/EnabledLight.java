@@ -30,7 +30,7 @@ public class EnabledLight extends Command {
   @Override
   public void initialize() {
 
-    if (RobotContainer.getAlliance()) {
+    if (RobotContainer.isRedAlliance()) {
       robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_RED_ALLIANCE);
     } else {
       robotLights.setStripColor(Constants.LightStrips.Colors.ENABLE_COLOR_BLUE_ALLIANCE);

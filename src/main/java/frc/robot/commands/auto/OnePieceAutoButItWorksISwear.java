@@ -22,7 +22,7 @@ public class OnePieceAutoButItWorksISwear extends SequentialCommandGroup {
   /** Creates a new OnePieceAutoButItWorksISwear. */
   public OnePieceAutoButItWorksISwear() {
 
-    if (RobotContainer.getAlliance()) {
+    if (RobotContainer.isRedAlliance()) {
       addCommands(new DriveToAmpRed(), new DumpNote());
     } else {
       addCommands(new DriveToAmpBlue(), new DumpNote());

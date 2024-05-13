@@ -79,7 +79,7 @@ public class Drive extends SubsystemBase {
           /* This will flip the path being followed to the red side of the field. */
           /* THE ORIGIN WILL REMAIN ON THE BLUE SIDE */
 
-          return RobotContainer.getAlliance();
+          return RobotContainer.isRedAlliance();
         },
         this /* Reference to this subsystem to set requirements */);
   }

@@ -392,11 +392,11 @@ public class RobotContainer {
   }
 
   /**
-   * Gets the current alliance. Returns null if there is no alliance.
+   * Returns true if the robot is on the red alliance. False otherwise.
    *
-   * @return the current alliance. Nullable.
+   * @return True if the robot is on the red alliance. False otherwise.
    */
-  public static boolean getAlliance() {
+  public static boolean isRedAlliance() {
     Optional<Alliance> alliance = DriverStation.getAlliance();
     if (!alliance.isEmpty()) {
       return alliance.get() == Alliance.Red;
