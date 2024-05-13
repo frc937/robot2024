@@ -133,6 +133,9 @@ public final class Constants {
     /** Time in seconds that we wait for PickupFromCenter to end. */
     public static final double PICKUP_CENTER_WAIT_TIME = 5.0;
 
+    /** Time in seconds that we wait for TaxiLongAuto to end. */
+    public static final double TAXI_LONG_WAIT_TIME = 2.0;
+
     /** Constants for the DriveToAmpBlue auto */
     public static class DriveToAmpBlue {
       /** The time for the robot to drive left towards the amp. */
