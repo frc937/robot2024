@@ -24,7 +24,7 @@ public class DriveToAmpBlue extends SequentialCommandGroup {
   public DriveToAmpBlue() {
     super(
         new ParallelDeadlineGroup(
-            new WaitCommand(Constants.Auto.DriveToAmpBlue.LEFT_WAIT_TIME),
+            new WaitCommand(Constants.Auto.DriveToAmp.SNAPPING_TIME),
             new DriveFieldOrientedHeadingSnapping(
                 () -> 0.0,
                 () -> 0.0,
@@ -34,7 +34,7 @@ public class DriveToAmpBlue extends SequentialCommandGroup {
                 () -> true,
                 () -> false)),
         new ParallelDeadlineGroup(
-            new WaitCommand(Constants.Auto.DriveToAmpBlue.FORWARD_WAIT_TIME),
+            new WaitCommand(Constants.Auto.DriveToAmp.DRIVE_TO_AMP_TIME),
             new DriveFieldOrientedHeadingSnapping(
                 () -> 0.0,
                 () -> 1.0,

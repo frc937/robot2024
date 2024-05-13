@@ -136,22 +136,13 @@ public final class Constants {
     /** Time in seconds that we wait for TaxiLongAuto to end. */
     public static final double TAXI_LONG_WAIT_TIME = 2.0;
 
-    /** Constants for the DriveToAmpBlue auto */
-    public static class DriveToAmpBlue {
-      /** The time for the robot to drive left towards the amp. */
-      public static final double LEFT_WAIT_TIME = 1;
+    /** Constants for the DriveToAmp autos */
+    public static class DriveToAmp {
+      /** The time that the robot spends snapping to the appropriate angle. */
+      public static final double SNAPPING_TIME = 1;
 
-      /** The time for the robot to drive forwards towards the amp. */
-      public static final double FORWARD_WAIT_TIME = 0.5;
-    }
-
-    /** Constants for the DriveToAmpRed auto */
-    public static class DriveToAmpRed {
-      /** The time for the robot to drive left towards the amp. */
-      public static final double LEFT_WAIT_TIME = 1;
-
-      /** The time for the robot to drive forwards towards the amp. */
-      public static final double FORWARD_WAIT_TIME = 0.5;
+      /** The time for the robot to drive towards the amp. */
+      public static final double DRIVE_TO_AMP_TIME = 0.5;
     }
 
     /** Constants for the auto that drives bot to center of field. */
