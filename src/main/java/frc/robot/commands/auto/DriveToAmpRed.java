@@ -14,11 +14,9 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.Constants;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 
-// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
-// information, see:
-// https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 /** Auto that manually drives bot to red amp. Made due to faulty limelight at comp. */
 public class DriveToAmpRed extends SequentialCommandGroup {
 
@@ -26,7 +24,7 @@ public class DriveToAmpRed extends SequentialCommandGroup {
   public DriveToAmpRed() {
     super(
         new ParallelDeadlineGroup(
-            new WaitCommand(1),
+            new WaitCommand(Constants.Auto.DriveToAmpRed.LEFT_WAIT_TIME),
             new DriveFieldOrientedHeadingSnapping(
                 () -> 0.0,
                 () -> 0.0,
@@ -36,7 +34,7 @@ public class DriveToAmpRed extends SequentialCommandGroup {
                 () -> false,
                 () -> true)),
         new ParallelDeadlineGroup(
-            new WaitCommand(0.5),
+            new WaitCommand(Constants.Auto.DriveToAmpRed.FORWARD_WAIT_TIME),
             new DriveFieldOrientedHeadingSnapping(
                 () -> 0.0,
                 () -> -1.0,
@@ -44,6 +42,6 @@ public class DriveToAmpRed extends SequentialCommandGroup {
                 () -> false,
                 () -> false,
                 () -> false,
-                () -> false))); /* TODO: CONSTANTS */
+                () -> false)));
   }
 }
