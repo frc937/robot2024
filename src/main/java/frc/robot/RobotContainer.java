@@ -13,6 +13,8 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,9 +31,14 @@ import frc.robot.commands.EnterXMode;
 import frc.robot.commands.RunIntake;
 import frc.robot.commands.RunIntakeReverse;
 import frc.robot.commands.StartCamera;
+import frc.robot.commands.auto.DelayedTaxiAuto;
+import frc.robot.commands.auto.DriveToCenterAuto;
 import frc.robot.commands.auto.MoveAwayFromAmp;
 import frc.robot.commands.auto.OnePieceAuto;
+import frc.robot.commands.auto.OnePieceAutoButItWorksISwear;
+import frc.robot.commands.auto.PickUpFromCenterAuto;
 import frc.robot.commands.auto.TaxiAuto;
+import frc.robot.commands.auto.TaxiLongAuto;
 import frc.robot.commands.drive.DriveFieldOrientedHeadingSnapping;
 import frc.robot.commands.drive.DriveRobot;
 import frc.robot.commands.drive.SetDrivePerspectiveFieldOriented;
@@ -59,6 +66,7 @@ import frc.robot.subsystems.UrMom;
 import frc.robot.subsystems.mailbox.Mailbox;
 import frc.robot.subsystems.mailbox.MailboxBelts;
 import frc.robot.subsystems.mailbox.MailboxPneumatics;
+import java.util.Optional;
 
 /** Singleton class that contains all the robot's subsystems, commands, and button bindings. */
 @SuppressWarnings("unused")
@@ -261,8 +269,24 @@ public class RobotContainer {
   /** Singleton instance of {@link OnePieceAuto} for the whole robot. */
   public static OnePieceAuto onePieceAuto = new OnePieceAuto();
 
+  /** Singleton instance of {@link OnePieceAutoButItWorksISwear} for the whole robot. */
+  public static OnePieceAutoButItWorksISwear onePieceAutoButItWorksISwear =
+      new OnePieceAutoButItWorksISwear();
+
+  /** Singleton instance of {@link TaxiLongAuto} for the whole robot. */
+  public static TaxiLongAuto taxiLongAuto = new TaxiLongAuto();
+
+  /** Singleton instance of {@link PickUpFromCenterAuto} for the whole robot. */
+  public static PickUpFromCenterAuto pickUpFromCenterAuto = new PickUpFromCenterAuto();
+
+  /** Singleton instance of {@link DriveToCenterAuto} for the whole robot. */
+  public static DriveToCenterAuto driveToCenterAuto = new DriveToCenterAuto();
+
   /** Singleton instance of {@link TaxiAuto} for the whole robot. */
   public static TaxiAuto taxiAuto = new TaxiAuto();
+
+  /** Singleton instance of {@link DelayedTaxiAuto} for the whole robot. */
+  public static DelayedTaxiAuto delayedTaxiAuto = new DelayedTaxiAuto();
 
   /** Singleton instance of {@link ClearPDPStickyFaults} for the whole robot. */
   public static ClearPDPStickyFaults clearPDPStickyFaults = new ClearPDPStickyFaults();
@@ -273,7 +297,7 @@ public class RobotContainer {
   /** Singleton instance of {@link DisabledLight} for the whole robot. */
   public static DisabledLight disabledLights = new DisabledLight();
 
-  /** Singleton instance of {@link EnableLights} for the whole robot. */
+  /** Singleton instance of {@link EnabledLight} for the whole robot. */
   public static EnabledLight enabledLights = new EnabledLight();
 
   /** Singleton instance of {@link NoteLight} for the whole robot. */
@@ -310,7 +334,7 @@ public class RobotContainer {
 
     startIntakeCamera.schedule();
 
-    drive.setDefaultCommand(driveFieldOrientedHeadingSnapping);
+    drive.setDefaultCommand(driveFieldOriented);
     robotLights.setDefaultCommand(enabledLights);
     compressor.setDefaultCommand(controlCompressor);
   }
@@ -327,6 +351,18 @@ public class RobotContainer {
 
     /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
     autoChooser.addOption("Taxi", taxiAuto);
+
+    // autoChooser.addOption("One Note With Limelight", onePieceAuto);
+
+    autoChooser.addOption("WORKING ONE PIECE AUTO I HOPE", onePieceAutoButItWorksISwear);
+
+    autoChooser.addOption("LONG taxi auto", taxiLongAuto);
+
+    autoChooser.addOption("Pick Up Note From Center", pickUpFromCenterAuto);
+
+    autoChooser.addOption("NO INTAKE drive to center", driveToCenterAuto);
+
+    autoChooser.addOption("Taxi with 10 second delay", delayedTaxiAuto);
 
     Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
@@ -353,5 +389,19 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     return autoChooser.getSelected();
+  }
+
+  /**
+   * Returns true if the robot is on the red alliance. False otherwise.
+   *
+   * @return True if the robot is on the red alliance. False otherwise.
+   */
+  public static boolean isRedAlliance() {
+    Optional<Alliance> alliance = DriverStation.getAlliance();
+    if (!alliance.isEmpty()) {
+      return alliance.get() == Alliance.Red;
+    } else {
+      return false;
+    }
   }
 }

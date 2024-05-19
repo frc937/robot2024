@@ -39,7 +39,7 @@ public final class Constants {
   /** Constants for the Pneumatics system. */
   public static final class MailboxPneumatics {
     /** The ID for the relay that controls the mailbox's solenoids */
-    public static final int MAILBOX_SOLENOID_RELAY_ID = 0;
+    public static final int MAILBOX_SOLENOID_RELAY_ID = 1;
   }
 
   /** Constants for the Belts system. */
@@ -113,7 +113,7 @@ public final class Constants {
     public static final double TAXI_AUTO_METERS_PER_SECOND = 1.0;
 
     /** The number of seconds that we want to taxi for */
-    public static final double TAXI_AUTO_DURATION_SECONDS = 2.0;
+    public static final double TAXI_AUTO_DURATION_SECONDS = 1.25;
 
     /** The amount of time we want/need to drive away from the amp in auto. */
     public static final double DRIVE_AWAY_FROM_AMP_TIME = 2.0;
@@ -123,6 +123,33 @@ public final class Constants {
 
     /** The amount of time that we want to run the fire note command in auto. */
     public static final double FIRE_NOTE_FOR_TIME = 4.0;
+
+    /** Time in seconds that we delay our taxi in the delayed taxi auto. */
+    public static final double TAXI_DELAY_TIME = 10.0;
+
+    /** Time in seconds that we wait for FireNoteRoutine to end. */
+    public static final double DUMP_NOTE_WAIT_TIME = 4.0;
+
+    /** Time in seconds that we wait for PickupFromCenter to end. */
+    public static final double PICKUP_CENTER_WAIT_TIME = 5.0;
+
+    /** Time in seconds that we wait for TaxiLongAuto to end. */
+    public static final double TAXI_LONG_WAIT_TIME = 2.0;
+
+    /** Constants for the DriveToAmp autos */
+    public static class DriveToAmp {
+      /** The time that the robot spends snapping to the appropriate angle. */
+      public static final double SNAPPING_TIME = 1;
+
+      /** The time for the robot to drive towards the amp. */
+      public static final double DRIVE_TO_AMP_TIME = 0.5;
+    }
+
+    /** Constants for the auto that drives bot to center of field. */
+    public static class DriveToCenter {
+      /** The time for the robot to drive to the center. */
+      public static final double DRIVE_CENTER_WAIT_TIME = 5.0;
+    }
   }
 
   /** Constants for the Intake System */
@@ -161,10 +188,10 @@ public final class Constants {
       public static final String LIMELIGHT_NAME = "limelight";
 
       /** The number of degrees the Limelight is mounted back from perfectly vertical */
-      public static final double MOUNT_ANGLE = 50;
+      public static final double MOUNT_ANGLE = 45;
 
       /** The number of inches from the center of the Limelight lens to the floor */
-      public static final double MOUNT_HEIGHT = 10.0625;
+      public static final double MOUNT_HEIGHT = 19.5;
 
       /** The height to the Amp Apriltag off the ground. */
       public static final double AMP_APRILTAG_HEIGHT = 53.13;
@@ -175,7 +202,7 @@ public final class Constants {
       /**
        * How hard to turn toward the target. Double between 0 and 1, standard way to drive a motor
        */
-      public static final double STEER_STRENGTH = 0.01;
+      public static final double STEER_STRENGTH = 0.02;
 
       /** How hard to drive toward the target. Same notation as above. */
       public static final double DRIVE_STRENGTH = 0.01;
@@ -233,7 +260,7 @@ public final class Constants {
     public static final int PWM_ID = 0;
 
     /** The count of LEDs for the lights. */
-    public static final int LED_COUNT = 150;
+    public static final int LED_COUNT = 149;
 
     /** The speed of the fade animation. [0, 1] */
     public static final double STRIP_FADE_SPEED = 0.05;
@@ -273,6 +300,6 @@ public final class Constants {
      * How many periodic loops do we want to wait for to turn off the compressor. Used to prevent
      * rapidly turning on and off the compressor.
      */
-    public static final int COMPRESSOR_PRESSURE_SWITCH_DEADBAND = 100; /* = 2 Seconds */
+    public static final int COMPRESSOR_PRESSURE_SWITCH_DEADBAND = 50; /* 1 second */
   }
 }
