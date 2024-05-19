@@ -2,6 +2,7 @@ frc.robot
 frc.robot.commands
 frc.robot.commands.auto
 frc.robot.commands.drive
+frc.robot.commands.lightstrip
 frc.robot.commands.mailbox
 frc.robot.subsystems
 frc.robot.subsystems.mailbox

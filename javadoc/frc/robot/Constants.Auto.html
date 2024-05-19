@@ -40,7 +40,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -82,6 +82,28 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Constants.Auto.DriveToAmp.html" class="type-name-link" title="class in frc.robot">Constants.Auto.DriveToAmp</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Constants for the DriveToAmp autos</div>
+</div>
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Constants.Auto.DriveToCenter.html" class="type-name-link" title="class in frc.robot">Constants.Auto.DriveToCenter</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Constants for the auto that drives bot to center of field.</div>
+</div>
+</div>
+</section>
+</li>
 <!-- =========== FIELD SUMMARY =========== -->
 <li>
 <section class="field-summary" id="field-summary">
@@ -102,9 +124,19 @@ loadScripts(document, 'script');</script>
 <div class="block">The amount of time we want/need to drive away from the amp in auto.</div>
 </div>
 <div class="col-first even-row-color"><code>static final double</code></div>
-<div class="col-second even-row-color"><code><a href="#FIRE_NOTE_FOR_TIME" class="member-name-link">FIRE_NOTE_FOR_TIME</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DUMP_NOTE_WAIT_TIME" class="member-name-link">DUMP_NOTE_WAIT_TIME</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Time in seconds that we wait for FireNoteRoutine to end.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final double</code></div>
+<div class="col-second odd-row-color"><code><a href="#FIRE_NOTE_FOR_TIME" class="member-name-link">FIRE_NOTE_FOR_TIME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The amount of time that we want to run the fire note command in auto.</div>
+</div>
+<div class="col-first even-row-color"><code>static final double</code></div>
+<div class="col-second even-row-color"><code><a href="#PICKUP_CENTER_WAIT_TIME" class="member-name-link">PICKUP_CENTER_WAIT_TIME</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Time in seconds that we wait for PickupFromCenter to end.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final double</code></div>
 <div class="col-second odd-row-color"><code><a href="#TAXI_AUTO_DURATION_SECONDS" class="member-name-link">TAXI_AUTO_DURATION_SECONDS</a></code></div>
@@ -115,6 +147,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><code><a href="#TAXI_AUTO_METERS_PER_SECOND" class="member-name-link">TAXI_AUTO_METERS_PER_SECOND</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">The number of meters per second that we want to move forward during the taxi auto</div>
+</div>
+<div class="col-first odd-row-color"><code>static final double</code></div>
+<div class="col-second odd-row-color"><code><a href="#TAXI_DELAY_TIME" class="member-name-link">TAXI_DELAY_TIME</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Time in seconds that we delay our taxi in the delayed taxi auto.</div>
+</div>
+<div class="col-first even-row-color"><code>static final double</code></div>
+<div class="col-second even-row-color"><code><a href="#TAXI_LONG_WAIT_TIME" class="member-name-link">TAXI_LONG_WAIT_TIME</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Time in seconds that we wait for TaxiLongAuto to end.</div>
 </div>
 </div>
 </section>
@@ -220,6 +262,66 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="see-list">
 <li><a href="../../constant-values.html#frc.robot.Constants.Auto.FIRE_NOTE_FOR_TIME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="TAXI_DELAY_TIME">
+<h3>TAXI_DELAY_TIME</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">TAXI_DELAY_TIME</span></div>
+<div class="block">Time in seconds that we delay our taxi in the delayed taxi auto.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.Auto.TAXI_DELAY_TIME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="DUMP_NOTE_WAIT_TIME">
+<h3>DUMP_NOTE_WAIT_TIME</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">DUMP_NOTE_WAIT_TIME</span></div>
+<div class="block">Time in seconds that we wait for FireNoteRoutine to end.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.Auto.DUMP_NOTE_WAIT_TIME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="PICKUP_CENTER_WAIT_TIME">
+<h3>PICKUP_CENTER_WAIT_TIME</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">PICKUP_CENTER_WAIT_TIME</span></div>
+<div class="block">Time in seconds that we wait for PickupFromCenter to end.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.Auto.PICKUP_CENTER_WAIT_TIME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="TAXI_LONG_WAIT_TIME">
+<h3>TAXI_LONG_WAIT_TIME</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">TAXI_LONG_WAIT_TIME</span></div>
+<div class="block">Time in seconds that we wait for TaxiLongAuto to end.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../constant-values.html#frc.robot.Constants.Auto.TAXI_LONG_WAIT_TIME">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
