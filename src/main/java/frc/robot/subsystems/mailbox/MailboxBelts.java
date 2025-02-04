@@ -14,6 +14,9 @@ package frc.robot.subsystems.mailbox;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.PersistMode;
+import com.revrobotics.spark.SparkBase.ResetMode;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -31,21 +34,19 @@ public class MailboxBelts extends SubsystemBase {
 
     SparkMaxConfig genericConfig = new SparkMaxConfig();
     genericConfig.smartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
-    genericConfig.inverted(Constants.MailboxBelts.);
     genericConfig.idleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
-
-
-
-    upperBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
-    lowerBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
-
-    upperBeltMotor.setInverted(Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED);
-    lowerBeltMotor.follow(upperBeltMotor, Constants.MailboxBelts.BELTS_FOLLOWER_INVERSE_STATE);
-
-    upperBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
-    lowerBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
-
     
+    SparkMaxConfig upper = new SparkMaxConfig().apply(genericConfig);
+    SparkMaxConfig lower = new SparkMaxConfig().apply(genericConfig);
+
+    upper.inverted(Constants.MailboxBelts.UPPER_BELT_MOTOR_INVERTED);
+
+    lower.inverted(Constants.MailboxBelts.LOWER_BELT_MOTOR_INVERTED);
+    lower.follow(this.upperBeltMotor, Constants.MailboxBelts.BELTS_FOLLOWER_INVERSE_STATE);
+
+    upperBeltMotor.configure(upper, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    lowerBeltMotor.configure(lower, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
   }
 
   /** Runs the belt. */
