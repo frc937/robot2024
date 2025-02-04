@@ -12,6 +12,7 @@
 package frc.robot.subsystems.mailbox;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -28,6 +29,13 @@ public class MailboxBelts extends SubsystemBase {
     lowerBeltMotor =
         new SparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
 
+    SparkMaxConfig genericConfig = new SparkMaxConfig();
+    genericConfig.smartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
+    genericConfig.inverted(Constants.MailboxBelts.);
+    genericConfig.idleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
+
+
+
     upperBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
     lowerBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
 
@@ -37,8 +45,7 @@ public class MailboxBelts extends SubsystemBase {
     upperBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
     lowerBeltMotor.setIdleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
 
-    upperBeltMotor.burnFlash();
-    lowerBeltMotor.burnFlash();
+    
   }
 
   /** Runs the belt. */
