@@ -11,9 +11,17 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkBase.IdleMode;
+
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+
+import java.util.Objects;
+
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.PersistMode;
+import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
@@ -37,20 +45,19 @@ public class Intake extends SubsystemBase {
         new SparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
 
-    intakeLower.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
-    intakeUpper.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
+    SparkMaxConfig genericConfig = new SparkMaxConfig();
+    genericConfig.smartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
+    genericConfig.idleMode(IdleMode.kBrake);
 
-    intakeLower.setIdleMode(Constants.Intake.INTAKE_MOTOR_IDLE_MODE);
-    intakeUpper.setIdleMode(Constants.Intake.INTAKE_MOTOR_IDLE_MODE);
+    SparkMaxConfig upper = new SparkMaxConfig().apply(genericConfig);
+    SparkMaxConfig lower = new SparkMaxConfig().apply(genericConfig);
 
-    intakeLower.setIdleMode(IdleMode.kBrake);
-    intakeUpper.setIdleMode(IdleMode.kBrake);
+    lower.follow(this.intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
+    upper.inverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
 
-    intakeLower.follow(intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
-    intakeUpper.setInverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
+    this.intakeLower.configure(lower, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    this.intakeUpper.configure(upper, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
-    intakeLower.burnFlash();
-    intakeUpper.burnFlash();
 
     noteIsInIntake = Shuffleboard.getTab("Driver").add("Note in intake", false).getEntry();
   }
