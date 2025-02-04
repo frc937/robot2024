@@ -11,22 +11,22 @@
 
 package frc.robot.subsystems.mailbox;
 
-import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.CANSparkMax;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 /** Subsystem for the mailbox belt. */
 public class MailboxBelts extends SubsystemBase {
-  private CANSparkMax upperBeltMotor;
-  private CANSparkMax lowerBeltMotor;
+  private SparkMax upperBeltMotor;
+  private SparkMax lowerBeltMotor;
 
   /** Constructor for MailboxBelts subsystem */
   public MailboxBelts() {
     upperBeltMotor =
-        new CANSparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
+        new SparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
     lowerBeltMotor =
-        new CANSparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
+        new SparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
 
     upperBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
     lowerBeltMotor.setSmartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);

@@ -12,8 +12,8 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkBase.IdleMode;
-import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.CANSparkMax;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkMax;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
@@ -24,17 +24,17 @@ import frc.robot.RobotContainer;
 /** The intake of the robot. */
 public class Intake extends SubsystemBase {
 
-  private CANSparkMax intakeLower;
-  private CANSparkMax intakeUpper;
+  private SparkMax intakeLower;
+  private SparkMax intakeUpper;
   private DigitalInput limitSwitch;
   private GenericEntry noteIsInIntake;
 
   /** Creates a new Intake. */
   public Intake() {
     this.intakeLower =
-        new CANSparkMax(Constants.Intake.LOWER_INTAKE_MOTOR_ID, MotorType.kBrushless);
+        new SparkMax(Constants.Intake.LOWER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.intakeUpper =
-        new CANSparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
+        new SparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
 
     intakeLower.setSmartCurrentLimit(Constants.Intake.INTAKE_MOTOR_CURRENT_LIMIT);
