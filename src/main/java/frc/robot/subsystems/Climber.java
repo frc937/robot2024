@@ -13,11 +13,9 @@ package frc.robot.subsystems;
 
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
-import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -31,10 +29,10 @@ public class Climber extends SubsystemBase {
 
     SparkMaxConfig climberConfig = new SparkMaxConfig();
     climberConfig.idleMode(Constants.Climber.CLIMBER_MOTOR_IDLE_MODE);
+    climberConfig.inverted(Constants.Climber.CLIMBER_INVERTED);
 
-    climberMotor.setInverted(Constants.Climber.CLIMBER_INVERTED);
-
-    climberMotor.configure(climberConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    climberMotor.configure(
+        climberConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }
 
   /** Tells the robot to climb up. */

@@ -341,30 +341,30 @@ public class RobotContainer {
 
   private void configureAuto() {
 
-    NamedCommands.registerCommand("runIntake", runIntake);
-    NamedCommands.registerCommand("aimAndFire", aimAndFire);
+    // NamedCommands.registerCommand("runIntake", runIntake);
+    // NamedCommands.registerCommand("aimAndFire", aimAndFire);
 
-    /* Build an auto chooser. This will use Commands.none() as the default option. */
-    autoChooser = AutoBuilder.buildAutoChooser();
-    /* Another option that allows you to specify the default auto by its name */
-    /* autoChooser = AutoBuilder.buildAutoChooser("My Default Auto"); */
+    // /* Build an auto chooser. This will use Commands.none() as the default option. */
+    // autoChooser = AutoBuilder.buildAutoChooser();
+    // /* Another option that allows you to specify the default auto by its name */
+    // /* autoChooser = AutoBuilder.buildAutoChooser("My Default Auto"); */
 
-    /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
-    autoChooser.addOption("Taxi", taxiAuto);
+    // /* This is where you put auto commands. Call autoChooser.addOption() to add autos. */
+    // autoChooser.addOption("Taxi", taxiAuto);
 
-    // autoChooser.addOption("One Note With Limelight", onePieceAuto);
+    // // autoChooser.addOption("One Note With Limelight", onePieceAuto);
 
-    autoChooser.addOption("WORKING ONE PIECE AUTO I HOPE", onePieceAutoButItWorksISwear);
+    // autoChooser.addOption("WORKING ONE PIECE AUTO I HOPE", onePieceAutoButItWorksISwear);
 
-    autoChooser.addOption("LONG taxi auto", taxiLongAuto);
+    // autoChooser.addOption("LONG taxi auto", taxiLongAuto);
 
-    autoChooser.addOption("Pick Up Note From Center", pickUpFromCenterAuto);
+    // autoChooser.addOption("Pick Up Note From Center", pickUpFromCenterAuto);
 
-    autoChooser.addOption("NO INTAKE drive to center", driveToCenterAuto);
+    // autoChooser.addOption("NO INTAKE drive to center", driveToCenterAuto);
 
-    autoChooser.addOption("Taxi with 10 second delay", delayedTaxiAuto);
+    // autoChooser.addOption("Taxi with 10 second delay", delayedTaxiAuto);
 
-    Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
+    // Shuffleboard.getTab("Driver").add("Choose Auto Routine", autoChooser);
   }
 
   private void configureBindings() {

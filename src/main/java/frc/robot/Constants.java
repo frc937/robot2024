@@ -11,8 +11,8 @@
 
 package frc.robot;
 
-import com.pathplanner.lib.util.PIDConstants;
-import com.revrobotics.CANSparkBase.IdleMode;
+import com.pathplanner.lib.config.PIDConstants;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.util.Color;
 
@@ -55,6 +55,9 @@ public final class Constants {
 
     /** Inversion state of the upper belt motor. */
     public static final boolean UPPER_BELT_MOTOR_INVERTED = true;
+
+    /** Inversion state of the lower belt motor. */
+    public static final boolean LOWER_BELT_MOTOR_INVERTED = true;
 
     /** Inversion state of the belts follower motor. */
     public static final boolean BELTS_FOLLOWER_INVERSE_STATE = false;

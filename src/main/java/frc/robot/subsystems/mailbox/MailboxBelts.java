@@ -11,12 +11,11 @@
 
 package frc.robot.subsystems.mailbox;
 
-import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.revrobotics.spark.config.SparkMaxConfig;
-import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
-
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -27,15 +26,13 @@ public class MailboxBelts extends SubsystemBase {
 
   /** Constructor for MailboxBelts subsystem */
   public MailboxBelts() {
-    upperBeltMotor =
-        new SparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
-    lowerBeltMotor =
-        new SparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
+    upperBeltMotor = new SparkMax(Constants.MailboxBelts.UPPER_BELT_MOTOR_ID, MotorType.kBrushless);
+    lowerBeltMotor = new SparkMax(Constants.MailboxBelts.LOWER_BELT_MOTOR_ID, MotorType.kBrushless);
 
     SparkMaxConfig genericConfig = new SparkMaxConfig();
     genericConfig.smartCurrentLimit(Constants.MailboxBelts.BELT_MOTOR_CURRENT_LIMIT);
     genericConfig.idleMode(Constants.MailboxBelts.BELTS_IDLE_MODE);
-    
+
     SparkMaxConfig upper = new SparkMaxConfig().apply(genericConfig);
     SparkMaxConfig lower = new SparkMaxConfig().apply(genericConfig);
 
@@ -46,7 +43,6 @@ public class MailboxBelts extends SubsystemBase {
 
     upperBeltMotor.configure(upper, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     lowerBeltMotor.configure(lower, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-
   }
 
   /** Runs the belt. */

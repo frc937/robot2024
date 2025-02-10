@@ -11,17 +11,12 @@
 
 package frc.robot.subsystems;
 
-
-import com.revrobotics.spark.SparkLowLevel.MotorType;
-
-import java.util.Objects;
-
-import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
-import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-
+import com.revrobotics.spark.config.SparkMaxConfig;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
@@ -39,10 +34,8 @@ public class Intake extends SubsystemBase {
 
   /** Creates a new Intake. */
   public Intake() {
-    this.intakeLower =
-        new SparkMax(Constants.Intake.LOWER_INTAKE_MOTOR_ID, MotorType.kBrushless);
-    this.intakeUpper =
-        new SparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
+    this.intakeLower = new SparkMax(Constants.Intake.LOWER_INTAKE_MOTOR_ID, MotorType.kBrushless);
+    this.intakeUpper = new SparkMax(Constants.Intake.UPPER_INTAKE_MOTOR_ID, MotorType.kBrushless);
     this.limitSwitch = new DigitalInput(Constants.Intake.INTAKE_LIMIT_SWITCH_DIO_PORT);
 
     SparkMaxConfig genericConfig = new SparkMaxConfig();
@@ -55,9 +48,10 @@ public class Intake extends SubsystemBase {
     lower.follow(this.intakeUpper, Constants.Intake.INTAKE_FOLLOWER_INVERSE_STATE);
     upper.inverted(Constants.Intake.UPPER_INTAKE_MOTOR_INVERTED);
 
-    this.intakeLower.configure(lower, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-    this.intakeUpper.configure(upper, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-
+    this.intakeLower.configure(
+        lower, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    this.intakeUpper.configure(
+        upper, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     noteIsInIntake = Shuffleboard.getTab("Driver").add("Note in intake", false).getEntry();
   }
