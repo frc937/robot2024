@@ -335,8 +335,9 @@ public class RobotContainer {
     startIntakeCamera.schedule();
 
     drive.setDefaultCommand(driveFieldOriented);
-    robotLights.setDefaultCommand(enabledLights);
+    robotLights.setDefaultCommand(noteLight);
     compressor.setDefaultCommand(controlCompressor);
+
   }
 
   private void configureAuto() {
